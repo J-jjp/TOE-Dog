@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/dog.dir/main.cpp.o  -o dog   -L/home/jiaojunpeng/mujoco-3.1.4/lib  -L/home/jiaojunpeng/mujoco-3.1.4/simulate  -Wl,-rpath,/home/jiaojunpeng/mujoco-3.1.4/lib:/home/jiaojunpeng/mujoco-3.1.4/simulate /home/jiaojunpeng/mujoco-3.1.4/lib/libmujoco.so -lglut -lGL -lGLU -lglfw 

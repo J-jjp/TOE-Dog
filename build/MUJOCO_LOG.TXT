@@ -1,0 +1,21 @@
+Fri Dec 13 16:39:20 2024
+ERROR: Load model error: XML Error: Schema violation: unrecognized attribute: 'kp'
+
+Element 'motor', line 0
+
+
+Fri Dec 13 16:41:32 2024
+ERROR: Load model error: XML Error: Schema violation: unrecognized attribute: 'kp'
+
+Element 'motor', line 0
+
+
+Fri Dec 13 16:43:20 2024
+ERROR: Load model error: XML Error: Schema violation: unrecognized attribute: 'kd'
+
+Element 'position', line 0
+
+
+Mon Dec 16 09:24:12 2024
+ERROR: Load model error: Could not load binary model
+
