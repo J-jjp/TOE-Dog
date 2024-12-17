@@ -72,35 +72,26 @@ struct LowlevelCmd{
         motorCmd[legID*3+2].tau = 0;
     }
     void setSimStanceGain(int legID){
-        motorCmd[legID*3+0].mode = 1;
         motorCmd[legID*3+0].Kp = 180;
         motorCmd[legID*3+0].Kd = 8;
-        motorCmd[legID*3+1].mode = 1;
         motorCmd[legID*3+1].Kp = 180;
         motorCmd[legID*3+1].Kd = 8;
-        motorCmd[legID*3+2].mode = 1;
         motorCmd[legID*3+2].Kp = 300;
         motorCmd[legID*3+2].Kd = 15;
     }
     void setRealStanceGain(int legID){
-        motorCmd[legID*3+0].mode = 1;
         motorCmd[legID*3+0].Kp = 90;
         motorCmd[legID*3+0].Kd = 3;
-        motorCmd[legID*3+1].mode = 1;
         motorCmd[legID*3+1].Kp = 80;
         motorCmd[legID*3+1].Kd = 3;
-        motorCmd[legID*3+2].mode = 1;
         motorCmd[legID*3+2].Kp = 120;
         motorCmd[legID*3+2].Kd = 4;
     }
     void setZeroGain(int legID){
-        motorCmd[legID*3+0].mode = 1;
         motorCmd[legID*3+0].Kp = 0;
         motorCmd[legID*3+0].Kd = 0;
-        motorCmd[legID*3+1].mode = 1;
         motorCmd[legID*3+1].Kp = 0;
         motorCmd[legID*3+1].Kd = 0;
-        motorCmd[legID*3+2].mode = 1;
         motorCmd[legID*3+2].Kp = 0;
         motorCmd[legID*3+2].Kd = 0;
     }
@@ -110,13 +101,10 @@ struct LowlevelCmd{
         }
     }
     void setStableGain(int legID){
-        motorCmd[legID*3+0].mode = 2;
         motorCmd[legID*3+0].Kp = 0.8;
         motorCmd[legID*3+0].Kd = 0.8;
-        motorCmd[legID*3+1].mode = 2;
         motorCmd[legID*3+1].Kp = 0.8;
         motorCmd[legID*3+1].Kd = 0.8;
-        motorCmd[legID*3+2].mode = 2;
         motorCmd[legID*3+2].Kp = 0.8;
         motorCmd[legID*3+2].Kd = 0.8;
     }
@@ -126,13 +114,10 @@ struct LowlevelCmd{
         }
     }
     void setSwingGain(int legID){
-        motorCmd[legID*3+0].mode = 2;
         motorCmd[legID*3+0].Kp = 3;
         motorCmd[legID*3+0].Kd = 2;
-        motorCmd[legID*3+1].mode = 2;
         motorCmd[legID*3+1].Kp = 3;
         motorCmd[legID*3+1].Kd = 2;
-        motorCmd[legID*3+2].mode = 2;
         motorCmd[legID*3+2].Kp = 3;
         motorCmd[legID*3+2].Kd = 2;
     }

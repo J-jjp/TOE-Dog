@@ -5,6 +5,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/jiaojunpeng/my_dog/dog_control/main.cpp" "/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles/dog.dir/main.cpp.o"
+  "/home/jiaojunpeng/my_dog/dog_control/src/interface/IOMujoco.cpp" "/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o"
+  "/home/jiaojunpeng/my_dog/dog_control/src/interface/IOREAL.cpp" "/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles/dog.dir/src/interface/IOREAL.cpp.o"
+  "/home/jiaojunpeng/my_dog/dog_control/src/interface/IOSIM.cpp" "/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles/dog.dir/src/interface/IOSIM.cpp.o"
+  "/home/jiaojunpeng/my_dog/dog_control/src/interface/KeyBoard.cpp" "/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o"
+  "/home/jiaojunpeng/my_dog/dog_control/src/interface/WirelessHandle.cpp" "/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles/dog.dir/src/interface/WirelessHandle.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -16,7 +21,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/jiaojunpeng/mujoco-3.1.4/include"
   "../imgui"
   "../imgui/backends"
-  "../include/control/ControlFrame.h"
+  "../include/interface"
+  "../include/message"
   )
 
 # Targets to which this target links.

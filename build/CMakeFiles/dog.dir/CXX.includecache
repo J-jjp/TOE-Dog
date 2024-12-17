@@ -39,6 +39,8 @@ interface/CmdPanel.h
 ../include/interface/interface/CmdPanel.h
 string
 -
+vector
+-
 
 ../include/interface/IOMujoco.h
 interface/IOInterface.h
@@ -154,8 +156,6 @@ cstring
 GLFW/glfw3.h
 -
 interface/IOMujoco.h
--
-vector
 -
 string
 -

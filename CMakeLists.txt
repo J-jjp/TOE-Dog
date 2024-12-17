@@ -13,19 +13,19 @@ if(NOT EIGEN3_FOUND)
 endif()
 
 # 收集源文件
-file(GLOB DOG_SRCS "include/src/interface/IOMujoco.cpp" "main.cpp")
+file(GLOB DOG_SRCS "src/interface/*.cpp" "main.cpp")
 # 如果还有其他源文件目录，可以在这里继续添加
 # file(GLOB_RECURSE ADDITIONAL_SRCS "other/directory/*.cpp")
 # set(DOG_SRCS ${DOG_SRCS} ${ADDITIONAL_SRCS})
 
 # 添加包含目录
 # find_package(GLOB  ${CMAKE_CURRENT_SOURCE_DIR}/simulate/*.cc)
-
+message(INFO ${DOG_SRCS})
 
 include_directories(include  ${EIGEN3_INCLUDE_DIR}
 /home/jiaojunpeng/mujoco-3.1.4/simulate /home/jiaojunpeng/mujoco-3.1.4/include
 /home/jiaojunpeng/my_dog/dog_control/imgui
-/home/jiaojunpeng/my_dog/dog_control/imgui/backends include/control/ControlFrame.h)
+/home/jiaojunpeng/my_dog/dog_control/imgui/backends include/interface include/message/)
 
 
 # 添加可执行文件

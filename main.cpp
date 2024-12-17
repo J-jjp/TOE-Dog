@@ -17,7 +17,7 @@
 
 #include <GLFW/glfw3.h>
 #include <interface/IOMujoco.h>
-#include <vector>
+
 #include <string>
 #include <iostream>
 // #include <control/ControlFrame.h>
@@ -29,6 +29,9 @@ mjvOption opt;                      // visualization options
 mjvScene scn;                       // abstract scene
 mjrContext con;                     // custom GPU context
 
+IOInterface *ioInter;
+LowlevelCmd cmd;
+LowlevelState state;
 // mouse interaction
 bool button_left = false;
 bool button_middle = false;
@@ -36,7 +39,8 @@ bool button_right =  false;
 double lastx = 0;
 double lasty = 0;
 
-std::vector<float> default_dof_pos={0.1,0.8,-1.5 ,-0.1,0.8,-1.5,0.1,1,-1.5, -0.1,1.,-1.5};//#默认角度需要与isacc一致
+// std::vector<float> default_dof_pos={0.1,0.8,-1.5 ,-0.1,0.8,-1.5,0.1,1,-1.5, -0.1,1.,-1.5};//#默认角度需要与isacc一致
+std::vector<float> default_dof_pos={0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.};//#默认角度需要与isacc一致
 std::vector<float> state_dof_pos(12);
 std::vector<float> state_dof_vel(12);
 float kp_all = 30;
@@ -182,6 +186,8 @@ int main(int argc, const char** argv) {
     int x=0;
     float _percent=0;
     float _duration=1000;
+    ioInter = new IOMujoco(d);
+    std::vector<float> start_pose(12);
   // run main loop, target real-time simulation and 60 fps rendering
   while (!glfwWindowShouldClose(window)) {
     // advance interactive simulation for 1/60 sec
@@ -193,7 +199,6 @@ int main(int argc, const char** argv) {
     float kd=0;
 
 
-
     // CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
     // ControlFrame ctrlFrame(ctrlComp);
 
@@ -202,47 +207,32 @@ int main(int argc, const char** argv) {
     while (d->time - simstart < 1.0/60.0) {
       x++;
       std::cout<<"x"<<x<<std::endl;
-      for (int i = 0; i < 12; i++)
-      {
-        state_dof_pos[i]=d->sensordata[i];
-        std::cout<<"pos"<<i<<"\t"<<state_dof_pos[i];
-      }
-      std::cout<<std::endl;
-      for (int i = 12; i < 24; i++)
-      {
-        state_dof_vel[i-12]=d->sensordata[i];
-        // std::cout<<"vel"<<i-12<<"\t"<<state_dof_vel[i];
-      }
-      std::cout<<std::endl;
     // float target_q[12];
       if(x>300){
-        if(x>3000){
-          kp=0;
-          kd=2;
-        }
-        else{
+        // if(x>3000){
+        //   kp=0;
+        //   kd=2;
+        // }
+        // else{
           kp=kp_all;
           kd=kd_all;
-        }
+        //}
         _percent += (float)1/_duration;
         _percent = _percent > 1 ? 1 : _percent;
       }
       else{
+        for (int i = 0; i < 12; i++)
+        {
+          start_pose[i] = state.motorState[i].q;
+        }
+        
         kp=1;
         kd=0;
       }
-      for (int i = 0; i < 12; i++)
-      {
-        float pos= state_dof_pos[i];
-        float vel=state_dof_vel[i];
-        float tau;
-        float tar_q = (1 - _percent)*state_dof_pos[i] + _percent*default_dof_pos[i];
-        // if(i>5&&kp>1)
-          tau = pd_control(tar_q, pos, 3*kp, 0, vel, 3*kd);
-        // else
-          // tau = pd_control(tar_q, pos, kp, 0, vel, kd);
-        d->ctrl[i] = tau;
+      for(int j=0; j<12; j++){
+          cmd.motorCmd[j].q = (1 - _percent)*start_pose[j] + _percent*default_dof_pos[j]; 
       }
+      ioInter->sendRecv(&cmd,&state,3*kp,3*kd);
       mj_step(m, d);
     }
 

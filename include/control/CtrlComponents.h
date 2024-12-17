@@ -15,10 +15,6 @@
 #include <string>
 #include <iostream>
 
-#ifdef COMPILE_DEBUG
-#include "common/PyPlot.h"
-#endif  // COMPILE_DEBUG
-
 struct CtrlComponents{
 public:
     CtrlComponents(IOInterface *ioInter):ioInter(ioInter){
@@ -37,9 +33,6 @@ public:
         delete waveGen;
         delete estimator;
         delete balCtrl;
-#ifdef COMPILE_DEBUG
-        delete plot;
-#endif  // COMPILE_DEBUG
     }
     LowlevelCmd *lowCmd;
     LowlevelState *lowState;

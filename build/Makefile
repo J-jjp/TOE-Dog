@@ -150,6 +150,141 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/interface/IOMujoco.o: src/interface/IOMujoco.cpp.o
+
+.PHONY : src/interface/IOMujoco.o
+
+# target to build an object file
+src/interface/IOMujoco.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o
+.PHONY : src/interface/IOMujoco.cpp.o
+
+src/interface/IOMujoco.i: src/interface/IOMujoco.cpp.i
+
+.PHONY : src/interface/IOMujoco.i
+
+# target to preprocess a source file
+src/interface/IOMujoco.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.i
+.PHONY : src/interface/IOMujoco.cpp.i
+
+src/interface/IOMujoco.s: src/interface/IOMujoco.cpp.s
+
+.PHONY : src/interface/IOMujoco.s
+
+# target to generate assembly for a file
+src/interface/IOMujoco.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.s
+.PHONY : src/interface/IOMujoco.cpp.s
+
+src/interface/IOREAL.o: src/interface/IOREAL.cpp.o
+
+.PHONY : src/interface/IOREAL.o
+
+# target to build an object file
+src/interface/IOREAL.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/IOREAL.cpp.o
+.PHONY : src/interface/IOREAL.cpp.o
+
+src/interface/IOREAL.i: src/interface/IOREAL.cpp.i
+
+.PHONY : src/interface/IOREAL.i
+
+# target to preprocess a source file
+src/interface/IOREAL.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/IOREAL.cpp.i
+.PHONY : src/interface/IOREAL.cpp.i
+
+src/interface/IOREAL.s: src/interface/IOREAL.cpp.s
+
+.PHONY : src/interface/IOREAL.s
+
+# target to generate assembly for a file
+src/interface/IOREAL.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/IOREAL.cpp.s
+.PHONY : src/interface/IOREAL.cpp.s
+
+src/interface/IOSIM.o: src/interface/IOSIM.cpp.o
+
+.PHONY : src/interface/IOSIM.o
+
+# target to build an object file
+src/interface/IOSIM.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/IOSIM.cpp.o
+.PHONY : src/interface/IOSIM.cpp.o
+
+src/interface/IOSIM.i: src/interface/IOSIM.cpp.i
+
+.PHONY : src/interface/IOSIM.i
+
+# target to preprocess a source file
+src/interface/IOSIM.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/IOSIM.cpp.i
+.PHONY : src/interface/IOSIM.cpp.i
+
+src/interface/IOSIM.s: src/interface/IOSIM.cpp.s
+
+.PHONY : src/interface/IOSIM.s
+
+# target to generate assembly for a file
+src/interface/IOSIM.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/IOSIM.cpp.s
+.PHONY : src/interface/IOSIM.cpp.s
+
+src/interface/KeyBoard.o: src/interface/KeyBoard.cpp.o
+
+.PHONY : src/interface/KeyBoard.o
+
+# target to build an object file
+src/interface/KeyBoard.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o
+.PHONY : src/interface/KeyBoard.cpp.o
+
+src/interface/KeyBoard.i: src/interface/KeyBoard.cpp.i
+
+.PHONY : src/interface/KeyBoard.i
+
+# target to preprocess a source file
+src/interface/KeyBoard.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.i
+.PHONY : src/interface/KeyBoard.cpp.i
+
+src/interface/KeyBoard.s: src/interface/KeyBoard.cpp.s
+
+.PHONY : src/interface/KeyBoard.s
+
+# target to generate assembly for a file
+src/interface/KeyBoard.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.s
+.PHONY : src/interface/KeyBoard.cpp.s
+
+src/interface/WirelessHandle.o: src/interface/WirelessHandle.cpp.o
+
+.PHONY : src/interface/WirelessHandle.o
+
+# target to build an object file
+src/interface/WirelessHandle.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/WirelessHandle.cpp.o
+.PHONY : src/interface/WirelessHandle.cpp.o
+
+src/interface/WirelessHandle.i: src/interface/WirelessHandle.cpp.i
+
+.PHONY : src/interface/WirelessHandle.i
+
+# target to preprocess a source file
+src/interface/WirelessHandle.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/WirelessHandle.cpp.i
+.PHONY : src/interface/WirelessHandle.cpp.i
+
+src/interface/WirelessHandle.s: src/interface/WirelessHandle.cpp.s
+
+.PHONY : src/interface/WirelessHandle.s
+
+# target to generate assembly for a file
+src/interface/WirelessHandle.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/WirelessHandle.cpp.s
+.PHONY : src/interface/WirelessHandle.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,6 +297,21 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/interface/IOMujoco.o"
+	@echo "... src/interface/IOMujoco.i"
+	@echo "... src/interface/IOMujoco.s"
+	@echo "... src/interface/IOREAL.o"
+	@echo "... src/interface/IOREAL.i"
+	@echo "... src/interface/IOREAL.s"
+	@echo "... src/interface/IOSIM.o"
+	@echo "... src/interface/IOSIM.i"
+	@echo "... src/interface/IOSIM.s"
+	@echo "... src/interface/KeyBoard.o"
+	@echo "... src/interface/KeyBoard.i"
+	@echo "... src/interface/KeyBoard.s"
+	@echo "... src/interface/WirelessHandle.o"
+	@echo "... src/interface/WirelessHandle.i"
+	@echo "... src/interface/WirelessHandle.s"
 .PHONY : help
 
 

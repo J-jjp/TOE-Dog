@@ -8,24 +8,23 @@
 #include "message/LowlevelState.h"
 #include "interface/CmdPanel.h"
 #include <string>
-
+#include <vector>
 class IOInterface{
 public:
     IOInterface(){}
-    ~IOInterface(){delete cmdPanel;}
-    virtual void sendRecv(const LowlevelCmd *cmd, LowlevelState *state) = 0;
+    ~IOInterface(){
+        // delete cmdPanel;
+        }
+    virtual void sendRecv(LowlevelCmd *cmd, LowlevelState *state,float kp,float kd){};
     //liu tao add---------------------------------
-    virtual void send(const LowlevelCmd *cmd){};
-    virtual void recv(const LowlevelCmd *cmd,LowlevelState *state){};
+    virtual void send(LowlevelCmd *cmd){};
+    virtual void recv(LowlevelState *state){};
     //liu tao add---------------------------------
-    void zeroCmdPanel(){cmdPanel->setZero();}
-    void setPassive(){cmdPanel->setPassive();}
-    #ifdef COMPILE_WITH_REAL_ROBOT
-        virtual void motorShutDown() = 0;
-    #endif
+    // void zeroCmdPanel(){cmdPanel->setZero();}
+    // void setPassive(){cmdPanel->setPassive();}
 
     protected:
-    CmdPanel *cmdPanel;
+    // CmdPanel *cmdPanel;
 };
 
 #endif  //IOINTERFACE_H
