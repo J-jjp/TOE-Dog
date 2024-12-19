@@ -18,21 +18,21 @@ enum class RobotType{
 enum class UserCommand{
     // EXIT,
     NONE,
-    L2_A,       // fixedStand
-    L2_B       // passive
+    FIXED,       // fixedStand
+    PASS       // passive
 };
 
-// enum class FrameType{
-//     BODY,
-//     HIP,
-//     GLOBAL
-// };
+enum class FrameType{
+    BODY,
+    HIP,
+    GLOBAL
+};
 
-// enum class WaveStatus{
-//     STANCE_ALL,
-//     SWING_ALL,
-//     WAVE_ALL
-// };
+enum class WaveStatus{
+    STANCE_ALL,
+    SWING_ALL,
+    WAVE_ALL
+};
 //状态机标志位
 enum class FSMMode{
     NORMAL,

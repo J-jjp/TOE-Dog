@@ -15,10 +15,11 @@ public:
     ~IOInterface(){
         // delete cmdPanel;
         }
-    virtual void sendRecv(LowlevelCmd *cmd, LowlevelState *state,float kp,float kd){};
+    virtual void sendRecv(LowlevelCmd *cmd, LowlevelState *state){};
     //liu tao add---------------------------------
     virtual void send(LowlevelCmd *cmd){};
     virtual void recv(LowlevelState *state){};
+    virtual void sendRecv_debug(LowlevelCmd *cmd, LowlevelState *state,float kp,float kd){};
     //liu tao add---------------------------------
     // void zeroCmdPanel(){cmdPanel->setZero();}
     // void setPassive(){cmdPanel->setPassive();}

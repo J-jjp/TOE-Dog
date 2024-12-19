@@ -29,7 +29,7 @@ class CmdPanel{
         virtual ~CmdPanel(){}
         UserCommand getUserCmd(){return userCmd;}
         UserValue getUserValue(){return userValue;}
-        void setPassive(){userCmd = UserCommand::L2_B;}
+        void setPassive(){userCmd = UserCommand::PASS;}
         void setZero(){userValue.setZero();}
     protected:
         virtual void* run(void *arg){return NULL;}

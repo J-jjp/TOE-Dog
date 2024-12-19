@@ -9,42 +9,38 @@
 #include "interface/IOInterface.h"
 #include "interface/CmdPanel.h"
 #include "common/unitreeRobot.h"
-#include "Gait/WaveGenerator.h"
-#include "control/Estimator.h"
-#include "control/BalanceCtrl.h"
 #include <string>
 #include <iostream>
-
 struct CtrlComponents{
 public:
     CtrlComponents(IOInterface *ioInter):ioInter(ioInter){
         lowCmd = new LowlevelCmd();
         lowState = new LowlevelState();
         contact = new VecInt4;
-        phase = new Vec4;
+        // phase = new Vec4;
         *contact = VecInt4(0, 0, 0, 0);
-        *phase = Vec4(0.5, 0.5, 0.5, 0.5);
+        // *phase = Vec4(0.5, 0.5, 0.5, 0.5);
     }
     ~CtrlComponents(){
         delete lowCmd;
         delete lowState;
         delete ioInter;
         delete robotModel;
-        delete waveGen;
-        delete estimator;
-        delete balCtrl;
+        // delete waveGen;
+        // delete estimator;
+        // delete balCtrl;
     }
     LowlevelCmd *lowCmd;
     LowlevelState *lowState;
     IOInterface *ioInter;
     QuadrupedRobot *robotModel;
-    WaveGenerator *waveGen;
-    Estimator *estimator;
-    BalanceCtrl *balCtrl;
+    // WaveGenerator *waveGen;
+    // Estimator *estimator;
+    // BalanceCtrl *balCtrl;
 
 
     VecInt4 *contact;
-    Vec4 *phase;
+    // Vec4 *phase;
 
     double dt; //控制周期
     bool *running;
@@ -58,13 +54,13 @@ public:
         ioInter->send(lowCmd);
     }
     void recv(){
-        ioInter->recv(lowCmd,lowState);  
+        ioInter->recv(lowState);  
     }
     //liutao add-------------------------------------------
 
-    void runWaveGen(){
-        waveGen->calcContactPhase(*phase, *contact, _waveStatus);
-    }
+    // void runWaveGen(){
+    //     waveGen->calcContactPhase(*phase, *contact, _waveStatus);
+    // }
 
     void setAllStance(){
         _waveStatus = WaveStatus::STANCE_ALL;
@@ -78,11 +74,11 @@ public:
         _waveStatus = WaveStatus::WAVE_ALL;
     }
 
-    void geneObj(){
-        estimator = new Estimator(robotModel, lowState, contact, phase, dt);
-        balCtrl = new BalanceCtrl(robotModel);
+    // void geneObj(){
+    //     estimator = new Estimator(robotModel, lowState, contact, phase, dt);
+    //     balCtrl = new BalanceCtrl(robotModel);
 
-    }
+    // }
 
 private:
     WaveStatus _waveStatus = WaveStatus::SWING_ALL;

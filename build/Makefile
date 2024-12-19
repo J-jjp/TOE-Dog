@@ -150,6 +150,114 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/FSM/FSM.o: src/FSM/FSM.cpp.o
+
+.PHONY : src/FSM/FSM.o
+
+# target to build an object file
+src/FSM/FSM.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/FSM.cpp.o
+.PHONY : src/FSM/FSM.cpp.o
+
+src/FSM/FSM.i: src/FSM/FSM.cpp.i
+
+.PHONY : src/FSM/FSM.i
+
+# target to preprocess a source file
+src/FSM/FSM.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/FSM.cpp.i
+.PHONY : src/FSM/FSM.cpp.i
+
+src/FSM/FSM.s: src/FSM/FSM.cpp.s
+
+.PHONY : src/FSM/FSM.s
+
+# target to generate assembly for a file
+src/FSM/FSM.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/FSM.cpp.s
+.PHONY : src/FSM/FSM.cpp.s
+
+src/FSM/FSMState.o: src/FSM/FSMState.cpp.o
+
+.PHONY : src/FSM/FSMState.o
+
+# target to build an object file
+src/FSM/FSMState.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/FSMState.cpp.o
+.PHONY : src/FSM/FSMState.cpp.o
+
+src/FSM/FSMState.i: src/FSM/FSMState.cpp.i
+
+.PHONY : src/FSM/FSMState.i
+
+# target to preprocess a source file
+src/FSM/FSMState.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/FSMState.cpp.i
+.PHONY : src/FSM/FSMState.cpp.i
+
+src/FSM/FSMState.s: src/FSM/FSMState.cpp.s
+
+.PHONY : src/FSM/FSMState.s
+
+# target to generate assembly for a file
+src/FSM/FSMState.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/FSMState.cpp.s
+.PHONY : src/FSM/FSMState.cpp.s
+
+src/FSM/State_FixedStand.o: src/FSM/State_FixedStand.cpp.o
+
+.PHONY : src/FSM/State_FixedStand.o
+
+# target to build an object file
+src/FSM/State_FixedStand.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.o
+.PHONY : src/FSM/State_FixedStand.cpp.o
+
+src/FSM/State_FixedStand.i: src/FSM/State_FixedStand.cpp.i
+
+.PHONY : src/FSM/State_FixedStand.i
+
+# target to preprocess a source file
+src/FSM/State_FixedStand.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.i
+.PHONY : src/FSM/State_FixedStand.cpp.i
+
+src/FSM/State_FixedStand.s: src/FSM/State_FixedStand.cpp.s
+
+.PHONY : src/FSM/State_FixedStand.s
+
+# target to generate assembly for a file
+src/FSM/State_FixedStand.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.s
+.PHONY : src/FSM/State_FixedStand.cpp.s
+
+src/FSM/State_Passive.o: src/FSM/State_Passive.cpp.o
+
+.PHONY : src/FSM/State_Passive.o
+
+# target to build an object file
+src/FSM/State_Passive.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o
+.PHONY : src/FSM/State_Passive.cpp.o
+
+src/FSM/State_Passive.i: src/FSM/State_Passive.cpp.i
+
+.PHONY : src/FSM/State_Passive.i
+
+# target to preprocess a source file
+src/FSM/State_Passive.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.i
+.PHONY : src/FSM/State_Passive.cpp.i
+
+src/FSM/State_Passive.s: src/FSM/State_Passive.cpp.s
+
+.PHONY : src/FSM/State_Passive.s
+
+# target to generate assembly for a file
+src/FSM/State_Passive.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.s
+.PHONY : src/FSM/State_Passive.cpp.s
+
 src/interface/IOMujoco.o: src/interface/IOMujoco.cpp.o
 
 .PHONY : src/interface/IOMujoco.o
@@ -176,60 +284,6 @@ src/interface/IOMujoco.s: src/interface/IOMujoco.cpp.s
 src/interface/IOMujoco.cpp.s:
 	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.s
 .PHONY : src/interface/IOMujoco.cpp.s
-
-src/interface/IOREAL.o: src/interface/IOREAL.cpp.o
-
-.PHONY : src/interface/IOREAL.o
-
-# target to build an object file
-src/interface/IOREAL.cpp.o:
-	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/IOREAL.cpp.o
-.PHONY : src/interface/IOREAL.cpp.o
-
-src/interface/IOREAL.i: src/interface/IOREAL.cpp.i
-
-.PHONY : src/interface/IOREAL.i
-
-# target to preprocess a source file
-src/interface/IOREAL.cpp.i:
-	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/IOREAL.cpp.i
-.PHONY : src/interface/IOREAL.cpp.i
-
-src/interface/IOREAL.s: src/interface/IOREAL.cpp.s
-
-.PHONY : src/interface/IOREAL.s
-
-# target to generate assembly for a file
-src/interface/IOREAL.cpp.s:
-	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/IOREAL.cpp.s
-.PHONY : src/interface/IOREAL.cpp.s
-
-src/interface/IOSIM.o: src/interface/IOSIM.cpp.o
-
-.PHONY : src/interface/IOSIM.o
-
-# target to build an object file
-src/interface/IOSIM.cpp.o:
-	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/IOSIM.cpp.o
-.PHONY : src/interface/IOSIM.cpp.o
-
-src/interface/IOSIM.i: src/interface/IOSIM.cpp.i
-
-.PHONY : src/interface/IOSIM.i
-
-# target to preprocess a source file
-src/interface/IOSIM.cpp.i:
-	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/IOSIM.cpp.i
-.PHONY : src/interface/IOSIM.cpp.i
-
-src/interface/IOSIM.s: src/interface/IOSIM.cpp.s
-
-.PHONY : src/interface/IOSIM.s
-
-# target to generate assembly for a file
-src/interface/IOSIM.cpp.s:
-	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/IOSIM.cpp.s
-.PHONY : src/interface/IOSIM.cpp.s
 
 src/interface/KeyBoard.o: src/interface/KeyBoard.cpp.o
 
@@ -297,15 +351,21 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/FSM/FSM.o"
+	@echo "... src/FSM/FSM.i"
+	@echo "... src/FSM/FSM.s"
+	@echo "... src/FSM/FSMState.o"
+	@echo "... src/FSM/FSMState.i"
+	@echo "... src/FSM/FSMState.s"
+	@echo "... src/FSM/State_FixedStand.o"
+	@echo "... src/FSM/State_FixedStand.i"
+	@echo "... src/FSM/State_FixedStand.s"
+	@echo "... src/FSM/State_Passive.o"
+	@echo "... src/FSM/State_Passive.i"
+	@echo "... src/FSM/State_Passive.s"
 	@echo "... src/interface/IOMujoco.o"
 	@echo "... src/interface/IOMujoco.i"
 	@echo "... src/interface/IOMujoco.s"
-	@echo "... src/interface/IOREAL.o"
-	@echo "... src/interface/IOREAL.i"
-	@echo "... src/interface/IOREAL.s"
-	@echo "... src/interface/IOSIM.o"
-	@echo "... src/interface/IOSIM.i"
-	@echo "... src/interface/IOSIM.s"
 	@echo "... src/interface/KeyBoard.o"
 	@echo "... src/interface/KeyBoard.i"
 	@echo "... src/interface/KeyBoard.s"

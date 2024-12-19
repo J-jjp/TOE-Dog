@@ -5,9 +5,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/jiaojunpeng/my_dog/dog_control/main.cpp" "/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles/dog.dir/main.cpp.o"
+  "/home/jiaojunpeng/my_dog/dog_control/src/FSM/FSM.cpp" "/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles/dog.dir/src/FSM/FSM.cpp.o"
+  "/home/jiaojunpeng/my_dog/dog_control/src/FSM/FSMState.cpp" "/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles/dog.dir/src/FSM/FSMState.cpp.o"
+  "/home/jiaojunpeng/my_dog/dog_control/src/FSM/State_FixedStand.cpp" "/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.o"
+  "/home/jiaojunpeng/my_dog/dog_control/src/FSM/State_Passive.cpp" "/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o"
   "/home/jiaojunpeng/my_dog/dog_control/src/interface/IOMujoco.cpp" "/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o"
-  "/home/jiaojunpeng/my_dog/dog_control/src/interface/IOREAL.cpp" "/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles/dog.dir/src/interface/IOREAL.cpp.o"
-  "/home/jiaojunpeng/my_dog/dog_control/src/interface/IOSIM.cpp" "/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles/dog.dir/src/interface/IOSIM.cpp.o"
   "/home/jiaojunpeng/my_dog/dog_control/src/interface/KeyBoard.cpp" "/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o"
   "/home/jiaojunpeng/my_dog/dog_control/src/interface/WirelessHandle.cpp" "/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles/dog.dir/src/interface/WirelessHandle.cpp.o"
   )
@@ -23,6 +25,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../imgui/backends"
   "../include/interface"
   "../include/message"
+  "../include/FSM"
   )
 
 # Targets to which this target links.

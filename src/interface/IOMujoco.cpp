@@ -19,10 +19,9 @@ float IOMujoco::pd_control(float target_q,float q,float kp,float target_dq,float
     return tau;
 }
 
-void IOMujoco::sendRecv( LowlevelCmd *cmd, LowlevelState *state,float kp,float kd) {
+void IOMujoco::sendRecv_debug( LowlevelCmd *cmd, LowlevelState *state,float kp,float kd) {
     recv(state);
     for(int i=0; i < 12; i++){
-        std::cout<<"POSE"<<i<<cmd->motorCmd[i].q<<std::endl;
         cmd->motorCmd[i].tau=pd_control(
         cmd->motorCmd[i].q,state->motorState[i].q,kp,0,state->motorState[i].dq,kd);
     }
@@ -31,7 +30,17 @@ void IOMujoco::sendRecv( LowlevelCmd *cmd, LowlevelState *state,float kp,float k
     // state->userCmd = cmdPanel->getUserCmd();
     // state->userValue = cmdPanel->getUserValue();
 }
-
+void IOMujoco::sendRecv( LowlevelCmd *cmd, LowlevelState *state) {
+    recv(state);
+    std::cout<<"pose"<<cmd->motorCmd[0].Kd;
+    for(int i=0; i < 12; i++){
+        cmd->motorCmd[i].tau=pd_control(
+        cmd->motorCmd[i].q,state->motorState[i].q,cmd->motorCmd[i].Kp,cmd->motorCmd[i].dq,state->motorState[i].dq,cmd->motorCmd[i].Kd);
+    }
+    send(cmd);
+    // state->userCmd = cmdPanel->getUserCmd();
+    // state->userValue = cmdPanel->getUserValue();
+}
 void IOMujoco::send( LowlevelCmd *lowCmd) {
     std::cout << "send" << std::endl;
     for(int i=0; i < 12; i++){

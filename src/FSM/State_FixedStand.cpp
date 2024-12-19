@@ -9,11 +9,12 @@ State_FixedStand::State_FixedStand(CtrlComponents *ctrlComp)
 
 void State_FixedStand::enter(){
     for(int i=0; i<4; i++){
-        if(_ctrlComp->ctrlPlatform == CtrlPlatform::GAZEBO){
-            _lowCmd->setSimStanceGain(i);
-        }
-        else if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
-            _lowCmd->setRealStanceGain(i);
+        if(_ctrlComp->ctrlPlatform == CtrlPlatform::Mujoco){
+         _lowCmd->setSimStanceGain(i);
+        // }
+        // else if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
+        //     _lowCmd->setRealStanceGain(i);
+        // }
         }
         _lowCmd->setZeroDq(i);
         _lowCmd->setZeroTau(i);
@@ -38,23 +39,21 @@ void State_FixedStand::exit(){
 }
 
 FSMStateName State_FixedStand::checkChange(){
-    if(_lowState->userCmd == UserCommand::L2_B){
+    // if(_lowState->userCmd == UserCommand::L2_B)
+    if(_lowState->userCmd == UserCommand::PASS){
         return FSMStateName::PASSIVE;
     }
-    else if(_lowState->userCmd == UserCommand::L2_X){
-        return FSMStateName::FREESTAND;
-    }
-    else if(_lowState->userCmd == UserCommand::START){
-        return FSMStateName::TROTTING;
-    }
-    else if(_lowState->userCmd == UserCommand::L1_X){
-        return FSMStateName::BALANCETEST;
-    }
-    else if(_lowState->userCmd == UserCommand::L1_A){
-        return FSMStateName::SWINGTEST;
-    }
-    // else if(_lowState->userCmd == UserCommand::L1_Y){
-    //     return FSMStateName::STEPTEST;
+    // else if(_lowState->userCmd == UserCommand::L2_X){
+    //     return FSMStateName::FREESTAND;
+    // }
+    // else if(_lowState->userCmd == UserCommand::START){
+    //     return FSMStateName::TROTTING;
+    // }
+    // else if(_lowState->userCmd == UserCommand::L1_X){
+    //     return FSMStateName::BALANCETEST;
+    // }
+    // else if(_lowState->userCmd == UserCommand::L1_A){
+    //     return FSMStateName::SWINGTEST;
     // }
     else{
         return FSMStateName::FIXEDSTAND;

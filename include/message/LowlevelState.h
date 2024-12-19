@@ -66,7 +66,7 @@ struct LowlevelState
 {
     // IMU imu;
     MotorState motorState[12];
-    // UserCommand userCmd;
+    UserCommand userCmd;
     // UserValue userValue;
 
     // Vec34 getQ(){

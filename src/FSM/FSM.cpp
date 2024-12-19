@@ -28,16 +28,21 @@ void FSM::run(){
     _startTime = getSystemTime();//获取当前时间
    // _ctrlComp->sendRecv();    //控制命令收发一次
    //在这里下发控制命令-----------------------------------------------------------------
-    _ctrlComp->send();
+    _ctrlComp->sendRecv();
 
-    _ctrlComp->runWaveGen();  //计算步态参数
-    _ctrlComp->estimator->run(); //估计器迭代一次
-    if(!checkSafty()){  //进行安全检测 如果当前不安全  就设置为阻尼模式 让机器人趴下
-        _ctrlComp->ioInter->setPassive();
-    }
-
+    // _ctrlComp->runWaveGen();  //计算步态参数
+    // _ctrlComp->estimator->run(); //估计器迭代一次
+    // if(!checkSafty()){  //进行安全检测 如果当前不安全  就设置为阻尼模式 让机器人趴下
+    //     _ctrlComp->ioInter->setPassive();
+    // }
+    // std::cout<<"FSM";
     if(_mode == FSMMode::NORMAL){
+        std::cout<<"current"<<_currentState->_stateNameString;
         _currentState->run();
+        if (_ctrlComp->lowState->userCmd==UserCommand::PASS)
+        {
+            std::cout<<"FSM";
+        }
         _nextStateName = _currentState->checkChange();
         if(_nextStateName != _currentState->_stateName){
             _mode = FSMMode::CHANGE;
@@ -47,6 +52,7 @@ void FSM::run(){
         }
     }
     else if(_mode == FSMMode::CHANGE){
+        std::cout<<"next:";
         _currentState->exit();
         _currentState = _nextState;
         _currentState->enter();
@@ -89,14 +95,14 @@ FSMState* FSM::getNextState(FSMStateName stateName){
 * 该旋转矩阵的每一列表示对应的坐标轴在世界坐标系下的投影
 *
 * */
-bool FSM::checkSafty(){
-    // The angle with z axis less than 60 degree
-    //如果机器人本体Z轴与世界坐标系Z轴夹角大于60度，则视为不安全
-    if(_ctrlComp->lowState->getRotMat()(2,2) < 0.5 ){
-        return false;
-    }else{
-        return true;
-    }
-}
+// bool FSM::checkSafty(){
+//     // The angle with z axis less than 60 degree
+//     //如果机器人本体Z轴与世界坐标系Z轴夹角大于60度，则视为不安全
+//     if(_ctrlComp->lowState->getRotMat()(2,2) < 0.5 ){
+//         return false;
+//     }else{
+//         return true;
+//     }
+// }
 //该保护策略已经默认添加于整个工程的状态机运行状态下，如果用户需要验证一些极端的运动(如：前空翻、后空翻、拜年等)，需要注意此策略的影响
 

@@ -1,4 +1,4 @@
-// Copyright 2021 DeepMind Technologies Limited
+
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,7 +17,8 @@
 
 #include <GLFW/glfw3.h>
 #include <interface/IOMujoco.h>
-
+#include <control/CtrlComponents.h>
+#include <FSM/FSM.h>
 #include <string>
 #include <iostream>
 // #include <control/ControlFrame.h>
@@ -39,13 +40,13 @@ bool button_right =  false;
 double lastx = 0;
 double lasty = 0;
 
-// std::vector<float> default_dof_pos={0.1,0.8,-1.5 ,-0.1,0.8,-1.5,0.1,1,-1.5, -0.1,1.,-1.5};//#默认角度需要与isacc一致
-std::vector<float> default_dof_pos={0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.};//#默认角度需要与isacc一致
+std::vector<float> default_dof_pos={0.1,0.8,-1.5 ,-0.1,0.8,-1.5,0.1,1,-1.5, -0.1,1.,-1.5};//#默认角度需要与isacc一致
+// std::vector<float> default_dof_pos={0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.};//#默认角度需要与isacc一致
 std::vector<float> state_dof_pos(12);
 std::vector<float> state_dof_vel(12);
 float kp_all = 30;
 float kd_all = 0.75;
-
+bool running = true;
 
 std::vector<mjtNum> get_sensor_data(const mjModel *model, const mjData *data, const std::string &sensor_name)
 {
@@ -67,11 +68,6 @@ std::vector<mjtNum> get_sensor_data(const mjModel *model, const mjData *data, co
   }
   return sensor_data;
 }
-float pd_control(float target_q,float q,float kp,float target_dq,float dq,float kd){
-    float tau=(target_q - q) * kp + (target_dq - dq) * kd;
-    return tau;
-}
-
 // keyboard callback
 void keyboard(GLFWwindow* window, int key, int scancode, int act, int mods) {
   // backspace: reset simulation
@@ -183,11 +179,20 @@ int main(int argc, const char** argv) {
   glfwSetCursorPosCallback(window, mouse_move);
   glfwSetMouseButtonCallback(window, mouse_button);
   glfwSetScrollCallback(window, scroll);
+
+
+
+    CtrlPlatform ctrlPlat;
     int x=0;
     float _percent=0;
     float _duration=1000;
     ioInter = new IOMujoco(d);
     std::vector<float> start_pose(12);
+    CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
+    ctrlComp->ctrlPlatform = ctrlPlat;
+    ctrlComp->dt = 0.0025; // run at 400hz  控制周期       
+    ctrlComp->running = &running;  //机器人控制的状态  运行 or 不运行
+    FSM *_FSMController = new FSM(ctrlComp);
   // run main loop, target real-time simulation and 60 fps rendering
   while (!glfwWindowShouldClose(window)) {
     // advance interactive simulation for 1/60 sec
@@ -197,42 +202,51 @@ int main(int argc, const char** argv) {
     mjtNum simstart = d->time;
     float kp=0;
     float kd=0;
-
+    _FSMController->run();
 
     // CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
     // ControlFrame ctrlFrame(ctrlComp);
-
-
-
-    while (d->time - simstart < 1.0/60.0) {
-      x++;
-      std::cout<<"x"<<x<<std::endl;
-    // float target_q[12];
-      if(x>300){
-        // if(x>3000){
-        //   kp=0;
-        //   kd=2;
-        // }
-        // else{
-          kp=kp_all;
-          kd=kd_all;
-        //}
-        _percent += (float)1/_duration;
-        _percent = _percent > 1 ? 1 : _percent;
+    if (x>1000)
+    {
+      if (x>3000)
+      {
+        ctrlComp->lowState->userCmd = UserCommand::PASS;
       }
       else{
-        for (int i = 0; i < 12; i++)
-        {
-          start_pose[i] = state.motorState[i].q;
-        }
+        ctrlComp->lowState->userCmd = UserCommand::FIXED;
+      }
+    }
+
+      std::cout<<"x"<<x<<std::endl;
+    while (d->time - simstart < 1.0/60.0) {
+            x++;
+    // // float target_q[12];
+    //   if(x>300){
+    //     // if(x>3000){
+    //     //   kp=0;
+    //     //   kd=2;
+    //     // }
+    //     // else{
+    //       kp=kp_all;
+    //       kd=kd_all;
+    //     //}
+    //     _percent += (float)1/_duration;
+    //     _percent = _percent > 1 ? 1 : _percent;
+    //   }
+    //   else{
+    //     for (int i = 0; i < 12; i++)
+    //     {
+    //       start_pose[i] = state.motorState[i].q;
+    //     }
         
-        kp=1;
-        kd=0;
-      }
-      for(int j=0; j<12; j++){
-          cmd.motorCmd[j].q = (1 - _percent)*start_pose[j] + _percent*default_dof_pos[j]; 
-      }
-      ioInter->sendRecv(&cmd,&state,3*kp,3*kd);
+    //     kp=1;
+    //     kd=0;
+    //   }
+    //   for(int j=0; j<12; j++){
+    //       cmd.motorCmd[j].q = (1 - _percent)*start_pose[j] + _percent*default_dof_pos[j]; 
+    //   }
+      // std::cout<<"daozhe";
+      // ioInter->sendRecv_debug(&cmd,&state,80,2);
       mj_step(m, d);
     }
 
