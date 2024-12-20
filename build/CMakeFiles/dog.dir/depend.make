@@ -4,6 +4,7 @@
 CMakeFiles/dog.dir/main.cpp.o: ../include/FSM/FSM.h
 CMakeFiles/dog.dir/main.cpp.o: ../include/FSM/FSMState.h
 CMakeFiles/dog.dir/main.cpp.o: ../include/FSM/State_FixedStand.h
+CMakeFiles/dog.dir/main.cpp.o: ../include/FSM/State_FreeStand.h
 CMakeFiles/dog.dir/main.cpp.o: ../include/FSM/State_Passive.h
 CMakeFiles/dog.dir/main.cpp.o: ../include/common/enumClass.h
 CMakeFiles/dog.dir/main.cpp.o: ../include/common/mathTools.h
@@ -15,6 +16,7 @@ CMakeFiles/dog.dir/main.cpp.o: ../include/control/CtrlComponents.h
 CMakeFiles/dog.dir/main.cpp.o: ../include/interface/CmdPanel.h
 CMakeFiles/dog.dir/main.cpp.o: ../include/interface/IOInterface.h
 CMakeFiles/dog.dir/main.cpp.o: ../include/interface/IOMujoco.h
+CMakeFiles/dog.dir/main.cpp.o: ../include/interface/KeyBoard.h
 CMakeFiles/dog.dir/main.cpp.o: ../include/message/LowlevelCmd.h
 CMakeFiles/dog.dir/main.cpp.o: ../include/message/LowlevelState.h
 CMakeFiles/dog.dir/main.cpp.o: /home/jiaojunpeng/mujoco-3.1.4/include/mujoco/mjdata.h
@@ -33,6 +35,7 @@ CMakeFiles/dog.dir/main.cpp.o: ../main.cpp
 CMakeFiles/dog.dir/src/FSM/FSM.cpp.o: ../include/FSM/FSM.h
 CMakeFiles/dog.dir/src/FSM/FSM.cpp.o: ../include/FSM/FSMState.h
 CMakeFiles/dog.dir/src/FSM/FSM.cpp.o: ../include/FSM/State_FixedStand.h
+CMakeFiles/dog.dir/src/FSM/FSM.cpp.o: ../include/FSM/State_FreeStand.h
 CMakeFiles/dog.dir/src/FSM/FSM.cpp.o: ../include/FSM/State_Passive.h
 CMakeFiles/dog.dir/src/FSM/FSM.cpp.o: ../include/common/enumClass.h
 CMakeFiles/dog.dir/src/FSM/FSM.cpp.o: ../include/common/mathTools.h
@@ -76,6 +79,21 @@ CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.o: ../include/message/LowlevelCm
 CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.o: ../include/message/LowlevelState.h
 CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.o: ../src/FSM/State_FixedStand.cpp
 
+CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o: ../include/FSM/FSMState.h
+CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o: ../include/FSM/State_FreeStand.h
+CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o: ../include/common/enumClass.h
+CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o: ../include/common/mathTools.h
+CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o: ../include/common/mathTypes.h
+CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o: ../include/common/timeMarker.h
+CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o: ../include/common/unitreeLeg.h
+CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o: ../include/common/unitreeRobot.h
+CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o: ../include/control/CtrlComponents.h
+CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o: ../include/interface/CmdPanel.h
+CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o: ../include/interface/IOInterface.h
+CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o: ../include/message/LowlevelCmd.h
+CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o: ../include/message/LowlevelState.h
+CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o: ../src/FSM/State_FreeStand.cpp
+
 CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o: ../include/FSM/FSMState.h
 CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o: ../include/FSM/State_Passive.h
 CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o: ../include/common/enumClass.h
@@ -91,12 +109,27 @@ CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o: ../include/message/LowlevelCmd.h
 CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o: ../include/message/LowlevelState.h
 CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o: ../src/FSM/State_Passive.cpp
 
+CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o: ../include/common/enumClass.h
+CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o: ../include/common/mathTypes.h
+CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o: ../include/common/unitreeLeg.h
+CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o: ../src/common/unitreeLeg.cpp
+
+CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o: ../include/common/enumClass.h
+CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o: ../include/common/mathTools.h
+CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o: ../include/common/mathTypes.h
+CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o: ../include/common/unitreeLeg.h
+CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o: ../include/common/unitreeRobot.h
+CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o: ../include/interface/CmdPanel.h
+CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o: ../include/message/LowlevelState.h
+CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o: ../src/common/unitreeRobot.cpp
+
 CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o: ../include/common/enumClass.h
 CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o: ../include/common/mathTools.h
 CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o: ../include/common/mathTypes.h
 CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o: ../include/interface/CmdPanel.h
 CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o: ../include/interface/IOInterface.h
 CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o: ../include/interface/IOMujoco.h
+CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o: ../include/interface/KeyBoard.h
 CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o: ../include/message/LowlevelCmd.h
 CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o: ../include/message/LowlevelState.h
 CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o: /home/jiaojunpeng/mujoco-3.1.4/include/mujoco/mjdata.h
@@ -118,9 +151,4 @@ CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o: ../include/common/mathTypes.h
 CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o: ../include/interface/CmdPanel.h
 CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o: ../include/interface/KeyBoard.h
 CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o: ../src/interface/KeyBoard.cpp
-
-CMakeFiles/dog.dir/src/interface/WirelessHandle.cpp.o: ../include/common/mathTools.h
-CMakeFiles/dog.dir/src/interface/WirelessHandle.cpp.o: ../include/common/mathTypes.h
-CMakeFiles/dog.dir/src/interface/WirelessHandle.cpp.o: ../include/interface/WirelessHandle.h
-CMakeFiles/dog.dir/src/interface/WirelessHandle.cpp.o: ../src/interface/WirelessHandle.cpp
 

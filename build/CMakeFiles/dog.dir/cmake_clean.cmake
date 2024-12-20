@@ -3,10 +3,12 @@ file(REMOVE_RECURSE
   "CMakeFiles/dog.dir/src/FSM/FSM.cpp.o"
   "CMakeFiles/dog.dir/src/FSM/FSMState.cpp.o"
   "CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.o"
+  "CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o"
   "CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o"
+  "CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o"
+  "CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o"
   "CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o"
   "CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o"
-  "CMakeFiles/dog.dir/src/interface/WirelessHandle.cpp.o"
   "dog"
   "dog.pdb"
 )

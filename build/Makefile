@@ -231,6 +231,33 @@ src/FSM/State_FixedStand.cpp.s:
 	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.s
 .PHONY : src/FSM/State_FixedStand.cpp.s
 
+src/FSM/State_FreeStand.o: src/FSM/State_FreeStand.cpp.o
+
+.PHONY : src/FSM/State_FreeStand.o
+
+# target to build an object file
+src/FSM/State_FreeStand.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o
+.PHONY : src/FSM/State_FreeStand.cpp.o
+
+src/FSM/State_FreeStand.i: src/FSM/State_FreeStand.cpp.i
+
+.PHONY : src/FSM/State_FreeStand.i
+
+# target to preprocess a source file
+src/FSM/State_FreeStand.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.i
+.PHONY : src/FSM/State_FreeStand.cpp.i
+
+src/FSM/State_FreeStand.s: src/FSM/State_FreeStand.cpp.s
+
+.PHONY : src/FSM/State_FreeStand.s
+
+# target to generate assembly for a file
+src/FSM/State_FreeStand.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.s
+.PHONY : src/FSM/State_FreeStand.cpp.s
+
 src/FSM/State_Passive.o: src/FSM/State_Passive.cpp.o
 
 .PHONY : src/FSM/State_Passive.o
@@ -257,6 +284,60 @@ src/FSM/State_Passive.s: src/FSM/State_Passive.cpp.s
 src/FSM/State_Passive.cpp.s:
 	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.s
 .PHONY : src/FSM/State_Passive.cpp.s
+
+src/common/unitreeLeg.o: src/common/unitreeLeg.cpp.o
+
+.PHONY : src/common/unitreeLeg.o
+
+# target to build an object file
+src/common/unitreeLeg.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o
+.PHONY : src/common/unitreeLeg.cpp.o
+
+src/common/unitreeLeg.i: src/common/unitreeLeg.cpp.i
+
+.PHONY : src/common/unitreeLeg.i
+
+# target to preprocess a source file
+src/common/unitreeLeg.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.i
+.PHONY : src/common/unitreeLeg.cpp.i
+
+src/common/unitreeLeg.s: src/common/unitreeLeg.cpp.s
+
+.PHONY : src/common/unitreeLeg.s
+
+# target to generate assembly for a file
+src/common/unitreeLeg.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.s
+.PHONY : src/common/unitreeLeg.cpp.s
+
+src/common/unitreeRobot.o: src/common/unitreeRobot.cpp.o
+
+.PHONY : src/common/unitreeRobot.o
+
+# target to build an object file
+src/common/unitreeRobot.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o
+.PHONY : src/common/unitreeRobot.cpp.o
+
+src/common/unitreeRobot.i: src/common/unitreeRobot.cpp.i
+
+.PHONY : src/common/unitreeRobot.i
+
+# target to preprocess a source file
+src/common/unitreeRobot.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.i
+.PHONY : src/common/unitreeRobot.cpp.i
+
+src/common/unitreeRobot.s: src/common/unitreeRobot.cpp.s
+
+.PHONY : src/common/unitreeRobot.s
+
+# target to generate assembly for a file
+src/common/unitreeRobot.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.s
+.PHONY : src/common/unitreeRobot.cpp.s
 
 src/interface/IOMujoco.o: src/interface/IOMujoco.cpp.o
 
@@ -312,33 +393,6 @@ src/interface/KeyBoard.cpp.s:
 	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.s
 .PHONY : src/interface/KeyBoard.cpp.s
 
-src/interface/WirelessHandle.o: src/interface/WirelessHandle.cpp.o
-
-.PHONY : src/interface/WirelessHandle.o
-
-# target to build an object file
-src/interface/WirelessHandle.cpp.o:
-	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/WirelessHandle.cpp.o
-.PHONY : src/interface/WirelessHandle.cpp.o
-
-src/interface/WirelessHandle.i: src/interface/WirelessHandle.cpp.i
-
-.PHONY : src/interface/WirelessHandle.i
-
-# target to preprocess a source file
-src/interface/WirelessHandle.cpp.i:
-	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/WirelessHandle.cpp.i
-.PHONY : src/interface/WirelessHandle.cpp.i
-
-src/interface/WirelessHandle.s: src/interface/WirelessHandle.cpp.s
-
-.PHONY : src/interface/WirelessHandle.s
-
-# target to generate assembly for a file
-src/interface/WirelessHandle.cpp.s:
-	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/WirelessHandle.cpp.s
-.PHONY : src/interface/WirelessHandle.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -360,18 +414,24 @@ help:
 	@echo "... src/FSM/State_FixedStand.o"
 	@echo "... src/FSM/State_FixedStand.i"
 	@echo "... src/FSM/State_FixedStand.s"
+	@echo "... src/FSM/State_FreeStand.o"
+	@echo "... src/FSM/State_FreeStand.i"
+	@echo "... src/FSM/State_FreeStand.s"
 	@echo "... src/FSM/State_Passive.o"
 	@echo "... src/FSM/State_Passive.i"
 	@echo "... src/FSM/State_Passive.s"
+	@echo "... src/common/unitreeLeg.o"
+	@echo "... src/common/unitreeLeg.i"
+	@echo "... src/common/unitreeLeg.s"
+	@echo "... src/common/unitreeRobot.o"
+	@echo "... src/common/unitreeRobot.i"
+	@echo "... src/common/unitreeRobot.s"
 	@echo "... src/interface/IOMujoco.o"
 	@echo "... src/interface/IOMujoco.i"
 	@echo "... src/interface/IOMujoco.s"
 	@echo "... src/interface/KeyBoard.o"
 	@echo "... src/interface/KeyBoard.i"
 	@echo "... src/interface/KeyBoard.s"
-	@echo "... src/interface/WirelessHandle.o"
-	@echo "... src/interface/WirelessHandle.i"
-	@echo "... src/interface/WirelessHandle.s"
 .PHONY : help
 
 
