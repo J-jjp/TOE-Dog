@@ -7,10 +7,12 @@
 #include "interface/IOInterface.h"
 #include <mujoco/mujoco.h>
 #include <string>
+#include "interface/KeyBoard.h"
 class IOMujoco : public IOInterface{
 public:
     IOMujoco(mjData *data):_data(data){
         std::cout<<"generate interfaces"<<std::endl;
+        cmdPanel = new KeyBoard();
     }
     ~IOMujoco(){};
     void sendRecv(LowlevelCmd *cmd, LowlevelState *state);

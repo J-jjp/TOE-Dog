@@ -26,9 +26,25 @@ void IOMujoco::sendRecv_debug( LowlevelCmd *cmd, LowlevelState *state,float kp,f
         cmd->motorCmd[i].q,state->motorState[i].q,kp,0,state->motorState[i].dq,kd);
     }
     send(cmd);
+    if (cmdPanel->userCmd==UserCommand::NONE)
+    {
+        std::cout<<"successNONE";
+    }
+        if (cmdPanel->userCmd==UserCommand::FIXED)
+    {
+        std::cout<<"successFIXED";
+    }
+        if (cmdPanel->userCmd==UserCommand::PASS)
+    {
+        std::cout<<"successPASS";
+    }
+        if (cmdPanel->userCmd==UserCommand::FREE)
+    {
+        std::cout<<"successFREE";
+    }
+    state->userCmd = cmdPanel->getUserCmd();
 
-    // state->userCmd = cmdPanel->getUserCmd();
-    // state->userValue = cmdPanel->getUserValue();
+    state->userValue = cmdPanel->getUserValue();
 }
 void IOMujoco::sendRecv( LowlevelCmd *cmd, LowlevelState *state) {
     recv(state);
@@ -38,8 +54,8 @@ void IOMujoco::sendRecv( LowlevelCmd *cmd, LowlevelState *state) {
         cmd->motorCmd[i].q,state->motorState[i].q,cmd->motorCmd[i].Kp,cmd->motorCmd[i].dq,state->motorState[i].dq,cmd->motorCmd[i].Kd);
     }
     send(cmd);
-    // state->userCmd = cmdPanel->getUserCmd();
-    // state->userValue = cmdPanel->getUserValue();
+    state->userCmd = cmdPanel->getUserCmd();
+    state->userValue = cmdPanel->getUserValue();
 }
 void IOMujoco::send( LowlevelCmd *lowCmd) {
     std::cout << "send" << std::endl;

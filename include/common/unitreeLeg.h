@@ -32,11 +32,10 @@ protected:
     const Vec3 _pHip2B;
 };
 //自己机器人腿
-class Ask3Leg : public QuadrupedLeg{
+class Go2Leg : public QuadrupedLeg{
 public:
-    Ask3Leg(const int legID, const Vec3 pHip2B):
-        QuadrupedLeg(legID, 0.0882, 0.25, 0.24086, pHip2B){} //三个物理参数 要通过solidworks参数进行测量
-    ~Ask3Leg(){}
-};
-
+    Go2Leg(const int legID, const Vec3 pHip2B):
+        QuadrupedLeg(legID, 0.0955, 0.213, 0.213, pHip2B){} //三个物理参数 要通过solidworks参数进行测量
+    ~Go2Leg(){}
+};//0.0955
 #endif  // UNITREELEG_H

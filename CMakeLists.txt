@@ -4,7 +4,9 @@ project(A1)
 link_directories(/home/jiaojunpeng/mujoco-3.1.4/lib)
 
 link_directories(/home/jiaojunpeng/mujoco-3.1.4/simulate)
-
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_BUILD_TYPE Debug)
 # 设置 Mujoco 路径
 # 查找 Eigen3
 find_package(Eigen3 REQUIRED)
@@ -15,6 +17,7 @@ endif()
 # 收集源文件
 file(GLOB DOG_SRCS "src/FSM/*.cpp"
 "src/interface/*.cpp"
+"src/common/*.cpp"
 "main.cpp")
 # 如果还有其他源文件目录，可以在这里继续添加
 # file(GLOB_RECURSE ADDITIONAL_SRCS "src/FCM/FCM.cpp")
@@ -34,4 +37,4 @@ include_directories(include  ${EIGEN3_INCLUDE_DIR}
 add_executable(dog ${DOG_SRCS})
 
 # 链接库
-target_link_libraries(dog  /home/jiaojunpeng/mujoco-3.1.4/lib/libmujoco.so glut GL GLU glfw)
+target_link_libraries(dog  /home/jiaojunpeng/mujoco-3.1.4/lib/libmujoco.so glut GL GLU glfw pthread)

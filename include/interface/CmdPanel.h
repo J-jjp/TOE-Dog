@@ -8,13 +8,13 @@
 #include <pthread.h>
 
 struct UserValue{
-    float lx;
-    float ly;
-    float rx;
-    float ry;
-    UserValue(){
-        setZero();
-    }
+    float lx=0;
+    float ly=0;
+    float rx=0;
+    float ry=0;
+    // UserValue(){
+    //     setZero();
+    // }
     void setZero(){
         lx = 0;
         ly = 0;
@@ -31,10 +31,10 @@ class CmdPanel{
         UserValue getUserValue(){return userValue;}
         void setPassive(){userCmd = UserCommand::PASS;}
         void setZero(){userValue.setZero();}
-    protected:
-        virtual void* run(void *arg){return NULL;}
         UserCommand userCmd;
         UserValue userValue;
+    protected:
+        virtual void* run(void *arg){return NULL;}
 };
 
 #endif  // CMDPANEL_H

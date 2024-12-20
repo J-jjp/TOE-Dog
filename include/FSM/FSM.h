@@ -8,17 +8,19 @@
 #include "FSMState.h"
 #include "State_FixedStand.h"
 #include "State_Passive.h"
+#include "State_FreeStand.h"
 #include "common/enumClass.h"
 #include "control/CtrlComponents.h"
 struct FSMStateList{
     FSMState *invalid;
     State_Passive *passive;
     State_FixedStand *fixedStand;
-
+    State_FreeStand *freeStand;
     void deletePtr(){
         delete invalid;
         delete passive;
         delete fixedStand;
+        delete freeStand;
     }
 };
 

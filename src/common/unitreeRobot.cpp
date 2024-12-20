@@ -44,7 +44,8 @@ Vec12 QuadrupedRobot::getTau(const Vec12 &q, const Vec34 feetForce){
 }
 
 // Forward Kinematics
-Vec3 QuadrupedRobot::getFootPosition(LowlevelState &state, int id, FrameType frame){
+Vec3 QuadrupedRobot::getFootPosition(LowlevelState &state, int id, FrameType frame)//获取当前机器人在frame坐标系下的位置
+{
     Vec34 qLegs= state.getQ();
 
     if(frame == FrameType::BODY){
@@ -110,31 +111,20 @@ Mat3 QuadrupedRobot::getJaco(LowlevelState &state, int legID){
 }
 
 //自己机器人的一些初始化参数
-Ask3Robot::Ask3Robot(){
-    //param1:腿的id  param2:机身中心到该腿基座坐标系{0}原点的向量
-    _Legs[0] = new Ask3Leg(0, Vec3( 0.2625, -0.072, 0));
-    _Legs[1] = new Ask3Leg(1, Vec3( 0.2625,  0.072, 0));
-    _Legs[2] = new Ask3Leg(2, Vec3(-0.2625, -0.072, 0));
-    _Legs[3] = new Ask3Leg(3, Vec3(-0.2625,  0.072, 0));
+Go2Robot::Go2Robot(){
+    _Legs[0] = new Go2Leg(0, Vec3( 0.1934,0.0465,0));
+    _Legs[1] = new Go2Leg(1, Vec3( 0.1934, 0.0465,0));
+    _Legs[2] = new Go2Leg(2, Vec3(-0.1934,-0.0465,0));
+    _Legs[3] = new Go2Leg(3, Vec3(-0.1934, 0.0465,0));
 
-    _feetPosNormalStand <<  0.2625,  0.2625, -0.2625, -0.2625,
-                           -0.1602,  0.1602, -0.1602,  0.1602,
-                           -0.33231, -0.33231, -0.33231, -0.33231;
+    _feetPosNormalStand <<  0.1881,  0.1881, -0.1881, -0.1881,
+                           -0.1300,  0.1300, -0.1300,  0.1300,
+                           -0.3200, -0.3200, -0.3200, -0.3200;
 
     _robVelLimitX << -0.4, 0.4;
     _robVelLimitY << -0.3, 0.3;
     _robVelLimitYaw << -0.5, 0.5;
-
-
-#ifdef COMPILE_WITH_REAL_ROBOT
-    _mass = 22.036;
-    _pcb << 0.002, 0.0, 0.01674;
-    _Ib = Vec3(0.3154, 1.2063, 1.3443).asDiagonal();
-#endif  // COMPILE_WITH_REAL_ROBOT
-
-#ifdef COMPILE_WITH_SIMULATION
-    _mass = 22.036;
-    _pcb << 0.002, 0.0, 0.01674;
-    _Ib = Vec3(0.3154, 1.2063, 1.3443).asDiagonal();
-#endif  // COMPILE_WITH_SIMULATION
+    _mass = 12.0;
+    _pcb << 0.0, 0.0, 0.0; 
+    _Ib = Vec3(0.0792, 0.2085, 0.2265).asDiagonal();
 }

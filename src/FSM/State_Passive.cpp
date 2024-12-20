@@ -13,7 +13,7 @@ void State_Passive::enter(){
             _lowCmd->motorCmd[i].q = 0;
             _lowCmd->motorCmd[i].dq = 0;
             _lowCmd->motorCmd[i].Kp = 0;
-            _lowCmd->motorCmd[i].Kd = 0.2;
+            _lowCmd->motorCmd[i].Kd = 0.4;
             _lowCmd->motorCmd[i].tau = 0;
         }
     }
@@ -41,6 +41,7 @@ void State_Passive::exit(){
 
 FSMStateName State_Passive::checkChange(){
     if(_lowState->userCmd == UserCommand::FIXED){
+        std::cout<<"change";
         return FSMStateName::FIXEDSTAND;
     }
     else{

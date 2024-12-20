@@ -193,6 +193,7 @@ int main(int argc, const char** argv) {
     ctrlComp->dt = 0.0025; // run at 400hz  控制周期       
     ctrlComp->running = &running;  //机器人控制的状态  运行 or 不运行
     FSM *_FSMController = new FSM(ctrlComp);
+    ctrlComp->robotModel = new Go2Robot();
   // run main loop, target real-time simulation and 60 fps rendering
   while (!glfwWindowShouldClose(window)) {
     // advance interactive simulation for 1/60 sec
@@ -206,16 +207,32 @@ int main(int argc, const char** argv) {
 
     // CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
     // ControlFrame ctrlFrame(ctrlComp);
-    if (x>1000)
-    {
-      if (x>3000)
-      {
-        ctrlComp->lowState->userCmd = UserCommand::PASS;
-      }
-      else{
-        ctrlComp->lowState->userCmd = UserCommand::FIXED;
-      }
-    }
+    // if (x>1000)
+    // {
+    //   if (x>2500)
+    //   {
+    //     std::cout<<"faf";
+    //     // if (x>3000)
+    //     // {
+    //     //   if (x>3500)
+    //     //   {
+    //     //     ctrlComp->lowState->userCmd = UserCommand::FREE;
+
+    //     //   }
+    //     //   else{
+    //     //     ctrlComp->lowState->userCmd = UserCommand::FIXED;
+    //     //   }
+
+    //     // }
+    //     // else{
+    //     //   ctrlComp->lowState->userCmd = UserCommand::PASS;
+    //     // }
+    //     ctrlComp->lowState->userCmd = UserCommand::FREE;
+    //   }
+    //   else{
+    //     ctrlComp->lowState->userCmd = UserCommand::FIXED;
+    //   }
+    // }
 
       std::cout<<"x"<<x<<std::endl;
     while (d->time - simstart < 1.0/60.0) {

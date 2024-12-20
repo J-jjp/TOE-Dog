@@ -64,64 +64,64 @@ struct IMU
 //并且将最新的状态读取到LowLevelState中。所以在每一个有限状态机的状态下，只需根据LowlevelState计算LowlevelCmd，具体的通信操作都可以交给底层代码完成
 struct LowlevelState
 {
-    // IMU imu;
+    IMU imu;
     MotorState motorState[12];
     UserCommand userCmd;
-    // UserValue userValue;
+    UserValue userValue;
 
-    // Vec34 getQ(){
-    //     Vec34 qLegs;
-    //     for(int i(0); i < 4; ++i){
-    //         qLegs.col(i)(0) = motorState[3*i    ].q;
-    //         qLegs.col(i)(1) = motorState[3*i + 1].q;
-    //         qLegs.col(i)(2) = motorState[3*i + 2].q;
-    //     }
-    //     return qLegs;
-    // }
+    Vec34 getQ(){
+        Vec34 qLegs;
+        for(int i(0); i < 4; ++i){
+            qLegs.col(i)(0) = motorState[3*i    ].q;
+            qLegs.col(i)(1) = motorState[3*i + 1].q;
+            qLegs.col(i)(2) = motorState[3*i + 2].q;
+        }
+        return qLegs;
+    }
 
-    // Vec34 getQd(){
-    //     Vec34 qdLegs;
-    //     for(int i(0); i < 4; ++i){
-    //         qdLegs.col(i)(0) = motorState[3*i    ].dq;
-    //         qdLegs.col(i)(1) = motorState[3*i + 1].dq;
-    //         qdLegs.col(i)(2) = motorState[3*i + 2].dq;
-    //     }
-    //     return qdLegs;
-    // }
+    Vec34 getQd(){
+        Vec34 qdLegs;
+        for(int i(0); i < 4; ++i){
+            qdLegs.col(i)(0) = motorState[3*i    ].dq;
+            qdLegs.col(i)(1) = motorState[3*i + 1].dq;
+            qdLegs.col(i)(2) = motorState[3*i + 2].dq;
+        }
+        return qdLegs;
+    }
 
-    // RotMat getRotMat(){
-    //     return imu.getRotMat();
-    // }
+    RotMat getRotMat(){
+        return imu.getRotMat();
+    }
 
-    // Vec3 getAcc(){
-    //     return imu.getAcc();
-    // }
+    Vec3 getAcc(){
+        return imu.getAcc();
+    }
 
-    // Vec3 getGyro(){
-    //     return imu.getGyro();
-    // }
+    Vec3 getGyro(){
+        return imu.getGyro();
+    }
 
-    // Vec3 getAccGlobal(){
-    //     return getRotMat() * getAcc();
-    // }
+    Vec3 getAccGlobal(){
+        return getRotMat() * getAcc();
+    }
 
-    // Vec3 getGyroGlobal(){
-    //     return getRotMat() * getGyro();
-    // }
+    Vec3 getGyroGlobal(){
+        return getRotMat() * getGyro();
+    }
 
-    // double getYaw(){
-    //     return rotMatToRPY(getRotMat())(2);
-    // }
+    double getYaw(){
+        return rotMatToRPY(getRotMat())(2);
+    }
 
-    // double getDYaw(){
-    //     return getGyroGlobal()(2);
-    // }
+    double getDYaw(){
+        return getGyroGlobal()(2);
+    }
 
-    // void setQ(Vec12 q){
-    //     for(int i(0); i<12; ++i){
-    //         motorState[i].q = q(i);
-    //     }
-    // }
+    void setQ(Vec12 q){
+        for(int i(0); i<12; ++i){
+            motorState[i].q = q(i);
+        }
+    }
 };
 
 #endif  //LOWLEVELSTATE_HPP

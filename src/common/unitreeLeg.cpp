@@ -25,7 +25,8 @@ QuadrupedLeg::QuadrupedLeg(int legID, float abadLinkLength, float hipLinkLength,
 }
 
 // Forward Kinematics
-Vec3 QuadrupedLeg::calcPEe2H(Vec3 q){
+Vec3 QuadrupedLeg::calcPEe2H(Vec3 q)//计算足端到基座坐标系下的向量坐标
+{
     float l1 = _sideSign * _abadLinkLength;
     float l2 = -_hipLinkLength;
     float l3 = -_kneeLinkLength;
@@ -51,17 +52,21 @@ Vec3 QuadrupedLeg::calcPEe2H(Vec3 q){
 }
 
 // Forward Kinematics
-Vec3 QuadrupedLeg::calcPEe2B(Vec3 q){
+Vec3 QuadrupedLeg::calcPEe2B(Vec3 q)//计算足端到机身坐标系下的向量坐标
+{
     return _pHip2B + calcPEe2H(q);
 }
 
 // Derivative Forward Kinematics
-Vec3 QuadrupedLeg::calcVEe(Vec3 q, Vec3 qd){
+Vec3 QuadrupedLeg::calcVEe(Vec3 q, Vec3 qd)//当关节角度为q，速度为qd时，计算足端速度向量
+{
     return calcJaco(q) * qd;
 }
 
 // Inverse Kinematics
-Vec3 QuadrupedLeg::calcQ(Vec3 pEe, FrameType frame){
+Vec3 QuadrupedLeg::calcQ(Vec3 pEe, FrameType frame)//计算足端坐标系为pEe时腿上三个关节的角度，而frame表示坐标pEe所在的坐标系，
+{
+    //FrameType::HIP和FrameType::BODY分别表示基座坐标系和机身坐标系
     Vec3 pEe2H;
     if(frame == FrameType::HIP)
         pEe2H = pEe;
@@ -105,7 +110,8 @@ Vec3 QuadrupedLeg::calcQd(Vec3 q, Vec3 vEe){
 }
 
 // Derivative Inverse Kinematics
-Vec3 QuadrupedLeg::calcQd(Vec3 pEe, Vec3 vEe, FrameType frame){
+Vec3 QuadrupedLeg::calcQd(Vec3 pEe, Vec3 vEe, FrameType frame)//根据足端在frame坐标系下的位置坐pEe和速度vEe，计算足端坐标系为pEe时腿上角速度qd
+{
     Vec3 q = calcQ(pEe, frame);
     return calcJaco(q).inverse() * vEe;
 }

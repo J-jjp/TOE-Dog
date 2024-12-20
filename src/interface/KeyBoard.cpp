@@ -1,7 +1,7 @@
 /**********************************************************************
  Copyright (c) 2020-2023, Unitree Robotics.Co.Ltd. All rights reserved.
 ***********************************************************************/
-#ifdef USE_KEYBOARD
+
 #include "interface/KeyBoard.h"
 #include <iostream>
 
@@ -26,19 +26,20 @@ KeyBoard::~KeyBoard(){
 UserCommand KeyBoard::checkCmd(){
     switch (_c){
     case '1':
-        return UserCommand::L2_B;
+        return UserCommand::NONE;
     case '2':
-        return UserCommand::L2_A;
-    case '3':
-        return UserCommand::L2_X;
+        std::cout<<"set fixed";
+        return UserCommand::FIXED;
+    // case '3':
+    //     return UserCommand::L2_X;
     case '4':
-        return UserCommand::START;
+        return UserCommand::FREE;
     case '0':
-        return UserCommand::L1_X;
-    case '9':
-        return UserCommand::L1_A;
-    case '8':
-        return UserCommand::L1_Y;
+        return UserCommand::PASS;
+    // case '9':
+    //     return UserCommand::L1_A;
+    // case '8':
+    //     return UserCommand::L1_Y;
     case ' ':
         userValue.setZero();
         return UserCommand::NONE;
@@ -80,12 +81,14 @@ void KeyBoard::changeValue(){
 }
 
 void* KeyBoard::runKeyBoard(void *arg){
+    std::cout<<"create thread";
     ((KeyBoard*)arg)->run(NULL);
     return NULL;
 }
 
 void* KeyBoard::run(void *arg){
     while(1){
+        // std::cout<<"wait for key";
         FD_ZERO(&set);
         FD_SET( fileno( stdin ), &set );
 
@@ -102,5 +105,3 @@ void* KeyBoard::run(void *arg){
     }
     return NULL;
 }
-
-#endif  // USE_KEYBOARD

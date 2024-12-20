@@ -60,10 +60,11 @@ protected:
     Mat3 _Ib;
 };
 
-class Ask3Robot : public QuadrupedRobot{
+class Go2Robot : public QuadrupedRobot{
 public:
-    Ask3Robot();
-    ~Ask3Robot(){};
+    Go2Robot();
+    ~Go2Robot(){};
 };
+
 
 #endif  // UNITREEROBOT_H

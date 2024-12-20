@@ -13,7 +13,7 @@ class IOInterface{
 public:
     IOInterface(){}
     ~IOInterface(){
-        // delete cmdPanel;
+        delete cmdPanel;
         }
     virtual void sendRecv(LowlevelCmd *cmd, LowlevelState *state){};
     //liu tao add---------------------------------
@@ -21,11 +21,11 @@ public:
     virtual void recv(LowlevelState *state){};
     virtual void sendRecv_debug(LowlevelCmd *cmd, LowlevelState *state,float kp,float kd){};
     //liu tao add---------------------------------
-    // void zeroCmdPanel(){cmdPanel->setZero();}
-    // void setPassive(){cmdPanel->setPassive();}
+    void zeroCmdPanel(){cmdPanel->setZero();}
+    void setPassive(){cmdPanel->setPassive();}
 
     protected:
-    // CmdPanel *cmdPanel;
+    CmdPanel *cmdPanel;
 };
 
 #endif  //IOINTERFACE_H
