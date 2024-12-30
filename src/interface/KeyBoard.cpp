@@ -36,8 +36,8 @@ UserCommand KeyBoard::checkCmd(){
         return UserCommand::FREE;
     case '0':
         return UserCommand::PASS;
-    // case '9':
-    //     return UserCommand::L1_A;
+    case '9':
+        return UserCommand::BALANCE;
     // case '8':
     //     return UserCommand::L1_Y;
     case ' ':

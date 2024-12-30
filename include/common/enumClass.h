@@ -20,7 +20,8 @@ enum class UserCommand{
     NONE,
     FIXED,       // fixedStand
     PASS,       // passive
-    FREE          // freeStand
+    FREE,          // freeStand
+    BALANCE    // balance
 };
 
 enum class FrameType{
@@ -45,7 +46,8 @@ enum class FSMStateName{
     INVALID,
     PASSIVE,
     FIXEDSTAND,
-    FREESTAND
+    FREESTAND,
+    BALANCE
 };
 
 #endif  // ENUMCLASS_H

@@ -124,7 +124,7 @@ Go2Robot::Go2Robot(){
     _robVelLimitX << -0.4, 0.4;
     _robVelLimitY << -0.3, 0.3;
     _robVelLimitYaw << -0.5, 0.5;
-    _mass = 12.0;
+    _mass = 15.0;
     _pcb << 0.0, 0.0, 0.0; 
     _Ib = Vec3(0.0792, 0.2085, 0.2265).asDiagonal();
 }

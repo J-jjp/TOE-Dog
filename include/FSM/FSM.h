@@ -9,6 +9,7 @@
 #include "State_FixedStand.h"
 #include "State_Passive.h"
 #include "State_FreeStand.h"
+#include "State_BalanceTest.h"
 #include "common/enumClass.h"
 #include "control/CtrlComponents.h"
 struct FSMStateList{
@@ -16,11 +17,13 @@ struct FSMStateList{
     State_Passive *passive;
     State_FixedStand *fixedStand;
     State_FreeStand *freeStand;
+    State_BalanceTest *balanceTest;
     void deletePtr(){
         delete invalid;
         delete passive;
         delete fixedStand;
         delete freeStand;
+        delete balanceTest;
     }
 };
 

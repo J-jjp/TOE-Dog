@@ -46,9 +46,9 @@ FSMStateName State_FixedStand::checkChange(){
     else if(_lowState->userCmd == UserCommand::FREE){
         return FSMStateName::FREESTAND;
     }
-    // else if(_lowState->userCmd == UserCommand::START){
-    //     return FSMStateName::TROTTING;
-    // }
+    else if(_lowState->userCmd == UserCommand::BALANCE){
+        return FSMStateName::BALANCE;
+    }
     // else if(_lowState->userCmd == UserCommand::L1_X){
     //     return FSMStateName::BALANCETEST;
     // }

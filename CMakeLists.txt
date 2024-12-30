@@ -4,8 +4,8 @@ project(A1)
 link_directories(/home/jiaojunpeng/mujoco-3.1.4/lib)
 
 link_directories(/home/jiaojunpeng/mujoco-3.1.4/simulate)
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# set(CMAKE_CXX_STANDARD 17)
+# set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_BUILD_TYPE Debug)
 # 设置 Mujoco 路径
 # 查找 Eigen3
@@ -18,6 +18,9 @@ endif()
 file(GLOB DOG_SRCS "src/FSM/*.cpp"
 "src/interface/*.cpp"
 "src/common/*.cpp"
+"src/Gait/*.cpp"
+"src/control/*.cpp"
+"src/quadProgpp/*.cc"
 "main.cpp")
 # 如果还有其他源文件目录，可以在这里继续添加
 # file(GLOB_RECURSE ADDITIONAL_SRCS "src/FCM/FCM.cpp")
@@ -25,12 +28,13 @@ file(GLOB DOG_SRCS "src/FSM/*.cpp"
 
 # 添加包含目录
 # find_package(GLOB  ${CMAKE_CURRENT_SOURCE_DIR}/simulate/*.cc)
-message(INFO ${DOG_SRCS})
+# message(INFO ${DOG_SRCS})
 
 include_directories(include  ${EIGEN3_INCLUDE_DIR}
 /home/jiaojunpeng/mujoco-3.1.4/simulate /home/jiaojunpeng/mujoco-3.1.4/include
 /home/jiaojunpeng/my_dog/dog_control/imgui
-/home/jiaojunpeng/my_dog/dog_control/imgui/backends include/interface include/message include/FSM)
+/home/jiaojunpeng/my_dog/dog_control/imgui/backends include/interface include/message include/FSM 
+include/Gait inclued/control inclued/thirdParty/quadProgpp)
 
 
 # 添加可执行文件

@@ -11,6 +11,7 @@ FSM::FSM(CtrlComponents *ctrlComp)
     _stateList.passive = new State_Passive(_ctrlComp);
     _stateList.fixedStand = new State_FixedStand(_ctrlComp);
     _stateList.freeStand = new State_FreeStand(_ctrlComp);
+    _stateList.balanceTest = new State_BalanceTest(_ctrlComp);
     initialize();
 }
 
@@ -26,17 +27,20 @@ void FSM::initialize(){
 }
 
 void FSM::run(){
+    std::cout<<"321";
     _startTime = getSystemTime();//获取当前时间
    // _ctrlComp->sendRecv();    //控制命令收发一次
    //在这里下发控制命令-----------------------------------------------------------------
     _ctrlComp->sendRecv();
 
     // _ctrlComp->runWaveGen();  //计算步态参数
-    // _ctrlComp->estimator->run(); //估计器迭代一次
+    _ctrlComp->estimator->run(); //估计器迭代一次
+    // std::cout<<"321"<<std::endl;
+    _ctrlComp->estimator->getPosition();
     // if(!checkSafty()){  //进行安全检测 如果当前不安全  就设置为阻尼模式 让机器人趴下
     //     _ctrlComp->ioInter->setPassive();
     // }
-    // std::cout<<"FSM";
+    // std::cout<<"321"<<std::endl;
     if(_mode == FSMMode::NORMAL){
         std::cout<<"current"<<_currentState->_stateNameString;
         _currentState->run();
@@ -88,6 +92,9 @@ FSMState* FSM::getNextState(FSMStateName stateName){
         break;
     case FSMStateName::FREESTAND:
         return _stateList.freeStand;
+        break;
+    case FSMStateName::BALANCE:
+        return _stateList.balanceTest;
         break;
     default:
         return _stateList.invalid;

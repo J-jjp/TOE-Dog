@@ -204,6 +204,33 @@ src/FSM/FSMState.cpp.s:
 	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/FSMState.cpp.s
 .PHONY : src/FSM/FSMState.cpp.s
 
+src/FSM/State_BalanceTest.o: src/FSM/State_BalanceTest.cpp.o
+
+.PHONY : src/FSM/State_BalanceTest.o
+
+# target to build an object file
+src/FSM/State_BalanceTest.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.o
+.PHONY : src/FSM/State_BalanceTest.cpp.o
+
+src/FSM/State_BalanceTest.i: src/FSM/State_BalanceTest.cpp.i
+
+.PHONY : src/FSM/State_BalanceTest.i
+
+# target to preprocess a source file
+src/FSM/State_BalanceTest.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.i
+.PHONY : src/FSM/State_BalanceTest.cpp.i
+
+src/FSM/State_BalanceTest.s: src/FSM/State_BalanceTest.cpp.s
+
+.PHONY : src/FSM/State_BalanceTest.s
+
+# target to generate assembly for a file
+src/FSM/State_BalanceTest.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.s
+.PHONY : src/FSM/State_BalanceTest.cpp.s
+
 src/FSM/State_FixedStand.o: src/FSM/State_FixedStand.cpp.o
 
 .PHONY : src/FSM/State_FixedStand.o
@@ -285,6 +312,114 @@ src/FSM/State_Passive.cpp.s:
 	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.s
 .PHONY : src/FSM/State_Passive.cpp.s
 
+src/Gait/FeetEndCal.o: src/Gait/FeetEndCal.cpp.o
+
+.PHONY : src/Gait/FeetEndCal.o
+
+# target to build an object file
+src/Gait/FeetEndCal.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.o
+.PHONY : src/Gait/FeetEndCal.cpp.o
+
+src/Gait/FeetEndCal.i: src/Gait/FeetEndCal.cpp.i
+
+.PHONY : src/Gait/FeetEndCal.i
+
+# target to preprocess a source file
+src/Gait/FeetEndCal.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.i
+.PHONY : src/Gait/FeetEndCal.cpp.i
+
+src/Gait/FeetEndCal.s: src/Gait/FeetEndCal.cpp.s
+
+.PHONY : src/Gait/FeetEndCal.s
+
+# target to generate assembly for a file
+src/Gait/FeetEndCal.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.s
+.PHONY : src/Gait/FeetEndCal.cpp.s
+
+src/Gait/GaitGenerator.o: src/Gait/GaitGenerator.cpp.o
+
+.PHONY : src/Gait/GaitGenerator.o
+
+# target to build an object file
+src/Gait/GaitGenerator.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.o
+.PHONY : src/Gait/GaitGenerator.cpp.o
+
+src/Gait/GaitGenerator.i: src/Gait/GaitGenerator.cpp.i
+
+.PHONY : src/Gait/GaitGenerator.i
+
+# target to preprocess a source file
+src/Gait/GaitGenerator.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.i
+.PHONY : src/Gait/GaitGenerator.cpp.i
+
+src/Gait/GaitGenerator.s: src/Gait/GaitGenerator.cpp.s
+
+.PHONY : src/Gait/GaitGenerator.s
+
+# target to generate assembly for a file
+src/Gait/GaitGenerator.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.s
+.PHONY : src/Gait/GaitGenerator.cpp.s
+
+src/Gait/WaveGenerator.o: src/Gait/WaveGenerator.cpp.o
+
+.PHONY : src/Gait/WaveGenerator.o
+
+# target to build an object file
+src/Gait/WaveGenerator.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.o
+.PHONY : src/Gait/WaveGenerator.cpp.o
+
+src/Gait/WaveGenerator.i: src/Gait/WaveGenerator.cpp.i
+
+.PHONY : src/Gait/WaveGenerator.i
+
+# target to preprocess a source file
+src/Gait/WaveGenerator.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.i
+.PHONY : src/Gait/WaveGenerator.cpp.i
+
+src/Gait/WaveGenerator.s: src/Gait/WaveGenerator.cpp.s
+
+.PHONY : src/Gait/WaveGenerator.s
+
+# target to generate assembly for a file
+src/Gait/WaveGenerator.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.s
+.PHONY : src/Gait/WaveGenerator.cpp.s
+
+src/common/LowPassFilter.o: src/common/LowPassFilter.cpp.o
+
+.PHONY : src/common/LowPassFilter.o
+
+# target to build an object file
+src/common/LowPassFilter.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.o
+.PHONY : src/common/LowPassFilter.cpp.o
+
+src/common/LowPassFilter.i: src/common/LowPassFilter.cpp.i
+
+.PHONY : src/common/LowPassFilter.i
+
+# target to preprocess a source file
+src/common/LowPassFilter.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.i
+.PHONY : src/common/LowPassFilter.cpp.i
+
+src/common/LowPassFilter.s: src/common/LowPassFilter.cpp.s
+
+.PHONY : src/common/LowPassFilter.s
+
+# target to generate assembly for a file
+src/common/LowPassFilter.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.s
+.PHONY : src/common/LowPassFilter.cpp.s
+
 src/common/unitreeLeg.o: src/common/unitreeLeg.cpp.o
 
 .PHONY : src/common/unitreeLeg.o
@@ -338,6 +473,87 @@ src/common/unitreeRobot.s: src/common/unitreeRobot.cpp.s
 src/common/unitreeRobot.cpp.s:
 	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.s
 .PHONY : src/common/unitreeRobot.cpp.s
+
+src/control/BalanceCtrl.o: src/control/BalanceCtrl.cpp.o
+
+.PHONY : src/control/BalanceCtrl.o
+
+# target to build an object file
+src/control/BalanceCtrl.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.o
+.PHONY : src/control/BalanceCtrl.cpp.o
+
+src/control/BalanceCtrl.i: src/control/BalanceCtrl.cpp.i
+
+.PHONY : src/control/BalanceCtrl.i
+
+# target to preprocess a source file
+src/control/BalanceCtrl.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.i
+.PHONY : src/control/BalanceCtrl.cpp.i
+
+src/control/BalanceCtrl.s: src/control/BalanceCtrl.cpp.s
+
+.PHONY : src/control/BalanceCtrl.s
+
+# target to generate assembly for a file
+src/control/BalanceCtrl.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.s
+.PHONY : src/control/BalanceCtrl.cpp.s
+
+src/control/ControlFrame.o: src/control/ControlFrame.cpp.o
+
+.PHONY : src/control/ControlFrame.o
+
+# target to build an object file
+src/control/ControlFrame.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/control/ControlFrame.cpp.o
+.PHONY : src/control/ControlFrame.cpp.o
+
+src/control/ControlFrame.i: src/control/ControlFrame.cpp.i
+
+.PHONY : src/control/ControlFrame.i
+
+# target to preprocess a source file
+src/control/ControlFrame.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/control/ControlFrame.cpp.i
+.PHONY : src/control/ControlFrame.cpp.i
+
+src/control/ControlFrame.s: src/control/ControlFrame.cpp.s
+
+.PHONY : src/control/ControlFrame.s
+
+# target to generate assembly for a file
+src/control/ControlFrame.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/control/ControlFrame.cpp.s
+.PHONY : src/control/ControlFrame.cpp.s
+
+src/control/Estimator.o: src/control/Estimator.cpp.o
+
+.PHONY : src/control/Estimator.o
+
+# target to build an object file
+src/control/Estimator.cpp.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/control/Estimator.cpp.o
+.PHONY : src/control/Estimator.cpp.o
+
+src/control/Estimator.i: src/control/Estimator.cpp.i
+
+.PHONY : src/control/Estimator.i
+
+# target to preprocess a source file
+src/control/Estimator.cpp.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/control/Estimator.cpp.i
+.PHONY : src/control/Estimator.cpp.i
+
+src/control/Estimator.s: src/control/Estimator.cpp.s
+
+.PHONY : src/control/Estimator.s
+
+# target to generate assembly for a file
+src/control/Estimator.cpp.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/control/Estimator.cpp.s
+.PHONY : src/control/Estimator.cpp.s
 
 src/interface/IOMujoco.o: src/interface/IOMujoco.cpp.o
 
@@ -393,6 +609,60 @@ src/interface/KeyBoard.cpp.s:
 	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.s
 .PHONY : src/interface/KeyBoard.cpp.s
 
+src/quadProgpp/Array.o: src/quadProgpp/Array.cc.o
+
+.PHONY : src/quadProgpp/Array.o
+
+# target to build an object file
+src/quadProgpp/Array.cc.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/quadProgpp/Array.cc.o
+.PHONY : src/quadProgpp/Array.cc.o
+
+src/quadProgpp/Array.i: src/quadProgpp/Array.cc.i
+
+.PHONY : src/quadProgpp/Array.i
+
+# target to preprocess a source file
+src/quadProgpp/Array.cc.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/quadProgpp/Array.cc.i
+.PHONY : src/quadProgpp/Array.cc.i
+
+src/quadProgpp/Array.s: src/quadProgpp/Array.cc.s
+
+.PHONY : src/quadProgpp/Array.s
+
+# target to generate assembly for a file
+src/quadProgpp/Array.cc.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/quadProgpp/Array.cc.s
+.PHONY : src/quadProgpp/Array.cc.s
+
+src/quadProgpp/QuadProg++.o: src/quadProgpp/QuadProg++.cc.o
+
+.PHONY : src/quadProgpp/QuadProg++.o
+
+# target to build an object file
+src/quadProgpp/QuadProg++.cc.o:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.o
+.PHONY : src/quadProgpp/QuadProg++.cc.o
+
+src/quadProgpp/QuadProg++.i: src/quadProgpp/QuadProg++.cc.i
+
+.PHONY : src/quadProgpp/QuadProg++.i
+
+# target to preprocess a source file
+src/quadProgpp/QuadProg++.cc.i:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.i
+.PHONY : src/quadProgpp/QuadProg++.cc.i
+
+src/quadProgpp/QuadProg++.s: src/quadProgpp/QuadProg++.cc.s
+
+.PHONY : src/quadProgpp/QuadProg++.s
+
+# target to generate assembly for a file
+src/quadProgpp/QuadProg++.cc.s:
+	$(MAKE) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.s
+.PHONY : src/quadProgpp/QuadProg++.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -411,6 +681,9 @@ help:
 	@echo "... src/FSM/FSMState.o"
 	@echo "... src/FSM/FSMState.i"
 	@echo "... src/FSM/FSMState.s"
+	@echo "... src/FSM/State_BalanceTest.o"
+	@echo "... src/FSM/State_BalanceTest.i"
+	@echo "... src/FSM/State_BalanceTest.s"
 	@echo "... src/FSM/State_FixedStand.o"
 	@echo "... src/FSM/State_FixedStand.i"
 	@echo "... src/FSM/State_FixedStand.s"
@@ -420,18 +693,45 @@ help:
 	@echo "... src/FSM/State_Passive.o"
 	@echo "... src/FSM/State_Passive.i"
 	@echo "... src/FSM/State_Passive.s"
+	@echo "... src/Gait/FeetEndCal.o"
+	@echo "... src/Gait/FeetEndCal.i"
+	@echo "... src/Gait/FeetEndCal.s"
+	@echo "... src/Gait/GaitGenerator.o"
+	@echo "... src/Gait/GaitGenerator.i"
+	@echo "... src/Gait/GaitGenerator.s"
+	@echo "... src/Gait/WaveGenerator.o"
+	@echo "... src/Gait/WaveGenerator.i"
+	@echo "... src/Gait/WaveGenerator.s"
+	@echo "... src/common/LowPassFilter.o"
+	@echo "... src/common/LowPassFilter.i"
+	@echo "... src/common/LowPassFilter.s"
 	@echo "... src/common/unitreeLeg.o"
 	@echo "... src/common/unitreeLeg.i"
 	@echo "... src/common/unitreeLeg.s"
 	@echo "... src/common/unitreeRobot.o"
 	@echo "... src/common/unitreeRobot.i"
 	@echo "... src/common/unitreeRobot.s"
+	@echo "... src/control/BalanceCtrl.o"
+	@echo "... src/control/BalanceCtrl.i"
+	@echo "... src/control/BalanceCtrl.s"
+	@echo "... src/control/ControlFrame.o"
+	@echo "... src/control/ControlFrame.i"
+	@echo "... src/control/ControlFrame.s"
+	@echo "... src/control/Estimator.o"
+	@echo "... src/control/Estimator.i"
+	@echo "... src/control/Estimator.s"
 	@echo "... src/interface/IOMujoco.o"
 	@echo "... src/interface/IOMujoco.i"
 	@echo "... src/interface/IOMujoco.s"
 	@echo "... src/interface/KeyBoard.o"
 	@echo "... src/interface/KeyBoard.i"
 	@echo "... src/interface/KeyBoard.s"
+	@echo "... src/quadProgpp/Array.o"
+	@echo "... src/quadProgpp/Array.i"
+	@echo "... src/quadProgpp/Array.s"
+	@echo "... src/quadProgpp/QuadProg++.o"
+	@echo "... src/quadProgpp/QuadProg++.i"
+	@echo "... src/quadProgpp/QuadProg++.s"
 .PHONY : help
 
 

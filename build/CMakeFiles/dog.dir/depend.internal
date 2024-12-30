@@ -4,22 +4,29 @@
 CMakeFiles/dog.dir/main.cpp.o
  ../include/FSM/FSM.h
  ../include/FSM/FSMState.h
+ ../include/FSM/State_BalanceTest.h
  ../include/FSM/State_FixedStand.h
  ../include/FSM/State_FreeStand.h
  ../include/FSM/State_Passive.h
+ ../include/Gait/WaveGenerator.h
+ ../include/common/LowPassFilter.h
  ../include/common/enumClass.h
  ../include/common/mathTools.h
  ../include/common/mathTypes.h
  ../include/common/timeMarker.h
  ../include/common/unitreeLeg.h
  ../include/common/unitreeRobot.h
+ ../include/control/BalanceCtrl.h
  ../include/control/CtrlComponents.h
+ ../include/control/Estimator.h
  ../include/interface/CmdPanel.h
  ../include/interface/IOInterface.h
  ../include/interface/IOMujoco.h
  ../include/interface/KeyBoard.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
+ ../include/thirdParty/quadProgpp/Array.hh
+ ../include/thirdParty/quadProgpp/QuadProg++.hh
  /home/jiaojunpeng/mujoco-3.1.4/include/mujoco/mjdata.h
  /home/jiaojunpeng/mujoco-3.1.4/include/mujoco/mjexport.h
  /home/jiaojunpeng/mujoco-3.1.4/include/mujoco/mjmacro.h
@@ -35,80 +42,182 @@ CMakeFiles/dog.dir/main.cpp.o
 CMakeFiles/dog.dir/src/FSM/FSM.cpp.o
  ../include/FSM/FSM.h
  ../include/FSM/FSMState.h
+ ../include/FSM/State_BalanceTest.h
  ../include/FSM/State_FixedStand.h
  ../include/FSM/State_FreeStand.h
  ../include/FSM/State_Passive.h
+ ../include/Gait/WaveGenerator.h
+ ../include/common/LowPassFilter.h
  ../include/common/enumClass.h
  ../include/common/mathTools.h
  ../include/common/mathTypes.h
  ../include/common/timeMarker.h
  ../include/common/unitreeLeg.h
  ../include/common/unitreeRobot.h
+ ../include/control/BalanceCtrl.h
  ../include/control/CtrlComponents.h
+ ../include/control/Estimator.h
  ../include/interface/CmdPanel.h
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
+ ../include/thirdParty/quadProgpp/Array.hh
+ ../include/thirdParty/quadProgpp/QuadProg++.hh
  /home/jiaojunpeng/my_dog/dog_control/src/FSM/FSM.cpp
 CMakeFiles/dog.dir/src/FSM/FSMState.cpp.o
  ../include/FSM/FSMState.h
+ ../include/Gait/WaveGenerator.h
+ ../include/common/LowPassFilter.h
  ../include/common/enumClass.h
  ../include/common/mathTools.h
  ../include/common/mathTypes.h
  ../include/common/timeMarker.h
  ../include/common/unitreeLeg.h
  ../include/common/unitreeRobot.h
+ ../include/control/BalanceCtrl.h
  ../include/control/CtrlComponents.h
+ ../include/control/Estimator.h
  ../include/interface/CmdPanel.h
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
+ ../include/thirdParty/quadProgpp/Array.hh
+ ../include/thirdParty/quadProgpp/QuadProg++.hh
  /home/jiaojunpeng/my_dog/dog_control/src/FSM/FSMState.cpp
+CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.o
+ ../include/FSM/FSMState.h
+ ../include/FSM/State_BalanceTest.h
+ ../include/Gait/WaveGenerator.h
+ ../include/common/LowPassFilter.h
+ ../include/common/enumClass.h
+ ../include/common/mathTools.h
+ ../include/common/mathTypes.h
+ ../include/common/timeMarker.h
+ ../include/common/unitreeLeg.h
+ ../include/common/unitreeRobot.h
+ ../include/control/BalanceCtrl.h
+ ../include/control/CtrlComponents.h
+ ../include/control/Estimator.h
+ ../include/interface/CmdPanel.h
+ ../include/interface/IOInterface.h
+ ../include/message/LowlevelCmd.h
+ ../include/message/LowlevelState.h
+ ../include/thirdParty/quadProgpp/Array.hh
+ ../include/thirdParty/quadProgpp/QuadProg++.hh
+ /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_BalanceTest.cpp
 CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.o
  ../include/FSM/FSMState.h
  ../include/FSM/State_FixedStand.h
+ ../include/Gait/WaveGenerator.h
+ ../include/common/LowPassFilter.h
  ../include/common/enumClass.h
  ../include/common/mathTools.h
  ../include/common/mathTypes.h
  ../include/common/timeMarker.h
  ../include/common/unitreeLeg.h
  ../include/common/unitreeRobot.h
+ ../include/control/BalanceCtrl.h
  ../include/control/CtrlComponents.h
+ ../include/control/Estimator.h
  ../include/interface/CmdPanel.h
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
+ ../include/thirdParty/quadProgpp/Array.hh
+ ../include/thirdParty/quadProgpp/QuadProg++.hh
  /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_FixedStand.cpp
 CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o
  ../include/FSM/FSMState.h
  ../include/FSM/State_FreeStand.h
+ ../include/Gait/WaveGenerator.h
+ ../include/common/LowPassFilter.h
  ../include/common/enumClass.h
  ../include/common/mathTools.h
  ../include/common/mathTypes.h
  ../include/common/timeMarker.h
  ../include/common/unitreeLeg.h
  ../include/common/unitreeRobot.h
+ ../include/control/BalanceCtrl.h
  ../include/control/CtrlComponents.h
+ ../include/control/Estimator.h
  ../include/interface/CmdPanel.h
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
+ ../include/thirdParty/quadProgpp/Array.hh
+ ../include/thirdParty/quadProgpp/QuadProg++.hh
  /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_FreeStand.cpp
 CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o
  ../include/FSM/FSMState.h
  ../include/FSM/State_Passive.h
+ ../include/Gait/WaveGenerator.h
+ ../include/common/LowPassFilter.h
  ../include/common/enumClass.h
  ../include/common/mathTools.h
  ../include/common/mathTypes.h
  ../include/common/timeMarker.h
  ../include/common/unitreeLeg.h
  ../include/common/unitreeRobot.h
+ ../include/control/BalanceCtrl.h
  ../include/control/CtrlComponents.h
+ ../include/control/Estimator.h
  ../include/interface/CmdPanel.h
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
+ ../include/thirdParty/quadProgpp/Array.hh
+ ../include/thirdParty/quadProgpp/QuadProg++.hh
  /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_Passive.cpp
+CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.o
+ ../include/Gait/FeetEndCal.h
+ ../include/Gait/WaveGenerator.h
+ ../include/common/LowPassFilter.h
+ ../include/common/enumClass.h
+ ../include/common/mathTools.h
+ ../include/common/mathTypes.h
+ ../include/common/timeMarker.h
+ ../include/common/unitreeLeg.h
+ ../include/common/unitreeRobot.h
+ ../include/control/BalanceCtrl.h
+ ../include/control/CtrlComponents.h
+ ../include/control/Estimator.h
+ ../include/interface/CmdPanel.h
+ ../include/interface/IOInterface.h
+ ../include/message/LowlevelCmd.h
+ ../include/message/LowlevelState.h
+ ../include/thirdParty/quadProgpp/Array.hh
+ ../include/thirdParty/quadProgpp/QuadProg++.hh
+ /home/jiaojunpeng/my_dog/dog_control/src/Gait/FeetEndCal.cpp
+CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.o
+ ../include/Gait/FeetEndCal.h
+ ../include/Gait/GaitGenerator.h
+ ../include/Gait/WaveGenerator.h
+ ../include/common/LowPassFilter.h
+ ../include/common/enumClass.h
+ ../include/common/mathTools.h
+ ../include/common/mathTypes.h
+ ../include/common/timeMarker.h
+ ../include/common/unitreeLeg.h
+ ../include/common/unitreeRobot.h
+ ../include/control/BalanceCtrl.h
+ ../include/control/CtrlComponents.h
+ ../include/control/Estimator.h
+ ../include/interface/CmdPanel.h
+ ../include/interface/IOInterface.h
+ ../include/message/LowlevelCmd.h
+ ../include/message/LowlevelState.h
+ ../include/thirdParty/quadProgpp/Array.hh
+ ../include/thirdParty/quadProgpp/QuadProg++.hh
+ /home/jiaojunpeng/my_dog/dog_control/src/Gait/GaitGenerator.cpp
+CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.o
+ ../include/Gait/WaveGenerator.h
+ ../include/common/enumClass.h
+ ../include/common/mathTypes.h
+ ../include/common/timeMarker.h
+ /home/jiaojunpeng/my_dog/dog_control/src/Gait/WaveGenerator.cpp
+CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.o
+ ../include/common/LowPassFilter.h
+ /home/jiaojunpeng/my_dog/dog_control/src/common/LowPassFilter.cpp
 CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTypes.h
@@ -123,6 +232,58 @@ CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o
  ../include/interface/CmdPanel.h
  ../include/message/LowlevelState.h
  /home/jiaojunpeng/my_dog/dog_control/src/common/unitreeRobot.cpp
+CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.o
+ ../include/common/enumClass.h
+ ../include/common/mathTools.h
+ ../include/common/mathTypes.h
+ ../include/common/timeMarker.h
+ ../include/common/unitreeLeg.h
+ ../include/common/unitreeRobot.h
+ ../include/control/BalanceCtrl.h
+ ../include/interface/CmdPanel.h
+ ../include/message/LowlevelState.h
+ ../include/thirdParty/quadProgpp/Array.hh
+ ../include/thirdParty/quadProgpp/QuadProg++.hh
+ /home/jiaojunpeng/my_dog/dog_control/src/control/BalanceCtrl.cpp
+CMakeFiles/dog.dir/src/control/ControlFrame.cpp.o
+ ../include/FSM/FSM.h
+ ../include/FSM/FSMState.h
+ ../include/FSM/State_BalanceTest.h
+ ../include/FSM/State_FixedStand.h
+ ../include/FSM/State_FreeStand.h
+ ../include/FSM/State_Passive.h
+ ../include/Gait/WaveGenerator.h
+ ../include/common/LowPassFilter.h
+ ../include/common/enumClass.h
+ ../include/common/mathTools.h
+ ../include/common/mathTypes.h
+ ../include/common/timeMarker.h
+ ../include/common/unitreeLeg.h
+ ../include/common/unitreeRobot.h
+ ../include/control/BalanceCtrl.h
+ ../include/control/ControlFrame.h
+ ../include/control/CtrlComponents.h
+ ../include/control/Estimator.h
+ ../include/interface/CmdPanel.h
+ ../include/interface/IOInterface.h
+ ../include/message/LowlevelCmd.h
+ ../include/message/LowlevelState.h
+ ../include/thirdParty/quadProgpp/Array.hh
+ ../include/thirdParty/quadProgpp/QuadProg++.hh
+ /home/jiaojunpeng/my_dog/dog_control/src/control/ControlFrame.cpp
+CMakeFiles/dog.dir/src/control/Estimator.cpp.o
+ ../include/Gait/WaveGenerator.h
+ ../include/common/LowPassFilter.h
+ ../include/common/enumClass.h
+ ../include/common/mathTools.h
+ ../include/common/mathTypes.h
+ ../include/common/timeMarker.h
+ ../include/common/unitreeLeg.h
+ ../include/common/unitreeRobot.h
+ ../include/control/Estimator.h
+ ../include/interface/CmdPanel.h
+ ../include/message/LowlevelState.h
+ /home/jiaojunpeng/my_dog/dog_control/src/control/Estimator.cpp
 CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTools.h
@@ -152,3 +313,10 @@ CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o
  ../include/interface/CmdPanel.h
  ../include/interface/KeyBoard.h
  /home/jiaojunpeng/my_dog/dog_control/src/interface/KeyBoard.cpp
+CMakeFiles/dog.dir/src/quadProgpp/Array.cc.o
+ ../include/thirdParty/quadProgpp/Array.hh
+ /home/jiaojunpeng/my_dog/dog_control/src/quadProgpp/Array.cc
+CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.o
+ ../include/thirdParty/quadProgpp/Array.hh
+ ../include/thirdParty/quadProgpp/QuadProg++.hh
+ /home/jiaojunpeng/my_dog/dog_control/src/quadProgpp/QuadProg++.cc

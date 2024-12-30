@@ -55,7 +55,7 @@ protected:
     Vec2 _robVelLimitY; //机器人在机身坐标系{b}下y轴方向的平移速度区间
     Vec2 _robVelLimitYaw; //机器人在机身坐标系{b}下绕z轴方向的转动角速度区间
     Vec34 _feetPosNormalStand;//代表各个足端中性落脚点在机身坐标系{b}下的坐标
-    double _mass; //机器人简化模型的质量
+    double _mass=0; //机器人简化模型的质量
     Vec3 _pcb;
     Mat3 _Ib;
 };

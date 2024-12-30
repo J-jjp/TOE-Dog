@@ -44,29 +44,18 @@ std::vector<float> default_dof_pos={0.1,0.8,-1.5 ,-0.1,0.8,-1.5,0.1,1,-1.5, -0.1
 // std::vector<float> default_dof_pos={0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.};//#默认角度需要与isacc一致
 std::vector<float> state_dof_pos(12);
 std::vector<float> state_dof_vel(12);
-float kp_all = 30;
+float kp_all = 30; 
 float kd_all = 0.75;
 bool running = true;
-
-std::vector<mjtNum> get_sensor_data(const mjModel *model, const mjData *data, const std::string &sensor_name)
+void setProcessScheduler()
 {
-  int sensor_id = mj_name2id(model, mjOBJ_SENSOR, sensor_name.c_str());
-  if (sensor_id == -1)
-  {
-    std::cout << "no found sensor" << std::endl;
-    return std::vector<mjtNum>();
-  }
-  int data_pos = 0;
-  for (int i = 0; i < sensor_id; i++)
-  {
-    data_pos += model->sensor_dim[i];
-  }
-  std::vector<mjtNum> sensor_data(model->sensor_dim[sensor_id]);
-  for (int i = 0; i < sensor_data.size(); i++)
-  {
-    sensor_data[i] = data->sensordata[data_pos + i];
-  }
-  return sensor_data;
+    pid_t pid = getpid();
+    sched_param param;
+    param.sched_priority = sched_get_priority_max(SCHED_FIFO);
+    if (sched_setscheduler(pid, SCHED_FIFO, &param) == -1)
+    {
+        std::cout << "[ERROR] Function setProcessScheduler failed." << std::endl;
+    }
 }
 // keyboard callback
 void keyboard(GLFWwindow* window, int key, int scancode, int act, int mods) {
@@ -159,6 +148,9 @@ int main(int argc, const char** argv) {
   if (!glfwInit()) {
     mju_error("Could not initialize GLFW");
   }
+    setProcessScheduler();
+  /* set the print format */
+  std::cout << std::fixed << std::setprecision(3);
   // create window, make OpenGL context current, request v-sync
   GLFWwindow* window = glfwCreateWindow(1200, 900, "Demo", NULL, NULL);
   glfwMakeContextCurrent(window);
@@ -186,12 +178,18 @@ int main(int argc, const char** argv) {
     int x=0;
     float _percent=0;
     float _duration=1000;
-    ioInter = new IOMujoco(d);
+    ioInter = new IOMujoco(d,m);
     std::vector<float> start_pose(12);
+    
     CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
     ctrlComp->ctrlPlatform = ctrlPlat;
     ctrlComp->dt = 0.0025; // run at 400hz  控制周期       
     ctrlComp->running = &running;  //机器人控制的状态  运行 or 不运行
+    // ctrlComp->estimator->getPosition();
+    std::cout<<"5555"<<std::endl;
+    ctrlComp->robotModel=new Go2Robot();
+    ctrlComp->geneObj();
+    
     FSM *_FSMController = new FSM(ctrlComp);
     ctrlComp->robotModel = new Go2Robot();
   // run main loop, target real-time simulation and 60 fps rendering
@@ -204,7 +202,8 @@ int main(int argc, const char** argv) {
     float kp=0;
     float kd=0;
     _FSMController->run();
-
+    ctrlComp->estimator->getPosition();
+    std::cout<<"6666"<<std::endl;
     // CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
     // ControlFrame ctrlFrame(ctrlComp);
     // if (x>1000)
