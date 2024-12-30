@@ -13,8 +13,7 @@ public:
 	~ControlFrame(){
 		delete _FSMController;
 	}
-	void run();git remote -v
-
+	void run();
 private:
 	FSM* _FSMController;
 	CtrlComponents *_ctrlComp;
