@@ -135,9 +135,22 @@ CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_Passive.cpp -o CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.s
 
+CMakeFiles/dog.dir/src/FSM/State_Rl.cpp.o: CMakeFiles/dog.dir/flags.make
+CMakeFiles/dog.dir/src/FSM/State_Rl.cpp.o: ../src/FSM/State_Rl.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/dog.dir/src/FSM/State_Rl.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/FSM/State_Rl.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_Rl.cpp
+
+CMakeFiles/dog.dir/src/FSM/State_Rl.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/FSM/State_Rl.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_Rl.cpp > CMakeFiles/dog.dir/src/FSM/State_Rl.cpp.i
+
+CMakeFiles/dog.dir/src/FSM/State_Rl.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/FSM/State_Rl.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_Rl.cpp -o CMakeFiles/dog.dir/src/FSM/State_Rl.cpp.s
+
 CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o: ../src/common/unitreeLeg.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/common/unitreeLeg.cpp
 
 CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.i: cmake_force
@@ -150,7 +163,7 @@ CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.s: cmake_force
 
 CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o: ../src/common/unitreeRobot.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/common/unitreeRobot.cpp
 
 CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.i: cmake_force
@@ -163,7 +176,7 @@ CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.s: cmake_force
 
 CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o: ../src/interface/IOMujoco.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/interface/IOMujoco.cpp
 
 CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.i: cmake_force
@@ -176,7 +189,7 @@ CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.s: cmake_force
 
 CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o: ../src/interface/KeyBoard.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/interface/KeyBoard.cpp
 
 CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.i: cmake_force
@@ -195,6 +208,7 @@ dog_OBJECTS = \
 "CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.o" \
 "CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o" \
 "CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o" \
+"CMakeFiles/dog.dir/src/FSM/State_Rl.cpp.o" \
 "CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o" \
 "CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o" \
 "CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o" \
@@ -209,6 +223,7 @@ dog: CMakeFiles/dog.dir/src/FSM/FSMState.cpp.o
 dog: CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.o
 dog: CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o
 dog: CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o
+dog: CMakeFiles/dog.dir/src/FSM/State_Rl.cpp.o
 dog: CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o
 dog: CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o
 dog: CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o
@@ -216,7 +231,7 @@ dog: CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o
 dog: CMakeFiles/dog.dir/build.make
 dog: /home/jiaojunpeng/mujoco-3.1.4/lib/libmujoco.so
 dog: CMakeFiles/dog.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable dog"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable dog"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dog.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

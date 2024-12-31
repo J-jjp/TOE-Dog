@@ -9,10 +9,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_BUILD_TYPE Debug)
 # 设置 Mujoco 路径
 # 查找 Eigen3
-find_package(Eigen3 REQUIRED)
+find_package(Eigen3 REQUIRED )
 if(NOT EIGEN3_FOUND)
   message(FATAL_ERROR "Could not find Eigen3")
 endif()
+
+include_directories(${TORCH_INCLUDE_DIRS})
 
 # 收集源文件
 file(GLOB DOG_SRCS "src/FSM/*.cpp"

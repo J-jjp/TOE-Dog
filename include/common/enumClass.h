@@ -45,7 +45,8 @@ enum class FSMStateName{
     INVALID,
     PASSIVE,
     FIXEDSTAND,
-    FREESTAND
+    FREESTAND,
+    Rl
 };
 
 #endif  // ENUMCLASS_H
