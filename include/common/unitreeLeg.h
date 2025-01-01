@@ -37,5 +37,11 @@ public:
     Go2Leg(const int legID, const Vec3 pHip2B):
         QuadrupedLeg(legID, 0.0955, 0.213, 0.213, pHip2B){} //三个物理参数 要通过solidworks参数进行测量
     ~Go2Leg(){}
-};//0.0955
+};
+class ToeLeg : public QuadrupedLeg{
+public:
+    ToeLeg(const int legID, const Vec3 pHip2B):
+        QuadrupedLeg(legID, 0.112, 0.23, 0.23, pHip2B){} //三个物理参数 要通过solidworks参数进行测量
+    ~ToeLeg(){}
+};
 #endif  // UNITREELEG_H

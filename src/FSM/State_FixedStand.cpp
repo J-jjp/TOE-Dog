@@ -10,14 +10,15 @@ State_FixedStand::State_FixedStand(CtrlComponents *ctrlComp)
 void State_FixedStand::enter(){
     for(int i=0; i<4; i++){
         if(_ctrlComp->ctrlPlatform == CtrlPlatform::Mujoco){
-         _lowCmd->setSimStanceGain(i);
-        // }
-        // else if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
-        //     _lowCmd->setRealStanceGain(i);
-        // }
+            _lowCmd->setSimStanceGain(i);
+            _duration=100;
         }
-        _lowCmd->setZeroDq(i);
-        _lowCmd->setZeroTau(i);
+        else if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
+            _lowCmd->setRealStanceGain(i);
+            _duration=400;
+        }
+        // _lowCmd->setZeroDq(i);
+        // _lowCmd->setZeroTau(i);
     }
     for(int i=0; i<12; i++){
         _lowCmd->motorCmd[i].q = _lowState->motorState[i].q;
@@ -27,6 +28,10 @@ void State_FixedStand::enter(){
 }
 
 void State_FixedStand::run(){
+        for (size_t i = 0; i < 12; i++)
+    {
+        std::cout<<"\t第"<<i<<"条"<< _startPos[i];
+    }
     _percent += (float)1/_duration;
     _percent = _percent > 1 ? 1 : _percent;
     for(int j=0; j<12; j++){

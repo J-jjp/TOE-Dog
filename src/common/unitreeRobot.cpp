@@ -112,19 +112,36 @@ Mat3 QuadrupedRobot::getJaco(LowlevelState &state, int legID){
 
 //自己机器人的一些初始化参数
 Go2Robot::Go2Robot(){
-    _Legs[0] = new Go2Leg(0, Vec3( 0.1934,0.0465,0));
-    _Legs[1] = new Go2Leg(1, Vec3( 0.1934, 0.0465,0));
-    _Legs[2] = new Go2Leg(2, Vec3(-0.1934,-0.0465,0));
-    _Legs[3] = new Go2Leg(3, Vec3(-0.1934, 0.0465,0));
+    _Legs[0] = new Go2Leg(0, Vec3( 0.1934, 0.0465,0));
+    _Legs[1] = new Go2Leg(1, Vec3( 0.1934,-0.0465,0));
+    _Legs[2] = new Go2Leg(2, Vec3(-0.1934, 0.0465,0));
+    _Legs[3] = new Go2Leg(3, Vec3(-0.1934,-0.0465,0));
 
-    _feetPosNormalStand <<  0.1881,  0.1881, -0.1881, -0.1881,
-                           -0.1300,  0.1300, -0.1300,  0.1300,
-                           -0.3200, -0.3200, -0.3200, -0.3200;
+    // _feetPosNormalStand <<  0.1881,  0.1881, -0.1881, -0.1881,
+    //                        -0.1300,  0.1300, -0.1300,  0.1300,
+    //                        -0.3200, -0.3200, -0.3200, -0.3200;
 
-    _robVelLimitX << -0.4, 0.4;
-    _robVelLimitY << -0.3, 0.3;
-    _robVelLimitYaw << -0.5, 0.5;
-    _mass = 12.0;
-    _pcb << 0.0, 0.0, 0.0; 
-    _Ib = Vec3(0.0792, 0.2085, 0.2265).asDiagonal();
+    // _robVelLimitX << -0.4, 0.4;
+    // _robVelLimitY << -0.3, 0.3;
+    // _robVelLimitYaw << -0.5, 0.5;
+    // _mass = 12.0;
+    // _pcb << 0.0, 0.0, 0.0; 
+    // _Ib = Vec3(0.0792, 0.2085, 0.2265).asDiagonal();
+}
+ToeRobot::ToeRobot(){
+    _Legs[0] = new ToeLeg(0, Vec3( 0.1955, 0.0515,0));
+    _Legs[1] = new ToeLeg(1, Vec3( 0.1955,-0.0515,0));
+    _Legs[2] = new ToeLeg(2, Vec3(-0.1955, 0.0515,0));
+    _Legs[3] = new ToeLeg(3, Vec3(-0.1955,-0.0515,0));
+
+    // _feetPosNormalStand <<  0.1881,  0.1881, -0.1881, -0.1881,
+    //                        -0.1300,  0.1300, -0.1300,  0.1300,
+    //                        -0.3200, -0.3200, -0.3200, -0.3200;
+
+    // _robVelLimitX << -0.4, 0.4;
+    // _robVelLimitY << -0.3, 0.3;
+    // _robVelLimitYaw << -0.5, 0.5;
+    // _mass = 12.0;
+    // _pcb << 0.0, 0.0, 0.0; 
+    // _Ib = Vec3(0.0792, 0.2085, 0.2265).asDiagonal();
 }

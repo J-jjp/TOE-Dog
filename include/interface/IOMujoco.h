@@ -14,9 +14,8 @@ public:
         std::cout<<"generate interfaces"<<std::endl;
         cmdPanel = new KeyBoard();
     }
-    ~IOMujoco(){};
+    ~IOMujoco();
     void sendRecv(LowlevelCmd *cmd, LowlevelState *state);
-    void sendRecv_debug(LowlevelCmd *cmd, LowlevelState *state,float kp,float kd);
     void send(LowlevelCmd *cmd);
     void recv(LowlevelState *state);
 private:

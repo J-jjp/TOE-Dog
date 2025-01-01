@@ -38,11 +38,11 @@ void FSM::run(){
     // }
     // std::cout<<"FSM";
     if(_mode == FSMMode::NORMAL){
-        std::cout<<"current"<<_currentState->_stateNameString;
+        std::cout<<"current"<<_currentState->_stateNameString<<std::endl;
         _currentState->run();
         if (_ctrlComp->lowState->userCmd==UserCommand::PASS)
         {
-            std::cout<<"FSM";
+            std::cout<<"FSMPASS"<<std::endl;
         }
         _nextStateName = _currentState->checkChange();
         if(_nextStateName != _currentState->_stateName){

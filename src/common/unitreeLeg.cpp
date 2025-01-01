@@ -15,9 +15,9 @@ QuadrupedLeg::QuadrupedLeg(int legID, float abadLinkLength, float hipLinkLength,
              _kneeLinkLength(kneeLinkLength), 
              _pHip2B(pHip2B){
     if (legID == 0 || legID == 2)
-        _sideSign = -1;
-    else if (legID == 1 || legID == 3)
         _sideSign = 1;
+    else if (legID == 1 || legID == 3)
+        _sideSign = -1;
     else{
         std::cout << "Leg ID incorrect!" << std::endl;
         exit(-1);

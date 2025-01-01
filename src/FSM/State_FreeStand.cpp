@@ -20,9 +20,9 @@ void State_FreeStand::enter(){
         if(_ctrlComp->ctrlPlatform == CtrlPlatform::Mujoco){
             _lowCmd->setSimStanceGain(i);
         }
-        // else if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
-        //     _lowCmd->setRealStanceGain(i);
-        // }
+        else if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
+            _lowCmd->setRealStanceGain(i);
+        }
         _lowCmd->setZeroDq(i);
         _lowCmd->setZeroTau(i);
     }
@@ -30,9 +30,9 @@ void State_FreeStand::enter(){
     for(int i=0; i<12; i++){
         _lowCmd->motorCmd[i].q = _lowState->motorState[i].q;
     }
-    _initVecOX = _ctrlComp->robotModel->getX(*_lowState);
-    _initVecXP = _ctrlComp->robotModel->getVecXP(*_lowState);
-
+    _initVecOX = _ctrlComp->robotModel->getX(*_lowState);//0号脚的坐标
+    _initVecXP = _ctrlComp->robotModel->getVecXP(*_lowState);//四个脚的坐标以0号脚为原点
+    
     _ctrlComp->setAllStance();
     _ctrlComp->ioInter->zeroCmdPanel();
 }
@@ -65,12 +65,12 @@ FSMStateName State_FreeStand::checkChange(){
 }
 
 Vec34 State_FreeStand::_calcOP(float row, float pitch, float yaw, float height){
-    Vec3 vecXO = -_initVecOX;
+    Vec3 vecXO = -_initVecOX;//0号脚的坐标
     vecXO(2) += height;
 
-    RotMat rotM = rpyToRotMat(row, pitch, yaw);
+    RotMat rotM = rpyToRotMat(row, pitch, yaw);//旋转矩阵
 
-    HomoMat Tsb = homoMatrix(vecXO, rotM);
+    HomoMat Tsb = homoMatrix(vecXO, rotM);//合为齐次矩阵
     HomoMat Tbs = homoMatrixInverse(Tsb);
 
     Vec4 tempVec4;

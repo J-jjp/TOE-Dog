@@ -146,7 +146,7 @@ int main(int argc, const char** argv) {
   if (std::strlen(argv[1])>4 && !std::strcmp(argv[1]+std::strlen(argv[1])-4, ".mjb")) {
     m = mj_loadModel(argv[1], 0);
   } else {
-    m = mj_loadXML("/home/jiaojunpeng/my_dog/dog_control/go2/xml/scene.xml", 0, error, 1000);
+    m = mj_loadXML("../go2/xml/scene.xml", 0, error, 1000);
   }
   if (!m) {
     mju_error("Load model error: %s", error);
@@ -188,6 +188,7 @@ int main(int argc, const char** argv) {
     float _duration=1000;
     ioInter = new IOMujoco(d);
     std::vector<float> start_pose(12);
+    ctrlPlat = CtrlPlatform::Mujoco;
     CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
     ctrlComp->ctrlPlatform = ctrlPlat;
     ctrlComp->dt = 0.0025; // run at 400hz  控制周期       
@@ -203,7 +204,9 @@ int main(int argc, const char** argv) {
     mjtNum simstart = d->time;
     float kp=0;
     float kd=0;
-    _FSMController->run();
+    if(x>500){
+          _FSMController->run();
+    }
 
     // CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
     // ControlFrame ctrlFrame(ctrlComp);

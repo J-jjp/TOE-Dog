@@ -13,20 +13,19 @@ void State_Passive::enter(){
             _lowCmd->motorCmd[i].q = 0;
             _lowCmd->motorCmd[i].dq = 0;
             _lowCmd->motorCmd[i].Kp = 0;
-            _lowCmd->motorCmd[i].Kd = 0.4;
+            _lowCmd->motorCmd[i].Kd = 0.1;
             _lowCmd->motorCmd[i].tau = 0;
         }
     }
-    // else if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
-    //     for(int i=0; i<12; i++){
-    //         _lowCmd->motorCmd[i].mode = 1;
-    //         _lowCmd->motorCmd[i].q = 0;
-    //         _lowCmd->motorCmd[i].dq = 0;
-    //         _lowCmd->motorCmd[i].Kp = 0;
-    //         _lowCmd->motorCmd[i].Kd = 3;
-    //         _lowCmd->motorCmd[i].tau = 0;
-    //     }
-    // }
+    else if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
+        for(int i=0; i<12; i++){
+            _lowCmd->motorCmd[i].q = 0;
+            _lowCmd->motorCmd[i].dq = 0;
+            _lowCmd->motorCmd[i].Kp = 0;
+            _lowCmd->motorCmd[i].Kd = 8;
+            _lowCmd->motorCmd[i].tau = 0;
+        }
+    }
 
     _ctrlComp->setAllSwing();
 }

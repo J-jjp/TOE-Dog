@@ -10,49 +10,21 @@
 
 
 
-// IOSIM::~IOSIM(){
-//     delete cmdPanel;
-// }
+IOMujoco::~IOMujoco(){
+    delete cmdPanel;
+}
 
 float IOMujoco::pd_control(float target_q,float q,float kp,float target_dq,float dq,float kd){
     float tau=(target_q - q) * kp + (target_dq - dq) * kd;
     return tau;
 }
-
-void IOMujoco::sendRecv_debug( LowlevelCmd *cmd, LowlevelState *state,float kp,float kd) {
-    recv(state);
-    for(int i=0; i < 12; i++){
-        cmd->motorCmd[i].tau=pd_control(
-        cmd->motorCmd[i].q,state->motorState[i].q,kp,0,state->motorState[i].dq,kd);
-    }
-    send(cmd);
-    if (cmdPanel->userCmd==UserCommand::NONE)
-    {
-        std::cout<<"successNONE";
-    }
-        if (cmdPanel->userCmd==UserCommand::FIXED)
-    {
-        std::cout<<"successFIXED";
-    }
-        if (cmdPanel->userCmd==UserCommand::PASS)
-    {
-        std::cout<<"successPASS";
-    }
-        if (cmdPanel->userCmd==UserCommand::FREE)
-    {
-        std::cout<<"successFREE";
-    }
-    state->userCmd = cmdPanel->getUserCmd();
-
-    state->userValue = cmdPanel->getUserValue();
-}
 void IOMujoco::sendRecv( LowlevelCmd *cmd, LowlevelState *state) {
     recv(state);
-    std::cout<<"pose"<<cmd->motorCmd[0].Kd;
     for(int i=0; i < 12; i++){
         cmd->motorCmd[i].tau=pd_control(
         cmd->motorCmd[i].q,state->motorState[i].q,cmd->motorCmd[i].Kp,cmd->motorCmd[i].dq,state->motorState[i].dq,cmd->motorCmd[i].Kd);
     }
+    std::cout<<"q"<<cmd->motorCmd[1].q<<"kp"<<cmd->motorCmd[1].Kp<<"kd"<<cmd->motorCmd[1].Kd;
     send(cmd);
     state->userCmd = cmdPanel->getUserCmd();
     state->userValue = cmdPanel->getUserValue();
@@ -62,6 +34,7 @@ void IOMujoco::send( LowlevelCmd *lowCmd) {
     for(int i=0; i < 12; i++){
         _data->ctrl[i] = lowCmd->motorCmd[i].tau;
     }
+    std::cout<<"send0:"<<_data->ctrl[0]<<"1:"<<_data->ctrl[1]<<std::endl;
 }
 
 // void IOMujoco::recvState(LowlevelState *state){

@@ -65,6 +65,11 @@ public:
     Go2Robot();
     ~Go2Robot(){};
 };
+class ToeRobot : public QuadrupedRobot{
+public:
+    ToeRobot();
+    ~ToeRobot(){};
+};
 
 
 #endif  // UNITREEROBOT_H

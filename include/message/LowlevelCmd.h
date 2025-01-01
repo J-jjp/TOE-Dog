@@ -7,14 +7,14 @@
 #include "common/mathTypes.h"
 #include "common/mathTools.h"
 
-struct MotorCmd{
+struct MotorCmd_user{
     float q;
     float dq;
     float tau;
     float Kp;
     float Kd;
 
-    MotorCmd(){
+    MotorCmd_user(){
         q = 0;
         dq = 0;
         tau = 0;
@@ -24,7 +24,7 @@ struct MotorCmd{
 };
 //该结构体是控制器发送给机身12个电机的命令
 struct LowlevelCmd{
-    MotorCmd motorCmd[12];
+    MotorCmd_user motorCmd[12];
 
     void setQ(Vec12 q){
         for(int i(0); i<12; ++i){
@@ -80,12 +80,28 @@ struct LowlevelCmd{
         motorCmd[legID*3+2].Kd = 2;
     }
     void setRealStanceGain(int legID){
-        motorCmd[legID*3+0].Kp = 90;
-        motorCmd[legID*3+0].Kd = 3;
-        motorCmd[legID*3+1].Kp = 80;
-        motorCmd[legID*3+1].Kd = 3;
-        motorCmd[legID*3+2].Kp = 120;
-        motorCmd[legID*3+2].Kd = 4;
+        motorCmd[legID*3+0].Kp = 0.015;
+        motorCmd[legID*3+0].Kd = 0.001;
+        motorCmd[legID*3+1].Kp = 0.022;
+        motorCmd[legID*3+1].Kd = 0.001;
+        motorCmd[legID*3+2].Kp = 0.022;
+        motorCmd[legID*3+2].Kd = 0.001;
+        if (legID == 0)
+        {
+            motorCmd[legID*3+2].tau=-0.15;
+        }
+        else if (legID == 1)
+        {
+            motorCmd[legID*3+2].tau=-0.15;
+        }
+        else if (legID == 2)
+        {
+            motorCmd[legID*3+2].tau=0.35;
+        }
+        else if (legID == 3)
+        {
+            motorCmd[legID*3+2].tau=-0.35;
+        }
     }
     void setZeroGain(int legID){
         motorCmd[legID*3+0].Kp = 0;
