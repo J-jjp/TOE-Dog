@@ -85,5 +85,9 @@ Vec34 State_FreeStand::_calcOP(float row, float pitch, float yaw, float height){
 
 void State_FreeStand::_calcCmd(Vec34 vecOP){
     Vec12 q = _ctrlComp->robotModel->getQ(vecOP, FrameType::BODY);
+    for (size_t i = 0; i < 12; i++)
+    {
+        std::cout<<"\tsend第"<<i<<"条"<<q[i];
+    }
     _lowCmd->setQ(q);
 }

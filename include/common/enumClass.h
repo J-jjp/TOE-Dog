@@ -20,7 +20,8 @@ enum class UserCommand{
     NONE,
     FIXED,       // fixedStand
     PASS,       // passive
-    FREE          // freeStand
+    FREE,          // freeStand
+    RL
 };
 
 enum class FrameType{

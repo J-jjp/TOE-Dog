@@ -28,7 +28,6 @@ UserCommand KeyBoard::checkCmd(){
     case '1':
         return UserCommand::NONE;
     case '2':
-        std::cout<<"set fixed";
         return UserCommand::FIXED;
     // case '3':
     //     return UserCommand::L2_X;

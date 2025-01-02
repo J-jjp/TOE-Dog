@@ -28,10 +28,6 @@ void State_FixedStand::enter(){
 }
 
 void State_FixedStand::run(){
-        for (size_t i = 0; i < 12; i++)
-    {
-        std::cout<<"\t第"<<i<<"条"<< _startPos[i];
-    }
     _percent += (float)1/_duration;
     _percent = _percent > 1 ? 1 : _percent;
     for(int j=0; j<12; j++){
@@ -51,9 +47,9 @@ FSMStateName State_FixedStand::checkChange(){
     else if(_lowState->userCmd == UserCommand::FREE){
         return FSMStateName::FREESTAND;
     }
-    // else if(_lowState->userCmd == UserCommand::START){
-    //     return FSMStateName::TROTTING;
-    // }
+    else if(_lowState->userCmd == UserCommand::RL){
+        return FSMStateName::Rl;
+    }
     // else if(_lowState->userCmd == UserCommand::L1_X){
     //     return FSMStateName::BALANCETEST;
     // }

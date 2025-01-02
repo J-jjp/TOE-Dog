@@ -4,11 +4,14 @@
 #include "FSM/State_Rl.h"
 State_Rl::State_Rl(CtrlComponents *ctrlComp)
              :FSMState(ctrlComp, FSMStateName::FREESTAND, "free stand"){
-
+   _net = std::shared_ptr<Interpreter> (Interpreter::createFromFile("/home/jiaojunpeng/my_dog/TOE-Dog/go2.mnn"));
+    ScheduleConfig config;
+    config.numThread = 2;
+    _session = _net->createSession(config);
 }
 
 void State_Rl::enter(){
-
+    initBuffer();
 }
 
 void State_Rl::run(){
@@ -29,4 +32,15 @@ FSMStateName State_Rl::checkChange(){
     else{
         return FSMStateName::Rl;
     }
+}
+void State_Rl::initBuffer(){
+//   obs_mnn = _net->getSessionInput(_session, nullptr);
+//   act_mnn = _net->getSessionOutput(_session, nullptr);
+
+//   obs_dim = obs_mnn->shape().back();
+//   std::cerr << "obs_dim: " << obs_dim << std::endl;
+
+//   currentActionPtr = new float[act_mnn->shape().back()]();
+//   lastActionPtr = new float[act_mnn->shape().back()]();
+//   std::cerr << "mnn net init finished" << std::endl;
 }

@@ -11,6 +11,7 @@ FSM::FSM(CtrlComponents *ctrlComp)
     _stateList.passive = new State_Passive(_ctrlComp);
     _stateList.fixedStand = new State_FixedStand(_ctrlComp);
     _stateList.freeStand = new State_FreeStand(_ctrlComp);
+    _stateList.rl = new State_Rl(_ctrlComp);
     initialize();
 }
 
@@ -88,6 +89,9 @@ FSMState* FSM::getNextState(FSMStateName stateName){
         break;
     case FSMStateName::FREESTAND:
         return _stateList.freeStand;
+        break;
+    case FSMStateName::Rl:
+        return _stateList.rl;
         break;
     default:
         return _stateList.invalid;

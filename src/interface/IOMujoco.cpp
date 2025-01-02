@@ -20,6 +20,10 @@ float IOMujoco::pd_control(float target_q,float q,float kp,float target_dq,float
 }
 void IOMujoco::sendRecv( LowlevelCmd *cmd, LowlevelState *state) {
     recv(state);
+    // for (size_t i = 0; i < 12; i++)
+    // {
+    //     std::cout<<"\t第"<<i<<"条"<< cmd->motorCmd[i].q;
+    // }
     for(int i=0; i < 12; i++){
         cmd->motorCmd[i].tau=pd_control(
         cmd->motorCmd[i].q,state->motorState[i].q,cmd->motorCmd[i].Kp,cmd->motorCmd[i].dq,state->motorState[i].dq,cmd->motorCmd[i].Kd);
@@ -34,7 +38,6 @@ void IOMujoco::send( LowlevelCmd *lowCmd) {
     for(int i=0; i < 12; i++){
         _data->ctrl[i] = lowCmd->motorCmd[i].tau;
     }
-    std::cout<<"send0:"<<_data->ctrl[0]<<"1:"<<_data->ctrl[1]<<std::endl;
 }
 
 // void IOMujoco::recvState(LowlevelState *state){

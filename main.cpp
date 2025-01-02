@@ -41,7 +41,6 @@ double lastx = 0;
 double lasty = 0;
 
 std::vector<float> default_dof_pos={0.1,0.8,-1.5 ,-0.1,0.8,-1.5,0.1,1,-1.5, -0.1,1.,-1.5};//#默认角度需要与isacc一致
-// std::vector<float> default_dof_pos={0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.};//#默认角度需要与isacc一致
 std::vector<float> state_dof_pos(12);
 std::vector<float> state_dof_vel(12);
 float kp_all = 30;
@@ -195,47 +194,14 @@ int main(int argc, const char** argv) {
     ctrlComp->running = &running;  //机器人控制的状态  运行 or 不运行
     FSM *_FSMController = new FSM(ctrlComp);
     ctrlComp->robotModel = new Go2Robot();
-  // run main loop, target real-time simulation and 60 fps rendering
   while (!glfwWindowShouldClose(window)) {
-    // advance interactive simulation for 1/60 sec
-    //  Assuming MuJoCo can simulate faster than real-time, which it usually can,
-    //  this loop will finish on time for the next frame to be rendered at 60 fps.
-    //  Otherwise add a cpu timer and exit this loop when it is time to render.
+
     mjtNum simstart = d->time;
     float kp=0;
     float kd=0;
     if(x>500){
           _FSMController->run();
     }
-
-    // CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
-    // ControlFrame ctrlFrame(ctrlComp);
-    // if (x>1000)
-    // {
-    //   if (x>2500)
-    //   {
-    //     std::cout<<"faf";
-    //     // if (x>3000)
-    //     // {
-    //     //   if (x>3500)
-    //     //   {
-    //     //     ctrlComp->lowState->userCmd = UserCommand::FREE;
-
-    //     //   }
-    //     //   else{
-    //     //     ctrlComp->lowState->userCmd = UserCommand::FIXED;
-    //     //   }
-
-    //     // }
-    //     // else{
-    //     //   ctrlComp->lowState->userCmd = UserCommand::PASS;
-    //     // }
-    //     ctrlComp->lowState->userCmd = UserCommand::FREE;
-    //   }
-    //   else{
-    //     ctrlComp->lowState->userCmd = UserCommand::FIXED;
-    //   }
-    // }
 
       std::cout<<"x"<<x<<std::endl;
     while (d->time - simstart < 1.0/60.0) {

@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++17
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication 
+CXX_INCLUDES = -I/home/jiaojunpeng/my_dog/TOE-Dog/include -I/usr/include/eigen3 -I/home/jiaojunpeng/my_dog/TOE-Dog/./mujoco-3.2.5/simulate -I/home/jiaojunpeng/my_dog/TOE-Dog/./mujoco-3.2.5/include -I/home/jiaojunpeng/my_dog/TOE-Dog/./imgui -I/home/jiaojunpeng/my_dog/TOE-Dog/./imgui/backends -I/home/jiaojunpeng/my_dog/TOE-Dog/include/interface -I/home/jiaojunpeng/my_dog/TOE-Dog/include/message -I/home/jiaojunpeng/my_dog/TOE-Dog/include/FSM -I/home/jiaojunpeng/my_dog/TOE-Dog/include/communication -I/home/jiaojunpeng/my_dog/TOE-Dog/MNN/include 
 
