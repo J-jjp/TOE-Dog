@@ -4,10 +4,10 @@
 #include "FSM/State_Rl.h"
 State_Rl::State_Rl(CtrlComponents *ctrlComp)
              :FSMState(ctrlComp, FSMStateName::FREESTAND, "free stand"){
-   _net = std::shared_ptr<Interpreter> (Interpreter::createFromFile("/home/jiaojunpeng/my_dog/TOE-Dog/go2.mnn"));
-    ScheduleConfig config;
-    config.numThread = 2;
-    _session = _net->createSession(config);
+   _net = std::shared_ptr<Interpreter> (Interpreter::createFromFile("../go2.mnn"));
+    // ScheduleConfig config;
+    // config.numThread = 2;
+    // _session = _net->createSession(config);
 }
 
 void State_Rl::enter(){

@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jiaojunpeng/my_dog/TOE-Dog
+CMAKE_SOURCE_DIR = /home/toe/TOE-Dog
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jiaojunpeng/my_dog/TOE-Dog/build
+CMAKE_BINARY_DIR = /home/toe/TOE-Dog/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles /home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/build/CMakeFiles /home/toe/TOE-Dog/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -580,6 +580,36 @@ src/interface/KeyBoard.cpp.s:
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.s
 .PHONY : src/interface/KeyBoard.cpp.s
 
+src/interface/WirelessHandle.o: src/interface/WirelessHandle.cpp.o
+
+.PHONY : src/interface/WirelessHandle.o
+
+# target to build an object file
+src/interface/WirelessHandle.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.o
+	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.o
+.PHONY : src/interface/WirelessHandle.cpp.o
+
+src/interface/WirelessHandle.i: src/interface/WirelessHandle.cpp.i
+
+.PHONY : src/interface/WirelessHandle.i
+
+# target to preprocess a source file
+src/interface/WirelessHandle.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.i
+	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.i
+.PHONY : src/interface/WirelessHandle.cpp.i
+
+src/interface/WirelessHandle.s: src/interface/WirelessHandle.cpp.s
+
+.PHONY : src/interface/WirelessHandle.s
+
+# target to generate assembly for a file
+src/interface/WirelessHandle.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.s
+	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.s
+.PHONY : src/interface/WirelessHandle.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -635,6 +665,9 @@ help:
 	@echo "... src/interface/KeyBoard.o"
 	@echo "... src/interface/KeyBoard.i"
 	@echo "... src/interface/KeyBoard.s"
+	@echo "... src/interface/WirelessHandle.o"
+	@echo "... src/interface/WirelessHandle.i"
+	@echo "... src/interface/WirelessHandle.s"
 .PHONY : help
 
 

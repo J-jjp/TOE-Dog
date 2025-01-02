@@ -24,7 +24,6 @@ public:
     void zeroCmdPanel(){cmdPanel->setZero();}
     void setPassive(){cmdPanel->setPassive();}
 
-    protected:
     CmdPanel *cmdPanel;
 };
 

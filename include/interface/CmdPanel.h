@@ -27,6 +27,7 @@ class CmdPanel{
     public:
         CmdPanel(){}
         virtual ~CmdPanel(){}
+        virtual void read_joy(){}
         UserCommand getUserCmd(){return userCmd;}
         UserValue getUserValue(){return userValue;}
         void setPassive(){userCmd = UserCommand::PASS;}

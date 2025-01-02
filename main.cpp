@@ -199,13 +199,8 @@ int main(int argc, const char** argv) {
     mjtNum simstart = d->time;
     float kp=0;
     float kd=0;
-    if(x>500){
-          _FSMController->run();
-    }
-
-      std::cout<<"x"<<x<<std::endl;
+    _FSMController->run();
     while (d->time - simstart < 1.0/60.0) {
-            x++;
     // // float target_q[12];
     //   if(x>300){
     //     // if(x>3000){

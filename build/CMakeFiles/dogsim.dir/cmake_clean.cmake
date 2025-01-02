@@ -13,6 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o"
   "CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o"
   "CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.o"
+  "CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.o"
   "dogsim"
   "dogsim.pdb"
 )

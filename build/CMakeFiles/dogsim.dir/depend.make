@@ -24,6 +24,7 @@ CMakeFiles/dogsim.dir/main.cpp.o: ../include/interface/CmdPanel.h
 CMakeFiles/dogsim.dir/main.cpp.o: ../include/interface/IOInterface.h
 CMakeFiles/dogsim.dir/main.cpp.o: ../include/interface/IOMujoco.h
 CMakeFiles/dogsim.dir/main.cpp.o: ../include/interface/KeyBoard.h
+CMakeFiles/dogsim.dir/main.cpp.o: ../include/interface/WirelessHandle.h
 CMakeFiles/dogsim.dir/main.cpp.o: ../include/message/LowlevelCmd.h
 CMakeFiles/dogsim.dir/main.cpp.o: ../include/message/LowlevelState.h
 CMakeFiles/dogsim.dir/main.cpp.o: ../mujoco-3.2.5/include/mujoco/mjdata.h
@@ -199,6 +200,7 @@ CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o: ../include/interface/CmdPane
 CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o: ../include/interface/IOInterface.h
 CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o: ../include/interface/IOMujoco.h
 CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o: ../include/interface/KeyBoard.h
+CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o: ../include/interface/WirelessHandle.h
 CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o: ../include/message/LowlevelCmd.h
 CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o: ../include/message/LowlevelState.h
 CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o: ../mujoco-3.2.5/include/mujoco/mjdata.h
@@ -237,4 +239,11 @@ CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.o: ../include/common/mathTypes.
 CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.o: ../include/interface/CmdPanel.h
 CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.o: ../include/interface/KeyBoard.h
 CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.o: ../src/interface/KeyBoard.cpp
+
+CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.o: ../include/common/enumClass.h
+CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.o: ../include/common/mathTools.h
+CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.o: ../include/common/mathTypes.h
+CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.o: ../include/interface/CmdPanel.h
+CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.o: ../include/interface/WirelessHandle.h
+CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.o: ../src/interface/WirelessHandle.cpp
 

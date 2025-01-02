@@ -1,0 +1,6 @@
+Fri Jan  3 00:11:04 2025
+ERROR: Load model error: ParseXML: Error opening file '../go2/xml/scene.xml': No such file or directory
+
+Fri Jan  3 00:11:43 2025
+ERROR: Load model error: ParseXML: Error opening file '../go2/xml/scene.xml': No such file or directory
+

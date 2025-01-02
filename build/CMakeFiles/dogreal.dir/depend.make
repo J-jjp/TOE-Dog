@@ -191,6 +191,7 @@ CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o: ../include/interface/CmdPan
 CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o: ../include/interface/IOInterface.h
 CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o: ../include/interface/IOMujoco.h
 CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o: ../include/interface/KeyBoard.h
+CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o: ../include/interface/WirelessHandle.h
 CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o: ../include/message/LowlevelCmd.h
 CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o: ../include/message/LowlevelState.h
 CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o: ../mujoco-3.2.5/include/mujoco/mjdata.h
@@ -229,4 +230,11 @@ CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.o: ../include/common/mathTypes
 CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.o: ../include/interface/CmdPanel.h
 CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.o: ../include/interface/KeyBoard.h
 CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.o: ../src/interface/KeyBoard.cpp
+
+CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.o: ../include/common/enumClass.h
+CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.o: ../include/common/mathTools.h
+CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.o: ../include/common/mathTypes.h
+CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.o: ../include/interface/CmdPanel.h
+CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.o: ../include/interface/WirelessHandle.h
+CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.o: ../src/interface/WirelessHandle.cpp
 
