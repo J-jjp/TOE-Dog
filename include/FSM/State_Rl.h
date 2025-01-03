@@ -22,8 +22,8 @@ protected:
     float* lastActionPtr = nullptr;
     std::shared_ptr<Interpreter> _net = nullptr;
     Session* _session = nullptr;
-    // Tensor* obs_mnn = nullptr;
-    // Tensor* act_mnn = nullptr;
+    Tensor* obs_mnn = nullptr;
+    Tensor* act_mnn = nullptr;
     int obs_dim;
     int llc_step = 0;
 

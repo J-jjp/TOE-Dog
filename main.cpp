@@ -135,18 +135,10 @@ void scroll(GLFWwindow* window, double xoffset, double yoffset) {
 // main function
 int main(int argc, const char** argv) {
   // check command-line arguments
-  if (argc!=2) {
-    std::printf(" USAGE:  basic modelfile\n");
-    return 0;
-  }
 
   // load and compile model
   char error[1000] = "Could not load binary model";
-  if (std::strlen(argv[1])>4 && !std::strcmp(argv[1]+std::strlen(argv[1])-4, ".mjb")) {
-    m = mj_loadModel(argv[1], 0);
-  } else {
-    m = mj_loadXML("../go2/xml/scene.xml", 0, error, 1000);
-  }
+  m = mj_loadXML("../go2/xml/scene.xml", 0, error, 1000);
   if (!m) {
     mju_error("Load model error: %s", error);
   }
@@ -201,33 +193,6 @@ int main(int argc, const char** argv) {
     float kd=0;
     ctrlFrame.run();
     while (d->time - simstart < 1.0/60.0) {
-    // // float target_q[12];
-    //   if(x>300){
-    //     // if(x>3000){
-    //     //   kp=0;
-    //     //   kd=2;
-    //     // }
-    //     // else{
-    //       kp=kp_all;
-    //       kd=kd_all;
-    //     //}
-    //     _percent += (float)1/_duration;
-    //     _percent = _percent > 1 ? 1 : _percent;
-    //   }
-    //   else{
-    //     for (int i = 0; i < 12; i++)
-    //     {
-    //       start_pose[i] = state.motorState[i].q;
-    //     }
-        
-    //     kp=1;
-    //     kd=0;
-    //   }
-    //   for(int j=0; j<12; j++){
-    //       cmd.motorCmd[j].q = (1 - _percent)*start_pose[j] + _percent*default_dof_pos[j]; 
-    //   }
-      // std::cout<<"daozhe";
-      // ioInter->sendRecv_debug(&cmd,&state,80,2);
       mj_step(m, d);
     }
 
@@ -253,11 +218,5 @@ int main(int argc, const char** argv) {
   // free MuJoCo model and data
   mj_deleteData(d);
   mj_deleteModel(m);
-
-  // terminate GLFW (crashes with Linux NVidia drivers)
-#if defined(__APPLE__) || defined(_WIN32)
-  glfwTerminate();
-#endif
-
   return 1;
 }

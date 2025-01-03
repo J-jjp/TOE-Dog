@@ -13,7 +13,7 @@ class IOMujoco : public IOInterface{
 public:
     IOMujoco(mjData *data):_data(data){
         std::cout<<"generate interfaces"<<std::endl;
-        if (1)
+        if (0)
         {
             cmdPanel = new WirelessHandle();
         }

@@ -29,8 +29,8 @@ UserCommand KeyBoard::checkCmd(){
         return UserCommand::NONE;
     case '2':
         return UserCommand::FIXED;
-    // case '3':
-    //     return UserCommand::L2_X;
+    case '3':
+        return UserCommand::RL;
     case '4':
         return UserCommand::FREE;
     case '0':
