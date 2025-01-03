@@ -23,13 +23,7 @@ void State_FreeStand::enter(){
         else if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
             _lowCmd->setRealStanceGain(i);
         }
-        // _lowCmd->setZeroDq(i);
-        // _lowCmd->setZeroTau(i);
     }
-
-    // for(int i=0; i<12; i++){
-    //     _lowCmd->motorCmd[i].q = _lowState->motorState[i].q;
-    // }
     _initVecOX = _ctrlComp->robotModel->getX(*_lowState);//0号脚的坐标
     _initVecXP = _ctrlComp->robotModel->getVecXP(*_lowState);//四个脚的坐标以0号脚为原点
     
