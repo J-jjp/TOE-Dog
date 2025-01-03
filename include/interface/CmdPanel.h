@@ -12,9 +12,9 @@ struct UserValue{
     float ly=0;
     float rx=0;
     float ry=0;
-    // UserValue(){
-    //     setZero();
-    // }
+    UserValue(){
+        setZero();
+    }
     void setZero(){
         lx = 0;
         ly = 0;

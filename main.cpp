@@ -21,7 +21,7 @@
 #include <FSM/FSM.h>
 #include <string>
 #include <iostream>
-// #include <control/ControlFrame.h>
+#include <control/ControlFrame.h>
 // MuJoCo data structures
 mjModel* m = NULL;                  // MuJoCo model
 mjData* d = NULL;                   // MuJoCo data
@@ -192,14 +192,14 @@ int main(int argc, const char** argv) {
     ctrlComp->ctrlPlatform = ctrlPlat;
     ctrlComp->dt = 0.0025; // run at 400hz  控制周期       
     ctrlComp->running = &running;  //机器人控制的状态  运行 or 不运行
-    FSM *_FSMController = new FSM(ctrlComp);
-    ctrlComp->robotModel = new Go2Robot();
+    ctrlComp->robotModel = new ToeRobot();
+    ControlFrame ctrlFrame(ctrlComp);
   while (!glfwWindowShouldClose(window)) {
 
     mjtNum simstart = d->time;
     float kp=0;
     float kd=0;
-    _FSMController->run();
+    ctrlFrame.run();
     while (d->time - simstart < 1.0/60.0) {
     // // float target_q[12];
     //   if(x>300){

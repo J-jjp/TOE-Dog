@@ -17,13 +17,28 @@ void State_FixedStand::enter(){
             _lowCmd->setRealStanceGain(i);
             _duration=400;
         }
-        // _lowCmd->setZeroDq(i);
-        // _lowCmd->setZeroTau(i);
     }
-    for(int i=0; i<12; i++){
-        _lowCmd->motorCmd[i].q = _lowState->motorState[i].q;
-        _startPos[i] = _lowState->motorState[i].q;
+    if (_lowCmd->motorCmd[0].q==0&&_lowCmd->motorCmd[1].q==0&&_lowCmd->motorCmd[2].q==0)
+    {
+        for(int i=0; i<12; i++){
+            _lowCmd->motorCmd[i].q = _lowState->motorState[i].q;
+            _startPos[i] = _lowState->motorState[i].q;
+        }
     }
+    else{
+        for(int i=0; i<12; i++){
+            _defpos[i]=_lowCmd->motorCmd[i].q-_lowState->motorState[i].q;
+            _lowCmd->motorCmd[i].q = _lowState->motorState[i].q+_defpos[i];
+            _startPos[i] = _lowState->motorState[i].q+_defpos[i];
+        }
+    }
+    // for(int i=0; i<12; i++){
+    //     _defpos[i]=_lowCmd->motorCmd[i].q-_lowState->motorState[i].q;
+    //     _lowCmd->motorCmd[i].q = _lowState->motorState[i].q+ _defpos[i];
+    //     _startPos[i] = _lowState->motorState[i].q- _defpos[i];
+    // }
+    std::cout<<"enter fixed stand";
+    // std::cout<<"startPos: "<<;
     _ctrlComp->setAllStance();
 }
 

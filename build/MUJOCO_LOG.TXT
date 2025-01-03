@@ -1,6 +1,3 @@
-Fri Jan  3 00:33:02 2025
-ERROR: Load model error: ParseXML: Error opening file './go2/xml/scene.xml': No such file or directory
-
-Fri Jan  3 00:49:02 2025
-ERROR: Load model error: ParseXML: Error opening file './go2/xml/scene.xml': No such file or directory
+Fri Jan  3 12:27:00 2025
+WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 6. The simulation is unstable. Time = 6.4800.
 

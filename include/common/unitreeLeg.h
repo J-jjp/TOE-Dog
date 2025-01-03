@@ -41,7 +41,7 @@ public:
 class ToeLeg : public QuadrupedLeg{
 public:
     ToeLeg(const int legID, const Vec3 pHip2B):
-        QuadrupedLeg(legID, 0.112, 0.23, 0.23, pHip2B){} //三个物理参数 要通过solidworks参数进行测量
+        QuadrupedLeg(legID, 0.112, 0.2, 0.2, pHip2B){} //三个物理参数 要通过solidworks参数进行测量
     ~ToeLeg(){}
 };
 #endif  // UNITREELEG_H

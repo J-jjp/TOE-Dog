@@ -112,9 +112,9 @@ Mat3 QuadrupedRobot::getJaco(LowlevelState &state, int legID){
 
 //自己机器人的一些初始化参数
 Go2Robot::Go2Robot(){
-    _Legs[0] = new Go2Leg(0, Vec3( 0.1934, 0.0465,0));
-    _Legs[1] = new Go2Leg(1, Vec3( 0.1934,-0.0465,0));
-    _Legs[2] = new Go2Leg(2, Vec3(-0.1934, 0.0465,0));
+    _Legs[0] = new Go2Leg(0, Vec3(0.1934,0.0465,0));
+    _Legs[1] = new Go2Leg(1, Vec3(0.1934,-0.0465,0));
+    _Legs[2] = new Go2Leg(2, Vec3(-0.1934,0.0465,0));
     _Legs[3] = new Go2Leg(3, Vec3(-0.1934,-0.0465,0));
 
     // _feetPosNormalStand <<  0.1881,  0.1881, -0.1881, -0.1881,

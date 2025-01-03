@@ -19,6 +19,7 @@ CMakeFiles/dogsim.dir/main.cpp.o: ../include/common/mathTypes.h
 CMakeFiles/dogsim.dir/main.cpp.o: ../include/common/timeMarker.h
 CMakeFiles/dogsim.dir/main.cpp.o: ../include/common/unitreeLeg.h
 CMakeFiles/dogsim.dir/main.cpp.o: ../include/common/unitreeRobot.h
+CMakeFiles/dogsim.dir/main.cpp.o: ../include/control/ControlFrame.h
 CMakeFiles/dogsim.dir/main.cpp.o: ../include/control/CtrlComponents.h
 CMakeFiles/dogsim.dir/main.cpp.o: ../include/interface/CmdPanel.h
 CMakeFiles/dogsim.dir/main.cpp.o: ../include/interface/IOInterface.h
