@@ -11,7 +11,7 @@
 #include "interface/WirelessHandle.h"
 class IOMujoco : public IOInterface{
 public:
-    IOMujoco(mjData *data):_data(data){
+    IOMujoco(mjData *data,mjModel* model):_data(data),_model(model){
         std::cout<<"generate interfaces"<<std::endl;
         if (0)
         {
@@ -27,7 +27,9 @@ public:
     void recv(LowlevelState *state);
 private:
     mjData* _data;
+    mjModel* _model;
     float pd_control(float target_q,float q,float kp,float target_dq,float dq,float kd);
+    std::vector<mjtNum> get_sensor_data(const std::string &sensor_name);
 };
 
 #endif

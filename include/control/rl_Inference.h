@@ -13,7 +13,7 @@ public:
     ~rl_Inference();
     void initBuffer();
     void resetNode();
-    void advanceNNsync(const float observation[], float action_cmd[]);
+    void advanceNNsync(float (*observation)[45], float (*action_cmd)[12]);
 protected:
     std::string prefix_path;
     float* currentActionPtr = nullptr;

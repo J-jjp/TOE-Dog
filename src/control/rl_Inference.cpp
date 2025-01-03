@@ -33,7 +33,7 @@ void rl_Inference::resetNode()
   if_reset = true;
   llc_step = 0;
 }
-void rl_Inference::advanceNNsync(const float observation[], float action_cmd[])
+void rl_Inference::advanceNNsync(float (*observation)[45], float (*action_cmd)[12])
 {
 
   // std::cout<<obs_mnn->size()<<std::endl;
