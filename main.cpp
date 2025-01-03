@@ -177,7 +177,7 @@ int main(int argc, const char** argv) {
     int x=0;
     float _percent=0;
     float _duration=1000;
-    ioInter = new IOMujoco(d);
+    ioInter = new IOMujoco(d,m);
     std::vector<float> start_pose(12);
     ctrlPlat = CtrlPlatform::Mujoco;
     CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
