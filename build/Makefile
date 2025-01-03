@@ -490,6 +490,36 @@ src/control/leg_control.cpp.s:
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/control/leg_control.cpp.s
 .PHONY : src/control/leg_control.cpp.s
 
+src/control/rl_Inference.o: src/control/rl_Inference.cpp.o
+
+.PHONY : src/control/rl_Inference.o
+
+# target to build an object file
+src/control/rl_Inference.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o
+	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o
+.PHONY : src/control/rl_Inference.cpp.o
+
+src/control/rl_Inference.i: src/control/rl_Inference.cpp.i
+
+.PHONY : src/control/rl_Inference.i
+
+# target to preprocess a source file
+src/control/rl_Inference.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.i
+	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.i
+.PHONY : src/control/rl_Inference.cpp.i
+
+src/control/rl_Inference.s: src/control/rl_Inference.cpp.s
+
+.PHONY : src/control/rl_Inference.s
+
+# target to generate assembly for a file
+src/control/rl_Inference.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.s
+	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.s
+.PHONY : src/control/rl_Inference.cpp.s
+
 src/interface/IOMujoco.o: src/interface/IOMujoco.cpp.o
 
 .PHONY : src/interface/IOMujoco.o
@@ -656,6 +686,9 @@ help:
 	@echo "... src/control/leg_control.o"
 	@echo "... src/control/leg_control.i"
 	@echo "... src/control/leg_control.s"
+	@echo "... src/control/rl_Inference.o"
+	@echo "... src/control/rl_Inference.i"
+	@echo "... src/control/rl_Inference.s"
 	@echo "... src/interface/IOMujoco.o"
 	@echo "... src/interface/IOMujoco.i"
 	@echo "... src/interface/IOMujoco.s"

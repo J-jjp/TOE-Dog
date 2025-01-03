@@ -21,6 +21,7 @@ CMakeFiles/dogsim.dir/main.cpp.o: ../include/common/unitreeLeg.h
 CMakeFiles/dogsim.dir/main.cpp.o: ../include/common/unitreeRobot.h
 CMakeFiles/dogsim.dir/main.cpp.o: ../include/control/ControlFrame.h
 CMakeFiles/dogsim.dir/main.cpp.o: ../include/control/CtrlComponents.h
+CMakeFiles/dogsim.dir/main.cpp.o: ../include/control/rl_Inference.h
 CMakeFiles/dogsim.dir/main.cpp.o: ../include/interface/CmdPanel.h
 CMakeFiles/dogsim.dir/main.cpp.o: ../include/interface/IOInterface.h
 CMakeFiles/dogsim.dir/main.cpp.o: ../include/interface/IOMujoco.h
@@ -62,6 +63,7 @@ CMakeFiles/dogsim.dir/src/FSM/FSM.cpp.o: ../include/common/timeMarker.h
 CMakeFiles/dogsim.dir/src/FSM/FSM.cpp.o: ../include/common/unitreeLeg.h
 CMakeFiles/dogsim.dir/src/FSM/FSM.cpp.o: ../include/common/unitreeRobot.h
 CMakeFiles/dogsim.dir/src/FSM/FSM.cpp.o: ../include/control/CtrlComponents.h
+CMakeFiles/dogsim.dir/src/FSM/FSM.cpp.o: ../include/control/rl_Inference.h
 CMakeFiles/dogsim.dir/src/FSM/FSM.cpp.o: ../include/interface/CmdPanel.h
 CMakeFiles/dogsim.dir/src/FSM/FSM.cpp.o: ../include/interface/IOInterface.h
 CMakeFiles/dogsim.dir/src/FSM/FSM.cpp.o: ../include/message/LowlevelCmd.h
@@ -142,6 +144,7 @@ CMakeFiles/dogsim.dir/src/FSM/State_Rl.cpp.o: ../include/common/timeMarker.h
 CMakeFiles/dogsim.dir/src/FSM/State_Rl.cpp.o: ../include/common/unitreeLeg.h
 CMakeFiles/dogsim.dir/src/FSM/State_Rl.cpp.o: ../include/common/unitreeRobot.h
 CMakeFiles/dogsim.dir/src/FSM/State_Rl.cpp.o: ../include/control/CtrlComponents.h
+CMakeFiles/dogsim.dir/src/FSM/State_Rl.cpp.o: ../include/control/rl_Inference.h
 CMakeFiles/dogsim.dir/src/FSM/State_Rl.cpp.o: ../include/interface/CmdPanel.h
 CMakeFiles/dogsim.dir/src/FSM/State_Rl.cpp.o: ../include/interface/IOInterface.h
 CMakeFiles/dogsim.dir/src/FSM/State_Rl.cpp.o: ../include/message/LowlevelCmd.h
@@ -182,6 +185,7 @@ CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o: ../include/common/unitreeL
 CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o: ../include/common/unitreeRobot.h
 CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o: ../include/control/ControlFrame.h
 CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o: ../include/control/CtrlComponents.h
+CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o: ../include/control/rl_Inference.h
 CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o: ../include/interface/CmdPanel.h
 CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o: ../include/interface/IOInterface.h
 CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o: ../include/message/LowlevelCmd.h
@@ -193,6 +197,15 @@ CMakeFiles/dogsim.dir/src/control/leg_control.cpp.o: ../include/communication/mo
 CMakeFiles/dogsim.dir/src/control/leg_control.cpp.o: ../include/communication/uart.hpp
 CMakeFiles/dogsim.dir/src/control/leg_control.cpp.o: ../include/control/leg_control.h
 CMakeFiles/dogsim.dir/src/control/leg_control.cpp.o: ../src/control/leg_control.cpp
+
+CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o: ../MNN/ErrorCode.hpp
+CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o: ../MNN/HalideRuntime.h
+CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o: ../MNN/Interpreter.hpp
+CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o: ../MNN/MNNDefine.h
+CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o: ../MNN/MNNForwardType.h
+CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o: ../MNN/Tensor.hpp
+CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o: ../include/control/rl_Inference.h
+CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o: ../src/control/rl_Inference.cpp
 
 CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o: ../include/common/enumClass.h
 CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o: ../include/common/mathTools.h

@@ -187,9 +187,22 @@ CMakeFiles/dogreal.dir/src/control/leg_control.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dogreal.dir/src/control/leg_control.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/control/leg_control.cpp -o CMakeFiles/dogreal.dir/src/control/leg_control.cpp.s
 
+CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o: CMakeFiles/dogreal.dir/flags.make
+CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o: ../src/control/rl_Inference.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/control/rl_Inference.cpp
+
+CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/control/rl_Inference.cpp > CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.i
+
+CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/control/rl_Inference.cpp -o CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.s
+
 CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o: CMakeFiles/dogreal.dir/flags.make
 CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o: ../src/interface/IOMujoco.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/interface/IOMujoco.cpp
 
 CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.i: cmake_force
@@ -202,7 +215,7 @@ CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.s: cmake_force
 
 CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.o: CMakeFiles/dogreal.dir/flags.make
 CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.o: ../src/interface/IOReal.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/interface/IOReal.cpp
 
 CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.i: cmake_force
@@ -215,7 +228,7 @@ CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.s: cmake_force
 
 CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.o: CMakeFiles/dogreal.dir/flags.make
 CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.o: ../src/interface/KeyBoard.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/interface/KeyBoard.cpp
 
 CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.i: cmake_force
@@ -228,7 +241,7 @@ CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.s: cmake_force
 
 CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.o: CMakeFiles/dogreal.dir/flags.make
 CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.o: ../src/interface/WirelessHandle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/interface/WirelessHandle.cpp
 
 CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.i: cmake_force
@@ -241,7 +254,7 @@ CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.s: cmake_force
 
 CMakeFiles/dogreal.dir/mainreal.cpp.o: CMakeFiles/dogreal.dir/flags.make
 CMakeFiles/dogreal.dir/mainreal.cpp.o: ../mainreal.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/dogreal.dir/mainreal.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/dogreal.dir/mainreal.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dogreal.dir/mainreal.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/mainreal.cpp
 
 CMakeFiles/dogreal.dir/mainreal.cpp.i: cmake_force
@@ -264,6 +277,7 @@ dogreal_OBJECTS = \
 "CMakeFiles/dogreal.dir/src/common/unitreeRobot.cpp.o" \
 "CMakeFiles/dogreal.dir/src/control/ControlFrame.cpp.o" \
 "CMakeFiles/dogreal.dir/src/control/leg_control.cpp.o" \
+"CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o" \
 "CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o" \
 "CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.o" \
 "CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.o" \
@@ -283,6 +297,7 @@ dogreal: CMakeFiles/dogreal.dir/src/common/unitreeLeg.cpp.o
 dogreal: CMakeFiles/dogreal.dir/src/common/unitreeRobot.cpp.o
 dogreal: CMakeFiles/dogreal.dir/src/control/ControlFrame.cpp.o
 dogreal: CMakeFiles/dogreal.dir/src/control/leg_control.cpp.o
+dogreal: CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o
 dogreal: CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o
 dogreal: CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.o
 dogreal: CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.o
@@ -295,7 +310,7 @@ dogreal: ../MNN/libMNN.so
 dogreal: /usr/lib/x86_64-linux-gnu/librt.so
 dogreal: /usr/lib/x86_64-linux-gnu/libm.so
 dogreal: CMakeFiles/dogreal.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable dogreal"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable dogreal"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dogreal.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

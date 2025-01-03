@@ -10,6 +10,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/dogsim.dir/src/common/unitreeRobot.cpp.o"
   "CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o"
   "CMakeFiles/dogsim.dir/src/control/leg_control.cpp.o"
+  "CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o"
   "CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o"
   "CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o"
   "CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.o"

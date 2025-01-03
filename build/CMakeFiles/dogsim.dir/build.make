@@ -187,9 +187,22 @@ CMakeFiles/dogsim.dir/src/control/leg_control.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dogsim.dir/src/control/leg_control.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/control/leg_control.cpp -o CMakeFiles/dogsim.dir/src/control/leg_control.cpp.s
 
+CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o: CMakeFiles/dogsim.dir/flags.make
+CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o: ../src/control/rl_Inference.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/control/rl_Inference.cpp
+
+CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/control/rl_Inference.cpp > CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.i
+
+CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/control/rl_Inference.cpp -o CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.s
+
 CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o: CMakeFiles/dogsim.dir/flags.make
 CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o: ../src/interface/IOMujoco.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/interface/IOMujoco.cpp
 
 CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.i: cmake_force
@@ -202,7 +215,7 @@ CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.s: cmake_force
 
 CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: CMakeFiles/dogsim.dir/flags.make
 CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: ../src/interface/IOReal.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/interface/IOReal.cpp
 
 CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.i: cmake_force
@@ -215,7 +228,7 @@ CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.s: cmake_force
 
 CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.o: CMakeFiles/dogsim.dir/flags.make
 CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.o: ../src/interface/KeyBoard.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/interface/KeyBoard.cpp
 
 CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.i: cmake_force
@@ -228,7 +241,7 @@ CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.s: cmake_force
 
 CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.o: CMakeFiles/dogsim.dir/flags.make
 CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.o: ../src/interface/WirelessHandle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/interface/WirelessHandle.cpp
 
 CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.i: cmake_force
@@ -241,7 +254,7 @@ CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.s: cmake_force
 
 CMakeFiles/dogsim.dir/main.cpp.o: CMakeFiles/dogsim.dir/flags.make
 CMakeFiles/dogsim.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/dogsim.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/dogsim.dir/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dogsim.dir/main.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/main.cpp
 
 CMakeFiles/dogsim.dir/main.cpp.i: cmake_force
@@ -264,6 +277,7 @@ dogsim_OBJECTS = \
 "CMakeFiles/dogsim.dir/src/common/unitreeRobot.cpp.o" \
 "CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o" \
 "CMakeFiles/dogsim.dir/src/control/leg_control.cpp.o" \
+"CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o" \
 "CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o" \
 "CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o" \
 "CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.o" \
@@ -283,6 +297,7 @@ dogsim: CMakeFiles/dogsim.dir/src/common/unitreeLeg.cpp.o
 dogsim: CMakeFiles/dogsim.dir/src/common/unitreeRobot.cpp.o
 dogsim: CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o
 dogsim: CMakeFiles/dogsim.dir/src/control/leg_control.cpp.o
+dogsim: CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o
 dogsim: CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o
 dogsim: CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o
 dogsim: CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.o
@@ -295,7 +310,7 @@ dogsim: ../MNN/libMNN.so
 dogsim: /usr/lib/x86_64-linux-gnu/librt.so
 dogsim: /usr/lib/x86_64-linux-gnu/libm.so
 dogsim: CMakeFiles/dogsim.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable dogsim"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable dogsim"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dogsim.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

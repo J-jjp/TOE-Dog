@@ -25,6 +25,7 @@ CMakeFiles/dogreal.dir/mainreal.cpp.o: ../include/communication/uart.hpp
 CMakeFiles/dogreal.dir/mainreal.cpp.o: ../include/control/ControlFrame.h
 CMakeFiles/dogreal.dir/mainreal.cpp.o: ../include/control/CtrlComponents.h
 CMakeFiles/dogreal.dir/mainreal.cpp.o: ../include/control/leg_control.h
+CMakeFiles/dogreal.dir/mainreal.cpp.o: ../include/control/rl_Inference.h
 CMakeFiles/dogreal.dir/mainreal.cpp.o: ../include/interface/CmdPanel.h
 CMakeFiles/dogreal.dir/mainreal.cpp.o: ../include/interface/IOInterface.h
 CMakeFiles/dogreal.dir/mainreal.cpp.o: ../include/interface/IOReal.h
@@ -52,6 +53,7 @@ CMakeFiles/dogreal.dir/src/FSM/FSM.cpp.o: ../include/common/timeMarker.h
 CMakeFiles/dogreal.dir/src/FSM/FSM.cpp.o: ../include/common/unitreeLeg.h
 CMakeFiles/dogreal.dir/src/FSM/FSM.cpp.o: ../include/common/unitreeRobot.h
 CMakeFiles/dogreal.dir/src/FSM/FSM.cpp.o: ../include/control/CtrlComponents.h
+CMakeFiles/dogreal.dir/src/FSM/FSM.cpp.o: ../include/control/rl_Inference.h
 CMakeFiles/dogreal.dir/src/FSM/FSM.cpp.o: ../include/interface/CmdPanel.h
 CMakeFiles/dogreal.dir/src/FSM/FSM.cpp.o: ../include/interface/IOInterface.h
 CMakeFiles/dogreal.dir/src/FSM/FSM.cpp.o: ../include/message/LowlevelCmd.h
@@ -132,6 +134,7 @@ CMakeFiles/dogreal.dir/src/FSM/State_Rl.cpp.o: ../include/common/timeMarker.h
 CMakeFiles/dogreal.dir/src/FSM/State_Rl.cpp.o: ../include/common/unitreeLeg.h
 CMakeFiles/dogreal.dir/src/FSM/State_Rl.cpp.o: ../include/common/unitreeRobot.h
 CMakeFiles/dogreal.dir/src/FSM/State_Rl.cpp.o: ../include/control/CtrlComponents.h
+CMakeFiles/dogreal.dir/src/FSM/State_Rl.cpp.o: ../include/control/rl_Inference.h
 CMakeFiles/dogreal.dir/src/FSM/State_Rl.cpp.o: ../include/interface/CmdPanel.h
 CMakeFiles/dogreal.dir/src/FSM/State_Rl.cpp.o: ../include/interface/IOInterface.h
 CMakeFiles/dogreal.dir/src/FSM/State_Rl.cpp.o: ../include/message/LowlevelCmd.h
@@ -172,6 +175,7 @@ CMakeFiles/dogreal.dir/src/control/ControlFrame.cpp.o: ../include/common/unitree
 CMakeFiles/dogreal.dir/src/control/ControlFrame.cpp.o: ../include/common/unitreeRobot.h
 CMakeFiles/dogreal.dir/src/control/ControlFrame.cpp.o: ../include/control/ControlFrame.h
 CMakeFiles/dogreal.dir/src/control/ControlFrame.cpp.o: ../include/control/CtrlComponents.h
+CMakeFiles/dogreal.dir/src/control/ControlFrame.cpp.o: ../include/control/rl_Inference.h
 CMakeFiles/dogreal.dir/src/control/ControlFrame.cpp.o: ../include/interface/CmdPanel.h
 CMakeFiles/dogreal.dir/src/control/ControlFrame.cpp.o: ../include/interface/IOInterface.h
 CMakeFiles/dogreal.dir/src/control/ControlFrame.cpp.o: ../include/message/LowlevelCmd.h
@@ -183,6 +187,15 @@ CMakeFiles/dogreal.dir/src/control/leg_control.cpp.o: ../include/communication/m
 CMakeFiles/dogreal.dir/src/control/leg_control.cpp.o: ../include/communication/uart.hpp
 CMakeFiles/dogreal.dir/src/control/leg_control.cpp.o: ../include/control/leg_control.h
 CMakeFiles/dogreal.dir/src/control/leg_control.cpp.o: ../src/control/leg_control.cpp
+
+CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o: ../MNN/ErrorCode.hpp
+CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o: ../MNN/HalideRuntime.h
+CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o: ../MNN/Interpreter.hpp
+CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o: ../MNN/MNNDefine.h
+CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o: ../MNN/MNNForwardType.h
+CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o: ../MNN/Tensor.hpp
+CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o: ../include/control/rl_Inference.h
+CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o: ../src/control/rl_Inference.cpp
 
 CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o: ../include/common/enumClass.h
 CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o: ../include/common/mathTools.h
