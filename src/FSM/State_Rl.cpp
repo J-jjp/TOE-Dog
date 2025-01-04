@@ -64,11 +64,11 @@ void State_Rl::mnnInference()
     }
     for (size_t i = 0; i < (History_len-1)*N_proprio; i++)
     {
-        obs_history[0][i] = obs[0][i+N_proprio];
+        obs_history[0][i] = obs_history[0][i+N_proprio];
     }
     for (size_t i = 0; i < N_proprio; i++)
     {
-        obs_history[0][(History_len-1)*N_proprio] = obs[0][i];
+        obs_history[0][((History_len-1)*N_proprio)+i] = obs[0][i];
     }
     
     // memmove(obs_history+N_proprio, obs_history, (History_len-1)*N_proprio*sizeof(float));
@@ -79,12 +79,17 @@ void State_Rl::mnnInference()
     }
     for (size_t i = 0; i < N_priv_latent  + N_scan; i++)
     {
-        policy_input[0][i+N_proprio]=1;
+        policy_input[0][i+N_proprio]=0;
     }
     for (size_t i = 0; i < History_len*N_proprio; i++)
     {
-        policy_input[0][i+N_proprio+N_priv_latent  + N_scan]=obs_history[0][i];
+        policy_input[0][i+N_proprio+N_priv_latent+N_scan]=obs_history[0][i];
     }
+    // for (size_t i = 0; i < Num_observations; i++)
+    // {
+    //     policy_input[0][i]=0;
+    // }
+    
     rlptr->advanceNNsync(policy_input,action_cmd);
     float action_flt[12];
     for (size_t i = 0; i < 12; i++)

@@ -59,21 +59,6 @@ void IOMujoco::send( LowlevelCmd *lowCmd) {
     }
 }
 
-// void IOMujoco::recvState(LowlevelState *state){
-//     for(int i(0); i < 12; ++i){
-//         state->motorState[i].q = _lowState.motorState[i].q;
-//         state->motorState[i].dq = _lowState.motorState[i].dq;
-//         state->motorState[i].ddq = _lowState.motorState[i].ddq;
-//         state->motorState[i].tauEst = _lowState.motorState[i].tauEst;
-//     }
-//     for(int i(0); i < 3; ++i){
-//         state->imu.quaternion[i] = _lowState.imu.quaternion[i];
-//         state->imu.accelerometer[i] = _lowState.imu.accelerometer[i];
-//         state->imu.gyroscope[i] = _lowState.imu.gyroscope[i];
-//     }
-//     state->imu.quaternion[3] = _lowState.imu.quaternion[3];
-// }
-
 void IOMujoco::recv(LowlevelState *state){
     for (int i = 0; i < 12; i++)
     {
@@ -90,7 +75,7 @@ void IOMujoco::recv(LowlevelState *state){
     auto base_quat = get_sensor_data( "orientation");
     auto base_accel = get_sensor_data( "linear-acceleration");
     auto base_gyr = get_sensor_data("angular-velocity");
-    for(int i(0); i < 3; ++i){
+    for(int i=0; i < 3; ++i){
         state->imu.quaternion[i] = base_quat[i];
         state->imu.accelerometer[i] = base_accel[i];
         state->imu.gyroscope[i] = base_gyr[i];

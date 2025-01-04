@@ -22,7 +22,7 @@ protected:
     MNN::Session* _session = nullptr;
     MNN::Tensor* obs_mnn = nullptr;
     MNN::Tensor* act_mnn = nullptr;
-    int obs_dim;
+    int obs_dim,act_dim;
     bool debugPrint_, if_reset;
     int llc_step = 0;
 };
