@@ -1,6 +1,6 @@
 
-#include <MNN/Interpreter.hpp>
-#include <MNN/Tensor.hpp>
+#include <../MNN/Interpreter.hpp>
+#include <../MNN/Tensor.hpp>
 #include <sstream>
 #include <cstring>
 #include <iostream>
@@ -9,11 +9,11 @@
 class rl_Inference
 {
 public:
-    rl_Inference(std::string& modelPath, double dt, bool debugPrint = false);
+    rl_Inference(std::string& modelPath);
     ~rl_Inference();
     void initBuffer();
     void resetNode();
-    void advanceNNsync(float (*observation)[45], float (*action_cmd)[12]);
+    void advanceNNsync(float (*observation)[736], float (*action_cmd)[12]);
 protected:
     std::string prefix_path;
     float* currentActionPtr = nullptr;

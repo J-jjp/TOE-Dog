@@ -1,5 +1,5 @@
 #include "control/rl_Inference.h"
-rl_Inference::rl_Inference(std::string& modelPath, double dt, bool debugPrint = false)
+rl_Inference::rl_Inference(std::string& modelPath)
     :prefix_path(modelPath)
 {   
   std::string net_path = prefix_path ;
@@ -33,7 +33,7 @@ void rl_Inference::resetNode()
   if_reset = true;
   llc_step = 0;
 }
-void rl_Inference::advanceNNsync(float (*observation)[45], float (*action_cmd)[12])
+void rl_Inference::advanceNNsync(float (*observation)[736], float (*action_cmd)[12])
 {
 
   // std::cout<<obs_mnn->size()<<std::endl;

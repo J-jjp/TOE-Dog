@@ -1,41 +1,29 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
   )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/jiaojunpeng/my_dog/TOE-Dog/mainreal.cpp" "/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles/dogreal.dir/mainreal.cpp.o"
-  "/home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/FSM.cpp" "/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles/dogreal.dir/src/FSM/FSM.cpp.o"
-  "/home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/FSMState.cpp" "/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles/dogreal.dir/src/FSM/FSMState.cpp.o"
-  "/home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_FixedStand.cpp" "/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles/dogreal.dir/src/FSM/State_FixedStand.cpp.o"
-  "/home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_FreeStand.cpp" "/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles/dogreal.dir/src/FSM/State_FreeStand.cpp.o"
-  "/home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_Passive.cpp" "/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles/dogreal.dir/src/FSM/State_Passive.cpp.o"
-  "/home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_Rl.cpp" "/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles/dogreal.dir/src/FSM/State_Rl.cpp.o"
-  "/home/jiaojunpeng/my_dog/TOE-Dog/src/common/unitreeLeg.cpp" "/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles/dogreal.dir/src/common/unitreeLeg.cpp.o"
-  "/home/jiaojunpeng/my_dog/TOE-Dog/src/common/unitreeRobot.cpp" "/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles/dogreal.dir/src/common/unitreeRobot.cpp.o"
-  "/home/jiaojunpeng/my_dog/TOE-Dog/src/control/ControlFrame.cpp" "/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles/dogreal.dir/src/control/ControlFrame.cpp.o"
-  "/home/jiaojunpeng/my_dog/TOE-Dog/src/control/leg_control.cpp" "/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles/dogreal.dir/src/control/leg_control.cpp.o"
-  "/home/jiaojunpeng/my_dog/TOE-Dog/src/control/rl_Inference.cpp" "/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o"
-  "/home/jiaojunpeng/my_dog/TOE-Dog/src/interface/IOMujoco.cpp" "/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o"
-  "/home/jiaojunpeng/my_dog/TOE-Dog/src/interface/IOReal.cpp" "/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.o"
-  "/home/jiaojunpeng/my_dog/TOE-Dog/src/interface/KeyBoard.cpp" "/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.o"
-  "/home/jiaojunpeng/my_dog/TOE-Dog/src/interface/WirelessHandle.cpp" "/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.o"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../include"
-  "/usr/include/eigen3"
-  ".././mujoco-3.2.5/simulate"
-  ".././mujoco-3.2.5/include"
-  ".././imgui"
-  ".././imgui/backends"
-  "../include/interface"
-  "../include/message"
-  "../include/FSM"
-  "../include/communication"
-  "../MNN/include"
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/jjp/dog/TOE-Dog/mainreal.cpp" "CMakeFiles/dogreal.dir/mainreal.cpp.o" "gcc" "CMakeFiles/dogreal.dir/mainreal.cpp.o.d"
+  "/home/jjp/dog/TOE-Dog/src/FSM/FSM.cpp" "CMakeFiles/dogreal.dir/src/FSM/FSM.cpp.o" "gcc" "CMakeFiles/dogreal.dir/src/FSM/FSM.cpp.o.d"
+  "/home/jjp/dog/TOE-Dog/src/FSM/FSMState.cpp" "CMakeFiles/dogreal.dir/src/FSM/FSMState.cpp.o" "gcc" "CMakeFiles/dogreal.dir/src/FSM/FSMState.cpp.o.d"
+  "/home/jjp/dog/TOE-Dog/src/FSM/State_FixedStand.cpp" "CMakeFiles/dogreal.dir/src/FSM/State_FixedStand.cpp.o" "gcc" "CMakeFiles/dogreal.dir/src/FSM/State_FixedStand.cpp.o.d"
+  "/home/jjp/dog/TOE-Dog/src/FSM/State_FreeStand.cpp" "CMakeFiles/dogreal.dir/src/FSM/State_FreeStand.cpp.o" "gcc" "CMakeFiles/dogreal.dir/src/FSM/State_FreeStand.cpp.o.d"
+  "/home/jjp/dog/TOE-Dog/src/FSM/State_Passive.cpp" "CMakeFiles/dogreal.dir/src/FSM/State_Passive.cpp.o" "gcc" "CMakeFiles/dogreal.dir/src/FSM/State_Passive.cpp.o.d"
+  "/home/jjp/dog/TOE-Dog/src/FSM/State_Rl.cpp" "CMakeFiles/dogreal.dir/src/FSM/State_Rl.cpp.o" "gcc" "CMakeFiles/dogreal.dir/src/FSM/State_Rl.cpp.o.d"
+  "/home/jjp/dog/TOE-Dog/src/common/unitreeLeg.cpp" "CMakeFiles/dogreal.dir/src/common/unitreeLeg.cpp.o" "gcc" "CMakeFiles/dogreal.dir/src/common/unitreeLeg.cpp.o.d"
+  "/home/jjp/dog/TOE-Dog/src/common/unitreeRobot.cpp" "CMakeFiles/dogreal.dir/src/common/unitreeRobot.cpp.o" "gcc" "CMakeFiles/dogreal.dir/src/common/unitreeRobot.cpp.o.d"
+  "/home/jjp/dog/TOE-Dog/src/control/ControlFrame.cpp" "CMakeFiles/dogreal.dir/src/control/ControlFrame.cpp.o" "gcc" "CMakeFiles/dogreal.dir/src/control/ControlFrame.cpp.o.d"
+  "/home/jjp/dog/TOE-Dog/src/control/leg_control.cpp" "CMakeFiles/dogreal.dir/src/control/leg_control.cpp.o" "gcc" "CMakeFiles/dogreal.dir/src/control/leg_control.cpp.o.d"
+  "/home/jjp/dog/TOE-Dog/src/control/rl_Inference.cpp" "CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o" "gcc" "CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o.d"
+  "/home/jjp/dog/TOE-Dog/src/interface/IOMujoco.cpp" "CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o" "gcc" "CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o.d"
+  "/home/jjp/dog/TOE-Dog/src/interface/IOReal.cpp" "CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.o" "gcc" "CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.o.d"
+  "/home/jjp/dog/TOE-Dog/src/interface/KeyBoard.cpp" "CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.o" "gcc" "CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.o.d"
+  "/home/jjp/dog/TOE-Dog/src/interface/WirelessHandle.cpp" "CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.o" "gcc" "CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.o.d"
   )
 
 # Targets to which this target links.

@@ -28,10 +28,12 @@ public:
     void mnnInference();
     void stateMachine();
     std::vector<float> default_dof_pos={0.1,0.8,-1.5 ,-0.1,0.8,-1.5,0.1,1,-1.5, -0.1,1.,-1.5};//#默认角度需要与isacc一致
+    Vec3 quaternion_to_euler_array(Vec4 quat);
     std::shared_ptr<rl_Inference> rlptr = nullptr;
     float last_lowCmd[Num_dof];
     float action_history[History_len*Num_dof]; //使用六帧前的数据
-    float obs_history[1][Num_observations];
+    float obs_history[1][History_len*N_proprio];
+    float policy_input[1][Num_observations];
     float obs[1][N_proprio];
     float action_cmd[1][Num_dof];
 };

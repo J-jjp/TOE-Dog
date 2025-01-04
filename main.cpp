@@ -30,19 +30,12 @@ mjvOption opt;                      // visualization options
 mjvScene scn;                       // abstract scene
 mjrContext con;                     // custom GPU context
 
-IOInterface *ioInter;
-LowlevelCmd cmd;
-LowlevelState state;
 // mouse interaction
 bool button_left = false;
 bool button_middle = false;
 bool button_right =  false;
 double lastx = 0;
 double lasty = 0;
-
-std::vector<float> default_dof_pos={0.1,0.8,-1.5 ,-0.1,0.8,-1.5,0.1,1,-1.5, -0.1,1.,-1.5};//#默认角度需要与isacc一致
-std::vector<float> state_dof_pos(12);
-std::vector<float> state_dof_vel(12);
 float kp_all = 30;
 float kd_all = 0.75;
 bool running = true;
@@ -134,7 +127,10 @@ void scroll(GLFWwindow* window, double xoffset, double yoffset) {
 
 // main function
 int main(int argc, const char** argv) {
-  // check command-line arguments
+  mjvCamera *cam1=&cam;                      // abstract camera
+  mjvOption *opt1=&opt;                      // visualization options
+  mjvScene *scn1=&scn;                       // abstract scene
+  mjrContext *con1=&con;                     // custom GPU context
 
   // load and compile model
   char error[1000] = "Could not load binary model";
@@ -172,7 +168,7 @@ int main(int argc, const char** argv) {
   glfwSetScrollCallback(window, scroll);
 
 
-
+    IOInterface *ioInter;
     CtrlPlatform ctrlPlat;
     int x=0;
     float _percent=0;
