@@ -88,19 +88,23 @@ struct LowlevelCmd{
         motorCmd[legID*3+2].Kd = 0.001;
         if (legID == 0)
         {
-            motorCmd[legID*3+2].tau=-0.15;
+            motorCmd[legID*3+2].tau=0.15;
+            motorCmd[legID*3+0].dq = 2;
         }
         else if (legID == 1)
         {
             motorCmd[legID*3+2].tau=-0.15;
+            motorCmd[legID*3+0].dq = -2;
         }
         else if (legID == 2)
         {
             motorCmd[legID*3+2].tau=0.35;
+            motorCmd[legID*3+0].dq = 2;
         }
         else if (legID == 3)
         {
             motorCmd[legID*3+2].tau=-0.35;
+            motorCmd[legID*3+0].dq = -2;
         }
     }
     void setZeroGain(int legID){

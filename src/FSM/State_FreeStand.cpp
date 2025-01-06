@@ -5,11 +5,11 @@
 
 State_FreeStand::State_FreeStand(CtrlComponents *ctrlComp)
              :FSMState(ctrlComp, FSMStateName::FREESTAND, "free stand"){
-    _rowMax = 15 * M_PI / 180;//20弧度
+    _rowMax = 10 * M_PI / 180;//20弧度
     _rowMin = -_rowMax;
     _pitchMax = 15 * M_PI / 180;//
     _pitchMin = -_pitchMax;
-    _yawMax = 12 * M_PI / 180;//20弧度
+    _yawMax = 15 * M_PI / 180;//20弧度
     _yawMin = -_yawMax;
     _heightMax = 0.04;//4
     _heightMin = -_heightMax;
@@ -102,30 +102,31 @@ void State_FreeStand::_calcCmd(Vec34 vecOP){
     _lowCmd->setQ(q);
 }
 void State_FreeStand::speed_limit(){
-    if (std::abs(_lowState->userValue.lx - _userValue.lx) > 0.05) {
+
+    if (std::abs(_lowState->userValue.lx - _userValue.lx) > 0.01) {
         // 根据差值的正负决定增加还是减少_userValue.lx
-        _userValue.lx += (_lowState->userValue.lx > _userValue.lx) ? 0.05 : -0.05;
+        _userValue.lx += (_lowState->userValue.lx > _userValue.lx) ? 0.01 : -0.01;
     } else {
         // 如果差值不大于0.1，直接设置为_lowState->userValue.lx的值
         _userValue.lx = _lowState->userValue.lx;
     }
-    if (std::abs(_lowState->userValue.ly - _userValue.ly) > 0.05) {
+    if (std::abs(_lowState->userValue.ly - _userValue.ly) > 0.01) {
         // 根据差值的正负决定增加还是减少_userValue.lx
-        _userValue.ly += (_lowState->userValue.ly > _userValue.ly) ? 0.05 : -0.05;
+        _userValue.ly += (_lowState->userValue.ly > _userValue.ly) ? 0.01 : -0.01;
     } else {
         // 如果差值不大于0.1，直接设置为_lowState->userValue.lx的值
         _userValue.ly = _lowState->userValue.ly;
     }
-    if (std::abs(_lowState->userValue.rx - _userValue.rx) > 0.05) {
+    if (std::abs(_lowState->userValue.rx - _userValue.rx) > 0.01) {
         // 根据差值的正负决定增加还是减少_userValue.lx
-        _userValue.rx += (_lowState->userValue.rx > _userValue.rx) ? 0.05 : -0.05;
+        _userValue.rx += (_lowState->userValue.rx > _userValue.rx) ? 0.01 : -0.01;
     } else {
         // 如果差值不大于0.1，直接设置为_lowState->userValue.lx的值
         _userValue.rx = _lowState->userValue.rx;
     }
-    if (std::abs(_lowState->userValue.ry - _userValue.ry) > 0.05) {
+    if (std::abs(_lowState->userValue.ry - _userValue.ry) > 0.01) {
         // 根据差值的正负决定增加还是减少_userValue.lx
-        _userValue.ry += (_lowState->userValue.ry > _userValue.ry) ? 0.05 : -0.05;
+        _userValue.ry += (_lowState->userValue.ry > _userValue.ry) ? 0.01 : -0.01;
     } else {
         // 如果差值不大于0.1，直接设置为_lowState->userValue.lx的值
         _userValue.ry = _lowState->userValue.ry;

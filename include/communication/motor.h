@@ -93,8 +93,8 @@ public:
             }
             else if (_n ==1)
             {
-                max_pose = std::max(recv_pose(zero_pose + 9.1*PI/2),recv_pose(start_pose+0.3628*9.1));
-                min_pose = std::min(recv_pose(zero_pose + 2),recv_pose(start_pose+0.3628*9.1));
+                max_pose = std::max(recv_pose(zero_pose - 9.1*PI/2),recv_pose(start_pose+0.3628*9.1));
+                min_pose = std::min(recv_pose(zero_pose - 9.1*PI/2),recv_pose(start_pose+0.3628*9.1));
             }
             else if(_n==2){
                 max_pose = std::max(recv_pose(zero_pose - 3),recv_pose(start_pose-5));
@@ -110,8 +110,8 @@ public:
             }
             if (_n ==1)
             {
-                max_pose = std::max(recv_pose(zero_pose + 2),recv_pose(start_pose-0.3628*9.1));
-                min_pose = std::min(recv_pose(zero_pose + 2),recv_pose(start_pose-0.3628*9.1));
+                max_pose = std::max(recv_pose(zero_pose + 9.1*PI/2),recv_pose(start_pose-0.3628*9.1));
+                min_pose = std::min(recv_pose(zero_pose + 9.1*PI/2),recv_pose(start_pose-0.3628*9.1));
             }
             if(_n==2){
                 max_pose = std::max(recv_pose(zero_pose - 3),recv_pose(start_pose+5));
@@ -142,9 +142,7 @@ private:
         if (cmd.mode == 10)
         {
             serial_->SendRecv(cmd);
-            usleep(200);
             data = serial_->GetMotorData();
-            usleep(200);
         }
         else
         {

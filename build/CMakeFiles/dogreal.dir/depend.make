@@ -30,6 +30,7 @@ CMakeFiles/dogreal.dir/mainreal.cpp.o: ../include/interface/CmdPanel.h
 CMakeFiles/dogreal.dir/mainreal.cpp.o: ../include/interface/IOInterface.h
 CMakeFiles/dogreal.dir/mainreal.cpp.o: ../include/interface/IOReal.h
 CMakeFiles/dogreal.dir/mainreal.cpp.o: ../include/interface/KeyBoard.h
+CMakeFiles/dogreal.dir/mainreal.cpp.o: ../include/interface/WirelessHandle.h
 CMakeFiles/dogreal.dir/mainreal.cpp.o: ../include/message/LowlevelCmd.h
 CMakeFiles/dogreal.dir/mainreal.cpp.o: ../include/message/LowlevelState.h
 CMakeFiles/dogreal.dir/mainreal.cpp.o: ../mainreal.cpp
@@ -233,6 +234,7 @@ CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.o: ../include/interface/CmdPanel
 CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.o: ../include/interface/IOInterface.h
 CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.o: ../include/interface/IOReal.h
 CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.o: ../include/interface/KeyBoard.h
+CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.o: ../include/interface/WirelessHandle.h
 CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.o: ../include/message/LowlevelCmd.h
 CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.o: ../include/message/LowlevelState.h
 CMakeFiles/dogreal.dir/src/interface/IOReal.cpp.o: ../src/interface/IOReal.cpp

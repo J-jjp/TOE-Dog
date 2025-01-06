@@ -52,6 +52,12 @@ void State_FixedStand::run(){
 
 void State_FixedStand::exit(){
     _percent = 0;
+    for (size_t i = 0; i < 12; i++)
+    {
+
+        _defpos[i]=0;
+        _startPos[i]=0;
+    }
 }
 
 FSMStateName State_FixedStand::checkChange(){

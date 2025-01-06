@@ -3,13 +3,20 @@
 
 #include "control/leg_control.h"
 #include "interface/KeyBoard.h"
+#include "interface/WirelessHandle.h"
 #include "interface/IOInterface.h"
 #include <string>
 class IOReal : public IOInterface{
 public:
     IOReal(/* args */){
         std::cout<<"generate interfaces"<<std::endl;
-        cmdPanel = new KeyBoard();
+        if (1)
+        {
+            cmdPanel = new WirelessHandle();
+        }
+        else{
+            cmdPanel = new KeyBoard();
+        }
         FL_leg = std::make_shared<leg_control>("FL", "/dev/ttyUSB0",FL_dir);
         FR_leg = std::make_shared<leg_control>("FR", "/dev/ttyUSB1",FR_dir);
         RL_leg = std::make_shared<leg_control>("RL", "/dev/ttyUSB2",RL_dir);

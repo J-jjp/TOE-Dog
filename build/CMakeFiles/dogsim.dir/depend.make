@@ -243,6 +243,7 @@ CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: ../include/interface/CmdPanel.
 CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: ../include/interface/IOInterface.h
 CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: ../include/interface/IOReal.h
 CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: ../include/interface/KeyBoard.h
+CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: ../include/interface/WirelessHandle.h
 CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: ../include/message/LowlevelCmd.h
 CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: ../include/message/LowlevelState.h
 CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: ../src/interface/IOReal.cpp
