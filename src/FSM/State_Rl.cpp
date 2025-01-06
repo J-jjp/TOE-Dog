@@ -63,35 +63,15 @@ void State_Rl::mnnInference()
         obs[0][i] = _lowState->imu.gyroscope[i] *obs_scales_ang_vel;
         obs[0][i+3] = eu_ang[0] *obs_scales_quat;
     }
-    obs[0][6] = 0.3* obs_scales_lin_vel;
+    obs[0][6] = 0.25* obs_scales_lin_vel;
     obs[0][7] = 0 * obs_scales_lin_vel;
-    obs[0][8] = 0.3 * obs_scales_ang_vel;
+    obs[0][8] = 0.25 * obs_scales_ang_vel;
     for (size_t i = 0; i < 12; i++)
     {
         obs[0][9+i] = (_lowState->motorState[i].q-default_dof_pos[i]) *obs_scales_dof_pos;
         obs[0][21+i] = _lowState->motorState[i].dq * obs_scales_dof_vel;
         obs[0][33+i] = last_lowCmd[i];
     }
-        //         lin_vel = 2.0
-        //     ang_vel = 0.25
-        //     quat = 1.
-        //     dof_pos = 1.0
-        //     dof_vel = 0.05
-        //     height_measurements = 5.0
-        // clip_observations = 100.
-        // #clip_actions = 1.2
-        // clip_actions = 100 #控制限制
-    for (size_t i = 0; i < (History_len-1)*N_proprio; i++)
-    {
-        obs_history[0][i] = obs_history[0][i+N_proprio];
-    }
-    for (size_t i = 0; i < N_proprio; i++)
-    {
-        obs_history[0][((History_len-1)*N_proprio)+i] = obs[0][i];
-    }
-    
-    // memmove(obs_history+N_proprio, obs_history, (History_len-1)*N_proprio*sizeof(float));
-    // memcpy(obs_history+(History_len-1)*N_proprio,obs,N_proprio*sizeof(float));
     for (size_t i = 0; i < N_proprio; i++)
     {
         policy_input[0][i] = obs[0][i];
@@ -260,6 +240,14 @@ void State_Rl::mnnInference()
     // {
     //     policy_input[0][i]=a[i];
     // }
+    for (size_t i = 0; i < (History_len-1)*N_proprio; i++)
+    {
+        obs_history[0][i] = obs_history[0][i+N_proprio];
+    }
+    for (size_t i = 0; i < N_proprio; i++)
+    {
+        obs_history[0][((History_len-1)*N_proprio)+i] = obs[0][i];
+    }
     rlptr->advanceNNsync(policy_input,action_cmd);
     for (size_t i = 0; i < 12; i++)
     {
@@ -279,6 +267,9 @@ void State_Rl::mnnInference()
     {
         _lowCmd->motorCmd[i].q = action_flt[i] * 0.35 + default_dof_pos[i];
     }
+    // _lowCmd->motorCmd[6].q = 0.0;
+    // _lowCmd->motorCmd[7].q = 3.0;
+    // _lowCmd->motorCmd[8].q = 3.0;
 }
 
 void State_Rl::stateMachine(){
@@ -291,10 +282,10 @@ void State_Rl::stateMachine(){
     rlptr->resetNode();
 }
 Vec3 State_Rl::quaternion_to_euler_array(Vec4 quat){
-    double x = quat[0];
-    double y = quat[1];
-    double z = quat[2];
-    double w = quat[3];
+    double x = quat[1];
+    double y = quat[2];
+    double z = quat[3];
+    double w = quat[0];
     double t0, t1, t2, t3,t4;
     double roll_x, pitch_y, yaw_z;
     t0 = +2.0 * (w * x + y * z);
