@@ -1,0 +1,3 @@
+Mon Jan  6 10:39:56 2025
+ERROR: Load model error: mjParseXML: resource not found via provider or OS filesystem: '../go2/xml/scene.xml'
+

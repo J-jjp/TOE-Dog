@@ -33,10 +33,10 @@ void FSM::run(){
    //在这里下发控制命令-----------------------------------------------------------------
     _ctrlComp->sendRecv();
 
-    // _ctrlComp->runWaveGen();  //计算步态参数
+    _ctrlComp->runWaveGen();  //计算步态参数
+    std::cout<<"gy"<<_ctrlComp->lowState->imu.getAcc();
     _ctrlComp->estimator->run(); //估计器迭代一次
-    // std::cout<<"321"<<std::endl;
-    _ctrlComp->estimator->getPosition();
+    std::cout<<"measure"<<_ctrlComp->estimator->_RCheck->_measureCount;
     // if(!checkSafty()){  //进行安全检测 如果当前不安全  就设置为阻尼模式 让机器人趴下
     //     _ctrlComp->ioInter->setPassive();
     // }

@@ -80,6 +80,7 @@ void WaveGenerator::calcContactPhase(Vec4 &phaseResult, VecInt4 &contactResult, 
 
     phaseResult = _phase;
     contactResult = _contact;
+    std::cout<<"执行一次"<<std::endl;
 }
 
 float WaveGenerator::getTstance()
@@ -99,6 +100,11 @@ float WaveGenerator::getT()
 
 void WaveGenerator::calcWave(Vec4 &phase, VecInt4 &contact, WaveStatus status)
 {
+    if (contact.isZero())
+    {
+        std::cout<<"kongde"<<std::endl;
+    }
+    
     if (status == WaveStatus::WAVE_ALL)
     {
         _passT = (double)(getSystemTime() - _startT) * 1e-6;

@@ -33,69 +33,26 @@ std::vector<mjtNum> IOMujoco::get_sensor_data(const std::string &sensor_name)
   }
   return sensor_data;
 }
-float IOMujoco::pd_control(float target_q,float q,float kp,float target_dq,float dq,float kd){
-    float tau=(target_q - q) * kp + (target_dq - dq) * kd;
+float IOMujoco::pd_control(MotorCmd *cmd,MotorState *state){
+    float tau=cmd->tau+(cmd->q - state->q) * cmd->Kp + (cmd->dq - state->dq) * cmd->Kd;
     return tau;
 }
 
-void IOMujoco::sendRecv_debug( LowlevelCmd *cmd, LowlevelState *state,float kp,float kd) {
-    recv(state);
-    for(int i=0; i < 12; i++){
-        cmd->motorCmd[i].tau=pd_control(
-        cmd->motorCmd[i].q,state->motorState[i].q,kp,0,state->motorState[i].dq,kd);
-    }
-    send(cmd);
-    if (cmdPanel->userCmd==UserCommand::NONE)
-    {
-        std::cout<<"successNONE";
-    }
-        if (cmdPanel->userCmd==UserCommand::FIXED)
-    {
-        std::cout<<"successFIXED";
-    }
-        if (cmdPanel->userCmd==UserCommand::PASS)
-    {
-        std::cout<<"successPASS";
-    }
-        if (cmdPanel->userCmd==UserCommand::FREE)
-    {
-        std::cout<<"successFREE";
-    }
-    state->userCmd = cmdPanel->getUserCmd();
-
-    state->userValue = cmdPanel->getUserValue();
-}
 void IOMujoco::sendRecv( LowlevelCmd *cmd, LowlevelState *state) {
     recv(state);
     std::cout<<"pose"<<cmd->motorCmd[0].Kd;
     for(int i=0; i < 12; i++){
-        cmd->motorCmd[i].tau=pd_control(
-        cmd->motorCmd[i].q,state->motorState[i].q,cmd->motorCmd[i].Kp,cmd->motorCmd[i].dq,state->motorState[i].dq,cmd->motorCmd[i].Kd);
+        float tau=pd_control(&cmd->motorCmd[i],&state->motorState[i]);
+         _data->ctrl[i] =tau;
     }
-    send(cmd);
     state->userCmd = cmdPanel->getUserCmd();
     state->userValue = cmdPanel->getUserValue();
 }
-void IOMujoco::send( LowlevelCmd *lowCmd) {
-    std::cout << "send" << std::endl;
-    for(int i=0; i < 12; i++){
-        _data->ctrl[i] = lowCmd->motorCmd[i].tau;
-    }
-}
-
-// void IOMujoco::recvState(LowlevelState *state){
-//     for(int i(0); i < 12; ++i){
-//         state->motorState[i].q = _lowState.motorState[i].q;
-//         state->motorState[i].dq = _lowState.motorState[i].dq;
-//         state->motorState[i].ddq = _lowState.motorState[i].ddq;
-//         state->motorState[i].tauEst = _lowState.motorState[i].tauEst;
+// void IOMujoco::send( LowlevelCmd *lowCmd) {
+//     std::cout << "send" << std::endl;
+//     for(int i=0; i < 12; i++){
+//         _data->ctrl[i] = lowCmd->motorCmd[i].tau;
 //     }
-//     for(int i(0); i < 3; ++i){
-//         state->imu.quaternion[i] = _lowState.imu.quaternion[i];
-//         state->imu.accelerometer[i] = _lowState.imu.accelerometer[i];
-//         state->imu.gyroscope[i] = _lowState.imu.gyroscope[i];
-//     }
-//     state->imu.quaternion[3] = _lowState.imu.quaternion[3];
 // }
 
 void IOMujoco::recv(LowlevelState *state){
@@ -121,20 +78,3 @@ void IOMujoco::recv(LowlevelState *state){
     }
     state->imu.quaternion[3] = base_quat[3];
 }
-
-// void IOSIM::imuCallback()
-// { 
-//     auto base_quat = get_sensor_data(, _data, "orientation");
-//     _lowState.imu.quaternion[0] = msg.orientation.w;
-//     _lowState.imu.quaternion[1] = msg.orientation.x;
-//     _lowState.imu.quaternion[2] = msg.orientation.y;
-//     _lowState.imu.quaternion[3] = msg.orientation.z;
-
-//     _lowState.imu.gyroscope[0] = msg.angular_velocity.x;
-//     _lowState.imu.gyroscope[1] = msg.angular_velocity.y;
-//     _lowState.imu.gyroscope[2] = msg.angular_velocity.z;
-    
-//     _lowState.imu.accelerometer[0] = msg.linear_acceleration.x;
-//     _lowState.imu.accelerometer[1] = msg.linear_acceleration.y;
-//     _lowState.imu.accelerometer[2] = msg.linear_acceleration.z;
-// }

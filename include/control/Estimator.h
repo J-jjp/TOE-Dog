@@ -31,7 +31,7 @@ public:
     void setPyPlot(PyPlot *plot){_testPlot = plot;}
 #endif  // COMPILE_DEBUG
 
-private:
+public:
     void _initSystem();
     // Linear System
     Eigen::Matrix<double, 18, 1>  _xhat;            // The state of estimator, position(3)+velocity(3)+feet position(3x4)

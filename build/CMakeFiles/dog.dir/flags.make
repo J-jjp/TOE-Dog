@@ -6,5 +6,5 @@ CXX_FLAGS = -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/jiaojunpeng/my_dog/dog_control/include -I/usr/include/eigen3 -I/home/jiaojunpeng/mujoco-3.1.4/simulate -I/home/jiaojunpeng/mujoco-3.1.4/include -I/home/jiaojunpeng/my_dog/dog_control/imgui -I/home/jiaojunpeng/my_dog/dog_control/imgui/backends -I/home/jiaojunpeng/my_dog/dog_control/include/interface -I/home/jiaojunpeng/my_dog/dog_control/include/message -I/home/jiaojunpeng/my_dog/dog_control/include/FSM -I/home/jiaojunpeng/my_dog/dog_control/include/Gait -I/home/jiaojunpeng/my_dog/dog_control/inclued/control -I/home/jiaojunpeng/my_dog/dog_control/inclued/thirdParty/quadProgpp 
+CXX_INCLUDES = -I/home/jiaojunpeng/my_dog/TOE-Dog/include -I/usr/include/eigen3 -I/home/jiaojunpeng/mujoco-3.1.4/simulate -I/home/jiaojunpeng/mujoco-3.1.4/include -I/home/jiaojunpeng/my_dog/dog_control/imgui -I/home/jiaojunpeng/my_dog/dog_control/imgui/backends -I/home/jiaojunpeng/my_dog/TOE-Dog/include/interface -I/home/jiaojunpeng/my_dog/TOE-Dog/include/message -I/home/jiaojunpeng/my_dog/TOE-Dog/include/FSM -I/home/jiaojunpeng/my_dog/TOE-Dog/include/Gait -I/home/jiaojunpeng/my_dog/TOE-Dog/inclued/control -I/home/jiaojunpeng/my_dog/TOE-Dog/inclued/thirdParty/quadProgpp 
 

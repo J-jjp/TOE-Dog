@@ -16,6 +16,7 @@ CMakeFiles/dog.dir/main.cpp.o: ../include/common/timeMarker.h
 CMakeFiles/dog.dir/main.cpp.o: ../include/common/unitreeLeg.h
 CMakeFiles/dog.dir/main.cpp.o: ../include/common/unitreeRobot.h
 CMakeFiles/dog.dir/main.cpp.o: ../include/control/BalanceCtrl.h
+CMakeFiles/dog.dir/main.cpp.o: ../include/control/ControlFrame.h
 CMakeFiles/dog.dir/main.cpp.o: ../include/control/CtrlComponents.h
 CMakeFiles/dog.dir/main.cpp.o: ../include/control/Estimator.h
 CMakeFiles/dog.dir/main.cpp.o: ../include/interface/CmdPanel.h

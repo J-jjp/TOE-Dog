@@ -21,7 +21,7 @@
 #include <FSM/FSM.h>
 #include <string>
 #include <iostream>
-// #include <control/ControlFrame.h>
+#include <control/ControlFrame.h>
 // MuJoCo data structures
 mjModel* m = NULL;                  // MuJoCo model
 mjData* d = NULL;                   // MuJoCo data
@@ -135,7 +135,7 @@ int main(int argc, const char** argv) {
   if (std::strlen(argv[1])>4 && !std::strcmp(argv[1]+std::strlen(argv[1])-4, ".mjb")) {
     m = mj_loadModel(argv[1], 0);
   } else {
-    m = mj_loadXML("/home/jiaojunpeng/my_dog/dog_control/go2/xml/scene.xml", 0, error, 1000);
+    m = mj_loadXML("../go2/xml/scene.xml", 0, error, 1000);
   }
   if (!m) {
     mju_error("Load model error: %s", error);
@@ -179,6 +179,7 @@ int main(int argc, const char** argv) {
     float _percent=0;
     float _duration=1000;
     ioInter = new IOMujoco(d,m);
+    ctrlPlat = CtrlPlatform::Mujoco;
     std::vector<float> start_pose(12);
     
     CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
@@ -188,10 +189,9 @@ int main(int argc, const char** argv) {
     // ctrlComp->estimator->getPosition();
     std::cout<<"5555"<<std::endl;
     ctrlComp->robotModel=new Go2Robot();
+    ctrlComp->waveGen = new WaveGenerator(0.45, 0.5, Vec4(0, 0.5, 0.5, 0));
     ctrlComp->geneObj();
-    
-    FSM *_FSMController = new FSM(ctrlComp);
-    ctrlComp->robotModel = new Go2Robot();
+    ControlFrame ctrlFrame(ctrlComp);
   // run main loop, target real-time simulation and 60 fps rendering
   while (!glfwWindowShouldClose(window)) {
     // advance interactive simulation for 1/60 sec
@@ -201,9 +201,7 @@ int main(int argc, const char** argv) {
     mjtNum simstart = d->time;
     float kp=0;
     float kd=0;
-    _FSMController->run();
-    ctrlComp->estimator->getPosition();
-    std::cout<<"6666"<<std::endl;
+    ctrlFrame.run();
     // CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
     // ControlFrame ctrlFrame(ctrlComp);
     // if (x>1000)
@@ -233,9 +231,7 @@ int main(int argc, const char** argv) {
     //   }
     // }
 
-      std::cout<<"x"<<x<<std::endl;
     while (d->time - simstart < 1.0/60.0) {
-            x++;
     // // float target_q[12];
     //   if(x>300){
     //     // if(x>3000){

@@ -42,7 +42,6 @@ void State_BalanceTest::enter(){
 }
 
 void State_BalanceTest::run(){
-    std::cout<<"2这2";
     _userValue = _lowState->userValue;
 
     _pcd(0) = _pcdInit(0) + invNormalize(_userValue.ly, _xMin, _xMax);
@@ -61,9 +60,9 @@ void State_BalanceTest::run(){
     calcTau();
 
     _lowCmd->setStableGain();
+    std::cout<<"tau"<<_tau<<"_q"<<_q<<std::endl;
     _lowCmd->setTau(_tau);
     _lowCmd->setQ(_q);
-    std::cout<<"3这3";
 }
 
 void State_BalanceTest::exit(){

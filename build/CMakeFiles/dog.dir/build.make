@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jiaojunpeng/my_dog/dog_control
+CMAKE_SOURCE_DIR = /home/jiaojunpeng/my_dog/TOE-Dog
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jiaojunpeng/my_dog/dog_control/build
+CMAKE_BINARY_DIR = /home/jiaojunpeng/my_dog/TOE-Dog/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/dog.dir/depend.make
@@ -59,263 +59,263 @@ include CMakeFiles/dog.dir/flags.make
 
 CMakeFiles/dog.dir/main.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dog.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/main.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dog.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/main.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/main.cpp
 
 CMakeFiles/dog.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/main.cpp > CMakeFiles/dog.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/main.cpp > CMakeFiles/dog.dir/main.cpp.i
 
 CMakeFiles/dog.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/main.cpp -o CMakeFiles/dog.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/main.cpp -o CMakeFiles/dog.dir/main.cpp.s
 
 CMakeFiles/dog.dir/src/FSM/FSM.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/FSM/FSM.cpp.o: ../src/FSM/FSM.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dog.dir/src/FSM/FSM.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/FSM/FSM.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/FSM/FSM.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dog.dir/src/FSM/FSM.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/FSM/FSM.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/FSM.cpp
 
 CMakeFiles/dog.dir/src/FSM/FSM.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/FSM/FSM.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/FSM/FSM.cpp > CMakeFiles/dog.dir/src/FSM/FSM.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/FSM.cpp > CMakeFiles/dog.dir/src/FSM/FSM.cpp.i
 
 CMakeFiles/dog.dir/src/FSM/FSM.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/FSM/FSM.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/FSM/FSM.cpp -o CMakeFiles/dog.dir/src/FSM/FSM.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/FSM.cpp -o CMakeFiles/dog.dir/src/FSM/FSM.cpp.s
 
 CMakeFiles/dog.dir/src/FSM/FSMState.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/FSM/FSMState.cpp.o: ../src/FSM/FSMState.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/dog.dir/src/FSM/FSMState.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/FSM/FSMState.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/FSM/FSMState.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/dog.dir/src/FSM/FSMState.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/FSM/FSMState.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/FSMState.cpp
 
 CMakeFiles/dog.dir/src/FSM/FSMState.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/FSM/FSMState.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/FSM/FSMState.cpp > CMakeFiles/dog.dir/src/FSM/FSMState.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/FSMState.cpp > CMakeFiles/dog.dir/src/FSM/FSMState.cpp.i
 
 CMakeFiles/dog.dir/src/FSM/FSMState.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/FSM/FSMState.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/FSM/FSMState.cpp -o CMakeFiles/dog.dir/src/FSM/FSMState.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/FSMState.cpp -o CMakeFiles/dog.dir/src/FSM/FSMState.cpp.s
 
 CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.o: ../src/FSM/State_BalanceTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_BalanceTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_BalanceTest.cpp
 
 CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_BalanceTest.cpp > CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_BalanceTest.cpp > CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.i
 
 CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_BalanceTest.cpp -o CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_BalanceTest.cpp -o CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.s
 
 CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.o: ../src/FSM/State_FixedStand.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_FixedStand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_FixedStand.cpp
 
 CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_FixedStand.cpp > CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_FixedStand.cpp > CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.i
 
 CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_FixedStand.cpp -o CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_FixedStand.cpp -o CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.s
 
 CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o: ../src/FSM/State_FreeStand.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_FreeStand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_FreeStand.cpp
 
 CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_FreeStand.cpp > CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_FreeStand.cpp > CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.i
 
 CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_FreeStand.cpp -o CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_FreeStand.cpp -o CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.s
 
 CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o: ../src/FSM/State_Passive.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_Passive.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_Passive.cpp
 
 CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_Passive.cpp > CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_Passive.cpp > CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.i
 
 CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_Passive.cpp -o CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_Passive.cpp -o CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.s
 
 CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.o: ../src/Gait/FeetEndCal.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/Gait/FeetEndCal.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/Gait/FeetEndCal.cpp
 
 CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/Gait/FeetEndCal.cpp > CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/Gait/FeetEndCal.cpp > CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.i
 
 CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/Gait/FeetEndCal.cpp -o CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/Gait/FeetEndCal.cpp -o CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.s
 
 CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.o: ../src/Gait/GaitGenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/Gait/GaitGenerator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/Gait/GaitGenerator.cpp
 
 CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/Gait/GaitGenerator.cpp > CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/Gait/GaitGenerator.cpp > CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.i
 
 CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/Gait/GaitGenerator.cpp -o CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/Gait/GaitGenerator.cpp -o CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.s
 
 CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.o: ../src/Gait/WaveGenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/Gait/WaveGenerator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/Gait/WaveGenerator.cpp
 
 CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/Gait/WaveGenerator.cpp > CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/Gait/WaveGenerator.cpp > CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.i
 
 CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/Gait/WaveGenerator.cpp -o CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/Gait/WaveGenerator.cpp -o CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.s
 
 CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.o: ../src/common/LowPassFilter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/common/LowPassFilter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/common/LowPassFilter.cpp
 
 CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/common/LowPassFilter.cpp > CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/common/LowPassFilter.cpp > CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.i
 
 CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/common/LowPassFilter.cpp -o CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/common/LowPassFilter.cpp -o CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.s
 
 CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o: ../src/common/unitreeLeg.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/common/unitreeLeg.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/common/unitreeLeg.cpp
 
 CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/common/unitreeLeg.cpp > CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/common/unitreeLeg.cpp > CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.i
 
 CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/common/unitreeLeg.cpp -o CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/common/unitreeLeg.cpp -o CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.s
 
 CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o: ../src/common/unitreeRobot.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/common/unitreeRobot.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/common/unitreeRobot.cpp
 
 CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/common/unitreeRobot.cpp > CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/common/unitreeRobot.cpp > CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.i
 
 CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/common/unitreeRobot.cpp -o CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/common/unitreeRobot.cpp -o CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.s
 
 CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.o: ../src/control/BalanceCtrl.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/control/BalanceCtrl.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/control/BalanceCtrl.cpp
 
 CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/control/BalanceCtrl.cpp > CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/control/BalanceCtrl.cpp > CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.i
 
 CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/control/BalanceCtrl.cpp -o CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/control/BalanceCtrl.cpp -o CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.s
 
 CMakeFiles/dog.dir/src/control/ControlFrame.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/control/ControlFrame.cpp.o: ../src/control/ControlFrame.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/dog.dir/src/control/ControlFrame.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/control/ControlFrame.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/control/ControlFrame.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/dog.dir/src/control/ControlFrame.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/control/ControlFrame.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/control/ControlFrame.cpp
 
 CMakeFiles/dog.dir/src/control/ControlFrame.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/control/ControlFrame.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/control/ControlFrame.cpp > CMakeFiles/dog.dir/src/control/ControlFrame.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/control/ControlFrame.cpp > CMakeFiles/dog.dir/src/control/ControlFrame.cpp.i
 
 CMakeFiles/dog.dir/src/control/ControlFrame.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/control/ControlFrame.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/control/ControlFrame.cpp -o CMakeFiles/dog.dir/src/control/ControlFrame.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/control/ControlFrame.cpp -o CMakeFiles/dog.dir/src/control/ControlFrame.cpp.s
 
 CMakeFiles/dog.dir/src/control/Estimator.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/control/Estimator.cpp.o: ../src/control/Estimator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/dog.dir/src/control/Estimator.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/control/Estimator.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/control/Estimator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/dog.dir/src/control/Estimator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/control/Estimator.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/control/Estimator.cpp
 
 CMakeFiles/dog.dir/src/control/Estimator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/control/Estimator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/control/Estimator.cpp > CMakeFiles/dog.dir/src/control/Estimator.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/control/Estimator.cpp > CMakeFiles/dog.dir/src/control/Estimator.cpp.i
 
 CMakeFiles/dog.dir/src/control/Estimator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/control/Estimator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/control/Estimator.cpp -o CMakeFiles/dog.dir/src/control/Estimator.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/control/Estimator.cpp -o CMakeFiles/dog.dir/src/control/Estimator.cpp.s
 
 CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o: ../src/interface/IOMujoco.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/interface/IOMujoco.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/interface/IOMujoco.cpp
 
 CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/interface/IOMujoco.cpp > CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/interface/IOMujoco.cpp > CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.i
 
 CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/interface/IOMujoco.cpp -o CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/interface/IOMujoco.cpp -o CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.s
 
 CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o: ../src/interface/KeyBoard.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o -c /home/jiaojunpeng/my_dog/dog_control/src/interface/KeyBoard.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/interface/KeyBoard.cpp
 
 CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/interface/KeyBoard.cpp > CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/interface/KeyBoard.cpp > CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.i
 
 CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/interface/KeyBoard.cpp -o CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/interface/KeyBoard.cpp -o CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.s
 
 CMakeFiles/dog.dir/src/quadProgpp/Array.cc.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/quadProgpp/Array.cc.o: ../src/quadProgpp/Array.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/dog.dir/src/quadProgpp/Array.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/quadProgpp/Array.cc.o -c /home/jiaojunpeng/my_dog/dog_control/src/quadProgpp/Array.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/dog.dir/src/quadProgpp/Array.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/quadProgpp/Array.cc.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/quadProgpp/Array.cc
 
 CMakeFiles/dog.dir/src/quadProgpp/Array.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/quadProgpp/Array.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/quadProgpp/Array.cc > CMakeFiles/dog.dir/src/quadProgpp/Array.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/quadProgpp/Array.cc > CMakeFiles/dog.dir/src/quadProgpp/Array.cc.i
 
 CMakeFiles/dog.dir/src/quadProgpp/Array.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/quadProgpp/Array.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/quadProgpp/Array.cc -o CMakeFiles/dog.dir/src/quadProgpp/Array.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/quadProgpp/Array.cc -o CMakeFiles/dog.dir/src/quadProgpp/Array.cc.s
 
 CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.o: CMakeFiles/dog.dir/flags.make
 CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.o: ../src/quadProgpp/QuadProg++.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.o -c /home/jiaojunpeng/my_dog/dog_control/src/quadProgpp/QuadProg++.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.o -c /home/jiaojunpeng/my_dog/TOE-Dog/src/quadProgpp/QuadProg++.cc
 
 CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/dog_control/src/quadProgpp/QuadProg++.cc > CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jiaojunpeng/my_dog/TOE-Dog/src/quadProgpp/QuadProg++.cc > CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.i
 
 CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/dog_control/src/quadProgpp/QuadProg++.cc -o CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jiaojunpeng/my_dog/TOE-Dog/src/quadProgpp/QuadProg++.cc -o CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.s
 
 # Object files for target dog
 dog_OBJECTS = \
@@ -366,7 +366,7 @@ dog: CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.o
 dog: CMakeFiles/dog.dir/build.make
 dog: /home/jiaojunpeng/mujoco-3.1.4/lib/libmujoco.so
 dog: CMakeFiles/dog.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX executable dog"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX executable dog"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dog.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -379,6 +379,6 @@ CMakeFiles/dog.dir/clean:
 .PHONY : CMakeFiles/dog.dir/clean
 
 CMakeFiles/dog.dir/depend:
-	cd /home/jiaojunpeng/my_dog/dog_control/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jiaojunpeng/my_dog/dog_control /home/jiaojunpeng/my_dog/dog_control /home/jiaojunpeng/my_dog/dog_control/build /home/jiaojunpeng/my_dog/dog_control/build /home/jiaojunpeng/my_dog/dog_control/build/CMakeFiles/dog.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jiaojunpeng/my_dog/TOE-Dog/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jiaojunpeng/my_dog/TOE-Dog /home/jiaojunpeng/my_dog/TOE-Dog /home/jiaojunpeng/my_dog/TOE-Dog/build /home/jiaojunpeng/my_dog/TOE-Dog/build /home/jiaojunpeng/my_dog/TOE-Dog/build/CMakeFiles/dog.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/dog.dir/depend
 

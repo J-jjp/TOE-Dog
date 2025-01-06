@@ -17,6 +17,7 @@ CMakeFiles/dog.dir/main.cpp.o
  ../include/common/unitreeLeg.h
  ../include/common/unitreeRobot.h
  ../include/control/BalanceCtrl.h
+ ../include/control/ControlFrame.h
  ../include/control/CtrlComponents.h
  ../include/control/Estimator.h
  ../include/interface/CmdPanel.h
@@ -38,7 +39,7 @@ CMakeFiles/dog.dir/main.cpp.o
  /home/jiaojunpeng/mujoco-3.1.4/include/mujoco/mjui.h
  /home/jiaojunpeng/mujoco-3.1.4/include/mujoco/mjvisualize.h
  /home/jiaojunpeng/mujoco-3.1.4/include/mujoco/mujoco.h
- /home/jiaojunpeng/my_dog/dog_control/main.cpp
+ /home/jiaojunpeng/my_dog/TOE-Dog/main.cpp
 CMakeFiles/dog.dir/src/FSM/FSM.cpp.o
  ../include/FSM/FSM.h
  ../include/FSM/FSMState.h
@@ -63,7 +64,7 @@ CMakeFiles/dog.dir/src/FSM/FSM.cpp.o
  ../include/message/LowlevelState.h
  ../include/thirdParty/quadProgpp/Array.hh
  ../include/thirdParty/quadProgpp/QuadProg++.hh
- /home/jiaojunpeng/my_dog/dog_control/src/FSM/FSM.cpp
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/FSM.cpp
 CMakeFiles/dog.dir/src/FSM/FSMState.cpp.o
  ../include/FSM/FSMState.h
  ../include/Gait/WaveGenerator.h
@@ -83,7 +84,7 @@ CMakeFiles/dog.dir/src/FSM/FSMState.cpp.o
  ../include/message/LowlevelState.h
  ../include/thirdParty/quadProgpp/Array.hh
  ../include/thirdParty/quadProgpp/QuadProg++.hh
- /home/jiaojunpeng/my_dog/dog_control/src/FSM/FSMState.cpp
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/FSMState.cpp
 CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.o
  ../include/FSM/FSMState.h
  ../include/FSM/State_BalanceTest.h
@@ -104,7 +105,7 @@ CMakeFiles/dog.dir/src/FSM/State_BalanceTest.cpp.o
  ../include/message/LowlevelState.h
  ../include/thirdParty/quadProgpp/Array.hh
  ../include/thirdParty/quadProgpp/QuadProg++.hh
- /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_BalanceTest.cpp
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_BalanceTest.cpp
 CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.o
  ../include/FSM/FSMState.h
  ../include/FSM/State_FixedStand.h
@@ -125,7 +126,7 @@ CMakeFiles/dog.dir/src/FSM/State_FixedStand.cpp.o
  ../include/message/LowlevelState.h
  ../include/thirdParty/quadProgpp/Array.hh
  ../include/thirdParty/quadProgpp/QuadProg++.hh
- /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_FixedStand.cpp
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_FixedStand.cpp
 CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o
  ../include/FSM/FSMState.h
  ../include/FSM/State_FreeStand.h
@@ -146,7 +147,7 @@ CMakeFiles/dog.dir/src/FSM/State_FreeStand.cpp.o
  ../include/message/LowlevelState.h
  ../include/thirdParty/quadProgpp/Array.hh
  ../include/thirdParty/quadProgpp/QuadProg++.hh
- /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_FreeStand.cpp
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_FreeStand.cpp
 CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o
  ../include/FSM/FSMState.h
  ../include/FSM/State_Passive.h
@@ -167,7 +168,7 @@ CMakeFiles/dog.dir/src/FSM/State_Passive.cpp.o
  ../include/message/LowlevelState.h
  ../include/thirdParty/quadProgpp/Array.hh
  ../include/thirdParty/quadProgpp/QuadProg++.hh
- /home/jiaojunpeng/my_dog/dog_control/src/FSM/State_Passive.cpp
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_Passive.cpp
 CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.o
  ../include/Gait/FeetEndCal.h
  ../include/Gait/WaveGenerator.h
@@ -187,7 +188,7 @@ CMakeFiles/dog.dir/src/Gait/FeetEndCal.cpp.o
  ../include/message/LowlevelState.h
  ../include/thirdParty/quadProgpp/Array.hh
  ../include/thirdParty/quadProgpp/QuadProg++.hh
- /home/jiaojunpeng/my_dog/dog_control/src/Gait/FeetEndCal.cpp
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/Gait/FeetEndCal.cpp
 CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.o
  ../include/Gait/FeetEndCal.h
  ../include/Gait/GaitGenerator.h
@@ -208,21 +209,21 @@ CMakeFiles/dog.dir/src/Gait/GaitGenerator.cpp.o
  ../include/message/LowlevelState.h
  ../include/thirdParty/quadProgpp/Array.hh
  ../include/thirdParty/quadProgpp/QuadProg++.hh
- /home/jiaojunpeng/my_dog/dog_control/src/Gait/GaitGenerator.cpp
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/Gait/GaitGenerator.cpp
 CMakeFiles/dog.dir/src/Gait/WaveGenerator.cpp.o
  ../include/Gait/WaveGenerator.h
  ../include/common/enumClass.h
  ../include/common/mathTypes.h
  ../include/common/timeMarker.h
- /home/jiaojunpeng/my_dog/dog_control/src/Gait/WaveGenerator.cpp
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/Gait/WaveGenerator.cpp
 CMakeFiles/dog.dir/src/common/LowPassFilter.cpp.o
  ../include/common/LowPassFilter.h
- /home/jiaojunpeng/my_dog/dog_control/src/common/LowPassFilter.cpp
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/common/LowPassFilter.cpp
 CMakeFiles/dog.dir/src/common/unitreeLeg.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTypes.h
  ../include/common/unitreeLeg.h
- /home/jiaojunpeng/my_dog/dog_control/src/common/unitreeLeg.cpp
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/common/unitreeLeg.cpp
 CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTools.h
@@ -231,7 +232,7 @@ CMakeFiles/dog.dir/src/common/unitreeRobot.cpp.o
  ../include/common/unitreeRobot.h
  ../include/interface/CmdPanel.h
  ../include/message/LowlevelState.h
- /home/jiaojunpeng/my_dog/dog_control/src/common/unitreeRobot.cpp
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/common/unitreeRobot.cpp
 CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTools.h
@@ -244,7 +245,7 @@ CMakeFiles/dog.dir/src/control/BalanceCtrl.cpp.o
  ../include/message/LowlevelState.h
  ../include/thirdParty/quadProgpp/Array.hh
  ../include/thirdParty/quadProgpp/QuadProg++.hh
- /home/jiaojunpeng/my_dog/dog_control/src/control/BalanceCtrl.cpp
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/control/BalanceCtrl.cpp
 CMakeFiles/dog.dir/src/control/ControlFrame.cpp.o
  ../include/FSM/FSM.h
  ../include/FSM/FSMState.h
@@ -270,7 +271,7 @@ CMakeFiles/dog.dir/src/control/ControlFrame.cpp.o
  ../include/message/LowlevelState.h
  ../include/thirdParty/quadProgpp/Array.hh
  ../include/thirdParty/quadProgpp/QuadProg++.hh
- /home/jiaojunpeng/my_dog/dog_control/src/control/ControlFrame.cpp
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/control/ControlFrame.cpp
 CMakeFiles/dog.dir/src/control/Estimator.cpp.o
  ../include/Gait/WaveGenerator.h
  ../include/common/LowPassFilter.h
@@ -283,7 +284,7 @@ CMakeFiles/dog.dir/src/control/Estimator.cpp.o
  ../include/control/Estimator.h
  ../include/interface/CmdPanel.h
  ../include/message/LowlevelState.h
- /home/jiaojunpeng/my_dog/dog_control/src/control/Estimator.cpp
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/control/Estimator.cpp
 CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTools.h
@@ -305,18 +306,18 @@ CMakeFiles/dog.dir/src/interface/IOMujoco.cpp.o
  /home/jiaojunpeng/mujoco-3.1.4/include/mujoco/mjui.h
  /home/jiaojunpeng/mujoco-3.1.4/include/mujoco/mjvisualize.h
  /home/jiaojunpeng/mujoco-3.1.4/include/mujoco/mujoco.h
- /home/jiaojunpeng/my_dog/dog_control/src/interface/IOMujoco.cpp
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/interface/IOMujoco.cpp
 CMakeFiles/dog.dir/src/interface/KeyBoard.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTools.h
  ../include/common/mathTypes.h
  ../include/interface/CmdPanel.h
  ../include/interface/KeyBoard.h
- /home/jiaojunpeng/my_dog/dog_control/src/interface/KeyBoard.cpp
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/interface/KeyBoard.cpp
 CMakeFiles/dog.dir/src/quadProgpp/Array.cc.o
  ../include/thirdParty/quadProgpp/Array.hh
- /home/jiaojunpeng/my_dog/dog_control/src/quadProgpp/Array.cc
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/quadProgpp/Array.cc
 CMakeFiles/dog.dir/src/quadProgpp/QuadProg++.cc.o
  ../include/thirdParty/quadProgpp/Array.hh
  ../include/thirdParty/quadProgpp/QuadProg++.hh
- /home/jiaojunpeng/my_dog/dog_control/src/quadProgpp/QuadProg++.cc
+ /home/jiaojunpeng/my_dog/TOE-Dog/src/quadProgpp/QuadProg++.cc

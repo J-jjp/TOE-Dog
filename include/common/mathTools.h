@@ -243,7 +243,7 @@ inline Vec3 noHomoVec(Vec4 v4){
 // Calculate average value and covariance
 class AvgCov{
 public:
-    AvgCov(unsigned int size, std::string name, bool avgOnly=false, unsigned int showPeriod=1000, unsigned int waitCount=5000, double zoomFactor=10000)
+    AvgCov(unsigned int size, std::string name, bool avgOnly=false, unsigned int showPeriod=500, unsigned int waitCount=1000, double zoomFactor=10000)
             :_size(size), _showPeriod(showPeriod), _waitCount(waitCount), _zoomFactor(zoomFactor), _valueName(name), _avgOnly(avgOnly) {
         _exp.resize(size);
         _cov.resize(size, size);
@@ -265,7 +265,7 @@ public:
             }
         }
     }
-private:
+public:
     VecX _exp;
     MatX _cov;
     MatX _defaultWeight;
