@@ -8,6 +8,7 @@
 #include <mujoco/mujoco.h>
 #include <string>
 #include "interface/KeyBoard.h"
+#include <iomanip>
 class IOMujoco : public IOInterface{
 public:
     IOMujoco(mjData *data,mjModel* model):_data(data),_model(model){

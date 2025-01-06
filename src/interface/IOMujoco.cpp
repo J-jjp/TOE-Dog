@@ -33,6 +33,7 @@ std::vector<mjtNum> IOMujoco::get_sensor_data(const std::string &sensor_name)
   }
   return sensor_data;
 }
+
 float IOMujoco::pd_control(MotorCmd *cmd,MotorState *state){
     float tau=cmd->tau+(cmd->q - state->q) * cmd->Kp + (cmd->dq - state->dq) * cmd->Kd;
     return tau;
@@ -60,6 +61,7 @@ void IOMujoco::recv(LowlevelState *state){
     {
         state->motorState[i].q = _data->sensordata[i];
     }
+    
     for (int i = 12; i < 24; i++)
     {
         state->motorState[i-12].dq = _data->sensordata[i];
@@ -68,13 +70,22 @@ void IOMujoco::recv(LowlevelState *state){
     {
         state->motorState[i-24].tauEst = _data->sensordata[i];
     }
+    for (size_t i = 0; i < 12; i++)
+    {
+        // printf("q",(double)state->motorState[i].q);
+        std::cout<<"q"<<std::setprecision(6)<<state->motorState[i].q;
+        std::cout<<"\tdq"<<state->motorState[i].dq;
+        std::cout<<"\ttau"<<state->motorState[i].tauEst<<std::endl;
+    }
     auto base_quat = get_sensor_data( "orientation");
     auto base_accel = get_sensor_data( "linear-acceleration");
     auto base_gyr = get_sensor_data("angular-velocity");
-    for(int i(0); i < 3; ++i){
+    for(int i=0; i < 3; ++i){
         state->imu.quaternion[i] = base_quat[i];
         state->imu.accelerometer[i] = base_accel[i];
+        std::cout<<"acc"<<i<<std::setprecision(6)<<state->imu.gyroscope[i];
         state->imu.gyroscope[i] = base_gyr[i];
     }
     state->imu.quaternion[3] = base_quat[3];
+    std::cout<<std::endl;
 }

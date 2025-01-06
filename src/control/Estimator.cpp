@@ -170,6 +170,7 @@ void Estimator::run(){
     }
 
     _rotMatB2G = _lowState->getRotMat();
+    // std::cout<<"acc"<<_lowState->getAcc()<<std::endl;
     _u = _rotMatB2G * _lowState->getAcc() + _g;
     // std::cout<<"_x77"<<_xhat<<std::endl;
     _xhat = _A * _xhat + _B * _u;
