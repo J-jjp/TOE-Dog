@@ -10,6 +10,7 @@ State_Rl::State_Rl(CtrlComponents *ctrlComp)
 void State_Rl::enter(){
     for(int i=0; i<4; i++){
         _lowCmd->setSimrlGain(i);
+        _lowCmd->setZeroTau(i);
         // else if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
         //     _lowCmd->setRealrlGain(i);
         // }
@@ -109,7 +110,7 @@ void State_Rl::mnnInference()
     }
     for (size_t i = 0; i < 12; i++)
     {
-        _lowCmd->motorCmd[i].q = action_flt[i] * 0.35 + default_dof_pos[i];
+        _lowCmd->motorCmd[i].q = action_flt[i] * 0.25 + default_dof_pos[i];
     }
     // _lowCmd->motorCmd[6].q = 0.0;
     // _lowCmd->motorCmd[7].q = 3.0;
