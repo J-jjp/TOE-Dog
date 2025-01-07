@@ -64,8 +64,8 @@ void State_Rl::mnnInference()
         obs[0][i] = _lowState->imu.gyroscope[i] *obs_scales_ang_vel;
         obs[0][i+3] = eu_ang[0] *obs_scales_quat;
     }
-    obs[0][6] = _lowState->userValue.lx * obs_scales_lin_vel;
-    obs[0][7] = _lowState->userValue.ly * obs_scales_lin_vel;
+    obs[0][6] = -_lowState->userValue.ly * obs_scales_lin_vel;
+    obs[0][7] = -_lowState->userValue.lx * obs_scales_lin_vel;
     obs[0][8] = _lowState->userValue.rx * obs_scales_ang_vel;
     for (size_t i = 0; i < 12; i++)
     {

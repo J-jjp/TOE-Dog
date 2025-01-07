@@ -144,10 +144,10 @@ struct LowlevelCmd{
     void setSimrlGain(int legID){
         motorCmd[legID*3+0].Kp = 30;
         motorCmd[legID*3+0].Kd = 0.75;
-        motorCmd[legID*3+1].Kp = 30;
-        motorCmd[legID*3+1].Kd = 0.75;
-        motorCmd[legID*3+2].Kp = 30;
-        motorCmd[legID*3+2].Kd = 0.75;
+        motorCmd[legID*3+1].Kp = 40;
+        motorCmd[legID*3+1].Kd = 0.95;
+        motorCmd[legID*3+2].Kp = 50;
+        motorCmd[legID*3+2].Kd = 1.25;
     }
     void setRealrlGain(int legID){
         motorCmd[legID*3+0].Kp = 3;
