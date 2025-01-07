@@ -20,8 +20,36 @@
 #include <string>
 #include <iostream>
 #include <control/ControlFrame.h>
-// std::vector<float> default_dof_pos={0.1,0.8,-1.5 ,-0.1,0.8,-1.5,0.1,1,-1.5, -0.1,1.,-1.5};
-std::vector<float> default_dof_pos={0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.};//#默认角度需要与isacc一致
+#include <ros/ros.h>
+#include <sensor_msgs/Imu.h>
+#include <thread>
+class ImuSubscriber {
+public:
+    ImuSubscriber() : nh_("~") {
+        // 订阅IMU话题
+        imu_sub_ = nh_.subscribe("/imu", 10, &ImuSubscriber::imuCallback, this);
+    }
+
+    void imuCallback(const sensor_msgs::ImuConstPtr& msg) {
+        // 打印接收到的IMU数据
+        x=msg->orientation.x;
+        y=msg->orientation.y;
+        z=msg->orientation.z;
+        w=msg->orientation.w;
+    }
+
+    void spin() {
+        ros::spin();
+    }
+public:
+  float x=0;
+  float y=0;
+  float z=0;
+  float w=0;
+private:
+    ros::NodeHandle nh_;
+    ros::Subscriber imu_sub_;
+};
 bool running = true;
 void setProcessScheduler()
 {
@@ -34,7 +62,7 @@ void setProcessScheduler()
     }
 }
 // main function
-int main(int argc, const char** argv) {
+int main(int argc, char** argv) {
     LowlevelCmd *lowCmd = new LowlevelCmd();
     LowlevelState *lowState = new LowlevelState();
     setProcessScheduler();
@@ -49,15 +77,19 @@ int main(int argc, const char** argv) {
     ctrlComp->robotModel = new ToeRobot();
 
     ControlFrame ctrlFrame(ctrlComp);
-  while (1) {
-        ctrlFrame.run();
-        // for (size_t i = 0; i < 12; i++)
-        // {
-        //   lowCmd->motorCmd[i].q=default_dof_pos[i];
-        // }
-        
-        // ioInter->sendRecv(lowCmd,lowState);
+
+    ros::init(argc, argv, "imu_subscriber");
+    ImuSubscriber imu_subscriber;
+    // 创建一个线程来处理ROS消息回调
+    std::thread ros_thread(&ImuSubscriber::spin, &imu_subscriber);
+  while (ros::ok()) {
+    ctrlComp->lowState->imu.quaternion[0]=imu_subscriber.w;
+    ctrlComp->lowState->imu.quaternion[1]=imu_subscriber.x;
+    ctrlComp->lowState->imu.quaternion[2]=imu_subscriber.y;
+    ctrlComp->lowState->imu.quaternion[3]=imu_subscriber.z;
+    ctrlFrame.run();
 
   }
+ros_thread.join();
   return 1;
 }

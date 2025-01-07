@@ -39,24 +39,14 @@ float IOMujoco::pd_control(float target_q,float q,float kp,float target_dq,float
 }
 void IOMujoco::sendRecv( LowlevelCmd *cmd, LowlevelState *state) {
     recv(state);
-    for (size_t i = 0; i < 12; i++)
-    {
-        std::cout<<"\t第"<<i<<"条"<< cmd->motorCmd[i].q;
-    }
+    // for (size_t i = 0; i < 12; i++)
+    // {
+    //     std::cout<<"\t第"<<i<<"条"<< cmd->motorCmd[i].q;
+    // }
     std::cout<<std::endl;
     for(int i=0; i < 12; i++){
         cmd->motorCmd[i].tau=pd_control(
         cmd->motorCmd[i].q,state->motorState[i].q,cmd->motorCmd[i].Kp,cmd->motorCmd[i].dq,state->motorState[i].dq,cmd->motorCmd[i].Kd);
-    }
-    // std::cout<<"q"<<cmd->motorCmd[0].q<<"stateq:"<<state->motorState[0].q<<"kd"<<cmd->motorCmd[1].Kd;
-    for (size_t i = 0; i < 12; i++)
-    {
-        std::cout<<"\t第"<<i<<"条"<< state->motorState[i].q;
-    }
-    std::cout<<std::endl;
-    for (size_t i = 0; i < 12; i++)
-    {
-        std::cout<<"\t第"<<i<<"条"<< cmd->motorCmd[i].tau;
     }
     send(cmd);
     state->userCmd = cmdPanel->getUserCmd();
@@ -82,15 +72,16 @@ void IOMujoco::recv(LowlevelState *state){
     {
         state->motorState[i-24].tauEst = _data->sensordata[i];
     }
-    auto base_quat = get_sensor_data( "orientation");
-    auto base_accel = get_sensor_data( "linear-acceleration");
-    auto base_gyr = get_sensor_data("angular-velocity");
-    for(int i=0; i < 3; ++i){
-        state->imu.quaternion[i] = base_quat[i];
-        state->imu.accelerometer[i] = base_accel[i];
-        state->imu.gyroscope[i] = base_gyr[i];
-    }
-    state->imu.quaternion[3] = base_quat[3];
+    // auto base_quat = get_sensor_data( "orientation");
+    // auto base_accel = get_sensor_data( "linear-acceleration");
+    // auto base_gyr = get_sensor_data("angular-velocity");
+    // for(int i=0; i < 3; ++i){
+    //     state->imu.quaternion[i] = base_quat[i];
+    //     state->imu.accelerometer[i] = base_accel[i];
+    //     state->imu.gyroscope[i] = base_gyr[i];
+    // }
+    // state->imu.quaternion[3] = base_quat[3];
+    std::cout<<"imuw:"<<state->imu.quaternion[0]<<"\tx:"<<state->imu.quaternion[1];
 }
 
 // void IOSIM::imuCallback(const sensor_msgs::Imu & msg)

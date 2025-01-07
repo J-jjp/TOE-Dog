@@ -134,7 +134,7 @@ int main(int argc, const char** argv) {
 
   // load and compile model
   char error[1000] = "Could not load binary model";
-  m = mj_loadXML("../robot/a1/xml/scene.xml", 0, error, 1000);
+  m = mj_loadXML("../robot/go2/xml/scene.xml", 0, error, 1000);
   if (!m) {
     mju_error("Load model error: %s", error);
   }
