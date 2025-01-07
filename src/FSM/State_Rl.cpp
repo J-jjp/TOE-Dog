@@ -65,7 +65,17 @@ void State_Rl::mnnInference()
         obs[0][i+3] = eu_ang[0] *obs_scales_quat;
     }
     obs[0][6] = -_lowState->userValue.ly * obs_scales_lin_vel;
-    obs[0][7] = -_lowState->userValue.lx * obs_scales_lin_vel;
+    float y_vel=0;
+    if (_lowState->userValue.lx >0.9)
+    {
+        y_vel = _lowState->userValue.ly+0.5;
+    }
+    if (_lowState->userValue.lx <-0.9)
+    {
+        y_vel = _lowState->userValue.ly-0.5;
+    }
+    
+    obs[0][7] = -y_vel * obs_scales_lin_vel;
     obs[0][8] = _lowState->userValue.rx * obs_scales_ang_vel;
     for (size_t i = 0; i < 12; i++)
     {
