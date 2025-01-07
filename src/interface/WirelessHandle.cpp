@@ -120,7 +120,7 @@ int WirelessHandle::xbox_map_read(int xbox_fd, xbox_map_t *map)
 UserCommand WirelessHandle::checkCmd(UserCommand userCommand){
     if (map.a == 1)
     {
-        return UserCommand::NONE;
+        return UserCommand::RL;
     }
     else if(map.b == 1){
         return UserCommand::FIXED;

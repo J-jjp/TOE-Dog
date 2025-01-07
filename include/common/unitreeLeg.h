@@ -44,4 +44,11 @@ public:
         QuadrupedLeg(legID, 0.112, 0.2, 0.2, pHip2B){} //三个物理参数 要通过solidworks参数进行测量
     ~ToeLeg(){}
 };
+class A1Leg : public QuadrupedLeg{
+public:
+    A1Leg(const int legID, const Vec3 pHip2B):
+        QuadrupedLeg(legID, 0.0838, 0.2, 0.2, pHip2B){}
+    ~A1Leg(){}
+};
+
 #endif  // UNITREELEG_H

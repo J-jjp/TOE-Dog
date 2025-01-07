@@ -43,11 +43,21 @@ void IOMujoco::sendRecv( LowlevelCmd *cmd, LowlevelState *state) {
     {
         std::cout<<"\t第"<<i<<"条"<< cmd->motorCmd[i].q;
     }
+    std::cout<<std::endl;
     for(int i=0; i < 12; i++){
         cmd->motorCmd[i].tau=pd_control(
         cmd->motorCmd[i].q,state->motorState[i].q,cmd->motorCmd[i].Kp,cmd->motorCmd[i].dq,state->motorState[i].dq,cmd->motorCmd[i].Kd);
     }
-    std::cout<<"q"<<cmd->motorCmd[1].q<<"kp"<<cmd->motorCmd[1].Kp<<"kd"<<cmd->motorCmd[1].Kd;
+    // std::cout<<"q"<<cmd->motorCmd[0].q<<"stateq:"<<state->motorState[0].q<<"kd"<<cmd->motorCmd[1].Kd;
+    for (size_t i = 0; i < 12; i++)
+    {
+        std::cout<<"\t第"<<i<<"条"<< state->motorState[i].q;
+    }
+    std::cout<<std::endl;
+    for (size_t i = 0; i < 12; i++)
+    {
+        std::cout<<"\t第"<<i<<"条"<< cmd->motorCmd[i].tau;
+    }
     send(cmd);
     state->userCmd = cmdPanel->getUserCmd();
     state->userValue = cmdPanel->getUserValue();

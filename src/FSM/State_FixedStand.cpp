@@ -10,6 +10,7 @@ State_FixedStand::State_FixedStand(CtrlComponents *ctrlComp)
 void State_FixedStand::enter(){
     for(int i=0; i<4; i++){
         if(_ctrlComp->ctrlPlatform == CtrlPlatform::Mujoco){
+            
             _lowCmd->setSimStanceGain(i);
             _duration=100;
         }

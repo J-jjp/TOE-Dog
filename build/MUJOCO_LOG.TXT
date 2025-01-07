@@ -1,0 +1,32 @@
+Tue Jan  7 11:01:06 2025
+ERROR: Load model error: Error: material 'groundplane' not found in geom 0
+Element name 'floor', id 0, line 21
+
+Tue Jan  7 11:07:38 2025
+ERROR: Load model error: ParseXML: Error opening file '../go2/xml/scene.xml': No such file or directory
+
+Tue Jan  7 11:07:58 2025
+ERROR: Load model error: ParseXML: Error opening file '../robot/a1/xml/scene.xml': No such file or directory
+
+Tue Jan  7 11:10:33 2025
+ERROR: Load model error: Error: unrecognized name 'imu' of sensorized object
+Element name 'orientation', id 36, line 0
+
+Tue Jan  7 12:48:06 2025
+ERROR: Load model error: Error: Error opening file '../robot/a1/xml/robot/a1/xml/hip.obj': No such file or directory
+
+Tue Jan  7 12:48:53 2025
+ERROR: Load model error: Error: Error opening file '../robot/a1/xml/robot/a1/xml/calf.obj': No such file or directory
+
+Tue Jan  7 12:51:05 2025
+ERROR: Load model error: Error: repeated name 'home' in key
+
+Tue Jan  7 12:51:14 2025
+ERROR: Load model error: Error: unrecognized name 'imu' of sensorized object
+Element name 'orientation', id 36, line 0
+
+Tue Jan  7 13:04:51 2025
+ERROR: Load model error: XML Error: unknown default class name 'hip_left'
+Element 'geom', line 0
+
+

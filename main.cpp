@@ -134,7 +134,7 @@ int main(int argc, const char** argv) {
 
   // load and compile model
   char error[1000] = "Could not load binary model";
-  m = mj_loadXML("../go2/xml/scene.xml", 0, error, 1000);
+  m = mj_loadXML("../robot/a1/xml/scene.xml", 0, error, 1000);
   if (!m) {
     mju_error("Load model error: %s", error);
   }
@@ -180,7 +180,7 @@ int main(int argc, const char** argv) {
     ctrlComp->ctrlPlatform = ctrlPlat;
     ctrlComp->dt = 0.0025; // run at 400hz  控制周期       
     ctrlComp->running = &running;  //机器人控制的状态  运行 or 不运行
-    ctrlComp->robotModel = new ToeRobot();
+    ctrlComp->robotModel = new A1Robot();
     ControlFrame ctrlFrame(ctrlComp);
   while (!glfwWindowShouldClose(window)) {
 

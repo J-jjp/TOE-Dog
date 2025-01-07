@@ -1,4 +1,4 @@
-# Install script for directory: /home/toe/TOE-Dog
+# Install script for directory: /home/jiaojunpeng/my_dog/TOE-Dog
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/toe/TOE-Dog/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/jiaojunpeng/my_dog/TOE-Dog/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

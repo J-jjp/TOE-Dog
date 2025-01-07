@@ -464,13 +464,13 @@ mujoco/mjui.h
 mujoco/mjvisualize.h
 -
 
-/home/toe/TOE-Dog/mainreal.cpp
+/home/jiaojunpeng/my_dog/TOE-Dog/mainreal.cpp
 cstdio
 -
 cstring
 -
 interface/IOReal.h
-/home/toe/TOE-Dog/interface/IOReal.h
+/home/jiaojunpeng/my_dog/TOE-Dog/interface/IOReal.h
 control/CtrlComponents.h
 -
 FSM/FSM.h
@@ -482,41 +482,41 @@ iostream
 control/ControlFrame.h
 -
 
-/home/toe/TOE-Dog/src/FSM/FSM.cpp
+/home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/FSM.cpp
 FSM/FSM.h
-/home/toe/TOE-Dog/src/FSM/FSM/FSM.h
+/home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/FSM/FSM.h
 iostream
 -
 
-/home/toe/TOE-Dog/src/FSM/FSMState.cpp
+/home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/FSMState.cpp
 FSM/FSMState.h
-/home/toe/TOE-Dog/src/FSM/FSM/FSMState.h
+/home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/FSM/FSMState.h
 
-/home/toe/TOE-Dog/src/FSM/State_FixedStand.cpp
+/home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_FixedStand.cpp
 iostream
 -
 FSM/State_FixedStand.h
-/home/toe/TOE-Dog/src/FSM/FSM/State_FixedStand.h
+/home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/FSM/State_FixedStand.h
 
-/home/toe/TOE-Dog/src/FSM/State_FreeStand.cpp
+/home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_FreeStand.cpp
 FSM/State_FreeStand.h
-/home/toe/TOE-Dog/src/FSM/FSM/State_FreeStand.h
+/home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/FSM/State_FreeStand.h
 
-/home/toe/TOE-Dog/src/FSM/State_Passive.cpp
+/home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_Passive.cpp
 State_Passive.h
-/home/toe/TOE-Dog/src/FSM/State_Passive.h
+/home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_Passive.h
 
-/home/toe/TOE-Dog/src/FSM/State_Rl.cpp
+/home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/State_Rl.cpp
 FSM/State_Rl.h
-/home/toe/TOE-Dog/src/FSM/FSM/State_Rl.h
+/home/jiaojunpeng/my_dog/TOE-Dog/src/FSM/FSM/State_Rl.h
 
-/home/toe/TOE-Dog/src/control/ControlFrame.cpp
+/home/jiaojunpeng/my_dog/TOE-Dog/src/control/ControlFrame.cpp
 control/ControlFrame.h
-/home/toe/TOE-Dog/src/control/control/ControlFrame.h
+/home/jiaojunpeng/my_dog/TOE-Dog/src/control/control/ControlFrame.h
 
-/home/toe/TOE-Dog/src/interface/IOMujoco.cpp
+/home/jiaojunpeng/my_dog/TOE-Dog/src/interface/IOMujoco.cpp
 interface/IOMujoco.h
-/home/toe/TOE-Dog/src/interface/interface/IOMujoco.h
+/home/jiaojunpeng/my_dog/TOE-Dog/src/interface/interface/IOMujoco.h
 iostream
 -
 unistd.h
@@ -524,9 +524,9 @@ unistd.h
 csignal
 -
 
-/home/toe/TOE-Dog/src/interface/IOReal.cpp
+/home/jiaojunpeng/my_dog/TOE-Dog/src/interface/IOReal.cpp
 interface/IOReal.h
-/home/toe/TOE-Dog/src/interface/interface/IOReal.h
+/home/jiaojunpeng/my_dog/TOE-Dog/src/interface/interface/IOReal.h
 iostream
 -
 unistd.h
