@@ -29,12 +29,12 @@ void State_Rl::enter(){
         mobCmd_[1]=0;
         mobCmd_[2]=0;
         if(CMD_DIM>=4)mobCmd_[3]=0;
-        if(CMD_DIM>=5)mobCmd_[4]=3;
+        if(CMD_DIM>=5)mobCmd_[4]=1;
         if(CMD_DIM>=6)mobCmd_[5]=0.5;
         if(CMD_DIM>=7)mobCmd_[6]=0.0;
         if(CMD_DIM>=8)mobCmd_[7]=0.0;
         if(CMD_DIM>=9)mobCmd_[8]=0.5;
-        if(CMD_DIM>=10)mobCmd_[9]=0.36;
+        if(CMD_DIM>=10)mobCmd_[9]=0.1;
         if(CMD_DIM>=11)mobCmd_[10]=0.0;
         if(CMD_DIM>=12)mobCmd_[11]=0.0;
         if(CMD_DIM>=13)mobCmd_[12]=0.25;
@@ -180,7 +180,7 @@ void State_Rl::mnnInference_Walk()
     adaptationNetPtr->advanceNNsync_Walk(obs_history_Walk, adaptation_output);
         //adaptation_output: 7.82271 0.837328
     std::cout<<"adaptation"<<adaptation_output[0]<<"\t"<<adaptation_output[1]<<std::endl;
-    memcpy(obs_history_with_adaptation , obs_history , NUM_OBS_IN_OBS_HISTORY*OBS_DIM * sizeof(float));
+    memcpy(obs_history_with_adaptation , obs_history_Walk , NUM_OBS_IN_OBS_HISTORY*OBS_DIM * sizeof(float));
     obs_history_with_adaptation[NUM_OBS_IN_OBS_HISTORY*OBS_DIM]=adaptation_output[0];
     obs_history_with_adaptation[NUM_OBS_IN_OBS_HISTORY*OBS_DIM+1]=adaptation_output[1];
     for(int i=0;i<NUM_DOFS;i++)
@@ -206,14 +206,14 @@ void State_Rl::mnnInference_Walk()
     {
         action_scaled[i]*=0.25;
     }
-    // action_scaled[0]*=0.5;
-    // action_scaled[3]*=0.5;
-    // action_scaled[6]*=0.5;
-    // action_scaled[9]*=0.5;
+    action_scaled[0]*=0.5;
+    action_scaled[3]*=0.5;
+    action_scaled[6]*=0.5;
+    action_scaled[9]*=0.5;
 
     for (size_t i = 0; i < 12; i++)
     {
-        _lowCmd->motorCmd[i].q = action_scaled[i] * 0.25 + default_dof_pos[i];
+        _lowCmd->motorCmd[i].q = action_scaled[i]+ default_dof_pos[i];
     }
     // for (size_t j = 0; j < NUM_DOFS; ++j)
     // {
@@ -226,14 +226,14 @@ void State_Rl::mnnInference_Walk()
 void State_Rl::stateMachine_Walk(){
     if (rlptr == nullptr)
     {
-      std::string mobModelPath = "/home/jiaojunpeng/my_dog/TOE-Dog/body_latest.mnn";
+      std::string mobModelPath = "/home/jjp/dog/TOE-Dog/body_latest.mnn";
       rlptr = std::make_shared<rl_Inference>(mobModelPath);
       rlptr->initBuffer();
     }
     rlptr->resetNode();
     if (adaptationNetPtr == nullptr)
     {
-      std::string mobModelPath = "/home/jiaojunpeng/my_dog/TOE-Dog/adaptation_module_latest.mnn";
+      std::string mobModelPath = "/home/jjp/dog/TOE-Dog/adaptation_module_latest.mnn";
       adaptationNetPtr = std::make_shared<rl_Inference>(mobModelPath);
       adaptationNetPtr->initBuffer();
     }
@@ -287,26 +287,6 @@ void State_Rl::mobRun()
 
 }
 
-Vec3 State_Rl::quaternion_to_euler_array(Vec4 quat){
-    double x = quat[1];
-    double y = quat[2];
-    double z = quat[3];
-    double w = quat[0];
-    double t0, t1, t2, t3,t4;
-    double roll_x, pitch_y, yaw_z;
-    t0 = +2.0 * (w * x + y * z);
-    t1 = +1.0 - 2.0 * (x * x + y * y);
-    roll_x = std::atan2(t0, t1);
-    
-    t2 = +2.0 * (w * y - z * x);
-    t2 = std::max(-1.0, std::min(t2, 1.0));
-    pitch_y =  std::asin(t2);
-    
-    t3 = +2.0 * (w * z + x * y);
-    t4 = +1.0 - 2.0 * (y * y + z * z);
-    yaw_z =  std::atan2(t3, t4);
-    return {roll_x, pitch_y, yaw_z};
-}
 
 void State_Rl::getCurrentObservation_Walk()
 {
@@ -330,7 +310,7 @@ void State_Rl::getCurrentObservation_Walk()
 
     for(int i=0;i<CMD_DIM;i++)
     {
-    obs_buf_[i+3]=mobCmd_[i];
+        obs_buf_[i+3]=mobCmd_[i];
     }
 
     obs_buf_[3]*=2;
@@ -374,8 +354,8 @@ void State_Rl::getCurrentObservation_Walk()
     if(obs_buf_[i]<-clip_obs)obs_buf_[i]=-100;
     }
 
-    memmove(obs_history, obs_history + OBS_DIM, (NUM_OBS_IN_OBS_HISTORY - 1)*OBS_DIM * sizeof(float));
-    memcpy(obs_history+(NUM_OBS_IN_OBS_HISTORY - 1)*OBS_DIM , obs_buf_ , OBS_DIM * sizeof(float));
+    memmove(obs_history_Walk, obs_history_Walk + OBS_DIM, (NUM_OBS_IN_OBS_HISTORY - 1)*OBS_DIM * sizeof(float));
+    memcpy(obs_history_Walk+(NUM_OBS_IN_OBS_HISTORY - 1)*OBS_DIM , obs_buf_ , OBS_DIM * sizeof(float));
 }
 
 Eigen::Vector3d State_Rl::quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v) {
@@ -389,4 +369,24 @@ Eigen::Vector3d State_Rl::quat_rotate_inverse(const Eigen::Vector4d& q, const Ei
     Eigen::Vector3d c = 2.0 * q_vec * (q_vec.dot(v));
 
     return a - b + c;
+}
+Vec3 State_Rl::quaternion_to_euler_array(Vec4 quat){
+    double x = quat[1];
+    double y = quat[2];
+    double z = quat[3];
+    double w = quat[0];
+    double t0, t1, t2, t3,t4;
+    double roll_x, pitch_y, yaw_z;
+    t0 = +2.0 * (w * x + y * z);
+    t1 = +1.0 - 2.0 * (x * x + y * y);
+    roll_x = std::atan2(t0, t1);
+    
+    t2 = +2.0 * (w * y - z * x);
+    t2 = std::max(-1.0, std::min(t2, 1.0));
+    pitch_y =  std::asin(t2);
+    
+    t3 = +2.0 * (w * z + x * y);
+    t4 = +1.0 - 2.0 * (y * y + z * z);
+    yaw_z =  std::atan2(t3, t4);
+    return {roll_x, pitch_y, yaw_z};
 }
