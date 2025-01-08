@@ -26,8 +26,12 @@
     <geom pos="2.3 0 0.02" type="box"  size="0.2 2 0.02" quat="1.0 0 0 0"/>
     <geom pos="2.6 0 0.02" type="box"  size="0.22 2 0.04" quat="1.0 0 0 0"/>
     <geom pos="2.8 0 0.02" type="box"  size="0.23 2 0.06" quat="1.0 0 0 0"/>
-    <geom pos="3 0 0.02" type="box"  size="0.24 2 0.08" quat="1.0 0 0 0"/>
-    <geom pos="3.2 0 0.02" type="box"  size="0.25 2 0.16" quat="1.0 0 0 0"/>
-    <geom pos="3.4 0 0.02" type="box"  size="0.26 2 0.06" quat="1.0 0 0 0"/>
+    <geom pos="3 0  0.02" type="box"  size="0.24 2 0.08" quat="1.0 0 0 0"/>
+    <geom pos="3.2 0 0.02" type="box"  size="0.25 2 0.10" quat="1.0 0 0 0"/>
+    <geom pos="3.4 0 0.02" type="box"  size="0.26 2 0.12" quat="1.0 0 0 0"/>
+    <geom pos="3.6 0 0.02" type="box"  size="0.27 2 0.14" quat="1.0 0 0 0"/>
+    <geom pos="3.8 0 0.02" type="box"  size="0.28 2 0.16" quat="1.0 0 0 0"/>
+    <geom pos="4.0 0 0.02" type="box"  size="0.29 2 0.18" quat="1.0 0 0 0"/>
+    <geom pos="4.2 0 0.02" type="box"  size="0.30 2 0.20" quat="1.0 0 0 0"/>
   </worldbody>
 </mujoco>

@@ -14,6 +14,7 @@ public:
     void initBuffer();
     void resetNode();
     void advanceNNsync(float (*observation)[736], float (*action_cmd)[12]);
+    void advanceNNsync_Walk(const float observation[], float action_cmd[]);
 protected:
     std::string prefix_path;
     float* currentActionPtr = nullptr;

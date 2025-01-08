@@ -72,16 +72,16 @@ void IOMujoco::recv(LowlevelState *state){
     {
         state->motorState[i-24].tauEst = _data->sensordata[i];
     }
-    // auto base_quat = get_sensor_data( "orientation");
-    // auto base_accel = get_sensor_data( "linear-acceleration");
-    // auto base_gyr = get_sensor_data("angular-velocity");
-    // for(int i=0; i < 3; ++i){
-    //     state->imu.quaternion[i] = base_quat[i];
-    //     state->imu.accelerometer[i] = base_accel[i];
-    //     state->imu.gyroscope[i] = base_gyr[i];
-    // }
-    // state->imu.quaternion[3] = base_quat[3];
-    std::cout<<"imuw:"<<state->imu.quaternion[0]<<"\tx:"<<state->imu.quaternion[1];
+    auto base_quat = get_sensor_data( "orientation");
+    auto base_accel = get_sensor_data( "linear-acceleration");
+    auto base_gyr = get_sensor_data("angular-velocity");
+    for(int i=0; i < 3; ++i){
+        state->imu.quaternion[i] = base_quat[i];
+        state->imu.accelerometer[i] = base_accel[i];
+        state->imu.gyroscope[i] = base_gyr[i];
+    }
+    state->imu.quaternion[3] = base_quat[3];
+    // std::cout<<"imuw:"<<state->imu.quaternion[0]<<"\tx:"<<state->imu.quaternion[1];
 }
 
 // void IOSIM::imuCallback(const sensor_msgs::Imu & msg)

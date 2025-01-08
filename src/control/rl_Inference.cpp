@@ -46,3 +46,14 @@ void rl_Inference::advanceNNsync(float (*observation)[736], float (*action_cmd)[
   memcpy(action_cmd, act_mnn->host<float>(), act_mnn->size());
 
 }
+void rl_Inference::advanceNNsync_Walk(const float observation[], float action_cmd[])
+{
+
+  // std::cout<<obs_mnn->size()<<std::endl;
+  memcpy(obs_mnn->host<float>() , observation, obs_mnn->size());
+
+  _net->runSession(_session);
+
+  memcpy(action_cmd, act_mnn->host<float>(), act_mnn->size());
+
+}

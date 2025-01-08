@@ -30,3 +30,8 @@ ERROR: Load model error: XML Error: unknown default class name 'hip_left'
 Element 'geom', line 0
 
 
+Wed Jan  8 16:47:09 2025
+ERROR: Load model error: XML Error: attribute 'pos' has too much data
+Element 'geom', line 29
+
+
