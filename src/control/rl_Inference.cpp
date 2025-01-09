@@ -46,6 +46,32 @@ void rl_Inference::advanceNNsync(float (*observation)[736], float (*action_cmd)[
   memcpy(action_cmd, act_mnn->host<float>(), act_mnn->size());
 
 }
+void rl_Inference::advanceNNsync_mast(float (*observation)[762], float (*action_cmd)[12])
+{
+  obs_dim = obs_mnn->shape().back();
+  std::cout << "obs_dim: " << obs_dim << std::endl;
+  act_dim = act_mnn->shape().back();
+  std::cout << "act_dim: " << act_dim << std::endl;
+  memcpy(obs_mnn->host<float>() , observation, obs_mnn->size());
+
+  _net->runSession(_session);
+
+  memcpy(action_cmd, act_mnn->host<float>(), act_mnn->size());
+
+}
+void rl_Inference::advanceNNsync_legged(float (*observation)[235], float (*action_cmd)[12])
+{
+  obs_dim = obs_mnn->shape().back();
+  std::cout << "obs_dim: " << obs_dim << std::endl;
+  act_dim = act_mnn->shape().back();
+  std::cout << "act_dim: " << act_dim << std::endl;
+  memcpy(obs_mnn->host<float>() , observation, obs_mnn->size());
+
+  _net->runSession(_session);
+
+  memcpy(action_cmd, act_mnn->host<float>(), act_mnn->size());
+
+}
 void rl_Inference::advanceNNsync_Walk(const float observation[], float action_cmd[])
 {
 

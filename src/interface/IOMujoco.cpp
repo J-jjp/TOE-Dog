@@ -75,10 +75,12 @@ void IOMujoco::recv(LowlevelState *state){
     auto base_quat = get_sensor_data( "orientation");
     auto base_accel = get_sensor_data( "linear-acceleration");
     auto base_gyr = get_sensor_data("angular-velocity");
+    auto base_line = get_sensor_data("base_lin_vel");
     for(int i=0; i < 3; ++i){
         state->imu.quaternion[i] = base_quat[i];
         state->imu.accelerometer[i] = base_accel[i];
         state->imu.gyroscope[i] = base_gyr[i];
+        state->imu.line[i] = base_line[i];
     }
     state->imu.quaternion[3] = base_quat[3];
     // std::cout<<"imuw:"<<state->imu.quaternion[0]<<"\tx:"<<state->imu.quaternion[1];

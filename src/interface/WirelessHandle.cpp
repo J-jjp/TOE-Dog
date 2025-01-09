@@ -141,6 +141,10 @@ void WirelessHandle::changeValue(){
     float lx=normalize_int_to_float(map.lx);
     float ry=normalize_int_to_float(map.ry);
     float rx=normalize_int_to_float(map.rx);
+    userValue.a=map.a;
+    userValue.b=map.b;
+    userValue.x=map.x;
+    userValue.y=map.y;
         // std::cout<<"A"<<map.a<<"B"<<map.b<<"X"<<map.x<<"Y"<<map.y<<"LX"<<map.lx<<"LY"<<map.ly<<"RB"<<map.rb
         // <<"RX"<<map.rx<<"RY"<<map.ry<<std::endl;
     userValue.ly = max<float>(-1.f,min<float>(ly, 1.f));

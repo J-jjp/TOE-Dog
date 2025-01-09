@@ -245,6 +245,7 @@
 
     <framequat     name='orientation' objtype='site' noise='0.001' objname='imu'/>
     <framepos      name='position' objtype='site' noise='0.001' objname='imu'/>
+    <framelinvel    name="base_lin_vel" objtype="site" objname="imu" />
     <gyro          name='angular-velocity'    site='imu' noise='0.005' cutoff='34.9'/>
     <velocimeter   name='linear-velocity'     site='imu' noise='0.001' cutoff='30'/>
     <accelerometer name='linear-acceleration' site='imu' noise='0.005' cutoff='157'/>

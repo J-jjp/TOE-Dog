@@ -28,13 +28,13 @@ void State_Rl::enter(){
         mobCmd_[0]=0;
         mobCmd_[1]=0;
         mobCmd_[2]=0;
-        if(CMD_DIM>=4)mobCmd_[3]=0;
-        if(CMD_DIM>=5)mobCmd_[4]=1;
+        if(CMD_DIM>=4)mobCmd_[3]=1;
+        if(CMD_DIM>=5)mobCmd_[4]=2;
         if(CMD_DIM>=6)mobCmd_[5]=0.5;
         if(CMD_DIM>=7)mobCmd_[6]=0.0;
         if(CMD_DIM>=8)mobCmd_[7]=0.0;
         if(CMD_DIM>=9)mobCmd_[8]=0.5;
-        if(CMD_DIM>=10)mobCmd_[9]=0.1;
+        if(CMD_DIM>=10)mobCmd_[9]=0.16;
         if(CMD_DIM>=11)mobCmd_[10]=0.0;
         if(CMD_DIM>=12)mobCmd_[11]=0.0;
         if(CMD_DIM>=13)mobCmd_[12]=0.25;
@@ -68,9 +68,17 @@ void State_Rl::run(){
         mnnInference_Walk();
         getCurrentObservation_Walk();
     }
-    else{
+    else if(0){
+        stateMachine_mast();
+        mnnInference_mast();
+    }
+    else if(0){
         stateMachine_Loco();
         mnnInference_Loco();
+    }
+    else{
+        stateMachine_legged();
+        mnnInference_legged();
     }
 }
 
@@ -98,19 +106,18 @@ void State_Rl::mnnInference_Loco()
         obs[0][i] = _lowState->imu.gyroscope[i] *obs_scales_ang_vel;
         obs[0][i+3] = eu_ang[0] *obs_scales_quat;
     }
-    obs[0][6] = -_lowState->userValue.ly * obs_scales_lin_vel;
-    float y_vel=0;
-    if (_lowState->userValue.lx >0.9)
-    {
-        y_vel = _lowState->userValue.ly+0.5;
-    }
-    if (_lowState->userValue.lx <-0.9)
-    {
-        y_vel = _lowState->userValue.ly-0.5;
-    }
+    obs[0][6] = -_lowState->userValue.lx * obs_scales_lin_vel;
+    // if (_lowState->userValue.lx >0.9)
+    // {
+    //     y_vel = _lowState->userValue.ly+0.5;
+    // }
+    // if (_lowState->userValue.lx <-0.9)
+    // {
+    //     y_vel = _lowState->userValue.ly-0.5;
+    // }
     
-    obs[0][7] = -y_vel * obs_scales_lin_vel;
-    obs[0][8] = _lowState->userValue.rx * obs_scales_ang_vel;
+    obs[0][7] = -_lowState->userValue.ly * obs_scales_lin_vel;
+    obs[0][8] = _lowState->userValue.rx ;
     for (size_t i = 0; i < 12; i++)
     {
         obs[0][9+i] = (_lowState->motorState[i].q-default_dof_pos[i]) *obs_scales_dof_pos;
@@ -170,6 +177,8 @@ void State_Rl::stateMachine_Loco(){
     }
     rlptr->resetNode();
 }
+
+
 void State_Rl::mnnInference_Walk()
 {
     // for (size_t i = 0; i < NUM_OBS_IN_OBS_HISTORY*OBS_DIM; i++)
@@ -213,7 +222,7 @@ void State_Rl::mnnInference_Walk()
 
     for (size_t i = 0; i < 12; i++)
     {
-        _lowCmd->motorCmd[i].q = action_scaled[i]+ default_dof_pos[i];
+        _lowCmd->motorCmd[i].q = action_scaled[i]*0.5+ default_dof_pos[i];
     }
     // for (size_t j = 0; j < NUM_DOFS; ++j)
     // {
@@ -226,14 +235,14 @@ void State_Rl::mnnInference_Walk()
 void State_Rl::stateMachine_Walk(){
     if (rlptr == nullptr)
     {
-      std::string mobModelPath = "/home/jjp/dog/TOE-Dog/body_latest.mnn";
+      std::string mobModelPath = "../body_latest-go2.mnn";
       rlptr = std::make_shared<rl_Inference>(mobModelPath);
       rlptr->initBuffer();
     }
     rlptr->resetNode();
     if (adaptationNetPtr == nullptr)
     {
-      std::string mobModelPath = "/home/jjp/dog/TOE-Dog/adaptation_module_latest.mnn";
+      std::string mobModelPath = "../adaptation_module_latest-go2.mnn";
       adaptationNetPtr = std::make_shared<rl_Inference>(mobModelPath);
       adaptationNetPtr->initBuffer();
     }
@@ -241,49 +250,33 @@ void State_Rl::stateMachine_Walk(){
 }
 void State_Rl::mobRun()
 {
-//   if ((int)joy_msg.buttons[0] == 1 && gait_index != 0)  // trot
-//   {
+  if ((int)_lowState->userValue.a == 1)  // trot
+  {
     mobCmd_[5]=0.5;
     mobCmd_[6]=0;
     mobCmd_[7]=0;
-    // gait_index = 0;
-//   }
-//   else if ((int)joy_msg.buttons[1] == 1  && gait_index != 1)  // pace
-//   {
-//     mobCmd_[5]=0;
-//     mobCmd_[6]=0;
-//     mobCmd_[7]=0.5;
-//     gait_index = 1;
-//   }
-//   else if ((int)joy_msg.buttons[2] == 1 && gait_index != 2)  // pronk
-//   {
-//     mobCmd_[5]=0;
-//     mobCmd_[6]=0;
-//     mobCmd_[7]=0;
-//     gait_index = 2;
-//   }
-//   else if ((int)joy_msg.buttons[3] == 1 && gait_index != 3)  // bound
-//   {
-//     mobCmd_[5]=0;
-//     mobCmd_[6]=0.5;
-//     mobCmd_[7]=0;
-//     gait_index = 3;
-//   }
-  //todo stand
-  // else if ((int)_keyData.btn.components.left == 1 && gait_index != 5)  // stand
-  // {
-  //   gait_index = 5;
-  // }
-//   else if (joy_msg.axes[7]  > 0 )
-//   {
-//     mobCmd_[4] += 0.5;
-//     std::cout << "gait freq increase 0.5 " << std::endl;
-//   }
-//   else if (joy_msg.axes[7]  < 0 )
-//   {
-//     mobCmd_[4] -= 0.5;
-//     std::cout << "gait freq decrease 0.5 " << std::endl;
-//   }
+
+  }
+  else if ((int)_lowState->userValue.b == 1)  // pace
+  {
+    mobCmd_[5]=0;
+    mobCmd_[6]=0;
+    mobCmd_[7]=0.5;
+
+  }
+  else if ((int)_lowState->userValue.x == 1)  // pronk
+  {
+    mobCmd_[5]=0;
+    mobCmd_[6]=0;
+    mobCmd_[7]=0;
+
+  }
+  else if ((int)_lowState->userValue.y == 1)  // bound
+  {
+    mobCmd_[5]=0;
+    mobCmd_[6]=0.5;
+    mobCmd_[7]=0;
+  }
 
 }
 
@@ -299,9 +292,9 @@ void State_Rl::getCurrentObservation_Walk()
 
     // std::cout<<proj_gravity[0]<<" "<<proj_gravity[1]<<" "<<proj_gravity[2]<<std::endl;
 
-    mobCmd_[0]=_lowState->userValue.lx;
-    mobCmd_[1]=_lowState->userValue.ly;
-    mobCmd_[2]=_lowState->userValue.rx;
+    mobCmd_[0]=_lowState->userValue.ly*2;
+    mobCmd_[1]=_lowState->userValue.lx*2;
+    mobCmd_[2]=_lowState->userValue.rx*5;
 
     for (int i = 0; i < 3; i++)
     {
@@ -358,9 +351,161 @@ void State_Rl::getCurrentObservation_Walk()
     memcpy(obs_history_Walk+(NUM_OBS_IN_OBS_HISTORY - 1)*OBS_DIM , obs_buf_ , OBS_DIM * sizeof(float));
 }
 
+void State_Rl::mnnInference_mast()
+{
+    for (size_t i = 0; i < 4; i++)
+    {
+        action_stateq_mast[i+3]=_lowState->motorState[i].q;
+        action_statedq_mast[i+3]=_lowState->motorState[i].dq;
+
+        action_stateq_mast[i]=_lowState->motorState[i+3].q;
+        action_statedq_mast[i]=_lowState->motorState[i+3].dq;
+
+        action_stateq_mast[i+9]=_lowState->motorState[i+6].q;
+        action_statedq_mast[i+9]=_lowState->motorState[i+6].dq;
+
+        action_stateq_mast[i+6]=_lowState->motorState[i+9].q;
+        action_statedq_mast[i+6]=_lowState->motorState[i+9].dq;
+    }
+    
+    Eigen::Vector4d q(_lowState->imu.quaternion[1],_lowState->imu.quaternion[2],_lowState->imu.quaternion[3],_lowState->imu.quaternion[0]);
+    Eigen::Vector3d v(0.0,0.0,-1.0); 
+    Eigen::Vector3d proj_gravity_eigen = quat_rotate_inverse(q, v);
+    proj_gravity[1] = proj_gravity_eigen(0);
+    proj_gravity[0] = proj_gravity_eigen(1);
+    proj_gravity[2] = proj_gravity_eigen(2);
+    std::cout<<"proj"<<proj_gravity[0]<<" "<<proj_gravity[1]<<" "<<proj_gravity[2]<<std::endl;
+    for (size_t i = 0; i < 3; i++)
+    {
+        obs_mast[0][i] = _lowState->imu.line[i] *obs_scales_lin_vel;
+        obs_mast[0][i+3] = _lowState->imu.gyroscope[i] *obs_scales_ang_vel;
+        obs_mast[0][i+6] = proj_gravity[i];
+    }
+    obs_mast[0][9] = -_lowState->userValue.lx * obs_scales_lin_vel;
+    obs_mast[0][10] = -_lowState->userValue.ly * obs_scales_lin_vel;
+    obs_mast[0][11] = _lowState->userValue.rx ;
+    for (size_t i = 0; i < 12; i++)
+    {
+        obs_mast[0][12+i] = (action_stateq_mast[i]-default_dof_pos_mast[i]) *obs_scales_dof_pos;
+        obs_mast[0][24+i] = action_statedq_mast[i] * obs_scales_dof_vel;
+        obs_mast[0][36+i] = last_action_cmd_mast[0][i];
+    }
+    for (size_t i = 0; i < N_proprio_mast; i++)
+    {
+        policy_input_mast[0][i] = obs_mast[0][i];
+    }
+    for (size_t i = 0; i < N_priv_latent_mast  + N_scan_Loco; i++)
+    {
+        policy_input_mast[0][i+N_proprio_mast]=0;
+    }
+    for (size_t i = 0; i < History_len_Loco*N_proprio_mast; i++)
+    {
+        policy_input_mast[0][i+N_proprio_mast+N_priv_latent_mast+N_scan_Loco]=obs_history_mast[0][i];
+    }
+    for (size_t i = 0; i < (History_len_Loco-1)*N_proprio_mast; i++)
+    {
+        obs_history_mast[0][i] = obs_history_mast[0][i+N_proprio_mast];
+    }
+    for (size_t i = 0; i < N_proprio_mast; i++)
+    {
+        obs_history_mast[0][((History_len_Loco-1)*N_proprio_mast)+i] = obs_mast[0][i];
+    }
+    rlptr->advanceNNsync_mast(policy_input_mast,action_cmd_mast);
+    for (size_t i = 0; i < 12; i++)
+    {
+        std::cout<<"action_cmd"<<action_cmd_mast[0][i];
+    }
+    std::cout<<std::endl;
+    float action_flt[12];
+    for (size_t i = 0; i < 12; i++)
+    {
+        action_flt[i]=action_cmd_mast[0][i]*0.8+last_action_cmd_mast[0][i]*0.2;
+    }
+    for (size_t i = 0; i < 12; i++)
+    {
+        last_action_cmd_mast[0][i]=action_cmd_mast[0][i];
+    }
+    for (size_t i = 0; i < 4; i++)
+    {
+        _lowCmd->motorCmd[i].q = action_flt[i+3] * 0.25 + default_dof_pos_mast[i+3];
+        _lowCmd->motorCmd[i+3].q = action_flt[i] * 0.25 + default_dof_pos_mast[i];
+        _lowCmd->motorCmd[i+6].q = action_flt[i+9] * 0.25 + default_dof_pos_mast[i+9];
+        _lowCmd->motorCmd[i+9].q = action_flt[i+6] * 0.25 + default_dof_pos_mast[i+6];
+    }
+}
+
+void State_Rl::stateMachine_mast(){
+    if (rlptr == nullptr)
+    {
+      std::string mobModelPath = "../legged.mnn";
+      rlptr = std::make_shared<rl_Inference>(mobModelPath);
+      rlptr->initBuffer();
+    }
+    rlptr->resetNode();
+}
+void State_Rl::mnnInference_legged()
+{
+    Eigen::Vector4d q(_lowState->imu.quaternion[1],_lowState->imu.quaternion[2],_lowState->imu.quaternion[3],_lowState->imu.quaternion[0]);
+    Eigen::Vector3d v(0.0,0.0,-1.0); 
+    Eigen::Vector3d line_v(_lowState->imu.line[0],_lowState->imu.line[1],_lowState->imu.line[2]);
+    Eigen::Vector3d proj_gravity_eigen = quat_rotate_inverse(q, v);
+    Eigen::Vector3d base_line= quat_rotate_inverse(q, line_v);
+    proj_gravity[0] = proj_gravity_eigen(0);
+    proj_gravity[1] = proj_gravity_eigen(1);
+    proj_gravity[2] = proj_gravity_eigen(2);
+    std::cout<<"proj"<<proj_gravity[0]<<" "<<proj_gravity[1]<<" "<<proj_gravity[2]<<std::endl;
+    for (size_t i = 0; i < 3; i++)
+    {
+        obs_legged[i] = 0;
+        obs_legged[i+3] = _lowState->imu.gyroscope[i] *obs_scales_ang_vel;
+        obs_legged[i+6] = proj_gravity[i];
+    }
+    obs_legged[9] = -_lowState->userValue.lx * obs_scales_lin_vel;
+    obs_legged[10] = -_lowState->userValue.ly * obs_scales_lin_vel;
+    obs_legged[11] = _lowState->userValue.rx *obs_scales_ang_vel;
+    for (size_t i = 0; i < 12; i++)
+    {
+        obs_legged[12+i] = (_lowState->motorState[i].q-default_dof_pos[i]) *obs_scales_dof_pos;
+        obs_legged[24+i] = _lowState->motorState[i].dq * obs_scales_dof_vel;
+        obs_legged[36+i] = last_action_cmd_legged[i];
+    }
+    rlptr->advanceNNsync_Walk(obs_legged,action_cmd_legged);
+    std::cout<<std::endl;
+    float action_flt[12];
+    for (size_t i = 0; i < 12; i++)
+    {
+        action_flt[i]=action_cmd_legged[i]*0.8+last_action_cmd_legged[i]*0.2;
+    }
+    for (size_t i = 0; i < 12; i++)
+    {
+        last_action_cmd_legged[i]=action_cmd_legged[i];
+    }
+    // for (size_t i = 0; i < 4; i++)
+    // {
+    //     _lowCmd->motorCmd[i].q = action_flt[i+3] * 0.25 + default_dof_pos_mast[i+3];
+    //     _lowCmd->motorCmd[i+3].q = action_flt[i] * 0.25 + default_dof_pos_mast[i];
+    //     _lowCmd->motorCmd[i+6].q = action_flt[i+9] * 0.25 + default_dof_pos_mast[i+9];
+    //     _lowCmd->motorCmd[i+9].q = action_flt[i+6] * 0.25 + default_dof_pos_mast[i+6];
+    // }
+    for (size_t i = 0; i < 12; i++)
+    {
+        _lowCmd->motorCmd[i].q = action_flt[i]*0.25+ default_dof_pos[i];
+    }
+}
+
+void State_Rl::stateMachine_legged(){
+    if (rlptr == nullptr)
+    {
+      std::string mobModelPath = "../legged.mnn";
+      rlptr = std::make_shared<rl_Inference>(mobModelPath);
+      rlptr->initBuffer();
+    }
+    rlptr->resetNode();
+}
+
 Eigen::Vector3d State_Rl::quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v) {
     double q_w = q[3];  // 提取四元数的实部 w
-    Eigen::Vector3d q_vec = q.head<3>();  // 提取四元数的虚部 (x, y, z)
+    Eigen::Vector3d q_vec(q[0], q[1], q[2]);  // 提取四元数的虚部 xyz
 
     Eigen::Vector3d a = v * (2.0 * q_w * q_w - 1.0);
 
