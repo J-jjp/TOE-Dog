@@ -66,7 +66,7 @@ public:
     // -----------------------walk_these_ways------------------------
     float adaptation_output[2];
     float obs_history_with_adaptation[NUM_OBS_IN_OBS_HISTORY*OBS_DIM+2];
-    bool walk_these_ways=true;
+    bool walk_these_ways=false;
     float action_cmd_Walk[NUM_DOFS], last_action_cmd_Walk[NUM_DOFS];
     float obs_history_Walk[NUM_OBS_IN_OBS_HISTORY*OBS_DIM];
     float obs_buf_ [OBS_DIM];

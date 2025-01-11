@@ -29,7 +29,7 @@ void State_Rl::enter(){
         mobCmd_[1]=0;
         mobCmd_[2]=0;
         if(CMD_DIM>=4)mobCmd_[3]=1;
-        if(CMD_DIM>=5)mobCmd_[4]=2;
+        if(CMD_DIM>=5)mobCmd_[4]=1;
         if(CMD_DIM>=6)mobCmd_[5]=0.5;
         if(CMD_DIM>=7)mobCmd_[6]=0.0;
         if(CMD_DIM>=8)mobCmd_[7]=0.0;
@@ -68,7 +68,7 @@ void State_Rl::run(){
         mnnInference_Walk();
         getCurrentObservation_Walk();
     }
-    else if(0){
+    else if(1){
         stateMachine_mast();
         mnnInference_mast();
     }
@@ -371,13 +371,15 @@ void State_Rl::mnnInference_mast()
     Eigen::Vector4d q(_lowState->imu.quaternion[1],_lowState->imu.quaternion[2],_lowState->imu.quaternion[3],_lowState->imu.quaternion[0]);
     Eigen::Vector3d v(0.0,0.0,-1.0); 
     Eigen::Vector3d proj_gravity_eigen = quat_rotate_inverse(q, v);
+    Eigen::Vector3d line_v(_lowState->imu.line[0],_lowState->imu.line[1],_lowState->imu.line[2]);
+    Eigen::Vector3d base_line= quat_rotate_inverse(q, line_v);
     proj_gravity[1] = proj_gravity_eigen(0);
     proj_gravity[0] = proj_gravity_eigen(1);
     proj_gravity[2] = proj_gravity_eigen(2);
     std::cout<<"proj"<<proj_gravity[0]<<" "<<proj_gravity[1]<<" "<<proj_gravity[2]<<std::endl;
     for (size_t i = 0; i < 3; i++)
     {
-        obs_mast[0][i] = _lowState->imu.line[i] *obs_scales_lin_vel;
+        obs_mast[0][i] =base_line[i] *obs_scales_lin_vel;
         obs_mast[0][i+3] = _lowState->imu.gyroscope[i] *obs_scales_ang_vel;
         obs_mast[0][i+6] = proj_gravity[i];
     }
@@ -437,7 +439,7 @@ void State_Rl::mnnInference_mast()
 void State_Rl::stateMachine_mast(){
     if (rlptr == nullptr)
     {
-      std::string mobModelPath = "../legged.mnn";
+      std::string mobModelPath = "../LocomotionWithNP3O.mnn";
       rlptr = std::make_shared<rl_Inference>(mobModelPath);
       rlptr->initBuffer();
     }

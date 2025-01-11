@@ -188,7 +188,7 @@ int main(int argc, const char** argv) {
     float kp=0;
     float kd=0;
     ctrlFrame.run();
-    while (d->time - simstart < 1.0/120.0) {
+    while (d->time - simstart < 1.0/240.0) {
       mj_step(m, d);
     }
 
