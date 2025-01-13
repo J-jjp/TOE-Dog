@@ -1,7 +1,7 @@
 from pprint import pprint
 import onnxruntime
 
-onnx_path = "./bset.onnx"
+onnx_path = "/home/jiaojunpeng/isaac/LocomotionWithNP3O-masterV5/LocomotionWithNP3O/P3O.onnx"
 # onnx_path = "custompool/output.onnx"
 
 provider = "CPUExecutionProvider"

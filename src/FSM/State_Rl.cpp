@@ -28,18 +28,18 @@ void State_Rl::enter(){
         mobCmd_[0]=0;
         mobCmd_[1]=0;
         mobCmd_[2]=0;
-        if(CMD_DIM>=4)mobCmd_[3]=1;
-        if(CMD_DIM>=5)mobCmd_[4]=1;
-        if(CMD_DIM>=6)mobCmd_[5]=0.5;
-        if(CMD_DIM>=7)mobCmd_[6]=0.0;
-        if(CMD_DIM>=8)mobCmd_[7]=0.0;
-        if(CMD_DIM>=9)mobCmd_[8]=0.5;
-        if(CMD_DIM>=10)mobCmd_[9]=0.16;
-        if(CMD_DIM>=11)mobCmd_[10]=0.0;
-        if(CMD_DIM>=12)mobCmd_[11]=0.0;
-        if(CMD_DIM>=13)mobCmd_[12]=0.25;
-        if(CMD_DIM>=14)mobCmd_[13]=0.38;
-        if(CMD_DIM>=15)mobCmd_[14]=0;
+        mobCmd_[3]=0;
+        mobCmd_[4]=2;
+        mobCmd_[5]=0.1;
+        mobCmd_[6]=0.0;
+        mobCmd_[7]=0.0;
+        mobCmd_[8]=0.5;
+        mobCmd_[9]=0.56;
+        mobCmd_[10]=0.0;
+        mobCmd_[11]=0.0;
+        mobCmd_[12]=0.25;
+        mobCmd_[13]=0;
+        mobCmd_[14]=0;
 
 
         gait_indices=0.0;
@@ -68,11 +68,11 @@ void State_Rl::run(){
         mnnInference_Walk();
         getCurrentObservation_Walk();
     }
-    else if(1){
+    else if(0){
         stateMachine_mast();
         mnnInference_mast();
     }
-    else if(0){
+    else if(1){
         stateMachine_Loco();
         mnnInference_Loco();
     }
@@ -97,7 +97,7 @@ FSMStateName State_Rl::checkChange(){
         return FSMStateName::Rl;
     }
 }
-void State_Rl::mnnInference_Loco()
+void State_Rl::mnnInference_mast()
 {
     Vec3 eu_ang;
     eu_ang = quaternion_to_euler_array(_lowState->imu.getQuat());
@@ -168,7 +168,7 @@ void State_Rl::mnnInference_Loco()
     // _lowCmd->motorCmd[8].q = 3.0;
 }
 
-void State_Rl::stateMachine_Loco(){
+void State_Rl::stateMachine_mast(){
     if (rlptr == nullptr)
     {
       std::string mobModelPath = "../go2.mnn";
@@ -235,14 +235,14 @@ void State_Rl::mnnInference_Walk()
 void State_Rl::stateMachine_Walk(){
     if (rlptr == nullptr)
     {
-      std::string mobModelPath = "../body_latest-go2.mnn";
+      std::string mobModelPath = "../body_latest.mnn";
       rlptr = std::make_shared<rl_Inference>(mobModelPath);
       rlptr->initBuffer();
     }
     rlptr->resetNode();
     if (adaptationNetPtr == nullptr)
     {
-      std::string mobModelPath = "../adaptation_module_latest-go2.mnn";
+      std::string mobModelPath = "../adaptation_module_latest.mnn";
       adaptationNetPtr = std::make_shared<rl_Inference>(mobModelPath);
       adaptationNetPtr->initBuffer();
     }
@@ -294,7 +294,7 @@ void State_Rl::getCurrentObservation_Walk()
 
     mobCmd_[0]=_lowState->userValue.ly*2;
     mobCmd_[1]=_lowState->userValue.lx*2;
-    mobCmd_[2]=_lowState->userValue.rx*5;
+    mobCmd_[2]=_lowState->userValue.rx*2;
 
     for (int i = 0; i < 3; i++)
     {
@@ -351,7 +351,7 @@ void State_Rl::getCurrentObservation_Walk()
     memcpy(obs_history_Walk+(NUM_OBS_IN_OBS_HISTORY - 1)*OBS_DIM , obs_buf_ , OBS_DIM * sizeof(float));
 }
 
-void State_Rl::mnnInference_mast()
+void State_Rl::mnnInference_Loco()
 {
     for (size_t i = 0; i < 4; i++)
     {
@@ -436,7 +436,7 @@ void State_Rl::mnnInference_mast()
     }
 }
 
-void State_Rl::stateMachine_mast(){
+void State_Rl::stateMachine_Loco(){
     if (rlptr == nullptr)
     {
       std::string mobModelPath = "../LocomotionWithNP3O.mnn";
