@@ -1,5 +1,5 @@
 #include "control/leg_control.h"
-
+#include "control/ThreadPool.h"
 
 void leg_control::set_motor_cmd(std::vector<float>& kp, std::vector<float>& kd,
 std::vector<float>& q, std::vector<float>& dq, std::vector<float>& tau){
@@ -46,6 +46,7 @@ void leg_control::recv(){
     leg_T[2]=_leg_motor2->recv_pose(leg_data[2].T);
 }
 void leg_control::print_pose(){
+    std::cout<<std::endl;
     std::cout<<_leg_name<<"0:"<<leg_pose[0]<<"\t\t1:"<<leg_pose[1]<<"\t2:"<<leg_pose[2]<<std::endl;
 }
 bool leg_control::motor_limit(std::vector<float>& kp,std::shared_ptr<motor> moto)//限制力矩
@@ -53,8 +54,8 @@ bool leg_control::motor_limit(std::vector<float>& kp,std::shared_ptr<motor> moto
     bool start=true;
     if ((leg_pose[moto->_n]>moto->max_pose-0.1||leg_pose[moto->_n]<moto->min_pose+0.1)&&kp[0]>0)
     {
-        // std::cout<<"motor"<<this->_leg_name<<moto->_n<<"出现"<<leg_pose[moto->_n]<<"\t"<<moto->max_pose-0.1
-        // <<"\t"<<leg_pose[moto->_n]<<"\t"<<moto->min_pose+0.1<<std::endl;
+        // std::cout<<"motor"<<this->_leg_name<<moto->_n<<"出现"<<leg_pose[moto->_n]<<"\t"<<moto->max_pose
+        // <<"\t"<<leg_pose[moto->_n]<<"\t"<<moto->min_pose<<std::endl;
         moto->set_motor_disable(3);
         start=false;
     }

@@ -39,7 +39,7 @@ public:
     std::shared_ptr<Uart> _leg_serial;  // 定义 SerialPort 对象
     std::shared_ptr<motor> _leg_motor0;           // 定义三个个 Motor 对象
     std::shared_ptr<motor> _leg_motor1; 
-    std::shared_ptr<motor> _leg_motor2;
+    std::shared_ptr<motor> _leg_motor2; 
     MotorData leg_data[3];
     float leg_pose[3];
     float leg_W[3];

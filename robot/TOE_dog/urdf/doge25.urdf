@@ -3,7 +3,7 @@
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="urdf_tutorial">
+  name="TOE_dog">
   <link
     name="base">
     <inertial>
@@ -75,11 +75,10 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+        xyz="0 0.05 0"
+        rpy="1.5708 0 0" />
       <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_FL_hip.STL" />
+        <cylinder length="0.08" radius="0.046" />
       </geometry>
     </collision>
   </link>
@@ -132,12 +131,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin rpy="0 1.5707963267948966 0" xyz="0 0 -0.11" />
       <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_thigh.STL" />
+        <box size="0.11 0.0245 0.04" />
       </geometry>
     </collision>
   </link>
@@ -190,12 +186,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin rpy="0 1.5708 0" xyz="0 0 -0.09" />
       <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_calf.STL" />
+        <box size="0.16 0.0245 0.04" />
       </geometry>
     </collision>
   </link>
@@ -252,8 +245,7 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_foot.STL" />
+        <sphere radius="0.022" />
       </geometry>
     </collision>
   </link>
@@ -301,12 +293,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin rpy="1.5707963267948966 0 0" xyz="0 -0.05 0" />
       <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_FR_hip.STL" />
+        <cylinder length="0.08" radius="0.046" />
       </geometry>
     </collision>
   </link>
@@ -359,12 +348,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin rpy="0 1.5707963267948966 0" xyz="0 0 -0.11" />
       <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_R_thigh.STL" />
+        <box size="0.11 0.0245 0.04" />
       </geometry>
     </collision>
   </link>
@@ -417,12 +403,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin rpy="0 1.5708 0" xyz="0 0 -0.09" />
       <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_calf.STL" />
+        <box size="0.16 0.0245 0.04" />
       </geometry>
     </collision>
   </link>
@@ -479,8 +462,7 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_foot.STL" />
+        <sphere radius="0.022" />
       </geometry>
     </collision>
   </link>
@@ -497,232 +479,7 @@
     <axis
       xyz="0 0 0" />
   </joint>
-  <link
-    name="RR_hip">
-    <inertial>
-      <origin
-        xyz="0.000462627948810912 -0.00296787907848253 -0.000377200749208193"
-        rpy="0 0 0" />
-      <mass
-        value="0.629531150629571" />
-      <inertia
-        ixx="0.000515701611282"
-        ixy="4.0670799167658E-06"
-        ixz="-3.33710274625981E-06"
-        iyy="0.000756722047444843"
-        iyz="5.39904531575905E-06"
-        izz="0.000529259318938924" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_RR_hip.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_RR_hip.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="RR_hip_joint"
-    type="revolute">
-    <origin
-      xyz="-0.2 -0.05 0"
-      rpy="0 0 0" />
-    <parent
-      link="base" />
-    <child
-      link="RR_hip" />
-    <axis
-      xyz="1 0 0" />
-    <limit
-      lower="-3.14"
-      upper="3.14"
-      effort="100"
-      velocity="100" />
-  </joint>
-  <link
-    name="RR_thigh">
-    <inertial>
-      <origin
-        xyz="-0.000529112929206821 0.0223886518464307 -0.026316165403537"
-        rpy="0 0 0" />
-      <mass
-        value="1.04394065787434" />
-      <inertia
-        ixx="0.00148820954378036"
-        ixy="9.02633465512755E-06"
-        ixz="4.49995103540568E-08"
-        iyy="0.00183026511099994"
-        iyz="-9.26979860955464E-07"
-        izz="0.000636611592360065" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_R_thigh.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_R_thigh.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="RR_thigh"
-    type="revolute">
-    <origin
-      xyz="0 -0.08953 0"
-      rpy="0 0 0" />
-    <parent
-      link="RR_hip" />
-    <child
-      link="RR_thigh" />
-    <axis
-      xyz="0 1 0" />
-    <limit
-      lower="-3.14"
-      upper="3.14"
-      effort="100"
-      velocity="100" />
-  </joint>
-  <link
-    name="RR_calf">
-    <inertial>
-      <origin
-        xyz="0.00144796967229593 -1.62073079078007E-05 -0.0632711656523452"
-        rpy="0 0 0" />
-      <mass
-        value="1.0073921841326" />
-      <inertia
-        ixx="0.00372397074451231"
-        ixy="2.67657813561661E-08"
-        ixz="0.00015814882139217"
-        iyy="0.00378909678372777"
-        iyz="7.31346458312211E-07"
-        izz="0.000169175414001898" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_calf.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_calf.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="RR_calf_joint"
-    type="revolute">
-    <origin
-      xyz="0 0 -0.18"
-      rpy="0 0 0" />
-    <parent
-      link="RR_thigh" />
-    <child
-      link="RR_calf" />
-    <axis
-      xyz="0 1 0" />
-    <limit
-      lower="-3.14"
-      upper="3.14"
-      effort="100"
-      velocity="100" />
-  </joint>
-  <link
-    name="RR_foot">
-    <inertial>
-      <origin
-        xyz="-0.00557718054766365 -3.98323834327474E-06 -0.00961668941940308"
-        rpy="0 0 0" />
-      <mass
-        value="0.0321912006524897" />
-      <inertia
-        ixx="5.28624511121923E-06"
-        ixy="-1.62865946758586E-09"
-        ixz="1.03446978702503E-06"
-        iyy="5.18865524788486E-06"
-        iyz="-6.35824592869382E-10"
-        izz="6.57028614267063E-06" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_foot.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="1 1 1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_foot.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="RR_foot_joint"
-    type="fixed">
-    <origin
-      xyz="0.00081567 0 -0.20051"
-      rpy="0 -0.0012583 0" />
-    <parent
-      link="RR_calf" />
-    <child
-      link="RR_foot" />
-  </joint>
-  <link
+    <link
     name="RL_hip">
     <inertial>
       <origin
@@ -753,12 +510,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin rpy="1.5707963267948966 0 0" xyz="0 0.05 0" />
       <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_RL_hip.STL" />
+        <cylinder length="0.08" radius="0.046" />
       </geometry>
     </collision>
   </link>
@@ -811,12 +565,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin rpy="0 1.5707963267948966 0" xyz="0 0 -0.11" />
       <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_thigh.STL" />
+        <box size="0.11 0.0245 0.04" />
       </geometry>
     </collision>
   </link>
@@ -869,12 +620,9 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin rpy="0 1.5708 0" xyz="0 0 -0.09" />
       <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_calf.STL" />
+        <box size="0.16 0.0245 0.04" />
       </geometry>
     </collision>
   </link>
@@ -931,8 +679,7 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://urdf_tutorial/meshes/TOE_foot.STL" />
+        <sphere radius="0.022" />
       </geometry>
     </collision>
   </link>
@@ -948,5 +695,218 @@
       link="RL_foot" />
     <axis
       xyz="0 0 0" />
+  </joint>
+  <link
+    name="RR_hip">
+    <inertial>
+      <origin
+        xyz="0.000462627948810912 -0.00296787907848253 -0.000377200749208193"
+        rpy="0 0 0" />
+      <mass
+        value="0.629531150629571" />
+      <inertia
+        ixx="0.000515701611282"
+        ixy="4.0670799167658E-06"
+        ixz="-3.33710274625981E-06"
+        iyy="0.000756722047444843"
+        iyz="5.39904531575905E-06"
+        izz="0.000529259318938924" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf_tutorial/meshes/TOE_RR_hip.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="1.5707963267948966 0 0" xyz="0 -0.05 0" />
+      <geometry>
+        <cylinder length="0.08" radius="0.046" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_hip_joint"
+    type="revolute">
+    <origin
+      xyz="-0.2 -0.05 0"
+      rpy="0 0 0" />
+    <parent
+      link="base" />
+    <child
+      link="RR_hip" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="RR_thigh">
+    <inertial>
+      <origin
+        xyz="-0.000529112929206821 0.0223886518464307 -0.026316165403537"
+        rpy="0 0 0" />
+      <mass
+        value="1.04394065787434" />
+      <inertia
+        ixx="0.00148820954378036"
+        ixy="9.02633465512755E-06"
+        ixz="4.49995103540568E-08"
+        iyy="0.00183026511099994"
+        iyz="-9.26979860955464E-07"
+        izz="0.000636611592360065" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf_tutorial/meshes/TOE_R_thigh.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 1.5707963267948966 0" xyz="0 0 -0.11" />
+      <geometry>
+        <box size="0.11 0.0245 0.04" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_thigh"
+    type="revolute">
+    <origin
+      xyz="0 -0.08953 0"
+      rpy="0 0 0" />
+    <parent
+      link="RR_hip" />
+    <child
+      link="RR_thigh" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="RR_calf">
+    <inertial>
+      <origin
+        xyz="0.00144796967229593 -1.62073079078007E-05 -0.0632711656523452"
+        rpy="0 0 0" />
+      <mass
+        value="1.0073921841326" />
+      <inertia
+        ixx="0.00372397074451231"
+        ixy="2.67657813561661E-08"
+        ixz="0.00015814882139217"
+        iyy="0.00378909678372777"
+        iyz="7.31346458312211E-07"
+        izz="0.000169175414001898" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf_tutorial/meshes/TOE_calf.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 1.5708 0" xyz="0 0 -0.09" />
+      <geometry>
+        <box size="0.16 0.0245 0.04" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_calf_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.18"
+      rpy="0 0 0" />
+    <parent
+      link="RR_thigh" />
+    <child
+      link="RR_calf" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="RR_foot">
+    <inertial>
+      <origin
+        xyz="-0.00557718054766365 -3.98323834327474E-06 -0.00961668941940308"
+        rpy="0 0 0" />
+      <mass
+        value="0.0321912006524897" />
+      <inertia
+        ixx="5.28624511121923E-06"
+        ixy="-1.62865946758586E-09"
+        ixz="1.03446978702503E-06"
+        iyy="5.18865524788486E-06"
+        iyz="-6.35824592869382E-10"
+        izz="6.57028614267063E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://urdf_tutorial/meshes/TOE_foot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.002 0 0" />
+      <geometry>
+        <sphere radius="0.022" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_foot_joint"
+    type="fixed">
+    <origin
+      xyz="0.00081567 0 -0.20051"
+      rpy="0 -0.0012583 0" />
+    <parent
+      link="RR_calf" />
+    <child
+      link="RR_foot" />
   </joint>
 </robot>

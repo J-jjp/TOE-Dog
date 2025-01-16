@@ -78,6 +78,7 @@
         "__locale": "cpp",
         "ios": "cpp",
         "filesystem": "cpp",
-        "__bit_reference": "cpp"
+        "__bit_reference": "cpp",
+        "queue": "cpp"
     }
 }
