@@ -68,7 +68,7 @@ void State_Rl::run(){
         mnnInference_Walk();
         getCurrentObservation_Walk();
     }
-    else if(0){
+    else if(1){
         stateMachine_mast();
         mnnInference_mast();
     }
