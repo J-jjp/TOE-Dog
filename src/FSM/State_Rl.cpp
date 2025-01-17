@@ -28,18 +28,18 @@ void State_Rl::enter(){
         mobCmd_[0]=0;
         mobCmd_[1]=0;
         mobCmd_[2]=0;
-        mobCmd_[3]=0;
-        mobCmd_[4]=2;
-        mobCmd_[5]=0.1;
+        mobCmd_[3]=0;//身高
+        mobCmd_[4]=2;//踏步频率
+        mobCmd_[5]=0.5;//步态
         mobCmd_[6]=0.0;
         mobCmd_[7]=0.0;
         mobCmd_[8]=0.5;
-        mobCmd_[9]=0.56;
-        mobCmd_[10]=0.0;
-        mobCmd_[11]=0.0;
-        mobCmd_[12]=0.25;
-        mobCmd_[13]=0;
-        mobCmd_[14]=0;
+        mobCmd_[9]=0.05;//步幅
+        mobCmd_[10]=0.0;//pitch_cmd
+        mobCmd_[11]=0.0;//roll_cmd
+        mobCmd_[12]=0.25;//站姿宽度cmd
+        mobCmd_[13]=0;//pitch_cmd
+        mobCmd_[14]=0;//roll_cmd
 
 
         gait_indices=0.0;
@@ -72,7 +72,7 @@ void State_Rl::run(){
         stateMachine_mast();
         mnnInference_mast();
     }
-    else if(1){
+    else if(0){
         stateMachine_Loco();
         mnnInference_Loco();
     }
@@ -292,8 +292,8 @@ void State_Rl::getCurrentObservation_Walk()
 
     // std::cout<<proj_gravity[0]<<" "<<proj_gravity[1]<<" "<<proj_gravity[2]<<std::endl;
 
-    mobCmd_[0]=_lowState->userValue.ly*2;
-    mobCmd_[1]=_lowState->userValue.lx*2;
+    mobCmd_[0]=-_lowState->userValue.ly*2;
+    mobCmd_[1]=-_lowState->userValue.lx*2;
     mobCmd_[2]=_lowState->userValue.rx*2;
 
     for (int i = 0; i < 3; i++)

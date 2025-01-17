@@ -150,12 +150,20 @@ struct LowlevelCmd{
         motorCmd[legID*3+2].Kd = 0.75;
     }
     void setRealrlGain(int legID){
-        motorCmd[legID*3+0].Kp = 3;
-        motorCmd[legID*3+0].Kd = 2;
-        motorCmd[legID*3+1].Kp = 3;
-        motorCmd[legID*3+1].Kd = 2;
-        motorCmd[legID*3+2].Kp = 3;
-        motorCmd[legID*3+2].Kd = 2;
+        motorCmd[legID*3+0].Kp = realrlGain_kp(30);
+        motorCmd[legID*3+0].Kd = realrlGain_kd(0.75);
+        motorCmd[legID*3+1].Kp = realrlGain_kp(30);
+        motorCmd[legID*3+1].Kd = realrlGain_kd(0.75);
+        motorCmd[legID*3+2].Kp = realrlGain_kp(30);
+        motorCmd[legID*3+2].Kd = realrlGain_kd(0.75);;
+    }
+    float realrlGain_kp(float kp){
+        float kp_new = kp/2048;
+        return kp_new;
+    }
+    float realrlGain_kd(float kd){
+        float kd_new = kd/1024;
+        return kd_new;
     }
 };
 
