@@ -13,6 +13,7 @@ public:
     void enter();
     void run();
     void exit();
+    Vec3 quaternion_to_euler_array(Vec4 quat);
     FSMStateName checkChange();
     
 private:

@@ -45,7 +45,7 @@ void IOReal::send( LowlevelCmd *lowCmd) {
         FR_leg_dq[n]= lowCmd->motorCmd[n+3].dq;
         FR_leg_tau[n] = lowCmd->motorCmd[n+3].tau;
     }
-    // FR_leg->set_motor_cmd(FR_leg_kp,FR_leg_kd,FR_leg_q,FR_leg_dq,FR_leg_tau);
+    FR_leg->set_motor_cmd(FR_leg_kp,FR_leg_kd,FR_leg_q,FR_leg_dq,FR_leg_tau);
     // FR_leg->print_pose();
     std::vector<float> RL_leg_kp(3), RL_leg_kd(3),RL_leg_q(3),RL_leg_dq(3), RL_leg_tau(3);
     for (size_t n = 0; n < 3; n++)
@@ -56,7 +56,7 @@ void IOReal::send( LowlevelCmd *lowCmd) {
         RL_leg_dq[n]= lowCmd->motorCmd[n+6].dq;
         RL_leg_tau[n] = lowCmd->motorCmd[n+6].tau;
     }
-    // RL_leg->set_motor_cmd(RL_leg_kp,RL_leg_kd,RL_leg_q,RL_leg_dq,RL_leg_tau);
+    RL_leg->set_motor_cmd(RL_leg_kp,RL_leg_kd,RL_leg_q,RL_leg_dq,RL_leg_tau);
     std::vector<float> RR_leg_kp(3), RR_leg_kd(3),RR_leg_q(3),RR_leg_dq(3), RR_leg_tau(3);
     for (size_t n = 0; n < 3; n++)
     {
@@ -66,17 +66,18 @@ void IOReal::send( LowlevelCmd *lowCmd) {
         RR_leg_dq[n]= lowCmd->motorCmd[n+9].dq;
         RR_leg_tau[n] = lowCmd->motorCmd[n+9].tau;
     }
-    // RR_leg->set_motor_cmd(RR_leg_kp,RR_leg_kd,RR_leg_q,RR_leg_dq,RR_leg_tau);
+    RR_leg->set_motor_cmd(RR_leg_kp,RR_leg_kd,RR_leg_q,RR_leg_dq,RR_leg_tau);
     // std::cout << "send" << std::endl;
 
 }
 void IOReal::recv(LowlevelState *state){
     leg_rec(state);
 
-    for (size_t i = 3; i < 12; i++)
+    for (size_t i = 2; i < 3; i++)
     {
-        std::cout<<"\t第"<<i<<"条"<<state->motorState[i].q;
+        std::cout<<"\t\t第"<<i<<state->motorState[i].dq;
     }
+    std::cout<<std::endl;
     // std::cout<<"motor"<<FL<<"出现"<<leg_pose[moto->_n]<<"\t"<<moto->max_pose
     //     <<"\t"<<leg_pose[moto->_n]<<"\t"<<moto->min_pose<<std::endl;
     // prit_state();
@@ -91,26 +92,37 @@ void IOReal::leg_rec(LowlevelState *state){
     for (size_t n = 0; n < 3; n++)
     {
         state->motorState[n].q = FL_leg->leg_pose[n];
-        state->motorState[n].dq = FL_leg->leg_W[n];
-        state->motorState[n].tauEst = FL_leg->leg_T[n];
+        state->motorState[n].dq = FL_leg->leg_W[n]/9.1;
+        state->motorState[n].tauEst = FL_leg->leg_T[n]*9.1;
     }
-    for (size_t n = 0; n < 3; n++)
+    // state->motorState[1].dq = -state->motorState[1].dq ;
+    // state->motorState[1].tauEst = -state->motorState[1].tauEst ;
+
+
+
+    state->motorState[3].q = FR_leg->leg_pose[0];
+    state->motorState[3].dq = FR_leg->leg_W[0]/9.1;
+    state->motorState[3].tauEst = FR_leg->leg_T[0]*9.1;
+    for (size_t n = 1; n < 3; n++)
     {
         state->motorState[n+3].q = FR_leg->leg_pose[n];
-        state->motorState[n+3].dq = FR_leg->leg_W[n];
-        state->motorState[n+3].tauEst = FR_leg->leg_T[n];
+        state->motorState[n+3].dq = -FR_leg->leg_W[n]/9.1;
+        state->motorState[n+3].tauEst = -FR_leg->leg_T[n]*9.1;
     }
-    for (size_t n = 0; n < 3; n++)
+    state->motorState[6].q = RL_leg->leg_pose[0];
+    state->motorState[6].dq = -RL_leg->leg_W[0]/9.1;
+    state->motorState[6].tauEst = -RL_leg->leg_T[0]*9.1;
+    for (size_t n = 1; n < 3; n++)
     {
         state->motorState[n+6].q = RL_leg->leg_pose[n];
-        state->motorState[n+6].dq = RL_leg->leg_W[n];
-        state->motorState[n+6].tauEst = RL_leg->leg_T[n];
+        state->motorState[n+6].dq = RL_leg->leg_W[n]/9.1;
+        state->motorState[n+6].tauEst = RL_leg->leg_T[n]*9.1;
     } 
     for (size_t n = 0; n < 3; n++)
     {
         state->motorState[n+9].q = RR_leg->leg_pose[n];
-        state->motorState[n+9].dq = RR_leg->leg_W[n];
-        state->motorState[n+9].tauEst = RR_leg->leg_T[n];
+        state->motorState[n+9].dq = -RR_leg->leg_W[n]/9.1;
+        state->motorState[n+9].tauEst = -RR_leg->leg_T[n]*9.1;
     }
 }
 void IOReal::thread_send(std::shared_ptr<leg_control>  leg,std::vector<float>& leg_kp,std::vector<float>& leg_kd,

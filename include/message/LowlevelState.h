@@ -26,7 +26,7 @@ struct IMU
     float quaternion[4];    // w, x, y, z 四元素
     float gyroscope[3];    //三个方向的角速度
     float accelerometer[3]; //三个方向的加速度
-    float line[3]; //三个方向的加速度
+    float line[3];
     IMU(){
         for(int i = 0; i < 3; i++){
             quaternion[i] = 0;

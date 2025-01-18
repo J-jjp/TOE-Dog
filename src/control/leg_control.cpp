@@ -38,12 +38,12 @@ void leg_control::recv(){
     leg_pose[0]=_leg_motor0->recv_pose(leg_data[0].Pos);
     leg_pose[1]=_leg_motor1->recv_pose(leg_data[1].Pos);
     leg_pose[2]=_leg_motor2->recv_pose(leg_data[2].Pos);
-    leg_W[0]=_leg_motor0->recv_pose(leg_data[0].W);
-    leg_W[1]=_leg_motor1->recv_pose(leg_data[1].W);
-    leg_W[2]=_leg_motor2->recv_pose(leg_data[2].W);
-    leg_T[0]=_leg_motor0->recv_pose(leg_data[0].T);
-    leg_T[1]=_leg_motor1->recv_pose(leg_data[1].T);
-    leg_T[2]=_leg_motor2->recv_pose(leg_data[2].T);
+    leg_W[0]=leg_data[0].W;
+    leg_W[1]=leg_data[1].W;
+    leg_W[2]=leg_data[2].W;
+    leg_T[0]=leg_data[0].T;
+    leg_T[1]=leg_data[1].T;
+    leg_T[2]=leg_data[2].T;
 }
 void leg_control::print_pose(){
     std::cout<<std::endl;
@@ -54,8 +54,8 @@ bool leg_control::motor_limit(std::vector<float>& kp,std::shared_ptr<motor> moto
     bool start=true;
     if ((leg_pose[moto->_n]>moto->max_pose-0.1||leg_pose[moto->_n]<moto->min_pose+0.1)&&kp[0]>0)
     {
-        // std::cout<<"motor"<<this->_leg_name<<moto->_n<<"出现"<<leg_pose[moto->_n]<<"\t"<<moto->max_pose
-        // <<"\t"<<leg_pose[moto->_n]<<"\t"<<moto->min_pose<<std::endl;
+        std::cout<<"motor"<<this->_leg_name<<moto->_n<<"出现"<<leg_pose[moto->_n]<<"\t"<<moto->max_pose
+        <<"\t"<<leg_pose[moto->_n]<<"\t"<<moto->min_pose<<std::endl;
         moto->set_motor_disable(3);
         start=false;
     }

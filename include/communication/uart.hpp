@@ -71,7 +71,7 @@ public:
     printf("\n");
 #endif
 
-    usleep(400);
+    usleep(300);
 
     int rsize = Mread();
     if (rsize <= 0) {
@@ -95,7 +95,7 @@ public:
             *(uint32_t *)(_buffer + rsize - 4)) {
       memcpy(&(_rdata.motor_recv_data), _buffer, rsize);
     } else {
-      printf("CRC ERROR!! \n");
+      // printf("CRC ERROR!! \n");
       return -1;
     }
 

@@ -34,7 +34,7 @@ void State_Rl::enter(){
         mobCmd_[6]=0.0;
         mobCmd_[7]=0.0;
         mobCmd_[8]=0.5;
-        mobCmd_[9]=0.05;//步幅
+        mobCmd_[9]=0.16;//步幅
         mobCmd_[10]=0.0;//pitch_cmd
         mobCmd_[11]=0.0;//roll_cmd
         mobCmd_[12]=0.25;//站姿宽度cmd
@@ -101,10 +101,11 @@ void State_Rl::mnnInference_mast()
 {
     Vec3 eu_ang;
     eu_ang = quaternion_to_euler_array(_lowState->imu.getQuat());
+    std::cout<<"olx:"<<eu_ang[0]<<"\ty:"<<eu_ang[1]<<"\tz:"<<eu_ang[2]<<std::endl;
     for (size_t i = 0; i < 3; i++)
     {
-        obs[0][i] = _lowState->imu.gyroscope[i] *obs_scales_ang_vel;
-        obs[0][i+3] = eu_ang[0] *obs_scales_quat;
+        obs[0][i] = 0 *obs_scales_ang_vel;
+        obs[0][i+3] = 0 *obs_scales_quat;
     }
     obs[0][6] = -_lowState->userValue.lx * obs_scales_lin_vel;
     // if (_lowState->userValue.lx >0.9)
@@ -530,7 +531,7 @@ Vec3 State_Rl::quaternion_to_euler_array(Vec4 quat){
     
     t2 = +2.0 * (w * y - z * x);
     t2 = std::max(-1.0, std::min(t2, 1.0));
-    pitch_y =  std::asin(t2);
+    pitch_y = - std::asin(t2);
     
     t3 = +2.0 * (w * z + x * y);
     t4 = +1.0 - 2.0 * (y * y + z * z);

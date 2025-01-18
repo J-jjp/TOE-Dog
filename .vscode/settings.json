@@ -79,6 +79,7 @@
         "ios": "cpp",
         "filesystem": "cpp",
         "__bit_reference": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "future": "cpp"
     }
 }

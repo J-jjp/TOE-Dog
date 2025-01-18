@@ -7,10 +7,6 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/home/jiaojunpeng/miniconda3/lib/cmake/GTest/GTestConfig.cmake"
-  "/home/jiaojunpeng/miniconda3/lib/cmake/GTest/GTestConfigVersion.cmake"
-  "/home/jiaojunpeng/miniconda3/lib/cmake/GTest/GTestTargets-release.cmake"
-  "/home/jiaojunpeng/miniconda3/lib/cmake/GTest/GTestTargets.cmake"
   "../CMakeLists.txt"
   "CMakeFiles/3.16.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.16.3/CMakeCXXCompiler.cmake"
