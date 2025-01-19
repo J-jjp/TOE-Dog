@@ -25,7 +25,8 @@
 #define XBOX_BUTTON_X       0x02  
 #define XBOX_BUTTON_Y       0x03  
 #define XBOX_BUTTON_RB      0x05  
-
+#define XBOX_AXIS_XX        0x06    /* 方向键X轴 */  
+#define XBOX_AXIS_YY        0x07    /* 方向键Y轴 */  
 #define XBOX_BUTTON_ON      0x01  
 #define XBOX_BUTTON_OFF     0x00  
 
@@ -52,7 +53,8 @@ public:
     int     ly;  
     int     rx;  
     int     ry;
-
+    int     xx;
+    int     yy;
     }xbox_map_t;
     WirelessHandle();
     ~WirelessHandle();

@@ -1,4 +1,22 @@
-Sat Jan 18 12:33:07 2025
-ERROR: Load model error: Error: range[0] should be smaller than range[1] in joint
-Element name 'FL_thigh_joint', id 2, line 0
+Sun Jan 19 17:53:48 2025
+ERROR: Load model error: Error: both pos and fromto defined in geom
+Element name '', id 1, line 26
+
+Sun Jan 19 17:55:39 2025
+ERROR: Load model error: XML Error: bad format in attribute 'size'
+Element 'geom', line 26
+
+
+Sun Jan 19 18:24:41 2025
+ERROR: Load model error: Error: both pos and fromto defined in geom
+Element name '', id 14, line 40
+
+Sun Jan 19 18:29:24 2025
+ERROR: Load model error: Error: size 2 must be positive in geom
+Element name '', id 15, line 41
+
+Sun Jan 19 18:34:41 2025
+ERROR: Load model error: XML Error: bad format in attribute 'quat'
+Element 'geom', line 40
+
 

@@ -134,7 +134,7 @@ int main(int argc, const char** argv) {
 
   // load and compile model
   char error[1000] = "Could not load binary model";
-  m = mj_loadXML("../robot/TOE_dog/xml/scene.xml", 0, error, 1000);
+  m = mj_loadXML("../robot/go2/xml/scene.xml", 0, error, 1000);
   if (!m) {
     mju_error("Load model error: %s", error);
   }
@@ -188,7 +188,7 @@ int main(int argc, const char** argv) {
     float kp=0;
     float kd=0;
     ctrlFrame.run();
-    while (d->time - simstart < 1.0/60.0) {
+    while (d->time - simstart < 1.0/180.0) {
       mj_step(m, d);
     }
 

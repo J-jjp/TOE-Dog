@@ -40,7 +40,7 @@ void WirelessHandle::read_joy(){
         //         map.a, map.b, map.x, map.y, map.lb, map.rb,   
         //          map.lx, map.ly, map.rx, map.ry);
         std::cout<<"A"<<map.a<<"B"<<map.b<<"X"<<map.x<<"Y"<<map.y<<"LX"<<map.lx<<"LY"<<map.ly<<"RB"<<map.rb
-        <<"RX"<<map.rx<<"RY"<<map.ry<<std::endl;
+        <<"RX"<<map.rx<<"RY"<<map.ry<<"xx"<<map.xx<<"yy"<<map.yy<<std::endl;
         fflush(stdout);  
     }
 }
@@ -107,6 +107,13 @@ int WirelessHandle::xbox_map_read(int xbox_fd, xbox_map_t *map)
 
             case XBOX_AXIS_RY:  
                 map->ry = value;  
+                break; 
+            case XBOX_AXIS_XX:  
+                map->xx = value;  
+                break;  
+
+            case XBOX_AXIS_YY:  
+                map->yy = value;  
                 break;  
             default:  
                 break;  
@@ -145,6 +152,8 @@ void WirelessHandle::changeValue(){
     userValue.b=map.b;
     userValue.x=map.x;
     userValue.y=map.y;
+    userValue.xx=-map.yy;
+    userValue.yy=-map.xx;
         // std::cout<<"A"<<map.a<<"B"<<map.b<<"X"<<map.x<<"Y"<<map.y<<"LX"<<map.lx<<"LY"<<map.ly<<"RB"<<map.rb
         // <<"RX"<<map.rx<<"RY"<<map.ry<<std::endl;
     userValue.ly = max<float>(-1.f,min<float>(ly, 1.f));

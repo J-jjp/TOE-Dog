@@ -25,23 +25,23 @@ void State_Rl::enter(){
         memset(obs_history_with_adaptation,0,sizeof(float)*(NUM_OBS_IN_OBS_HISTORY*OBS_DIM+2));
         memset(obs_history,0,sizeof(float)*NUM_OBS_IN_OBS_HISTORY*OBS_DIM);
 
-        mobCmd_[0]=0;
-        mobCmd_[1]=0;
-        mobCmd_[2]=0;
+        mobCmd_[0]=0;//x方向速度
+        mobCmd_[1]=0;//y方向速度
+        mobCmd_[2]=0;//yaw方向速度
         mobCmd_[3]=0;//身高
-        mobCmd_[4]=2;//踏步频率
+        mobCmd_[4]=1;//踏步频率
         mobCmd_[5]=0.5;//步态
         mobCmd_[6]=0.0;
         mobCmd_[7]=0.0;
         mobCmd_[8]=0.5;
-        mobCmd_[9]=0.16;//步幅
+        mobCmd_[9]=0.12;//步幅
         mobCmd_[10]=0.0;//pitch_cmd
         mobCmd_[11]=0.0;//roll_cmd
         mobCmd_[12]=0.25;//站姿宽度cmd
-        mobCmd_[13]=0;//pitch_cmd
+        mobCmd_[13]=1;//pitch_cmd
         mobCmd_[14]=0;//roll_cmd
 
-
+        modle=0;
         gait_indices=0.0;
         std::cout << "Mob Loop set up finished" << std::endl;
     }
@@ -68,11 +68,11 @@ void State_Rl::run(){
         mnnInference_Walk();
         getCurrentObservation_Walk();
     }
-    else if(1){
+    else if(0){
         stateMachine_mast();
         mnnInference_mast();
     }
-    else if(0){
+    else if(1){
         stateMachine_Loco();
         mnnInference_Loco();
     }
@@ -108,15 +108,6 @@ void State_Rl::mnnInference_mast()
         obs[0][i+3] = 0 *obs_scales_quat;
     }
     obs[0][6] = -_lowState->userValue.lx * obs_scales_lin_vel;
-    // if (_lowState->userValue.lx >0.9)
-    // {
-    //     y_vel = _lowState->userValue.ly+0.5;
-    // }
-    // if (_lowState->userValue.lx <-0.9)
-    // {
-    //     y_vel = _lowState->userValue.ly-0.5;
-    // }
-    
     obs[0][7] = -_lowState->userValue.ly * obs_scales_lin_vel;
     obs[0][8] = _lowState->userValue.rx ;
     for (size_t i = 0; i < 12; i++)
@@ -125,25 +116,25 @@ void State_Rl::mnnInference_mast()
         obs[0][21+i] = _lowState->motorState[i].dq * obs_scales_dof_vel;
         obs[0][33+i] = last_lowCmd[i];
     }
-    for (size_t i = 0; i < N_proprio_Loco; i++)
+    for (size_t i = 0; i < N_proprio_mast; i++)
     {
         policy_input[0][i] = obs[0][i];
     }
-    for (size_t i = 0; i < N_priv_latent_Loco  + N_scan_Loco; i++)
+    for (size_t i = 0; i < N_priv_latent_mast  + N_scan_Loco; i++)
     {
-        policy_input[0][i+N_proprio_Loco]=0;
+        policy_input[0][i+N_proprio_mast]=0;
     }
-    for (size_t i = 0; i < History_len_Loco*N_proprio_Loco; i++)
+    for (size_t i = 0; i < History_len_mast*N_proprio_mast; i++)
     {
-        policy_input[0][i+N_proprio_Loco+N_priv_latent_Loco+N_scan_Loco]=obs_history[0][i];
+        policy_input[0][i+N_proprio_mast+N_priv_latent_mast+N_scan_mast]=obs_history[0][i];
     }
-    for (size_t i = 0; i < (History_len_Loco-1)*N_proprio_Loco; i++)
+    for (size_t i = 0; i < (History_len_mast-1)*N_proprio_mast; i++)
     {
-        obs_history[0][i] = obs_history[0][i+N_proprio_Loco];
+        obs_history[0][i] = obs_history[0][i+N_proprio_mast];
     }
-    for (size_t i = 0; i < N_proprio_Loco; i++)
+    for (size_t i = 0; i < N_proprio_mast; i++)
     {
-        obs_history[0][((History_len_Loco-1)*N_proprio_Loco)+i] = obs[0][i];
+        obs_history[0][((History_len_mast-1)*N_proprio_mast)+i] = obs[0][i];
     }
     rlptr->advanceNNsync(policy_input,action_cmd);
     for (size_t i = 0; i < 12; i++)
@@ -248,39 +239,8 @@ void State_Rl::stateMachine_Walk(){
       adaptationNetPtr->initBuffer();
     }
     mobRun();
+    Pose_transformation();
 }
-void State_Rl::mobRun()
-{
-  if ((int)_lowState->userValue.a == 1)  // trot
-  {
-    mobCmd_[5]=0.5;
-    mobCmd_[6]=0;
-    mobCmd_[7]=0;
-
-  }
-  else if ((int)_lowState->userValue.b == 1)  // pace
-  {
-    mobCmd_[5]=0;
-    mobCmd_[6]=0;
-    mobCmd_[7]=0.5;
-
-  }
-  else if ((int)_lowState->userValue.x == 1)  // pronk
-  {
-    mobCmd_[5]=0;
-    mobCmd_[6]=0;
-    mobCmd_[7]=0;
-
-  }
-  else if ((int)_lowState->userValue.y == 1)  // bound
-  {
-    mobCmd_[5]=0;
-    mobCmd_[6]=0.5;
-    mobCmd_[7]=0;
-  }
-
-}
-
 
 void State_Rl::getCurrentObservation_Walk()
 {
@@ -293,9 +253,9 @@ void State_Rl::getCurrentObservation_Walk()
 
     // std::cout<<proj_gravity[0]<<" "<<proj_gravity[1]<<" "<<proj_gravity[2]<<std::endl;
 
-    mobCmd_[0]=-_lowState->userValue.ly*2;
-    mobCmd_[1]=-_lowState->userValue.lx*2;
-    mobCmd_[2]=_lowState->userValue.rx*2;
+    mobCmd_[0]=-_lowState->userValue.ly*2+0.2;
+    mobCmd_[1]=-_lowState->userValue.lx*2-0.2;
+    mobCmd_[2]=_lowState->userValue.rx*5-0.3;
 
     for (int i = 0; i < 3; i++)
     {
@@ -354,20 +314,20 @@ void State_Rl::getCurrentObservation_Walk()
 
 void State_Rl::mnnInference_Loco()
 {
-    for (size_t i = 0; i < 4; i++)
-    {
-        action_stateq_mast[i+3]=_lowState->motorState[i].q;
-        action_statedq_mast[i+3]=_lowState->motorState[i].dq;
+    // for (size_t i = 0; i < 4; i++)
+    // {
+    //     action_stateq_mast[i+3]=_lowState->motorState[i].q;
+    //     action_statedq_mast[i+3]=_lowState->motorState[i].dq;
 
-        action_stateq_mast[i]=_lowState->motorState[i+3].q;
-        action_statedq_mast[i]=_lowState->motorState[i+3].dq;
+    //     action_stateq_mast[i]=_lowState->motorState[i+3].q;
+    //     action_statedq_mast[i]=_lowState->motorState[i+3].dq;
 
-        action_stateq_mast[i+9]=_lowState->motorState[i+6].q;
-        action_statedq_mast[i+9]=_lowState->motorState[i+6].dq;
+    //     action_stateq_mast[i+9]=_lowState->motorState[i+6].q;
+    //     action_statedq_mast[i+9]=_lowState->motorState[i+6].dq;
 
-        action_stateq_mast[i+6]=_lowState->motorState[i+9].q;
-        action_statedq_mast[i+6]=_lowState->motorState[i+9].dq;
-    }
+    //     action_stateq_mast[i+6]=_lowState->motorState[i+9].q;
+    //     action_statedq_mast[i+6]=_lowState->motorState[i+9].dq;
+    // }
     
     Eigen::Vector4d q(_lowState->imu.quaternion[1],_lowState->imu.quaternion[2],_lowState->imu.quaternion[3],_lowState->imu.quaternion[0]);
     Eigen::Vector3d v(0.0,0.0,-1.0); 
@@ -380,60 +340,78 @@ void State_Rl::mnnInference_Loco()
     std::cout<<"proj"<<proj_gravity[0]<<" "<<proj_gravity[1]<<" "<<proj_gravity[2]<<std::endl;
     for (size_t i = 0; i < 3; i++)
     {
-        obs_mast[0][i] =base_line[i] *obs_scales_lin_vel;
-        obs_mast[0][i+3] = _lowState->imu.gyroscope[i] *obs_scales_ang_vel;
-        obs_mast[0][i+6] = proj_gravity[i];
+        obs_Loco[0][i] = 0;
+        obs_Loco[0][i+3] = 0;
+        obs_Loco[0][i+6] =0;
     }
-    obs_mast[0][9] = -_lowState->userValue.lx * obs_scales_lin_vel;
-    obs_mast[0][10] = -_lowState->userValue.ly * obs_scales_lin_vel;
-    obs_mast[0][11] = _lowState->userValue.rx ;
+    obs_Loco[0][9] = 0;
+    obs_Loco[0][10] = 0;
+    obs_Loco[0][11] = 0;
     for (size_t i = 0; i < 12; i++)
     {
-        obs_mast[0][12+i] = (action_stateq_mast[i]-default_dof_pos_mast[i]) *obs_scales_dof_pos;
-        obs_mast[0][24+i] = action_statedq_mast[i] * obs_scales_dof_vel;
-        obs_mast[0][36+i] = last_action_cmd_mast[0][i];
+        obs_legged[12+i] = (_lowState->motorState[i].q-default_dof_pos_Loco[i]) *obs_scales_dof_pos;
+        obs_legged[24+i] = 0;
+        obs_Loco[0][36+i] = 0;
     }
-    for (size_t i = 0; i < N_proprio_mast; i++)
+    for (size_t i = 0; i < N_proprio_Loco; i++)
     {
-        policy_input_mast[0][i] = obs_mast[0][i];
+        policy_input_Loco[0][i] = obs_Loco[0][i];
     }
-    for (size_t i = 0; i < N_priv_latent_mast  + N_scan_Loco; i++)
+    for (size_t i = 0; i < N_scan_Loco; i++)
     {
-        policy_input_mast[0][i+N_proprio_mast]=0;
+        policy_input_Loco[0][i+N_proprio_Loco]=0;
     }
-    for (size_t i = 0; i < History_len_Loco*N_proprio_mast; i++)
+    for (size_t i = 0; i <N_priv_latent_Loco; i++)
     {
-        policy_input_mast[0][i+N_proprio_mast+N_priv_latent_mast+N_scan_Loco]=obs_history_mast[0][i];
+        policy_input_Loco[0][i+N_proprio_Loco+N_priv_latent_Loco]=0;
     }
-    for (size_t i = 0; i < (History_len_Loco-1)*N_proprio_mast; i++)
+    for (size_t i = 0; i < History_len_Loco*N_proprio_Loco; i++)
     {
-        obs_history_mast[0][i] = obs_history_mast[0][i+N_proprio_mast];
+        policy_input_Loco[0][i+N_proprio_Loco+N_priv_latent_Loco+N_scan_Loco]=0;
     }
-    for (size_t i = 0; i < N_proprio_mast; i++)
+    for (size_t i = 0; i < (History_len_Loco-1)*N_proprio_Loco; i++)
     {
-        obs_history_mast[0][((History_len_Loco-1)*N_proprio_mast)+i] = obs_mast[0][i];
+        obs_history_Loco[0][i] = obs_history_Loco[0][i+N_proprio_Loco];
     }
-    rlptr->advanceNNsync_mast(policy_input_mast,action_cmd_mast);
-    for (size_t i = 0; i < 12; i++)
+    for (size_t i = 0; i < N_proprio_Loco; i++)
     {
-        std::cout<<"action_cmd"<<action_cmd_mast[0][i];
+        obs_history_Loco[0][((History_len_Loco-1)*N_proprio_Loco)+i] = obs_Loco[0][i];
+    }
+    for (size_t i = 0; i < 762; i++)
+    {
+        policy_input_Loco[0][i]=0;
+    }
+    std::cout<<"policy_input";
+    for (size_t i = 0; i < 762; i++)
+    {
+        std::cout<<"\t"<<policy_input_Loco[0][i];
     }
     std::cout<<std::endl;
+    rlptr->advanceNNsync_Loco(policy_input_Loco,action_cmd_Loco);
+    for (size_t i = 0; i < 12; i++)
+    {
+        std::cout<<"action_cmd"<<action_cmd_Loco[0][i];
+    }
+    // std::cout<<std::endl;
     float action_flt[12];
     for (size_t i = 0; i < 12; i++)
     {
-        action_flt[i]=action_cmd_mast[0][i]*0.8+last_action_cmd_mast[0][i]*0.2;
+        action_flt[i]=action_cmd_Loco[0][i]*0.8+last_action_cmd_Loco[0][i]*0.2;
     }
     for (size_t i = 0; i < 12; i++)
     {
-        last_action_cmd_mast[0][i]=action_cmd_mast[0][i];
+        last_action_cmd_Loco[0][i]=action_cmd_Loco[0][i];
     }
-    for (size_t i = 0; i < 4; i++)
+    // for (size_t i = 0; i < 4; i++)
+    // {
+    //     _lowCmd->motorCmd[i].q = action_flt[i+3] * 0.25 + default_dof_pos_Loco[i+3];
+    //     _lowCmd->motorCmd[i+3].q = action_flt[i] * 0.25 + default_dof_pos_Loco[i];
+    //     _lowCmd->motorCmd[i+6].q = action_flt[i+9] * 0.25 + default_dof_pos_Loco[i+9];
+    //     _lowCmd->motorCmd[i+9].q = action_flt[i+6] * 0.25 + default_dof_pos_Loco[i+6];
+    // }
+    for (size_t i = 0; i < 12; i++)
     {
-        _lowCmd->motorCmd[i].q = action_flt[i+3] * 0.25 + default_dof_pos_mast[i+3];
-        _lowCmd->motorCmd[i+3].q = action_flt[i] * 0.25 + default_dof_pos_mast[i];
-        _lowCmd->motorCmd[i+6].q = action_flt[i+9] * 0.25 + default_dof_pos_mast[i+9];
-        _lowCmd->motorCmd[i+9].q = action_flt[i+6] * 0.25 + default_dof_pos_mast[i+6];
+        _lowCmd->motorCmd[i].q = action_flt[i] * 0.25 + default_dof_pos_Loco[i];
     }
 }
 
@@ -505,6 +483,168 @@ void State_Rl::stateMachine_legged(){
     }
     rlptr->resetNode();
 }
+
+
+void State_Rl::mobRun()
+{
+  if ((int)_lowState->userValue.a == 1)  // trot
+  {
+    mobCmd_[5]=0.5;
+    mobCmd_[6]=0;
+    mobCmd_[7]=0;
+
+  }
+  else if ((int)_lowState->userValue.b == 1)  // pace
+  {
+    mobCmd_[5]=0;
+    mobCmd_[6]=0;
+    mobCmd_[7]=0.5;
+
+  }
+  else if ((int)_lowState->userValue.x == 1)  // pronk
+  {
+    mobCmd_[5]=0;
+    mobCmd_[6]=0;
+    mobCmd_[7]=0;
+
+  }
+  else if ((int)_lowState->userValue.y == 1)  // bound
+  {
+    mobCmd_[5]=0;
+    mobCmd_[6]=0.5;
+    mobCmd_[7]=0;
+  }
+}
+void State_Rl::Pose_transformation(){
+    if(modle>6){
+        modle=0;
+    }
+    if (_lowState->userValue.yy>1)
+    {
+        modle++;
+    }
+    else if (_lowState->userValue.yy<0)
+    {
+        if (modle>0)
+        {
+            modle--;
+        }
+    }
+    
+    
+    if ((int)modle == 0)  // theight
+    {
+        std::cout<<"\theight"<<mobCmd_[3]<<"\t";
+        if (_lowState->userValue.xx>1)
+        {
+            mobCmd_[3]+=0.01;
+        }
+        else if (_lowState->userValue.xx<0)
+        {
+            mobCmd_[3]-=0.01;
+        }
+        
+    }
+    else if ((int)modle == 1)  // step_frequency
+    {
+        std::cout<<"\tstep_frequency"<<mobCmd_[4]<<"\t";
+        if (_lowState->userValue.xx>1)
+        {
+            if (mobCmd_[4]<4)
+            {
+                mobCmd_[4]+=1;
+            }
+        }
+        else if(_lowState->userValue.xx<0)
+        {
+            if (mobCmd_[4]>1)
+            {
+                mobCmd_[4]-=1;
+            }
+        }
+
+    }
+    else if ((int)modle == 2)  //footswing_height
+    {
+        std::cout<<"\tfootswing_height"<<mobCmd_[9]<<"\t";
+        if (_lowState->userValue.xx>1)
+        {
+            if (mobCmd_[9]<1)
+            {
+                mobCmd_[9]+=0.05;
+            }
+        }
+        else if(_lowState->userValue.xx<0)
+        {
+            if (mobCmd_[9]>-1)
+            {
+                mobCmd_[9]-=0.05;
+            }
+        }
+
+    }
+    else if ((int)modle == 3)  // pitch
+    {
+        std::cout<<"\tpitch"<<mobCmd_[10]<<"\t";
+        if (_lowState->userValue.xx>1)
+        {
+            if (mobCmd_[10]<1)
+            {
+                mobCmd_[10]+=0.05;
+                mobCmd_[13]+=0.05;
+            }
+        }
+        else if(_lowState->userValue.xx<0)
+        {
+            if (mobCmd_[10]>-1)
+            {
+                mobCmd_[10]-=0.05;
+                mobCmd_[13]-=0.05;
+            }
+        }
+    }
+    else if ((int)modle == 4)  // roll
+    {
+        std::cout<<"\troll"<<mobCmd_[11]<<"\t";
+        if (_lowState->userValue.xx>1)
+        {
+            if (mobCmd_[11]<1)
+            {
+                mobCmd_[11]+=0.05;
+                mobCmd_[14]+=0.05;
+            }
+        }
+        else if(_lowState->userValue.xx<0)
+        {
+            if (mobCmd_[11]>-1)
+            {
+                mobCmd_[11]-=0.05;
+                mobCmd_[14]-=0.05;
+            }
+        }
+
+    }
+    else if ((int)modle == 5)  // 站姿宽度cmd
+    {
+        std::cout<<"\tstance_width"<<mobCmd_[12]<<"\t";
+        if (_lowState->userValue.xx>1)
+        {
+            if (mobCmd_[12]<0.5)
+            {
+                mobCmd_[12]+=0.02;
+            }
+        }
+        else if(_lowState->userValue.xx<0)
+        {
+            if (mobCmd_[12]>0)
+            {
+                mobCmd_[12]-=0.02;
+            }
+        }
+
+    }
+}
+
 
 Eigen::Vector3d State_Rl::quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v) {
     double q_w = q[3];  // 提取四元数的实部 w

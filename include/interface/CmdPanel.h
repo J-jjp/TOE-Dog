@@ -16,6 +16,8 @@ struct UserValue{
     float b=0;
     float x=0;
     float y=0;
+    int xx=0;
+    int yy=0;
     UserValue(){
         setZero();
     }
@@ -28,6 +30,8 @@ struct UserValue{
         b = 0;
         x = 0;
         y = 0;
+        xx = 0;
+        yy = 0;
     }
 };
 
@@ -43,6 +47,13 @@ class CmdPanel{
         UserCommand userCmd;
         UserValue userValue;
     protected:
+        /**
+         * @file WirelessHandle.cpp
+         * @brief 该文件包含了无线处理接口的实现细节。
+         * 
+         * 本文件主要负责处理与无线设备相关的操作，包括但不限于连接、断开、数据传输等。
+         * 具体的函数实现细节在文件内部定义。
+         */
         virtual void* run(void *arg){return NULL;}
 };
 
