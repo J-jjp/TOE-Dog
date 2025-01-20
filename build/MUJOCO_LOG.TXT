@@ -20,3 +20,6 @@ ERROR: Load model error: XML Error: bad format in attribute 'quat'
 Element 'geom', line 40
 
 
+Mon Jan 20 23:33:35 2025
+ERROR: Load model error: Error: repeated name 'RR_calf_torque' in sensor
+

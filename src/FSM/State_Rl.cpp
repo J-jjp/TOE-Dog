@@ -337,21 +337,24 @@ void State_Rl::mnnInference_Loco()
     proj_gravity[1] = proj_gravity_eigen(0);
     proj_gravity[0] = proj_gravity_eigen(1);
     proj_gravity[2] = proj_gravity_eigen(2);
-    std::cout<<"proj"<<proj_gravity[0]<<" "<<proj_gravity[1]<<" "<<proj_gravity[2]<<std::endl;
+    
     for (size_t i = 0; i < 3; i++)
     {
-        obs_Loco[0][i] = 0;
-        obs_Loco[0][i+3] = 0;
-        obs_Loco[0][i+6] =0;
+        obs_Loco[0][i] = base_line[i]*obs_scales_lin_vel;
+        obs_Loco[0][i+3] =_lowState->imu.gyroscope[i] *obs_scales_ang_vel;
+        obs_Loco[0][i+6] =proj_gravity[i];
     }
-    obs_Loco[0][9] = 0;
-    obs_Loco[0][10] = 0;
-    obs_Loco[0][11] = 0;
+    // obs_Loco[0][9] = 1;
+    // obs_Loco[0][10] = 0;
+    // obs_Loco[0][11] = 0;
+    obs_Loco[0][9] = -_lowState->userValue.lx * obs_scales_lin_vel;
+    obs_Loco[0][10] = -_lowState->userValue.ly * obs_scales_lin_vel;
+    obs_Loco[0][11] = _lowState->userValue.rx *obs_scales_ang_vel;
     for (size_t i = 0; i < 12; i++)
     {
-        obs_legged[12+i] = (_lowState->motorState[i].q-default_dof_pos_Loco[i]) *obs_scales_dof_pos;
-        obs_legged[24+i] = 0;
-        obs_Loco[0][36+i] = 0;
+        obs_Loco[0][12+i] = (_lowState->motorState[i].q-default_dof_pos[i]) *obs_scales_dof_pos;
+        obs_Loco[0][24+i] = _lowState->motorState[i].dq * obs_scales_dof_vel;
+        obs_Loco[0][36+i] = last_action_cmd_Loco[0][i];
     }
     for (size_t i = 0; i < N_proprio_Loco; i++)
     {
@@ -367,7 +370,7 @@ void State_Rl::mnnInference_Loco()
     }
     for (size_t i = 0; i < History_len_Loco*N_proprio_Loco; i++)
     {
-        policy_input_Loco[0][i+N_proprio_Loco+N_priv_latent_Loco+N_scan_Loco]=0;
+        policy_input_Loco[0][i+N_proprio_Loco+N_priv_latent_Loco+N_scan_Loco]=obs_history_Loco[0][i];
     }
     for (size_t i = 0; i < (History_len_Loco-1)*N_proprio_Loco; i++)
     {
@@ -377,16 +380,16 @@ void State_Rl::mnnInference_Loco()
     {
         obs_history_Loco[0][((History_len_Loco-1)*N_proprio_Loco)+i] = obs_Loco[0][i];
     }
-    for (size_t i = 0; i < 762; i++)
-    {
-        policy_input_Loco[0][i]=0;
-    }
-    std::cout<<"policy_input";
-    for (size_t i = 0; i < 762; i++)
-    {
-        std::cout<<"\t"<<policy_input_Loco[0][i];
-    }
-    std::cout<<std::endl;
+    // for (size_t i = 0; i < 762; i++)
+    // {
+    //     policy_input_Loco[0][i]=0;
+    // }
+    // std::cout<<"policy_input";
+    // for (size_t i = 0; i < 762; i++)
+    // {
+    //     std::cout<<"\t"<<policy_input_Loco[0][i];
+    // }
+    // std::cout<<std::endl;
     rlptr->advanceNNsync_Loco(policy_input_Loco,action_cmd_Loco);
     for (size_t i = 0; i < 12; i++)
     {
@@ -402,17 +405,21 @@ void State_Rl::mnnInference_Loco()
     {
         last_action_cmd_Loco[0][i]=action_cmd_Loco[0][i];
     }
-    // for (size_t i = 0; i < 4; i++)
-    // {
-    //     _lowCmd->motorCmd[i].q = action_flt[i+3] * 0.25 + default_dof_pos_Loco[i+3];
-    //     _lowCmd->motorCmd[i+3].q = action_flt[i] * 0.25 + default_dof_pos_Loco[i];
-    //     _lowCmd->motorCmd[i+6].q = action_flt[i+9] * 0.25 + default_dof_pos_Loco[i+9];
-    //     _lowCmd->motorCmd[i+9].q = action_flt[i+6] * 0.25 + default_dof_pos_Loco[i+6];
-    // }
-    for (size_t i = 0; i < 12; i++)
+    action_flt[0]*=0.5;
+    action_flt[3]*=0.5;
+    action_flt[6]*=0.5;
+    action_flt[9]*=0.5;
+    for (size_t i = 0; i < 4; i++)
     {
-        _lowCmd->motorCmd[i].q = action_flt[i] * 0.25 + default_dof_pos_Loco[i];
+        _lowCmd->motorCmd[i].q = action_flt[i+3] * 0.5 + default_dof_pos[i];
+        _lowCmd->motorCmd[i+3].q = action_flt[i] * 0.5 + default_dof_pos[i+3];
+        _lowCmd->motorCmd[i+6].q = action_flt[i+9] * 0.5 + default_dof_pos[i+6];
+        _lowCmd->motorCmd[i+9].q = action_flt[i+6] * 0.5 + default_dof_pos[i+9];
     }
+    // for (size_t i = 0; i < 12; i++)
+    // {
+    //     _lowCmd->motorCmd[i].q = action_flt[i] * 0.25 + default_dof_pos[i];
+    // }
 }
 
 void State_Rl::stateMachine_Loco(){
@@ -470,7 +477,7 @@ void State_Rl::mnnInference_legged()
     // }
     for (size_t i = 0; i < 12; i++)
     {
-        _lowCmd->motorCmd[i].q = action_flt[i]*0.25+ default_dof_pos[i];
+        _lowCmd->motorCmd[i].q = action_flt[i]*0.25*0.5+ default_dof_pos[i];
     }
 }
 
