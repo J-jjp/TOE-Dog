@@ -77,13 +77,25 @@ public:
     float mobCmd_[CMD_DIM];   //command
     float gait_indices;
     // -----------------------loco------------------------
-    float obs_Loco[1][N_proprio_Loco];
-    float obs_history_Loco[1][History_len_Loco*N_proprio_Loco];
-    float policy_input_Loco[1][Num_observations_Loco];
+    float obs_Loco[N_proprio_Loco];
+    float fff[N_proprio_Loco]={
+1.3844e-01,  5.8852e-02,  5.9788e-02, -3.8946e-03, -2.2508e-03,
+         -6.1363e-03, -2.7897e-02, -3.8598e-02, -9.9887e-01,  0.0000e+00,
+          0.0000e+00, -2.0171e-03,  2.2088e-01,  1.9268e-01, -1.5474e-01,
+         -2.5671e-01, -2.5085e-02, -1.3154e-01,  1.6137e-01,  8.4243e-03,
+         -2.0433e-01, -2.5173e-01,  1.8991e-02, -1.8108e-01, -3.5943e-03,
+          1.2432e-02, -9.3265e-04, -2.7133e-03,  1.2761e-02, -1.2959e-03,
+         -5.6387e-03,  4.1661e-03,  1.2119e-02, -5.4250e-03,  6.4241e-03,
+          9.6558e-03,  1.9170e+00,  4.7607e-01, -7.1678e-03, -2.1660e+00,
+         -8.0750e-02, -1.3660e-01,  1.2402e+00,  1.8097e-02, -5.0830e-01,
+         -2.1543e+00,  2.9907e-02, -2.2180e-01
+    };
+    float obs_history_Loco[History_len_Loco*N_proprio_Loco];
+    float policy_input_Loco[Num_observations_Loco];
     float action_stateq_Loco[Num_dof];
     float action_statedq_Loco[Num_dof];
-    float action_cmd_Loco[1][Num_dof];
-    float last_action_cmd_Loco[1][Num_dof];
+    float action_cmd_Loco[Num_dof];
+    float last_action_cmd_Loco[Num_dof];
     float priv_latent[N_priv_latent_Loco]={
         -0.5000, -0.5000,  0.5000, -0.5000,  1.0000,  0.0000,  0.0000,  0.0000,
         0.0000,  1.0000,  0.0000,  1.0344,  0.9463,  1.0435,  0.9686,  1.0811,
