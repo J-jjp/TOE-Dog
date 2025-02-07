@@ -137,6 +137,14 @@ struct LowlevelCmd{
         motorCmd[legID*3+2].Kp = 40;
         motorCmd[legID*3+2].Kd = 1;
     }
+    void setSimbackfileGain(int legID){
+        motorCmd[legID*3+0].Kp = 70;
+        motorCmd[legID*3+0].Kd = 3;
+        motorCmd[legID*3+1].Kp = 70;
+        motorCmd[legID*3+1].Kd = 3;
+        motorCmd[legID*3+2].Kp = 70;
+        motorCmd[legID*3+2].Kd = 3;
+    }
     void setRealrlGain(int legID){
         motorCmd[legID*3+0].Kp = realrlGain_kp(30);
         motorCmd[legID*3+0].Kd = realrlGain_kd(0.75);

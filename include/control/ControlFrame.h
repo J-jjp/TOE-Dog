@@ -14,7 +14,7 @@ public:
 		delete _FSMController;
 	}
 	void run();
-private:
+public:
 	FSM* _FSMController;
 	CtrlComponents *_ctrlComp;
 };

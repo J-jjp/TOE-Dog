@@ -11,14 +11,10 @@ public:
     void run();
     void exit();
     FSMStateName checkChange();
-    void mobRun();
 
 private:
 
     float _targetPos[12] = {-0.1,0.8,-1.5 ,0.1,0.8,-1.5,-0.1,1,-1.5, 0.1,1.,-1.5};
-    float targetPos_1[12] = {-0.1,1.2,-2.2,0.1,1.2,-2.2,-0.1,1.2,-2.2, 0.1,1.2,-2.2};
-    float targetPos_2[12] = {-0.1,-2,200,0.1,-2,200,-0.1,-2,200, 0.1,-2,200};
-    float targetPos_3[12] = {-0.1,0.8,-1.5,0.1,0.8,-1.5,-0.1,1,-1.5, 0.1,1.,-1.5};
     float _defpos[12] = {0.,0.,0. ,0.,0.,0,0.,0,0, 0.,0.,0};
     float _startPos[12];
     float _duration = 100;   //steps

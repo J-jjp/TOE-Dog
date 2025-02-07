@@ -134,7 +134,7 @@ int main(int argc, const char** argv) {
 
   // load and compile model
   char error[1000] = "Could not load binary model";
-  m = mj_loadXML("../robot/go2/xml/scene.xml", 0, error, 1000);
+  m = mj_loadXML("../robot/TOE_dog/xml/scene.xml", 0, error, 1000);
   if (!m) {
     mju_error("Load model error: %s", error);
   }
@@ -182,13 +182,19 @@ int main(int argc, const char** argv) {
     ctrlComp->running = &running;  //机器人控制的状态  运行 or 不运行
     ctrlComp->robotModel = new A1Robot();
     ControlFrame ctrlFrame(ctrlComp);
+    int time=0;
   while (!glfwWindowShouldClose(window)) {
-
+    time++;
     mjtNum simstart = d->time;
     float kp=0;
     float kd=0;
     ctrlFrame.run();
-    while (d->time - simstart < 1.0/120.0) {
+    // if (time%1000==0)
+    // {
+    //   // backflip_time=0;
+    //   mj_resetData(m, d);
+    // }
+    while (d->time - simstart < 1.0/360.0) {
       mj_step(m, d);
     }
 

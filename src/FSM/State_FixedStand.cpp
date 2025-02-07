@@ -38,28 +38,17 @@ void State_FixedStand::enter(){
 }
 
 void State_FixedStand::run(){
-    if (jump==true)
-    {
-        for(int j=0; j<12; j++){
-            _lowCmd->motorCmd[j].q = _targetPos[j]; 
-        }
-    }
-    else{
         _percent += (float)1/_duration;
         _percent = _percent > 1 ? 1 : _percent;
         for(int j=0; j<12; j++){
             _lowCmd->motorCmd[j].q = (1 - _percent)*_startPos[j] + _percent*_targetPos[j]; 
         }
-    }
-    mobRun();
 }
 
 void State_FixedStand::exit(){
     _percent = 0;
-    jump=false;
     for (size_t i = 0; i < 12; i++)
     {
-        _targetPos[i]=targetPos_3[i];
         _defpos[i]=0;
         _startPos[i]=0;
     }
@@ -85,40 +74,4 @@ FSMStateName State_FixedStand::checkChange(){
     else{
         return FSMStateName::FIXEDSTAND;
     }
-}
-void State_FixedStand::mobRun()
-{
-  if ((int)_lowState->userValue.a == 1)  // trot
-  {
-    jump=false;
-    _percent=0;
-    for (size_t i = 0; i < 12; i++)
-    {
-        _targetPos[i]=targetPos_1[i];
-        _defpos[i]=_lowCmd->motorCmd[i].q-_lowState->motorState[i].q;
-        _lowCmd->motorCmd[i].q = _lowState->motorState[i].q+_defpos[i];
-        _startPos[i] = _lowState->motorState[i].q+_defpos[i];
-    }
-    
-  }
-  else if ((int)_lowState->userValue.y == 1)  // pace
-  {
-    jump=true;
-    for (size_t i = 0; i < 12; i++)
-    {
-        _targetPos[i]=targetPos_2[i];
-    }
-  }
-  else if ((int)_lowState->userValue.x == 1)  // pronk
-  {
-    jump=false;
-    _percent=0;
-    for (size_t i = 0; i < 12; i++)
-    {
-        _targetPos[i]=targetPos_3[i];
-        _defpos[i]=_lowCmd->motorCmd[i].q-_lowState->motorState[i].q;
-        _lowCmd->motorCmd[i].q = _lowState->motorState[i].q+_defpos[i];
-        _startPos[i] = _lowState->motorState[i].q+_defpos[i];
-    }
-  }
 }

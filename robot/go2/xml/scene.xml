@@ -14,18 +14,38 @@
     <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3"
       markrgb="0.8 0.8 0.8" width="300" height="300"/>
     <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
+
   </asset>
 
   <worldbody>
     <light pos="0 0 1.5" dir="0 0 -1" directional="true"/>
     <geom name="floor" size="0 0 0.05" type="plane" material="groundplane"/>
+    <!-- 场地 -->
+    <geom pos="21 1.5 0.04" type="box"  size="20 0.1 0.05" quat="1.0 0 0 0"/>
+    <geom pos="21 -1.5 0.04" type="box"  size="20 0.1 0.05" quat="1.0 0 0 0"/>
+    <!-- 竖杆 -->
+    <geom pos="1 0 0.02" type="cylinder"  size="0.35 0.02" quat="1.0 0 0 0"/>
+    <geom pos="1.5 0 0.02" type="cylinder"  size="0.1 1." quat="1.0 0 0 0"/>
+    <geom pos="2.7 0 0.02" type="cylinder"  size="0.1 1." quat="1.0 0 0 0"/>
+    <geom pos="3.9 0 0.02" type="cylinder"  size="0.1 1." quat="1.0 0 0 0"/>
+    <geom pos="5.1 0 0.02" type="cylinder"  size="0.1 1." quat="1.0 0 0 0"/>
+    <geom pos="5.6 0 0.02" type="cylinder"  size="0.35 0.02" quat="1.0 0 0 0"/>
+    <!-- 匍匐架 -->
+    <geom pos="7 0.5 0.02" type="box"  size="0.8 0.1 0.1" quat="1.0 0 0 0"/>
+    <geom pos="7 0 0.4" type="box"  size="0.8 0.5 0.1" quat="1.0 0 0 0"/>
+    <geom pos="7 -0.5 0.02" type="box"  size="0.8 0.1 0.1" quat="1.0 0 0 0"/>
+    <!-- 高墙 -->
+    <geom pos="9.8 0 0.02" type="box"  size="0.8 0.5 0.02" quat="1.0 0 0 0"/>
+    <geom pos="9.8 0 0.02" type="box"  size="0.05 0.5 0.3" quat="1.0 0 0 0"/>
+    <!-- 断桥 -->
+    <geom pos="12. 0 -0.025" type="box"  size="0.5 0.5 0.2" quat="0.9848 0 -0.1604 0"/>
+    <geom pos="12.8 0 0.02" type="box"  size="0.4 0.5 0.3" quat="1.0 0 0 0"/>
+    <geom pos="13.9 0 0.02" type="box"  size="0.4 0.5 0.3" quat="1.0 0 0 0"/>
+    <geom pos="14.45 0 0.02" type="box"  size="0.15 0.5 0.2" quat="1.0 0 0 0"/>
+    <geom pos="14.75 0 0.02" type="box"  size="0.15 0.5 0.1" quat="1.0 0 0 0"/>
 
-    <!-- <geom pos="1.2 0 0.04" type="box"  size="0.1 2 0.01" quat="1.0 0 0 0"/>
-    <geom pos="1.4 0 0.04" type="box"  size="0.1 2 0.05" quat="1.0 0 0 0"/> -->
-
-    <geom pos="2.3 0 0.02" type="box"  size="0.3 1 0.1" quat="1.0 0 0 0"/>
-    <geom pos="2.6 0 0.02" type="box"  size="0.3 1 0.2" quat="1.0 0 0 0"/>
-    <geom pos="3.4 0 0.02" type="box"  size="0.8 1 0.3" quat="1.0 0 0 0"/>
+    <geom pos="18.75 0.01 -0.07" type="box"  size="1.5 0.5 0.17" quat="0.9945 -0.1045 0 0"/>
+    <!-- <geom type="box" pos="12.05 0 -0.01" size="0.9 0.075 0.3" quat="0.7071 0 0.7071 0"/> -->
     <!-- <geom pos="3 0  0.02" type="box"  size="0.24 2 0.08" quat="1.0 0 0 0"/>
     <geom pos="3.2 0 0.02" type="box"  size="0.25 2 0.10" quat="1.0 0 0 0"/>
     <geom pos="3.4 0 0.02" type="box"  size="0.26 2 0.12" quat="1.0 0 0 0"/>

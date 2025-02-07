@@ -47,13 +47,19 @@ public:
     void stateMachine_mast();
     void mnnInference_legged();
     void stateMachine_legged();
+    void mnnInference_mujoco();
+    void stateMachine_mujoco();
     void mnnInference_Walk();
     void stateMachine_Walk();
     void getCurrentObservation_Walk();
+    void mnnInference_backflip();
+    void stateMachine_backflip();
     void Pose_transformation();
+    void time_zaro();
     Eigen::Vector3d quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v); 
     void mobRun();
     std::vector<float> default_dof_pos={0.1,0.8,-1.5 ,-0.1,0.8,-1.5,0.1,1,-1.5, -0.1,1.,-1.5};//#默认角度需要与isacc一致
+    std::vector<float> default_dof_pos_mujoco={-0.1,0.9,-1.8 ,0.1,0.9,-1.8,-0.1,0.9,-1.8, 0.1,0.9,-1.8};//#默认角度需要与isacc一致
     Vec3 quaternion_to_euler_array(Vec4 quat);
     std::shared_ptr<rl_Inference> rlptr = nullptr;
     std::shared_ptr<rl_Inference> adaptationNetPtr = nullptr;
@@ -69,7 +75,7 @@ public:
     // -----------------------walk_these_ways------------------------
     float adaptation_output[2];
     float obs_history_with_adaptation[NUM_OBS_IN_OBS_HISTORY*OBS_DIM+2];
-    bool walk_these_ways=false;
+    bool walk_these_ways=true;
     float action_cmd_Walk[NUM_DOFS], last_action_cmd_Walk[NUM_DOFS];
     float obs_history_Walk[NUM_OBS_IN_OBS_HISTORY*OBS_DIM];
     float obs_buf_ [OBS_DIM];
@@ -78,18 +84,6 @@ public:
     float gait_indices;
     // -----------------------loco------------------------
     float obs_Loco[N_proprio_Loco];
-    float fff[N_proprio_Loco]={
-1.3844e-01,  5.8852e-02,  5.9788e-02, -3.8946e-03, -2.2508e-03,
-         -6.1363e-03, -2.7897e-02, -3.8598e-02, -9.9887e-01,  0.0000e+00,
-          0.0000e+00, -2.0171e-03,  2.2088e-01,  1.9268e-01, -1.5474e-01,
-         -2.5671e-01, -2.5085e-02, -1.3154e-01,  1.6137e-01,  8.4243e-03,
-         -2.0433e-01, -2.5173e-01,  1.8991e-02, -1.8108e-01, -3.5943e-03,
-          1.2432e-02, -9.3265e-04, -2.7133e-03,  1.2761e-02, -1.2959e-03,
-         -5.6387e-03,  4.1661e-03,  1.2119e-02, -5.4250e-03,  6.4241e-03,
-          9.6558e-03,  1.9170e+00,  4.7607e-01, -7.1678e-03, -2.1660e+00,
-         -8.0750e-02, -1.3660e-01,  1.2402e+00,  1.8097e-02, -5.0830e-01,
-         -2.1543e+00,  2.9907e-02, -2.2180e-01
-    };
     float obs_history_Loco[History_len_Loco*N_proprio_Loco];
     float policy_input_Loco[Num_observations_Loco];
     float action_stateq_Loco[Num_dof];
@@ -110,6 +104,15 @@ public:
     float action_statedq_legged[Num_dof];
     float action_cmd_legged[Num_dof];
     float last_action_cmd_legged[Num_dof];
+        // -----------------------backflip------------------------
+    float obs_backflip[60];
+    // float policy_input_backflip[60];
+    float action_stateq_backflip[Num_dof];
+    float action_statedq_backflip[Num_dof];
+    float action_cmd_backflip[Num_dof];
+    float last_action_cmd_backflip[Num_dof];
+    float last_last_action_cmd_backflip[Num_dof];
+    int backflip_time=0;
 };
 
 #endif  // FREESTAND_H
