@@ -76,7 +76,7 @@ void State_Rl::run(){
         stateMachine_mujoco();
         mnnInference_mujoco();
     }
-    else if(0){
+    else if(1){
         stateMachine_Loco();
         mnnInference_Loco();
     }
@@ -497,7 +497,23 @@ void State_Rl::mnnInference_legged()
         obs_legged[24+i] = _lowState->motorState[i].dq * obs_scales_dof_vel;
         obs_legged[36+i] = last_action_cmd_legged[i];
     }
-    rlptr->advanceNNsync_Walk(obs_legged,action_cmd_legged);
+    for (size_t i = 0; i < N_proprio_Loco; i++)
+    {
+        policy_input_legged[i] =obs_legged[i];
+    }
+    for (size_t i = 0; i < History_len_Loco*N_proprio_Loco; i++)
+    {
+        policy_input_legged[i+N_proprio_Loco]=obs_history_Loco[i];
+    }
+    for (size_t i = 0; i < (History_len_Loco-1)*N_proprio_Loco; i++)
+    {
+        obs_history_Loco[i] = obs_history_Loco[i+N_proprio_Loco];
+    }
+    for (size_t i = 0; i < N_proprio_Loco; i++)
+    {
+        obs_history_Loco[((History_len_Loco-1)*N_proprio_Loco)+i] = obs_legged[i];
+    }
+    rlptr->advanceNNsync_Walk(policy_input_legged,action_cmd_legged);
     std::cout<<std::endl;
     float action_flt[12];
     for (size_t i = 0; i < 12; i++)

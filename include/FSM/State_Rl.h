@@ -32,7 +32,7 @@
 #define Num_observations_Loco  (N_proprio_Loco + N_priv_latent_Loco + N_scan_Loco + (History_len_Loco * N_proprio_Loco))
 // -----------------------------legged---------------------------------
 #define N_proprio_legged  48
-#define Num_observations_legged 48
+#define Num_observations_legged 48*11
 class State_Rl : public FSMState{
 public:
     State_Rl(CtrlComponents *ctrlComp);
