@@ -194,7 +194,7 @@ int main(int argc, const char** argv) {
     //   // backflip_time=0;
     //   mj_resetData(m, d);
     // }
-    while (d->time - simstart < 1.0/360.0) {
+    while (d->time - simstart < 1.0/60.0) {
       mj_step(m, d);
     }
 

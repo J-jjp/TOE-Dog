@@ -62,7 +62,7 @@ void State_Rl::enter(){
 }
 
 void State_Rl::run(){
-    if (walk_these_ways)
+    if (0)
     {
         stateMachine_Walk();
         mnnInference_Walk();
@@ -76,11 +76,11 @@ void State_Rl::run(){
         stateMachine_mujoco();
         mnnInference_mujoco();
     }
-    else if(1){
+    else if(0){
         stateMachine_Loco();
         mnnInference_Loco();
     }
-    else if(0){
+    else if(1){
         stateMachine_legged();
         mnnInference_legged();
     }
@@ -366,7 +366,7 @@ void State_Rl::mnnInference_Loco()
         // obs_Loco[i] = base_line[i]*obs_scales_lin_vel;
         // obs_Loco[i+3] =_lowState->imu.gyroscope[i] *obs_scales_ang_vel;
         // obs_Loco[i+6] =proj_gravity[i];
-        obs_Loco[i] = 0;
+        obs_Loco[i] = base_line[i]*obs_scales_lin_vel;
         obs_Loco[i+3] =_lowState->imu.gyroscope[i] *obs_scales_ang_vel;
         obs_Loco[i+6] =proj_gravity_eigen[i];
     }
@@ -375,7 +375,7 @@ void State_Rl::mnnInference_Loco()
     // obs_Loco[11] = -5.2446e-04;
     obs_Loco[9] = -_lowState->userValue.lx * obs_scales_lin_vel*2;
     obs_Loco[10] = -_lowState->userValue.ly * obs_scales_lin_vel*2;
-    obs_Loco[11] = _lowState->userValue.rx *obs_scales_ang_vel*5;
+    obs_Loco[11] = _lowState->userValue.rx *obs_scales_ang_vel*3;
     for (size_t i = 0; i < 12; i++)
     {
         obs_Loco[12+i] = action_stateq_Loco[i] *obs_scales_dof_pos;
@@ -488,9 +488,9 @@ void State_Rl::mnnInference_legged()
         obs_legged[i+3] = _lowState->imu.gyroscope[i] *obs_scales_ang_vel;
         obs_legged[i+6] = proj_gravity[i];
     }
-    obs_legged[9] = -_lowState->userValue.lx * obs_scales_lin_vel;
-    obs_legged[10] = -_lowState->userValue.ly * obs_scales_lin_vel;
-    obs_legged[11] = _lowState->userValue.rx *obs_scales_ang_vel;
+    obs_legged[9] = -_lowState->userValue.lx * obs_scales_lin_vel*2.5;
+    obs_legged[10] = -_lowState->userValue.ly * obs_scales_lin_vel*1;
+    obs_legged[11] = _lowState->userValue.rx *obs_scales_ang_vel*1;
     for (size_t i = 0; i < 12; i++)
     {
         obs_legged[12+i] = (_lowState->motorState[i].q-default_dof_pos[i]) *obs_scales_dof_pos;
