@@ -70,7 +70,7 @@ public:
         cmd.W = 0.0;
         cmd.T = 0.0;
         motor_sendRecv();
-        // usleep(200);
+        usleep(200);
     }
     void set_motor_torque(float t) // 力矩模式
     {

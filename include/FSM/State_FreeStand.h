@@ -13,7 +13,7 @@ public:
     void enter();
     void run();
     void exit();
-    Vec3 quaternion_to_euler_array(Vec4 quat);
+    Eigen::Vector3d quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v);
     FSMStateName checkChange();
     
 private:

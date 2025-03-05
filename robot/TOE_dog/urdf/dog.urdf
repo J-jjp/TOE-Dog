@@ -6,7 +6,7 @@
   name="TOE_dog">
   <mujoco>
   <compiler 
-    meshdir="/home/jiaojunpeng/my_dog/TOE-Dog/robot/TOE_dog/stl" 
+    meshdir="/home/jiaojunpeng/my_dog/commpany/meshes/" 
     balanceinertia="true" 
     discardvisual="false" />
   </mujoco>
@@ -14,17 +14,17 @@
     name="base">
     <inertial>
       <origin
-        xyz="-0.0032287234218103 7.70734400253109E-05 -0.00141709330891995"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
-        value="4.991" />
+        value="5.1234705" />
       <inertia
-        ixx="0.05968549"
-        ixy="0.00018883"
-        ixz="0.00001699"
-        iyy="0.06664420"
-        iyz="-0.00008124"
-        izz="0.01660556" />
+        ixx="0.01752351"
+        ixy="0.00013383"
+        ixz="0.00001858"
+        iyy="0.05791253"
+        iyz="-0.00032371"
+        izz="0.06565058" />
     </inertial>
     <visual>
       <origin
@@ -32,7 +32,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../stl/TOE_base.STL" />
+          filename="package://urdf_tutorial/meshes/TOE_base.STL" />
       </geometry>
       <material
         name="">
@@ -53,17 +53,17 @@
     name="FL_hip">
     <inertial>
       <origin
-        xyz="-0.000462628009896944 0.00296787906267088 -0.000377200721687631"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
         value="0.66990104" />
       <inertia
-        ixx="0.00085128"
-        ixy="0.00000557"
-        ixz="0.00000844"
-        iyy="0.00060962"
-        iyz="-0.00000386"
-        izz="0.00054593" />
+        ixx="0.00054593"
+        ixy="0.00000827"
+        ixz="0.00000421"
+        iyy="0.00085132"
+        iyz="0.00000458"
+        izz="0.00060958" />
     </inertial>
     <visual>
       <origin
@@ -71,7 +71,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../stl/TOE_FL_hip.STL" />
+          filename="package://urdf_tutorial/meshes/TOE_FL_hip.STL" />
       </geometry>
       <material
         name="">
@@ -110,17 +110,17 @@
     name="FL_thigh">
     <inertial>
       <origin
-        xyz="0.00026725027155268 -0.0225192600801335 -0.0253114510050126"
+        xyz="0 -0.0225192600801335 -0.0253114510050126"
         rpy="0 0 0" />
       <mass
         value="1.05418577" />
       <inertia
-        ixx="0.00411915"
-        ixy="-0.00068756"
-        ixz="0.00000908"
-        iyy="0.00133059"
-        iyz="0.00007733"
-        izz="0.00435705" />
+        ixx="0.00434958"
+        ixy="-0.00001840"
+        ixz="-0.00002750"
+        iyy="0.00404663"
+        iyz="0.00080770"
+        izz="0.00139077" />
     </inertial>
     <visual>
       <origin
@@ -128,7 +128,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../stl/TOE_thigh.STL" />
+          filename="package://urdf_tutorial/meshes/TOE_thigh.STL" />
       </geometry>
       <material
         name="">
@@ -165,17 +165,17 @@
     name="FL_calf">
     <inertial>
       <origin
-        xyz="0.00144797029171106 -1.62071723394386E-05 -0.0632711754855739"
+        xyz="0 0 -0.0632711754855739"
         rpy="0 0 0" />
       <mass
         value="0.18000000" />
       <inertia
-        ixx="0.00078062"
-        ixy="0.00000002"
-        ixz="-0.00000000"
-        iyy="0.00003194"
-        iyz="-0.00002855"
-        izz="0.00077046" />
+        ixx="0.00091534"
+        ixy="0.00000317"
+        ixz="-0.00008945"
+        iyy="0.00092537"
+        iyz="0.00003646"
+        izz="0.00004689" />
     </inertial>
     <visual>
       <origin
@@ -183,7 +183,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../stl/TOE_calf.STL" />
+          filename="package://urdf_tutorial/meshes/TOE_calf.STL" />
       </geometry>
       <material
         name="">
@@ -212,7 +212,7 @@
       xyz="0 1 0" />
     <limit
       lower="-2.6"
-      upper="-1"
+      upper="-0.15"
       effort="35"
       velocity="20" />
   </joint>
@@ -220,17 +220,17 @@
     name="FL_foot">
     <inertial>
       <origin
-        xyz="-0.00557718053910585 -3.98315304828145E-06 -0.00961668940835148"
+        xyz="0 0 -0.00961668940835148"
         rpy="0 0 0" />
       <mass
         value="0.03219067" />
       <inertia
-        ixx="0.00000519"
-        ixy="-0.00000000"
-        ixz="-0.00000000"
-        iyy="0.00000657"
-        iyz="-0.00000103"
-        izz="0.00000528" />
+        ixx="0.00000555"
+        ixy="-0.00000005"
+        ixz="0.00000116" 
+        iyy="0.00000519"
+        iyz="-0.00000005"
+        izz="0.00000631" />
     </inertial>
     <visual>
       <origin
@@ -238,7 +238,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../stl/TOE_foot.STL" />
+          filename="package://urdf_tutorial/meshes/TOE_foot.STL" />
       </geometry>
       <material
         name="">
@@ -259,7 +259,7 @@
     name="FL_foot_joint"
     type="fixed" dont_collapse="true">
     <origin
-      xyz="0.0 0 -0.20051"
+      xyz="0 0 -0.20051"
       rpy="0 -0.0012583 0" />
     <parent
       link="FL_calf" />
@@ -272,17 +272,17 @@
     name="FR_hip">
     <inertial>
       <origin
-        xyz="-0.000462628009896923 -0.00296787906267089 0.000377200721687548"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
         value="0.66990104" />
       <inertia
-        ixx="0.00085128"
-        ixy="0.00000557"
-        ixz="-0.00000844"
-        iyy="0.00060962"
-        iyz="0.00000386"
-        izz="0.00054593" />
+        ixx="0.00054593"
+        ixy="-0.00000827"
+        ixz="-0.00000421"
+        iyy="0.00085132"
+        iyz="0.00000458"
+        izz="0.00060958" />
     </inertial>
     <visual>
       <origin
@@ -290,7 +290,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../stl/TOE_FR_hip.STL" />
+          filename="package://urdf_tutorial/meshes/TOE_FR_hip.STL" />
       </geometry>
       <material
         name="">
@@ -327,17 +327,17 @@
     name="FR_thigh">
     <inertial>
       <origin
-        xyz="-0.00052911 0.022389 -0.026316"
+        xyz="0 0.022389 -0.026316"
         rpy="0 0 0" />
       <mass
         value="1.05822138" />
       <inertia
-        ixx="0.0041809"
-        ixy="0.00071455"
-        ixz="0.00001134"
-        iyy="0.00133740"
-        iyz="0.00005777"
-        izz="0.00441914" />
+        ixx="0.00434958"
+        ixy="-0.00001840"
+        ixz="-0.00002750"
+        iyy="0.00404663"
+        iyz="-0.00080770"
+        izz="0.00139077" />
     </inertial>
     <visual>
       <origin
@@ -345,7 +345,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../stl/TOE_R_thigh.STL" />
+          filename="package://urdf_tutorial/meshes/TOE_R_thigh.STL" />
       </geometry>
       <material
         name="">
@@ -382,17 +382,17 @@
     name="FR_calf">
     <inertial>
       <origin
-        xyz="0.001447973557225 -1.62084641121552E-05 -0.0632711777197613"
+        xyz="0 0 -0.0632711777197613"
         rpy="0 0 0" />
       <mass
         value="0.18000000" />
       <inertia
-        ixx="0.00078062"
-        ixy="0.00000002"
-        ixz="0.00000000"
-        iyy="0.00003194"
-        iyz="-0.00002855"
-        izz="0.00077046" />
+        ixx="0.00153191"
+        ixy="0.00000186"
+        ixz="-0.00004501"
+        iyy="0.00153344"
+        iyz="0.00006192"
+        izz="0.00004013" />
     </inertial>
     <visual>
       <origin
@@ -400,7 +400,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../stl/TOE_calf.STL" />
+          filename="package://urdf_tutorial/meshes/TOE_calf.STL" />
       </geometry>
       <material
         name="">
@@ -429,7 +429,7 @@
       xyz="0 1 0" />
     <limit
       lower="-2.6"
-      upper="-1"
+      upper="-0.15"
       effort="35"
       velocity="20" />
   </joint>
@@ -437,17 +437,17 @@
     name="FR_foot">
     <inertial>
       <origin
-        xyz="-0.0055772 -3.9832E-06 -0.0096167"
+        xyz="0 0 -0.0096167"
         rpy="0 0 0" />
       <mass
         value="0.03219067" />
       <inertia
-        ixx="0.00000519"
-        ixy="-0.00000000"
-        ixz="-0.00000000"
-        iyy="0.00000657"
-        iyz="0.00000103"
-        izz="0.00000528" />
+        ixx="0.00000540"
+        ixy="-0.00000005"
+        ixz="0.00000109"
+        iyy="0.00000519"
+        iyz="-0.00000005"
+        izz="0.00000646" />
     </inertial>
     <visual>
       <origin
@@ -455,7 +455,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../stl/TOE_foot.STL" />
+          filename="package://urdf_tutorial/meshes/TOE_foot.STL" />
       </geometry>
       <material
         name="">
@@ -489,17 +489,17 @@
     name="RL_hip">
     <inertial>
       <origin
-        xyz="0.00046262797964941 0.00296787909188655 0.000377200771965971"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
         value="0.66990104" />
       <inertia
-        ixx="0.00085128"
-        ixy="-0.00000557"
-        ixz="-0.00000844"
-        iyy="0.00060962"
-        iyz="-0.00000386"
-        izz="0.00054593" />
+        ixx="0.00054593"
+        ixy="-0.00000859"
+        ixz="0.00000350"
+        iyy="0.00085039"
+        iyz="0.00001569"
+        izz="0.00061051" />
     </inertial>
     <visual>
       <origin
@@ -507,7 +507,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../stl/TOE_RL_hip.STL" />
+          filename="package://urdf_tutorial/meshes/TOE_RL_hip.STL" />
       </geometry>
       <material
         name="">
@@ -544,17 +544,17 @@
     name="RL_thigh">
     <inertial>
       <origin
-        xyz="0.00026725025835711 -0.0225192600682941 -0.0253114510097742"
+        xyz="0 -0.0225192600682941 -0.0253114510097742"
         rpy="0 0 0" />
       <mass
         value="1.05418577" />
       <inertia
-        ixx="0.00411412"
-        ixy="-0.00068893"
-        ixz="0.00000929"
-        iyy="0.00133001"
-        iyz="0.00007658"
-        izz="0.00435167" />
+        ixx="0.00434731"
+        ixy="0.00002748"
+        ixz="-0.00013288"
+        iyy="0.00405071"
+        iyz="0.00080271"
+        izz="0.00139629" />
     </inertial>
     <visual>
       <origin
@@ -562,7 +562,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../stl/TOE_thigh.STL" />
+          filename="package://urdf_tutorial/meshes/TOE_thigh.STL" />
       </geometry>
       <material
         name="">
@@ -599,17 +599,17 @@
     name="RL_calf">
     <inertial>
       <origin
-        xyz="0.00144797036282751 -1.62075761347136E-05 -0.0632711864020849"
+        xyz="0 -0 -0.0632711864020849"
         rpy="0 0 0" />
       <mass
         value="0.18000000" />
       <inertia
-        ixx="0.00078062"
-        ixy="0.00000002"
-        ixz="-0.00000000"
-        iyy="0.00003194"
-        iyz="-0.00002855"
-        izz="0.00077046" />
+        ixx="0.00153252"
+        ixy="-0.00000138"
+        ixz="0.00003331"
+        iyy="0.00153252"
+        iyz="0.00006195"
+        izz="0.00003952" />
     </inertial>
     <visual>
       <origin
@@ -617,7 +617,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../stl/TOE_calf.STL" />
+          filename="package://urdf_tutorial/meshes/TOE_calf.STL" />
       </geometry>
       <material
         name="">
@@ -646,7 +646,7 @@
       xyz="0 1 0" />
     <limit
       lower="-2.6"
-      upper="-1"
+      upper="-0.15"
       effort="35"
       velocity="20" />
   </joint>
@@ -654,17 +654,17 @@
     name="RL_foot">
     <inertial>
       <origin
-        xyz="-0.00557718053910572 -3.98315304828145E-06 -0.00961668940835148"
+        xyz="0 0 -0.00961668940835148"
         rpy="0 0 0" />
       <mass
         value="0.03219067" />
       <inertia
-        ixx="0.00000519"
-        ixy="-0.00000000"
-        ixz="-0.00000000"
-        iyy="0.00000657"
-        iyz="-0.00000103"
-        izz="0.00000528" />
+        ixx="0.00000624"
+        ixy="-0.00000005"
+        ixz="0.00000122"
+        iyy="0.00000613"
+        iyz="-0.00000007"
+        izz="0.00000613" />
     </inertial>
     <visual>
       <origin
@@ -672,7 +672,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../stl/TOE_foot.STL" />
+          filename="package://urdf_tutorial/meshes/TOE_foot.STL" />
       </geometry>
       <material
         name="">
@@ -706,17 +706,17 @@
     name="RR_hip">
     <inertial>
       <origin
-        xyz="0.000462627948810912 -0.00296787907848253 -0.000377200749208193"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
         value="0.66990104" />
       <inertia
-        ixx="0.00085128"
-        ixy="-0.00000557"
-        ixz="0.00000844"
-        iyy="0.00060962"
-        iyz="0.00000386"
-        izz="0.00054593" />
+        ixx="0.00054593"
+        ixy="0.00000859"
+        ixz="-0.00000350"
+        iyy="0.00085039"
+        iyz="0.00001569"
+        izz="0.00061051" />
     </inertial>
     <visual>
       <origin
@@ -724,7 +724,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../stl/TOE_RR_hip.STL" />
+          filename="package://urdf_tutorial/meshes/TOE_RR_hip.STL" />
       </geometry>
       <material
         name="">
@@ -761,17 +761,17 @@
     name="RR_thigh">
     <inertial>
       <origin
-        xyz="-0.000529112929206821 0.0223886518464307 -0.026316165403537"
+        xyz="0 0.0223886518464307 -0.026316165403537"
         rpy="0 0 0" />
       <mass
         value="1.05822138" />
       <inertia
-        ixx="0.00418090"
-        ixy="0.00071455"
-        ixz="0.00001134"
-        iyy="0.00133740"
-        iyz="0.00005777"
-        izz="0.00441914" />
+        ixx="0.00441919"
+        ixy="0.00001398"
+        ixz="-0.00005603"
+        iyy="0.00423585"
+        iyz="-0.00059276"
+        izz="0.00128243" />
     </inertial>
     <visual>
       <origin
@@ -779,7 +779,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../stl/TOE_R_thigh.STL" />
+          filename="package://urdf_tutorial/meshes/TOE_R_thigh.STL" />
       </geometry>
       <material
         name="">
@@ -816,17 +816,17 @@
     name="RR_calf">
     <inertial>
       <origin
-        xyz="0.00144796967229593 -1.62073079078007E-05 -0.0632711656523452"
+        xyz="0 0 -0.0632711656523452"
         rpy="0 0 0" />
       <mass
         value="0.18000000" />
       <inertia
-        ixx="0.00078062"
-        ixy="0.00000002"
-        ixz="-0.00000000"
-        iyy="0.00003194"
-        iyz="-0.00002855"
-        izz="0.00077046" />
+        ixx="0.00153244"
+        ixy="-0.00000145"
+        ixz="0.00003519"
+        iyy="0.00153344"
+        iyz="0.00006194"
+        izz="0.00003961" />
     </inertial>
     <visual>
       <origin
@@ -834,7 +834,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../stl/TOE_calf.STL" />
+          filename="package://urdf_tutorial/meshes/TOE_calf.STL" />
       </geometry>
       <material
         name="">
@@ -863,7 +863,7 @@
       xyz="0 1 0" />
     <limit
       lower="-2.6"
-      upper="-1"
+      upper="-0.15"
       effort="35"
       velocity="20" />
   </joint>
@@ -871,17 +871,17 @@
     name="RR_foot">
     <inertial>
       <origin
-        xyz="-0.00557718054766365 -3.98323834327474E-06 -0.00961668941940308"
+        xyz="0 0 -0.00961668941940308"
         rpy="0 0 0" />
       <mass
         value="0.03219067" />
       <inertia
-        ixx="0.00000519"
-        ixy="-0.00000000"
-        ixz="-0.00000000"
-        iyy="0.00000657"
-        iyz="-0.00000103"
-        izz="0.00000528" />
+        ixx="0.00000528"
+        ixy="-0.00000005"
+        ixz="0.00000103"
+        iyy="0.00000519"
+        iyz="-0.00000006"
+        izz="0.00000519" />
     </inertial>
     <visual>
       <origin
@@ -889,7 +889,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="../stl/TOE_foot.STL" />
+          filename="package://urdf_tutorial/meshes/TOE_foot.STL" />
       </geometry>
       <material
         name="">

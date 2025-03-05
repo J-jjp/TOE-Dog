@@ -50,9 +50,11 @@ void State_FreeStand::run(){
                     -invNormalize(_userValue.rx, _yawMin, _yawMax),
                      invNormalize(_userValue.ry, _heightMin, _heightMax) );
     _calcCmd(vecOP);
-    Vec3 eu_ang;
-    eu_ang = quaternion_to_euler_array(_lowState->imu.getQuat());
-    std::cout<<"olx:"<<eu_ang[0]<<"\ty:"<<eu_ang[1]<<"\tz:"<<eu_ang[2]<<std::endl;
+    Eigen::Vector4d q(_lowState->imu.quaternion[1],_lowState->imu.quaternion[2],_lowState->imu.quaternion[3],_lowState->imu.quaternion[0]);
+    Eigen::Vector3d v(0.0,0.0,-1.0); 
+    Eigen::Vector3d proj_gravity_eigen = quat_rotate_inverse(q, v);
+    
+    std::cout<<"olx:"<<proj_gravity_eigen[0]<<"\ty:"<<proj_gravity_eigen[1]<<"\tz:"<<proj_gravity_eigen[2]<<std::endl;
 }
 
 void State_FreeStand::exit(){
@@ -141,23 +143,16 @@ void State_FreeStand::speed_limit(){
 // send第0条0.0401851      send第1条0.835998       send第2条-1.56248       send第3条-0.0406991     send第4条0.836216       
 // send第5条-1.56248       send第6条-0.00186835   send第7条1.00875 send第8条-1.5444        send第9条0.000866268   
 //  send第10条1.00812       send第11条-1.5445
-Vec3 State_FreeStand::quaternion_to_euler_array(Vec4 quat){
-    double x = quat[1];
-    double y = quat[2];
-    double z = quat[3];
-    double w = quat[0];
-    double t0, t1, t2, t3,t4;
-    double roll_x, pitch_y, yaw_z;
-    t0 = +2.0 * (w * x + y * z);
-    t1 = +1.0 - 2.0 * (x * x + y * y);
-    roll_x = std::atan2(t0, t1);
-    
-    t2 = +2.0 * (w * y - z * x);
-    t2 = std::max(-1.0, std::min(t2, 1.0));
-    pitch_y =  std::asin(t2);
-    
-    t3 = +2.0 * (w * z + x * y);
-    t4 = +1.0 - 2.0 * (y * y + z * z);
-    yaw_z =  std::atan2(t3, t4);
-    return {roll_x, pitch_y, yaw_z};
+
+Eigen::Vector3d State_FreeStand::quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v) {
+    double q_w = q[3];  // 提取四元数的实部 w
+    Eigen::Vector3d q_vec(q[0], q[1], q[2]);  // 提取四元数的虚部 xyz
+    Eigen::Vector3d a = v * (2.0 * q_w * q_w - 1.0);
+
+    // 计算b = cross(q_vec, v) * 2.0 * q_w
+    Eigen::Vector3d b = q_vec.cross(v) * 2.0 * q_w;
+
+    // 计算c = q_vec * (q_vec.transpose() * v) * 2.0
+    Eigen::Vector3d c = q_vec * (q_vec.transpose() * v) * 2.0;
+    return a - b + c;
 }

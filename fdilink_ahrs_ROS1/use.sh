@@ -1,1 +1,1 @@
-sudo roslaunch fdilink_ahrs ahrs_data.launch
+roslaunch fdilink_ahrs ahrs_data.launch

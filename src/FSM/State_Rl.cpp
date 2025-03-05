@@ -59,9 +59,11 @@ void State_Rl::enter(){
             obs_history[0][i]=0;
         }
     }
+    time_rl=0;
 }
 
 void State_Rl::run(){
+    // time_rl++;
     if (0)
     {
         stateMachine_Walk();
@@ -77,12 +79,23 @@ void State_Rl::run(){
         mnnInference_mujoco();
     }
     else if(1){
-        stateMachine_Loco();
-        mnnInference_Loco();
+        // if (time_rl>100)
+        // {
+            // time_rl=0;
+            stateMachine_Loco();
+            mnnInference_Loco();
+        // }
+        // usleep(200);
+        // usleep(100);
     }
-    else if(1){
-        stateMachine_legged();
-        mnnInference_legged();
+    else if(0){
+        // if (time_rl>100)
+        // {
+        //     time_rl=0;
+            stateMachine_legged();
+            mnnInference_legged();
+        // }
+        // usleep(100);
     }
     else if(0){
         backflip_time+=1;
@@ -360,22 +373,25 @@ void State_Rl::mnnInference_Loco()
     proj_gravity[0] = proj_gravity_eigen(0);
     proj_gravity[1] = proj_gravity_eigen(1);
     proj_gravity[2] = proj_gravity_eigen(2);
+    // proj_gravity[0] = 0.0060272;
+    // proj_gravity[1] = 0.018699;
+    // proj_gravity[2] = -0.999807;
     std::cout<<"proj"<<proj_gravity[0]<<" "<<proj_gravity[1]<<" "<<proj_gravity[2]<<std::endl;
     for (size_t i = 0; i < 3; i++)
     {
         // obs_Loco[i] = base_line[i]*obs_scales_lin_vel;
         // obs_Loco[i+3] =_lowState->imu.gyroscope[i] *obs_scales_ang_vel;
         // obs_Loco[i+6] =proj_gravity[i];
-        obs_Loco[i] = base_line[i]*obs_scales_lin_vel;
-        obs_Loco[i+3] =_lowState->imu.gyroscope[i] *obs_scales_ang_vel;
-        obs_Loco[i+6] =proj_gravity_eigen[i];
+        obs_Loco[i] = 0;
+        obs_Loco[i+3] =0;
+        obs_Loco[i+6] =proj_gravity[i];
     }
     // obs_Loco[9] = 2;
     // obs_Loco[10] = 0;
     // obs_Loco[11] = -5.2446e-04;
-    obs_Loco[9] = -_lowState->userValue.lx * obs_scales_lin_vel*2;
-    obs_Loco[10] = -_lowState->userValue.ly * obs_scales_lin_vel*2;
-    obs_Loco[11] = _lowState->userValue.rx *obs_scales_ang_vel*3;
+    obs_Loco[9] = -_lowState->userValue.lx * obs_scales_lin_vel;
+    obs_Loco[10] = -_lowState->userValue.ly * obs_scales_lin_vel;
+    obs_Loco[11] = _lowState->userValue.rx *obs_scales_ang_vel;
     for (size_t i = 0; i < 12; i++)
     {
         obs_Loco[12+i] = action_stateq_Loco[i] *obs_scales_dof_pos;
@@ -448,6 +464,7 @@ void State_Rl::mnnInference_Loco()
     action_flt[3]*=0.5;
     action_flt[6]*=0.5;
     action_flt[9]*=0.5;
+    int soufang=0.25;
     for (size_t i = 0; i < 3; i++)
     {
         _lowCmd->motorCmd[i].q = action_flt[i+3] * 0.25 + default_dof_pos[i];
@@ -484,11 +501,11 @@ void State_Rl::mnnInference_legged()
     std::cout<<"proj"<<proj_gravity[0]<<" "<<proj_gravity[1]<<" "<<proj_gravity[2]<<std::endl;
     for (size_t i = 0; i < 3; i++)
     {
-        obs_legged[i] = base_line[i]*obs_scales_lin_vel;
-        obs_legged[i+3] = _lowState->imu.gyroscope[i] *obs_scales_ang_vel;
+        obs_legged[i] = 0;
+        obs_legged[i+3] = 0;
         obs_legged[i+6] = proj_gravity[i];
     }
-    obs_legged[9] = -_lowState->userValue.lx * obs_scales_lin_vel*2.5;
+    obs_legged[9] = -_lowState->userValue.lx * obs_scales_lin_vel*1;
     obs_legged[10] = -_lowState->userValue.ly * obs_scales_lin_vel*1;
     obs_legged[11] = _lowState->userValue.rx *obs_scales_ang_vel*1;
     for (size_t i = 0; i < 12; i++)

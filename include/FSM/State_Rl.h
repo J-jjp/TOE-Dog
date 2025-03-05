@@ -56,6 +56,7 @@ public:
     void stateMachine_backflip();
     void Pose_transformation();
     void time_zaro();
+    int time_rl; 
     Eigen::Vector3d quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v); 
     void mobRun();
     std::vector<float> default_dof_pos={0.1,0.8,-1.5 ,-0.1,0.8,-1.5,0.1,1,-1.5, -0.1,1.,-1.5};//#默认角度需要与isacc一致

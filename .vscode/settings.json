@@ -80,6 +80,7 @@
         "filesystem": "cpp",
         "__bit_reference": "cpp",
         "queue": "cpp",
-        "future": "cpp"
+        "future": "cpp",
+        "core": "cpp"
     }
 }

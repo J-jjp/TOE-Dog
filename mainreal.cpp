@@ -23,6 +23,19 @@
 #include <ros/ros.h>
 #include <sensor_msgs/Imu.h>
 #include <thread>
+Eigen::Vector3d quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v) {
+    double q_w = q[3];  // 提取四元数的实部 w
+    Eigen::Vector3d q_vec(q[0], q[1], q[2]);  // 提取四元数的虚部 xyz
+    Eigen::Vector3d a = v * (2.0 * q_w * q_w - 1.0);
+
+    // 计算b = cross(q_vec, v) * 2.0 * q_w
+    Eigen::Vector3d b = q_vec.cross(v) * 2.0 * q_w;
+
+    // 计算c = q_vec * (q_vec.transpose() * v) * 2.0
+    Eigen::Vector3d c = q_vec * (q_vec.transpose() * v) * 2.0;
+    return a - b + c;
+}
+
 class ImuSubscriber {
 public:
     ImuSubscriber() : nh_("~") {
@@ -115,27 +128,23 @@ int main(int argc, char** argv) {
     // 创建一个线程来处理ROS消息回调
     std::thread ros_thread(&ImuSubscriber::spin, &imu_subscriber);
   while (ros::ok()) {
-    Eigen::Quaterniond quat={imu_subscriber.w,imu_subscriber.x,imu_subscriber.y,imu_subscriber.z};
-    // 其中 theta = 180度 = Pi 弧度
-    Eigen::Quaterniond rotation_z180(0, -1, 0, 0);
- 
-    // 应用旋转
-    Eigen::Quaterniond q_rotated = quat * rotation_z180;
-
-    ctrlComp->lowState->imu.quaternion[0]=q_rotated.w();
-    ctrlComp->lowState->imu.quaternion[1]=q_rotated.x();
-    ctrlComp->lowState->imu.quaternion[2]=q_rotated.y();
-    ctrlComp->lowState->imu.quaternion[3]=q_rotated.z();
-    ctrlComp->lowState->imu.gyroscope[0]=-imu_subscriber.gy_x;
-    ctrlComp->lowState->imu.gyroscope[1]=-imu_subscriber.gy_y;
-    ctrlComp->lowState->imu.gyroscope[2]=-imu_subscriber.gy_z;
-    ctrlComp->lowState->imu.gyroscope[0]=-imu_subscriber.acc_x;
-    ctrlComp->lowState->imu.gyroscope[1]=-imu_subscriber.acc_y;
-    ctrlComp->lowState->imu.gyroscope[2]=-imu_subscriber.acc_z;
+    ctrlComp->lowState->imu.quaternion[0]=imu_subscriber.w;
+    ctrlComp->lowState->imu.quaternion[1]=imu_subscriber.x;
+    ctrlComp->lowState->imu.quaternion[2]=imu_subscriber.y;
+    ctrlComp->lowState->imu.quaternion[3]=imu_subscriber.z;
+    ctrlComp->lowState->imu.gyroscope[0]=imu_subscriber.gy_x;
+    ctrlComp->lowState->imu.gyroscope[1]=imu_subscriber.gy_y;
+    ctrlComp->lowState->imu.gyroscope[2]=imu_subscriber.gy_z;
+    ctrlComp->lowState->imu.gyroscope[0]=imu_subscriber.acc_x;
+    ctrlComp->lowState->imu.gyroscope[1]=imu_subscriber.acc_y;
+    ctrlComp->lowState->imu.gyroscope[2]=imu_subscriber.acc_z;
     ctrlFrame.run();
-    usleep(20000);
+    Eigen::Vector3d v(0.0,0.0,-1.0); 
+    Eigen::Vector4d q(imu_subscriber.x,imu_subscriber.y,imu_subscriber.z,imu_subscriber.w);
+    Eigen::Vector3d proj_gravity_eigen = quat_rotate_inverse(q, v);
+    std::cout<<"222222"<<proj_gravity_eigen[1]<<" "<<-proj_gravity_eigen[0]<<" "<<proj_gravity_eigen[2]<<std::endl;
+    usleep(18000);
   }
 ros_thread.join();
   return 1;
 }
-
