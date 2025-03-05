@@ -78,7 +78,7 @@ void State_Rl::run(){
         stateMachine_mujoco();
         mnnInference_mujoco();
     }
-    else if(1){
+    else if(0){
         // if (time_rl>100)
         // {
             // time_rl=0;
@@ -88,7 +88,7 @@ void State_Rl::run(){
         // usleep(200);
         // usleep(100);
     }
-    else if(0){
+    else if(1){
         // if (time_rl>100)
         // {
         //     time_rl=0;
@@ -502,7 +502,7 @@ void State_Rl::mnnInference_legged()
     for (size_t i = 0; i < 3; i++)
     {
         obs_legged[i] = 0;
-        obs_legged[i+3] = 0;
+        obs_legged[i+3] = _lowState->imu.gyroscope[i] *obs_scales_ang_vel;
         obs_legged[i+6] = proj_gravity[i];
     }
     obs_legged[9] = -_lowState->userValue.lx * obs_scales_lin_vel*1;
