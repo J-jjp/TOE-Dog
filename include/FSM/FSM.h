@@ -33,11 +33,12 @@ public:
     ~FSM();
     void initialize();
     void run();//在该函数里执行了整个工程的所有逻辑(如估计器迭代、信息命令收发、状态机运行、状态切换等)
+    FSMState *_currentState;
 private:
     FSMState* getNextState(FSMStateName stateName);
     bool checkSafty();
     CtrlComponents *_ctrlComp;
-    FSMState *_currentState;
+    // FSMState *_currentState;
     FSMState *_nextState;
     FSMStateName _nextStateName;
     FSMStateList _stateList;

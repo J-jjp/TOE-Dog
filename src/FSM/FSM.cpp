@@ -63,7 +63,14 @@ void FSM::run(){
     }
 
     //在这里更新状态-----------------------------------------------------------------
-
+    if (_currentState->_stateName==FSMStateName::Rl)
+    {
+        _ctrlComp->dt=0.02;
+    }
+    else{
+        _ctrlComp->dt=0.0025;
+    }
+    
         //从startTime开始等待waitTime微秒
     absoluteWait(_startTime, (long long)((_ctrlComp->dt-0.0005) * 1000000));//*1000 1000是为了转为微秒     0.002 s 一次  2ms执行算法
     //如果超过waitTime 则会发出警告

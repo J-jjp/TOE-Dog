@@ -88,12 +88,18 @@ struct LowlevelCmd{
         motorCmd[legID*3+2].Kd = 2;
     }
     void setRealStanceGain(int legID){
-        motorCmd[legID*3+0].Kp = 0.015;
-        motorCmd[legID*3+0].Kd = 0.001;
-        motorCmd[legID*3+1].Kp = 0.022;
-        motorCmd[legID*3+1].Kd = 0.001;
-        motorCmd[legID*3+2].Kp = 0.022;
-        motorCmd[legID*3+2].Kd = 0.001;
+        motorCmd[legID*3+0].Kp = realrlGain_kp(30);
+        motorCmd[legID*3+0].Kd = realrlGain_kd(0.75);
+        motorCmd[legID*3+1].Kp = realrlGain_kp(30);
+        motorCmd[legID*3+1].Kd = realrlGain_kd(0.75);
+        motorCmd[legID*3+2].Kp = realrlGain_kp(30);
+        motorCmd[legID*3+2].Kd = realrlGain_kd(0.75);
+        // motorCmd[legID*3+0].Kp = realrlGain_kp(0);
+        // motorCmd[legID*3+0].Kd = realrlGain_kd(0);
+        // motorCmd[legID*3+1].Kp = realrlGain_kp(0);
+        // motorCmd[legID*3+1].Kd = realrlGain_kd(0);
+        // motorCmd[legID*3+2].Kp = realrlGain_kp(0);
+        // motorCmd[legID*3+2].Kd = realrlGain_kd(0);
     }
     void setZeroGain(int legID){
         motorCmd[legID*3+0].Kp = 0;
@@ -146,12 +152,18 @@ struct LowlevelCmd{
         motorCmd[legID*3+2].Kd = 3;
     }
     void setRealrlGain(int legID){
-        motorCmd[legID*3+0].Kp = realrlGain_kp(30);
-        motorCmd[legID*3+0].Kd = realrlGain_kd(0.75);
-        motorCmd[legID*3+1].Kp = realrlGain_kp(30);
-        motorCmd[legID*3+1].Kd = realrlGain_kd(0.75);
-        motorCmd[legID*3+2].Kp = realrlGain_kp(30);
-        motorCmd[legID*3+2].Kd = realrlGain_kd(0.75);;
+        motorCmd[legID*3+0].Kp = realrlGain_kp(27);
+        motorCmd[legID*3+0].Kd = realrlGain_kd(0.5);
+        motorCmd[legID*3+1].Kp = realrlGain_kp(27);
+        motorCmd[legID*3+1].Kd = realrlGain_kd(0.5);
+        motorCmd[legID*3+2].Kp = realrlGain_kp(27);
+        motorCmd[legID*3+2].Kd = realrlGain_kd(0.5);
+        // motorCmd[legID*3+0].Kp = realrlGain_kp(0);
+        // motorCmd[legID*3+0].Kd = realrlGain_kd(0);
+        // motorCmd[legID*3+1].Kp = realrlGain_kp(0);
+        // motorCmd[legID*3+1].Kd = realrlGain_kd(0);
+        // motorCmd[legID*3+2].Kp = realrlGain_kp(0);
+        // motorCmd[legID*3+2].Kd = realrlGain_kd(0);
     }
     float realrlGain_kp(float kp){
         float kp_new = kp/2048;

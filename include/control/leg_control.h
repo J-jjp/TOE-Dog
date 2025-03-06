@@ -32,7 +32,7 @@ public:
     void read_data(); //获得整条腿数据
     void recv(); //获得整条腿数据
     bool motor_limit(std::vector<float>& kp,std::shared_ptr<motor> moto);
-    void print_pose();
+    void print_pose(); 
     void leg_init();
 public:
     std::string _leg_name;            // 定义腿的名称

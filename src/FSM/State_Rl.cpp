@@ -63,7 +63,7 @@ void State_Rl::enter(){
 }
 
 void State_Rl::run(){
-    // time_rl++;
+    time_rl++;
     if (0)
     {
         stateMachine_Walk();
@@ -78,8 +78,8 @@ void State_Rl::run(){
         stateMachine_mujoco();
         mnnInference_mujoco();
     }
-    else if(0){
-        // if (time_rl>100)
+    else if(1){
+        // if (time_rl>30)
         // {
             // time_rl=0;
             stateMachine_Loco();
@@ -88,12 +88,24 @@ void State_Rl::run(){
         // usleep(200);
         // usleep(100);
     }
-    else if(1){
+    else if(0){
+        // if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
+        //      if (time_rl>100)
+        //     {
+        //         time_rl=0;
+        //         stateMachine_legged();
+        //         mnnInference_legged();
+        //     }
+        //     time_rl++;
+        //     usleep(100);
+        // }
+        // else{
+        stateMachine_legged();
+        mnnInference_legged();
+        // }
         // if (time_rl>100)
         // {
         //     time_rl=0;
-            stateMachine_legged();
-            mnnInference_legged();
         // }
         // usleep(100);
     }
@@ -541,13 +553,6 @@ void State_Rl::mnnInference_legged()
     {
         last_action_cmd_legged[i]=action_cmd_legged[i];
     }
-    // for (size_t i = 0; i < 4; i++)
-    // {
-    //     _lowCmd->motorCmd[i].q = action_flt[i+3] * 0.25 + default_dof_pos[i];
-    //     _lowCmd->motorCmd[i+3].q = action_flt[i] * 0.25 + default_dof_pos[i];
-    //     _lowCmd->motorCmd[i+6].q = action_flt[i+9] * 0.25 + default_dof_pos[i];
-    //     _lowCmd->motorCmd[i+9].q = action_flt[i+6] * 0.25 + default_dof_pos[i];
-    // }
     for (size_t i = 0; i < 12; i++)
     {
         _lowCmd->motorCmd[i].q = action_flt[i]*0.25+ default_dof_pos[i];
