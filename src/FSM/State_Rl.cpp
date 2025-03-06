@@ -29,16 +29,16 @@ void State_Rl::enter(){
         mobCmd_[1]=0;//y方向速度
         mobCmd_[2]=0;//yaw方向速度
         mobCmd_[3]=0;//身高
-        mobCmd_[4]=1;//踏步频率
+        mobCmd_[4]=3;//踏步频率
         mobCmd_[5]=0.5;//步态
         mobCmd_[6]=0.0;
         mobCmd_[7]=0.0;
         mobCmd_[8]=0.5;
-        mobCmd_[9]=0.12;//步幅
+        mobCmd_[9]=0.28;//步幅
         mobCmd_[10]=0.0;//pitch_cmd
         mobCmd_[11]=0.0;//roll_cmd
         mobCmd_[12]=0.25;//站姿宽度cmd
-        mobCmd_[13]=1;//pitch_cmd
+        mobCmd_[13]=0;//pitch_cmd
         mobCmd_[14]=0;//roll_cmd
 
         modle=0;
@@ -63,8 +63,8 @@ void State_Rl::enter(){
 }
 
 void State_Rl::run(){
-    time_rl++;
-    if (0)
+    // time_rl++;
+    if (1)
     {
         stateMachine_Walk();
         mnnInference_Walk();
@@ -78,7 +78,7 @@ void State_Rl::run(){
         stateMachine_mujoco();
         mnnInference_mujoco();
     }
-    else if(1){
+    else if(0){
         // if (time_rl>30)
         // {
             // time_rl=0;
