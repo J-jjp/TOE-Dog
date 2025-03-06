@@ -514,7 +514,7 @@ void State_Rl::mnnInference_legged()
     for (size_t i = 0; i < 3; i++)
     {
         obs_legged[i] = 0;
-        obs_legged[i+3] = _lowState->imu.gyroscope[i] *obs_scales_ang_vel;
+        obs_legged[i+3] = 0;
         obs_legged[i+6] = proj_gravity[i];
     }
     obs_legged[9] = -_lowState->userValue.lx * obs_scales_lin_vel*1;
