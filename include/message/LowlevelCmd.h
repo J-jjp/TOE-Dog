@@ -136,12 +136,12 @@ struct LowlevelCmd{
         motorCmd[legID*3+2].Kd = 2;
     }
     void setSimrlGain(int legID){
-        motorCmd[legID*3+0].Kp = 25;
-        motorCmd[legID*3+0].Kd = 0.75;
-        motorCmd[legID*3+1].Kp = 25;
-        motorCmd[legID*3+1].Kd = 0.75;
-        motorCmd[legID*3+2].Kp = 25;
-        motorCmd[legID*3+2].Kd = 0.75;
+        motorCmd[legID*3+0].Kp = 20;
+        motorCmd[legID*3+0].Kd = 0.5;
+        motorCmd[legID*3+1].Kp = 20;
+        motorCmd[legID*3+1].Kd = 0.5;
+        motorCmd[legID*3+2].Kp = 20;
+        motorCmd[legID*3+2].Kd = 0.5;
     }
     void setSimbackfileGain(int legID){
         motorCmd[legID*3+0].Kp = 70;
@@ -152,11 +152,11 @@ struct LowlevelCmd{
         motorCmd[legID*3+2].Kd = 3;
     }
     void setRealrlGain(int legID){
-        motorCmd[legID*3+0].Kp = realrlGain_kp(27);
+        motorCmd[legID*3+0].Kp = realrlGain_kp(20);
         motorCmd[legID*3+0].Kd = realrlGain_kd(0.5);
-        motorCmd[legID*3+1].Kp = realrlGain_kp(27);
+        motorCmd[legID*3+1].Kp = realrlGain_kp(20);
         motorCmd[legID*3+1].Kd = realrlGain_kd(0.5);
-        motorCmd[legID*3+2].Kp = realrlGain_kp(27);
+        motorCmd[legID*3+2].Kp = realrlGain_kp(20);
         motorCmd[legID*3+2].Kd = realrlGain_kd(0.5);
         // motorCmd[legID*3+0].Kp = realrlGain_kp(0);
         // motorCmd[legID*3+0].Kd = realrlGain_kd(0);

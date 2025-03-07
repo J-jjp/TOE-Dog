@@ -28,13 +28,13 @@ void State_Rl::enter(){
         mobCmd_[0]=0;//x方向速度
         mobCmd_[1]=0;//y方向速度
         mobCmd_[2]=0;//yaw方向速度
-        mobCmd_[3]=0;//身高
-        mobCmd_[4]=3;//踏步频率
+        mobCmd_[3]=0.1;//身高
+        mobCmd_[4]=2;//踏步频率
         mobCmd_[5]=0.5;//步态
         mobCmd_[6]=0.0;
         mobCmd_[7]=0.0;
         mobCmd_[8]=0.5;
-        mobCmd_[9]=0.28;//步幅
+        mobCmd_[9]=0.2;//步幅
         mobCmd_[10]=0.0;//pitch_cmd
         mobCmd_[11]=0.0;//roll_cmd
         mobCmd_[12]=0.25;//站姿宽度cmd
