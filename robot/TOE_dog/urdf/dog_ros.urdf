@@ -223,14 +223,14 @@
         xyz="0 0 -0.00961668940835148"
         rpy="0 0 0" />
       <mass
-        value="0.03219067" />
+        value="0.04" />
       <inertia
-        ixx="0.00000555"
-        ixy="-0.00000005"
-        ixz="0.00000116" 
-        iyy="0.00000519"
-        iyz="-0.00000005"
-        izz="0.00000631" />
+        ixx="9.6e-06"
+        ixy="0"
+        ixz="0"
+        iyy="9.6e-06"
+        iyz="0"
+        izz="9.6e-06" />
     </inertial>
     <visual>
       <origin
@@ -247,9 +247,7 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin rpy="0 0 0" xyz="-0.002 0 0" />
       <geometry>
         <sphere radius="0.022" />
       </geometry>
@@ -440,14 +438,14 @@
         xyz="0 0 -0.0096167"
         rpy="0 0 0" />
       <mass
-        value="0.03219067" />
+        value="0.04" />
       <inertia
-        ixx="0.00000540"
-        ixy="-0.00000005"
-        ixz="0.00000109"
-        iyy="0.00000519"
-        iyz="-0.00000005"
-        izz="0.00000646" />
+        ixx="9.6e-06"
+        ixy="0"
+        ixz="0"
+        iyy="9.6e-06"
+        iyz="0"
+        izz="9.6e-06" />
     </inertial>
     <visual>
       <origin
@@ -464,9 +462,7 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin rpy="0 0 0" xyz="-0.002 0 0" />
       <geometry>
         <sphere radius="0.022" />
       </geometry>
@@ -657,14 +653,14 @@
         xyz="0 0 -0.00961668940835148"
         rpy="0 0 0" />
       <mass
-        value="0.03219067" />
+        value="0.04" />
       <inertia
-        ixx="0.00000624"
-        ixy="-0.00000005"
-        ixz="0.00000122"
-        iyy="0.00000613"
-        iyz="-0.00000007"
-        izz="0.00000613" />
+        ixx="9.6e-06"
+        ixy="0"
+        ixz="0"
+        iyy="9.6e-06"
+        iyz="0"
+        izz="9.6e-06" />
     </inertial>
     <visual>
       <origin
@@ -681,9 +677,7 @@
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin rpy="0 0 0" xyz="-0.002 0 0" />
       <geometry>
         <sphere radius="0.022" />
       </geometry>
@@ -874,14 +868,14 @@
         xyz="0 0 -0.00961668941940308"
         rpy="0 0 0" />
       <mass
-        value="0.03219067" />
+        value="0.04" />
       <inertia
-        ixx="0.00000528"
-        ixy="-0.00000005"
-        ixz="0.00000103"
-        iyy="0.00000519"
-        iyz="-0.00000006"
-        izz="0.00000519" />
+        ixx="9.6e-06"
+        ixy="0"
+        ixz="0"
+        iyy="9.6e-06"
+        iyz="0"
+        izz="9.6e-06" />
     </inertial>
     <visual>
       <origin
@@ -914,5 +908,35 @@
       link="RR_calf" />
     <child
       link="RR_foot" />
+  </joint>
+  <link
+    name="imu">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+  </link>
+  <joint
+    name="imu_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0.05764"
+      rpy="0 0 0" />
+    <parent
+      link="base" />
+    <child
+      link="imu" />
+    <axis
+      xyz="0 0 0" />
   </joint>
 </robot>
