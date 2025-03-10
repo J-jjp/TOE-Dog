@@ -12,9 +12,11 @@ void State_Rl::enter(){
         if(_ctrlComp->ctrlPlatform == CtrlPlatform::Mujoco){
             _lowCmd->setSimrlGain(i);
             _lowCmd->setZeroTau(i);
+            gear_ratio=1;
         }
         else if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
             _lowCmd->setRealrlGain(i);
+            gear_ratio=9.1;
         }
     }
     if(walk_these_ways){
@@ -60,72 +62,75 @@ void State_Rl::enter(){
         }
     }
     time_rl=0;
+    sin_counter = 0.0;
+    output_angle_c = (_lowState->motorState[2].q / gear_ratio) * (180/PI);
 }
 
 void State_Rl::run(){
+    test_motor();
     // time_rl++;
-    if (1)
-    {
-        stateMachine_Walk();
-        mnnInference_Walk();
-        getCurrentObservation_Walk();
-    }
-    else if(0){
-        stateMachine_mast();
-        mnnInference_mast();
-    }
-    else if(0){
-        stateMachine_mujoco();
-        mnnInference_mujoco();
-    }
-    else if(0){
-        // if (time_rl>30)
-        // {
-            // time_rl=0;
-            stateMachine_Loco();
-            mnnInference_Loco();
-        // }
-        // usleep(200);
-        // usleep(100);
-    }
-    else if(0){
-        // if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
-        //      if (time_rl>100)
-        //     {
-        //         time_rl=0;
-        //         stateMachine_legged();
-        //         mnnInference_legged();
-        //     }
-        //     time_rl++;
-        //     usleep(100);
-        // }
-        // else{
-        stateMachine_legged();
-        mnnInference_legged();
-        // }
-        // if (time_rl>100)
-        // {
-        //     time_rl=0;
-        // }
-        // usleep(100);
-    }
-    else if(0){
-        backflip_time+=1;
-        for (size_t i = 0; i < 4; i++)
-        {
-            _lowCmd->setSimbackfileGain(i);
-        }
-        if (backflip_time%50==0)
-        {
-            stateMachine_backflip();
-            mnnInference_backflip();
-        }
-        if (backflip_time>1000)
-        {
-           time_zaro();
-        }
+    // if (0)
+    // {
+    //     stateMachine_Walk();
+    //     mnnInference_Walk();
+    //     getCurrentObservation_Walk();
+    // }
+    // else if(0){
+    //     stateMachine_mast();
+    //     mnnInference_mast();
+    // }
+    // else if(0){
+    //     stateMachine_mujoco();
+    //     mnnInference_mujoco();
+    // }
+    // else if(1){
+    //     // if (time_rl>30)
+    //     // {
+    //         // time_rl=0;
+    //         stateMachine_Loco();
+    //         mnnInference_Loco();
+    //     // }
+    //     // usleep(200);
+    //     // usleep(100);
+    // }
+    // else if(0){
+    //     // if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
+    //     //      if (time_rl>100)
+    //     //     {
+    //     //         time_rl=0;
+    //     //         stateMachine_legged();
+    //     //         mnnInference_legged();
+    //     //     }
+    //     //     time_rl++;
+    //     //     usleep(100);
+    //     // }
+    //     // else{
+    //     stateMachine_legged();
+    //     mnnInference_legged();
+    //     // }
+    //     // if (time_rl>100)
+    //     // {
+    //     //     time_rl=0;
+    //     // }
+    //     // usleep(100);
+    // }
+    // else if(0){
+    //     backflip_time+=1;
+    //     for (size_t i = 0; i < 4; i++)
+    //     {
+    //         _lowCmd->setSimbackfileGain(i);
+    //     }
+    //     if (backflip_time%50==0)
+    //     {
+    //         stateMachine_backflip();
+    //         mnnInference_backflip();
+    //     }
+    //     if (backflip_time>1000)
+    //     {
+    //        time_zaro();
+    //     }
         
-    }
+    // }
 }
 
 void State_Rl::exit(){
@@ -903,4 +908,11 @@ Vec3 State_Rl::quaternion_to_euler_array(Vec4 quat){
     t4 = +1.0 - 2.0 * (y * y + z * z);
     yaw_z =  std::atan2(t3, t4);
     return {roll_x, pitch_y, yaw_z};
+}
+void State_Rl::test_motor(){
+    sin_counter+=0.005;
+    float output_angle_d;
+    output_angle_d = output_angle_c + 10 * sin(2*PI*sin_counter);
+    float rotor_angle_d = (output_angle_d * (PI/180)) * gear_ratio;
+    _lowCmd->motorCmd[2].q=rotor_angle_d;
 }

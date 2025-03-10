@@ -33,6 +33,8 @@
 // -----------------------------legged---------------------------------
 #define N_proprio_legged  48
 #define Num_observations_legged 48*11
+
+#define PI 3.141592653589793
 class State_Rl : public FSMState{
 public:
     State_Rl(CtrlComponents *ctrlComp);
@@ -56,6 +58,8 @@ public:
     void stateMachine_backflip();
     void Pose_transformation();
     void time_zaro();
+    void test_motor();
+    float gear_ratio;
     int time_rl; 
     Eigen::Vector3d quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v); 
     void mobRun();
@@ -65,6 +69,8 @@ public:
     std::shared_ptr<rl_Inference> rlptr = nullptr;
     std::shared_ptr<rl_Inference> adaptationNetPtr = nullptr;
     int modle;
+    float sin_counter;
+    float output_angle_c;
 
 
     float last_lowCmd[Num_dof];
