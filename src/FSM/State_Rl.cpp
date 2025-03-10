@@ -67,7 +67,13 @@ void State_Rl::enter(){
 }
 
 void State_Rl::run(){
-    test_motor();
+    sin_counter+=0.005;
+    if (sin_counter>1)
+    {
+        sin_counter=0;
+    }
+    
+    // test_motor();
     // time_rl++;
     // if (0)
     // {
@@ -105,8 +111,8 @@ void State_Rl::run(){
     //     //     usleep(100);
     //     // }
     //     // else{
-    //     stateMachine_legged();
-    //     mnnInference_legged();
+        stateMachine_legged();
+        mnnInference_legged();
     //     // }
     //     // if (time_rl>100)
     //     // {
@@ -522,9 +528,12 @@ void State_Rl::mnnInference_legged()
         obs_legged[i+3] = 0;
         obs_legged[i+6] = proj_gravity[i];
     }
-    obs_legged[9] = -_lowState->userValue.lx * obs_scales_lin_vel*1;
-    obs_legged[10] = -_lowState->userValue.ly * obs_scales_lin_vel*1;
-    obs_legged[11] = _lowState->userValue.rx *obs_scales_ang_vel*1;
+    // obs_legged[9] = -_lowState->userValue.lx * obs_scales_lin_vel*1;
+    // obs_legged[10] = -_lowState->userValue.ly * obs_scales_lin_vel*1;
+    // obs_legged[11] = _lowState->userValue.rx *obs_scales_ang_vel*1;
+    obs_legged[9] = sin_counter;
+    obs_legged[10] = sin_counter;
+    obs_legged[11] = sin_counter;
     for (size_t i = 0; i < 12; i++)
     {
         obs_legged[12+i] = (_lowState->motorState[i].q-default_dof_pos[i]) *obs_scales_dof_pos;
@@ -910,7 +919,6 @@ Vec3 State_Rl::quaternion_to_euler_array(Vec4 quat){
     return {roll_x, pitch_y, yaw_z};
 }
 void State_Rl::test_motor(){
-    sin_counter+=0.005;
     float output_angle_d;
     output_angle_d = output_angle_c + 10 * sin(2*PI*sin_counter);
     float rotor_angle_d = (output_angle_d * (PI/180)) * gear_ratio;
