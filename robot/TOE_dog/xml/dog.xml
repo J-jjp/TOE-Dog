@@ -1,5 +1,5 @@
 <mujoco model="TOE_dog">
-  <compiler angle="radian" meshdir="/home/ubuntu/dog/TOE-Dog/robot/TOE_dog/xml/assets/" autolimits="true"/>
+  <compiler angle="radian" meshdir="/home/toe/TOE-Dog/robot/TOE_dog/xml/assets" autolimits="true"/>
   <default>
     <default class="dog">
       <geom friction="0.4" margin="0.001" condim="1"/>
@@ -31,7 +31,7 @@
     <inertial pos="0 0 0" quat="-0.000543471 0.713435 -0.00173769 0.700719"
       mass="5.1234705"
       diaginertia="0.0656641 0.0578995 0.0175231" />
-    <!-- <freejoint /> -->
+    <freejoint />
     <site name='imu' size='0.01' pos='0.0 0 0.0'/>
     <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.752941 0.752941 0.752941 1" mesh="TOE_base"/>
     <geom size="0.135 0.075 0.057" type="box" rgba="0.752941 0.752941 0.752941 1"/>

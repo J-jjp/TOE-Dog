@@ -3,15 +3,15 @@
 
 void leg_control::set_motor_cmd(std::vector<float>& kp, std::vector<float>& kd,
 std::vector<float>& q, std::vector<float>& dq, std::vector<float>& tau){
-    if(motor_limit(kp,_leg_motor0)){
+    // if(motor_limit(kp,_leg_motor0)){
         _leg_motor0->set_motor(kp[0],kd[0],q[0],dq[0],tau[0]);
-    }
-    if(motor_limit(kp,_leg_motor1)){
+    // }
+    // if(motor_limit(kp,_leg_motor1)){
         _leg_motor1->set_motor(kp[1],kd[1],q[1],dq[1],tau[1]);
-    }
-    if(motor_limit(kp,_leg_motor2)){
+    // }
+    // if(motor_limit(kp,_leg_motor2)){
         _leg_motor2->set_motor(kp[2],kd[2],q[2],dq[2],tau[2]);
-    }
+    // }
     read_data();
     recv();
 }

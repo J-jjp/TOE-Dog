@@ -63,7 +63,7 @@ void State_Rl::enter(){
     }
     time_rl=0;
     sin_counter = 0.0;
-    output_angle_c = (_lowState->motorState[2].q / gear_ratio) * (180/PI);
+    output_angle_c = (_lowState->motorState[2].q ) * (180/PI);
 }
 
 void State_Rl::run(){
@@ -73,7 +73,7 @@ void State_Rl::run(){
         sin_counter=0;
     }
     
-    // test_motor();
+    // test_motor();o
     // time_rl++;
     // if (0)
     // {
@@ -93,8 +93,8 @@ void State_Rl::run(){
     //     // if (time_rl>30)
     //     // {
     //         // time_rl=0;
-    //         stateMachine_Loco();
-    //         mnnInference_Loco();
+            stateMachine_Loco();
+            mnnInference_Loco();
     //     // }
     //     // usleep(200);
     //     // usleep(100);
@@ -111,8 +111,8 @@ void State_Rl::run(){
     //     //     usleep(100);
     //     // }
     //     // else{
-        stateMachine_legged();
-        mnnInference_legged();
+        // stateMachine_legged();
+        // mnnInference_legged();
     //     // }
     //     // if (time_rl>100)
     //     // {
@@ -921,6 +921,6 @@ Vec3 State_Rl::quaternion_to_euler_array(Vec4 quat){
 void State_Rl::test_motor(){
     float output_angle_d;
     output_angle_d = output_angle_c + 10 * sin(2*PI*sin_counter);
-    float rotor_angle_d = (output_angle_d * (PI/180)) * gear_ratio;
+    float rotor_angle_d = (output_angle_d * (PI/180));
     _lowCmd->motorCmd[2].q=rotor_angle_d;
 }

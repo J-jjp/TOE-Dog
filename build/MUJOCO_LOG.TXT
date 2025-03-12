@@ -1,0 +1,6 @@
+Mon Mar 10 22:11:01 2025
+ERROR: Load model error: Error: Error opening file '/home/ubuntu/dog/TOE-Dog/robot/TOE_dog/xml/robot/TOE_dog/xml/TOE_base.STL': No such file or directory
+
+Mon Mar 10 22:11:38 2025
+ERROR: Load model error: Error: Error opening file '../robot/TOE_dog/xml/../robot/TOE_dog/xml/TOE_base.STL': No such file or directory
+
