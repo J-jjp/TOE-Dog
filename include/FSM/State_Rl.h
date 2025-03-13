@@ -59,6 +59,7 @@ public:
     void Pose_transformation();
     void time_zaro();
     void test_motor();
+    void speed_limit();
     float gear_ratio;
     int time_rl; 
     Eigen::Vector3d quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v); 
@@ -71,8 +72,8 @@ public:
     int modle;
     float sin_counter;
     float output_angle_c;
-
-
+    bool shape_control;
+    bool modle_control;
     float last_lowCmd[Num_dof];
     float action_history[History_len_mast*Num_dof]; //使用六帧前的数据
     float obs_history[1][History_len_mast*N_proprio_mast];

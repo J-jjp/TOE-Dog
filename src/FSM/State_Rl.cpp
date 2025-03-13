@@ -30,16 +30,16 @@ void State_Rl::enter(){
         mobCmd_[0]=0;//x方向速度
         mobCmd_[1]=0;//y方向速度
         mobCmd_[2]=0;//yaw方向速度
-        mobCmd_[3]=0.1;//身高
+        mobCmd_[3]=0;//身高
         mobCmd_[4]=2;//踏步频率
         mobCmd_[5]=0.5;//步态
         mobCmd_[6]=0.0;
         mobCmd_[7]=0.0;
         mobCmd_[8]=0.5;
-        mobCmd_[9]=0.2;//步幅
+        mobCmd_[9]=0.12;//步幅
         mobCmd_[10]=0.0;//pitch_cmd
         mobCmd_[11]=0.0;//roll_cmd
-        mobCmd_[12]=0.25;//站姿宽度cmd
+        mobCmd_[12]=0.28;//站姿宽度cmd
         mobCmd_[13]=0;//pitch_cmd
         mobCmd_[14]=0;//roll_cmd
 
@@ -64,9 +64,12 @@ void State_Rl::enter(){
     time_rl=0;
     sin_counter = 0.0;
     output_angle_c = (_lowState->motorState[2].q ) * (180/PI);
+    shape_control = false;
+    modle_control = false;
 }
 
 void State_Rl::run(){
+    speed_limit();
     sin_counter+=0.005;
     if (sin_counter>1)
     {
@@ -75,12 +78,12 @@ void State_Rl::run(){
     
     // test_motor();o
     // time_rl++;
-    // if (0)
-    // {
-    //     stateMachine_Walk();
-    //     mnnInference_Walk();
-    //     getCurrentObservation_Walk();
-    // }
+    if (0)
+    {
+        stateMachine_Walk();
+        mnnInference_Walk();
+        getCurrentObservation_Walk();
+    }
     // else if(0){
     //     stateMachine_mast();
     //     mnnInference_mast();
@@ -89,13 +92,13 @@ void State_Rl::run(){
     //     stateMachine_mujoco();
     //     mnnInference_mujoco();
     // }
-    // else if(1){
+    else if(1){
     //     // if (time_rl>30)
     //     // {
     //         // time_rl=0;
             stateMachine_Loco();
             mnnInference_Loco();
-    //     // }
+        }
     //     // usleep(200);
     //     // usleep(100);
     // }
@@ -310,9 +313,9 @@ void State_Rl::getCurrentObservation_Walk()
 
     // std::cout<<proj_gravity[0]<<" "<<proj_gravity[1]<<" "<<proj_gravity[2]<<std::endl;
 
-    mobCmd_[0]=-_lowState->userValue.ly*2+0.2;
-    mobCmd_[1]=-_lowState->userValue.lx*2-0.2;
-    mobCmd_[2]=_lowState->userValue.rx*5-0.3;
+    mobCmd_[0]=-_userValue.ly*2+0.2;
+    mobCmd_[1]=-_userValue.lx*2-0.2;
+    mobCmd_[2]=_userValue.rx*1-0.3;
 
     for (int i = 0; i < 3; i++)
     {
@@ -412,9 +415,9 @@ void State_Rl::mnnInference_Loco()
     // obs_Loco[9] = 2;
     // obs_Loco[10] = 0;
     // obs_Loco[11] = -5.2446e-04;
-    obs_Loco[9] = -_lowState->userValue.lx * obs_scales_lin_vel;
-    obs_Loco[10] = -_lowState->userValue.ly * obs_scales_lin_vel;
-    obs_Loco[11] = _lowState->userValue.rx *obs_scales_ang_vel;
+    obs_Loco[9] = -_userValue.lx * 0.8;
+    obs_Loco[10] = -_userValue.ly * 0.8;
+    obs_Loco[11] = _userValue.rx *0.5;
     for (size_t i = 0; i < 12; i++)
     {
         obs_Loco[12+i] = action_stateq_Loco[i] *obs_scales_dof_pos;
@@ -759,127 +762,174 @@ void State_Rl::Pose_transformation(){
     if(modle>6){
         modle=0;
     }
-    if (_lowState->userValue.yy>1)
+    if (_lowState->userValue.yy>1&&modle_control==false)
     {
+        modle_control=true;
         modle++;
     }
-    else if (_lowState->userValue.yy<0)
+    else if (_lowState->userValue.yy<0&&modle_control==false)
     {
+        modle_control=true;
         if (modle>0)
         {
             modle--;
         }
     }
-    
+    else if (_lowState->userValue.yy==0)
+    {
+        modle_control=false;
+        // if (modle>0)
+        // {
+        //     modle--;
+        // }
+    }
     
     if ((int)modle == 0)  // theight
     {
+        
         std::cout<<"\theight"<<mobCmd_[3]<<"\t";
-        if (_lowState->userValue.xx>1)
+        if (mobCmd_[3]+0.01<0.15&&_lowState->userValue.xx>1&&shape_control==false)
         {
+            shape_control=true;
             mobCmd_[3]+=0.01;
         }
-        else if (_lowState->userValue.xx<0)
+        else if (mobCmd_[3]-0.01>-0.25&&_lowState->userValue.xx<0&&shape_control==false)
         {
+            shape_control=true;
             mobCmd_[3]-=0.01;
+        }
+        else if (_lowState->userValue.xx==0)
+        {
+            shape_control=false;
         }
         
     }
     else if ((int)modle == 1)  // step_frequency
     {
         std::cout<<"\tstep_frequency"<<mobCmd_[4]<<"\t";
-        if (_lowState->userValue.xx>1)
+        if (_lowState->userValue.xx>1&&shape_control==false)
         {
+            shape_control=true;
             if (mobCmd_[4]<4)
             {
                 mobCmd_[4]+=1;
             }
         }
-        else if(_lowState->userValue.xx<0)
+        else if(_lowState->userValue.xx<0&&shape_control==false)
         {
-            if (mobCmd_[4]>1)
+            shape_control=true;
+            if (mobCmd_[4]>2)
             {
                 mobCmd_[4]-=1;
             }
         }
+        else if (_lowState->userValue.xx==0)
+        {
+            shape_control=false;
+        }
+        
 
     }
     else if ((int)modle == 2)  //footswing_height
     {
         std::cout<<"\tfootswing_height"<<mobCmd_[9]<<"\t";
-        if (_lowState->userValue.xx>1)
+        if (_lowState->userValue.xx>1&&shape_control==false)
         {
-            if (mobCmd_[9]<1)
+            shape_control=true;
+            if (mobCmd_[9]<0.35)
             {
-                mobCmd_[9]+=0.05;
+                mobCmd_[9]+=0.01;
             }
         }
-        else if(_lowState->userValue.xx<0)
+        else if(_lowState->userValue.xx<0&&shape_control==false)
         {
-            if (mobCmd_[9]>-1)
+            shape_control=true;
+            if (mobCmd_[9]>0.03)
             {
-                mobCmd_[9]-=0.05;
+                mobCmd_[9]-=0.01;
             }
+        }
+        else if (_lowState->userValue.xx==0)
+        {
+            shape_control=false;
         }
 
     }
     else if ((int)modle == 3)  // pitch
     {
         std::cout<<"\tpitch"<<mobCmd_[10]<<"\t";
-        if (_lowState->userValue.xx>1)
+        if (_lowState->userValue.xx>1&&shape_control==false)
         {
-            if (mobCmd_[10]<1)
+            shape_control=true;
+            if (mobCmd_[10]<0.4)
             {
                 mobCmd_[10]+=0.05;
                 mobCmd_[13]+=0.05;
             }
         }
-        else if(_lowState->userValue.xx<0)
+        else if(_lowState->userValue.xx<0&&shape_control==false)
         {
-            if (mobCmd_[10]>-1)
+            shape_control=true;
+            if (mobCmd_[10]>-0.4)
             {
                 mobCmd_[10]-=0.05;
                 mobCmd_[13]-=0.05;
             }
         }
+        else if (_lowState->userValue.xx==0)
+        {
+            shape_control=false;
+        }
     }
-    else if ((int)modle == 4)  // roll
-    {
-        std::cout<<"\troll"<<mobCmd_[11]<<"\t";
-        if (_lowState->userValue.xx>1)
-        {
-            if (mobCmd_[11]<1)
-            {
-                mobCmd_[11]+=0.05;
-                mobCmd_[14]+=0.05;
-            }
-        }
-        else if(_lowState->userValue.xx<0)
-        {
-            if (mobCmd_[11]>-1)
-            {
-                mobCmd_[11]-=0.05;
-                mobCmd_[14]-=0.05;
-            }
-        }
+    // else if ((int)modle == 4)  // roll
+    // {
+    //     std::cout<<"\troll"<<mobCmd_[11]<<"\t";
+    //     if (_lowState->userValue.xx>1&&shape_control==false)
+    //     {
+    //         shape_control=true;
+    //         if (mobCmd_[11]<1)
+    //         {
+    //             mobCmd_[11]+=0.05;
+    //             mobCmd_[14]+=0.05;
+    //         }
+    //     }
+    //     else if(_lowState->userValue.xx<0&&shape_control==false)
+    //     {
+    //         shape_control=true;
+    //         if (mobCmd_[11]>-1)
+    //         {
+    //             mobCmd_[11]-=0.05;
+    //             mobCmd_[14]-=0.05;
+    //         }
+    //     }
+    //     else if (_lowState->userValue.xx==0)
+    //     {
+    //         shape_control=false;
+    //     }
 
-    }
-    else if ((int)modle == 5)  // 站姿宽度cmd
+    // }
+    else if ((int)modle == 4)  // 站姿宽度cmd
     {
         std::cout<<"\tstance_width"<<mobCmd_[12]<<"\t";
-        if (_lowState->userValue.xx>1)
+        if (_lowState->userValue.xx>1&&shape_control==false)
         {
-            if (mobCmd_[12]<0.5)
+            shape_control=true;
+            if (mobCmd_[12]<0.45)
             {
-                mobCmd_[12]+=0.02;
+                mobCmd_[12]+=0.01;
             }
         }
-        else if(_lowState->userValue.xx<0)
+        else if(_lowState->userValue.xx<0&&shape_control==false)
         {
-            if (mobCmd_[12]>0)
+            shape_control=true;
+            if (mobCmd_[12]>0.1)
             {
-                mobCmd_[12]-=0.02;
+                mobCmd_[12]-=0.01;
             }
+        }
+        else if (_lowState->userValue.xx==0)
+        {
+            shape_control=false;
         }
 
     }
@@ -923,4 +973,35 @@ void State_Rl::test_motor(){
     output_angle_d = output_angle_c + 10 * sin(2*PI*sin_counter);
     float rotor_angle_d = (output_angle_d * (PI/180));
     _lowCmd->motorCmd[2].q=rotor_angle_d;
+}
+void State_Rl::speed_limit(){
+
+    if (std::abs(_lowState->userValue.lx - _userValue.lx) > 0.01) {
+        // 根据差值的正负决定增加还是减少_userValue.lx
+        _userValue.lx += (_lowState->userValue.lx > _userValue.lx) ? 0.01 : -0.01;
+    } else {
+        // 如果差值不大于0.1，直接设置为_lowState->userValue.lx的值
+        _userValue.lx = _lowState->userValue.lx;
+    }
+    if (std::abs(_lowState->userValue.ly - _userValue.ly) > 0.01) {
+        // 根据差值的正负决定增加还是减少_userValue.lx
+        _userValue.ly += (_lowState->userValue.ly > _userValue.ly) ? 0.01 : -0.01;
+    } else {
+        // 如果差值不大于0.1，直接设置为_lowState->userValue.lx的值
+        _userValue.ly = _lowState->userValue.ly;
+    }
+    if (std::abs(_lowState->userValue.rx - _userValue.rx) > 0.01) {
+        // 根据差值的正负决定增加还是减少_userValue.lx
+        _userValue.rx += (_lowState->userValue.rx > _userValue.rx) ? 0.01 : -0.01;
+    } else {
+        // 如果差值不大于0.1，直接设置为_lowState->userValue.lx的值
+        _userValue.rx = _lowState->userValue.rx;
+    }
+    if (std::abs(_lowState->userValue.ry - _userValue.ry) > 0.01) {
+        // 根据差值的正负决定增加还是减少_userValue.lx
+        _userValue.ry += (_lowState->userValue.ry > _userValue.ry) ? 0.01 : -0.01;
+    } else {
+        // 如果差值不大于0.1，直接设置为_lowState->userValue.lx的值
+        _userValue.ry = _lowState->userValue.ry;
+    }
 }
