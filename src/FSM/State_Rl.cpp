@@ -78,7 +78,7 @@ void State_Rl::run(){
     
     // test_motor();o
     // time_rl++;
-    if (0)
+    if (1)
     {
         stateMachine_Walk();
         mnnInference_Walk();

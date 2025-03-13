@@ -1,5 +1,5 @@
 <mujoco model="TOE_dog">
-  <compiler angle="radian" meshdir="/home/toe/TOE-Dog/robot/TOE_dog/xml/assets" autolimits="true"/>
+  <compiler angle="radian" meshdir="/home/ubuntu/dog/TOE-Dog/robot/TOE_dog/xml/assets" autolimits="true"/>
   <default>
     <default class="dog">
       <geom friction="0.4" margin="0.001" condim="1"/>
