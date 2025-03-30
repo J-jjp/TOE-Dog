@@ -88,12 +88,22 @@ struct LowlevelCmd{
         motorCmd[legID*3+2].Kd = 2;
     }
     void setRealStanceGain(int legID){
-        motorCmd[legID*3+0].Kp = realrlGain_kp(30);
-        motorCmd[legID*3+0].Kd = realrlGain_kd(0.75);
-        motorCmd[legID*3+1].Kp = realrlGain_kp(30);
-        motorCmd[legID*3+1].Kd = realrlGain_kd(0.75);
-        motorCmd[legID*3+2].Kp = realrlGain_kp(30);
-        motorCmd[legID*3+2].Kd = realrlGain_kd(0.75);
+        if(legID<2){
+            motorCmd[legID*3+0].Kp = realrlGain_kp(30);
+            motorCmd[legID*3+0].Kd = realrlGain_kd(0.75);
+            motorCmd[legID*3+1].Kp = realrlGain_kp(30);
+            motorCmd[legID*3+1].Kd = realrlGain_kd(0.75);
+            motorCmd[legID*3+2].Kp = realrlGain_kp(30);
+            motorCmd[legID*3+2].Kd = realrlGain_kd(0.75);
+        }
+        else{
+            motorCmd[legID*3+0].Kp = realrlGain_kp(35);
+            motorCmd[legID*3+0].Kd = realrlGain_kd(0.75);
+            motorCmd[legID*3+1].Kp = realrlGain_kp(35);
+            motorCmd[legID*3+1].Kd = realrlGain_kd(0.75);
+            motorCmd[legID*3+2].Kp = realrlGain_kp(37);
+            motorCmd[legID*3+2].Kd = realrlGain_kd(0.75);
+        }
         // motorCmd[legID*3+0].Kp = realrlGain_kp(0);
         // motorCmd[legID*3+0].Kd = realrlGain_kd(0);
         // motorCmd[legID*3+1].Kp = realrlGain_kp(0);
@@ -152,12 +162,22 @@ struct LowlevelCmd{
         motorCmd[legID*3+2].Kd = 3;
     }
     void setRealrlGain(int legID){
+        if(legID<2){
         motorCmd[legID*3+0].Kp = realrlGain_kp(20);
         motorCmd[legID*3+0].Kd = realrlGain_kd(0.5);
         motorCmd[legID*3+1].Kp = realrlGain_kp(20);
         motorCmd[legID*3+1].Kd = realrlGain_kd(0.5);
         motorCmd[legID*3+2].Kp = realrlGain_kp(20);
         motorCmd[legID*3+2].Kd = realrlGain_kd(0.5);
+        }
+        else{
+            motorCmd[legID*3+0].Kp = realrlGain_kp(22);
+            motorCmd[legID*3+0].Kd = realrlGain_kd(0.5);
+            motorCmd[legID*3+1].Kp = realrlGain_kp(22);
+            motorCmd[legID*3+1].Kd = realrlGain_kd(0.5);
+            motorCmd[legID*3+2].Kp = realrlGain_kp(22);
+            motorCmd[legID*3+2].Kd = realrlGain_kd(0.5);
+        }
         // motorCmd[legID*3+2].tau = 0.2;
         // motorCmd[legID*3+0].Kp = realrlGain_kp(0);
         // motorCmd[legID*3+0].Kd = realrlGain_kd(0);
