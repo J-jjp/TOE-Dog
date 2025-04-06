@@ -188,14 +188,17 @@ int main(int argc, const char** argv) {
     mjtNum simstart = d->time;
     float kp=0;
     float kd=0;
+    // m->opt.timestep = 0.001;
+    int count=0;
     ctrlFrame.run();
-    // if (time%1000==0)
-    // {
-    //   // backflip_time=0;
-    //   mj_resetData(m, d);
-    // }
     while (d->time - simstart < 1.0/60.0) {
+      // if (count%20==0)
+      // {
+        // ctrlFrame.run();
+      // }
+
       mj_step(m, d);
+      count++;
     }
 
     // get framebuffer viewport

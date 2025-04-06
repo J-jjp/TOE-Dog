@@ -30,7 +30,7 @@ void FSM::run(){
     _startTime = getSystemTime();//获取当前时间
    // _ctrlComp->sendRecv();    //控制命令收发一次
    //在这里下发控制命令-----------------------------------------------------------------
-    _ctrlComp->sendRecv();
+
 
     // _ctrlComp->runWaveGen();  //计算步态参数
     // _ctrlComp->estimator->run(); //估计器迭代一次
@@ -38,6 +38,13 @@ void FSM::run(){
     //     _ctrlComp->ioInter->setPassive();
     // }
     // std::cout<<"FSM";
+    std::cout<<"imu22:";
+    for (size_t i = 0; i < 3; i++)
+    {
+
+        std::cout<<_ctrlComp->lowState->imu.gyroscope[i] *obs_scales_ang_vel<<" ";
+    }
+    std::cout<<std::endl;
     if(_mode == FSMMode::NORMAL){
         std::cout<<"current"<<_currentState->_stateNameString<<std::endl;
         _currentState->run();
@@ -75,7 +82,7 @@ void FSM::run(){
     absoluteWait(_startTime, (long long)((_ctrlComp->dt-0.0005) * 1000000));//*1000 1000是为了转为微秒     0.002 s 一次  2ms执行算法
     //如果超过waitTime 则会发出警告
     //等待加在recv上面是为了保证每次recv的时间一样  不同state执行算法的时间不一致  比如有的200us 有的1.5ms
-    _ctrlComp->recv();
+    _ctrlComp->sendRecv();
 
     absoluteWait(_startTime, (long long)(_ctrlComp->dt * 1000000));//*1000 1000是为了转为微秒      2.5ms 保证400hz
 

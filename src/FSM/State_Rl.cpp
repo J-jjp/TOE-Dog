@@ -66,19 +66,20 @@ void State_Rl::enter(){
     output_angle_c = (_lowState->motorState[2].q ) * (180/PI);
     shape_control = false;
     modle_control = false;
+    memset(obs_legged,0,sizeof(float)*N_proprio_legged);
+    memset(encoder_input_legged,0,sizeof(float)*Num_observations_legged);
+    memset(encoder_output_legged,0,sizeof(float)*Num_encoder_legged);
+    memset(obs_history_legged,0,sizeof(float)*(History_len_legged*N_proprio_legged));
+    memset(policy_input_legged,0,sizeof(float)*(Num_observations_legged+Num_encoder_legged));
+    memset(action_cmd_legged,0,sizeof(float)*Num_dof);
+    memset(last_action_cmd_legged,0,sizeof(float)*Num_dof);
 }
 
 void State_Rl::run(){
     speed_limit();
-    sin_counter+=0.005;
-    if (sin_counter>1)
-    {
-        sin_counter=0;
-    }
-    
     // test_motor();o
     // time_rl++;
-    if (1)
+    if (0)
     {
         stateMachine_Walk();
         mnnInference_Walk();
@@ -102,14 +103,14 @@ void State_Rl::run(){
     //     // usleep(200);
     //     // usleep(100);
     // }
-    // else if(0){
+    else if(1){
     //     // if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
     //     //      if (time_rl>100)
     //     //     {
     //     //         time_rl=0;
-    //     //         stateMachine_legged();
-    //     //         mnnInference_legged();
-    //     //     }
+        stateMachine_legged();
+        mnnInference_legged();
+    }
     //     //     time_rl++;
     //     //     usleep(100);
     //     // }
@@ -514,8 +515,30 @@ void State_Rl::stateMachine_Loco(){
     }
     rlptr->resetNode();
 }
+
+
+void State_Rl::stateMachine_legged(){
+    if (rlptr == nullptr)
+    {
+      std::string mobModelPath = "../legged.mnn";
+      rlptr = std::make_shared<rl_Inference>(mobModelPath);
+      rlptr->initBuffer();
+    }
+    rlptr->resetNode();
+    if (adaptationNetPtr == nullptr)
+    {
+      std::string mobModelPath = "../encoder_z_input.mnn";
+      adaptationNetPtr = std::make_shared<rl_Inference>(mobModelPath);
+      adaptationNetPtr->initBuffer();
+    }
+
+
+}
+
 void State_Rl::mnnInference_legged()
 {
+
+
     Eigen::Vector4d q(_lowState->imu.quaternion[1],_lowState->imu.quaternion[2],_lowState->imu.quaternion[3],_lowState->imu.quaternion[0]);
     Eigen::Vector3d v(0.0,0.0,-1.0); 
     Eigen::Vector3d line_v(_lowState->imu.line[0],_lowState->imu.line[1],_lowState->imu.line[2]);
@@ -527,64 +550,83 @@ void State_Rl::mnnInference_legged()
     std::cout<<"proj"<<proj_gravity[0]<<" "<<proj_gravity[1]<<" "<<proj_gravity[2]<<std::endl;
     for (size_t i = 0; i < 3; i++)
     {
-        obs_legged[i] = 0;
-        obs_legged[i+3] = 0;
-        obs_legged[i+6] = proj_gravity[i];
+        obs_legged[i] =_lowState->imu.gyroscope[i] *obs_scales_ang_vel;
+        obs_legged[i+3] = proj_gravity[i];
     }
-    // obs_legged[9] = -_lowState->userValue.lx * obs_scales_lin_vel*1;
-    // obs_legged[10] = -_lowState->userValue.ly * obs_scales_lin_vel*1;
-    // obs_legged[11] = _lowState->userValue.rx *obs_scales_ang_vel*1;
-    obs_legged[9] = sin_counter;
-    obs_legged[10] = sin_counter;
-    obs_legged[11] = sin_counter;
+    obs_legged[6] = -_lowState->userValue.lx * obs_scales_lin_vel*0.8;
+    obs_legged[7] = -_lowState->userValue.ly * obs_scales_lin_vel*0.8;
+    obs_legged[8] = _lowState->userValue.rx *obs_scales_ang_vel*0.8;
+
     for (size_t i = 0; i < 12; i++)
     {
-        obs_legged[12+i] = (_lowState->motorState[i].q-default_dof_pos[i]) *obs_scales_dof_pos;
-        obs_legged[24+i] = _lowState->motorState[i].dq * obs_scales_dof_vel;
-        obs_legged[36+i] = last_action_cmd_legged[i];
+        obs_legged[9+i] = (_lowState->motorState[i].q-default_dof_pos[i]) *obs_scales_dof_pos;
+        obs_legged[21+i] = _lowState->motorState[i].dq * obs_scales_dof_vel;
+        obs_legged[33+i] = last_action_cmd_legged[i];
     }
-    for (size_t i = 0; i < N_proprio_Loco; i++)
+    // std::cout << std::count_if(obs_legged, obs_legged + N_proprio_legged, [](float x) {return abs(x) < 0.000001; }) << std::endl;
+    for (size_t i = 0; i < N_proprio_legged; i++)
     {
-        policy_input_legged[i] =obs_legged[i];
-    }
-    for (size_t i = 0; i < History_len_Loco*N_proprio_Loco; i++)
+        encoder_input_legged[i] =obs_legged[i];
+        // std::cout << obs_legged[i] << " ";
+        
+    }std::cout << std::endl;
+
+    for (size_t i = 0; i < History_len_legged*N_proprio_legged; i++)
     {
-        policy_input_legged[i+N_proprio_Loco]=obs_history_Loco[i];
+        encoder_input_legged[i+N_proprio_legged]=obs_history_legged[i];
     }
-    for (size_t i = 0; i < (History_len_Loco-1)*N_proprio_Loco; i++)
+    for (size_t i = 0; i <  (History_len_legged - 1)*N_proprio_legged; i++)
     {
-        obs_history_Loco[i] = obs_history_Loco[i+N_proprio_Loco];
+        obs_history_legged[i]  = obs_history_legged[i+N_proprio_legged];
     }
-    for (size_t i = 0; i < N_proprio_Loco; i++)
+    for (size_t i = 0; i <  N_proprio_legged; i++)
     {
-        obs_history_Loco[((History_len_Loco-1)*N_proprio_Loco)+i] = obs_legged[i];
+        obs_history_legged[i+(History_len_legged - 1)*N_proprio_legged]  = obs_legged[i];
     }
+    // memmove(obs_history_legged, obs_history_legged + N_proprio_legged, (History_len_legged - 1)*N_proprio_legged * sizeof(float));
+    // memcpy(obs_history_legged+(History_len_legged - 1)*N_proprio_legged , obs_legged , N_proprio_legged * sizeof(float));
+    adaptationNetPtr->advanceNNsync_Walk(encoder_input_legged,encoder_output_legged);
+    
+    for (size_t i = 0; i < Num_observations_legged; i++)
+    {
+        policy_input_legged[i] = encoder_input_legged[i];
+    }
+
+    for (size_t i = 0; i < Num_encoder_legged; i++)
+    {
+        policy_input_legged[i+Num_observations_legged] =encoder_output_legged[i];
+
+    }
+    // for (size_t i = 0; i < count; i++)
+    // {
+    //    policy_input_legged[i]=0;
+    // }
+    
     rlptr->advanceNNsync_Walk(policy_input_legged,action_cmd_legged);
+
+
     std::cout<<std::endl;
     float action_flt[12];
     for (size_t i = 0; i < 12; i++)
     {
         action_flt[i]=action_cmd_legged[i]*0.8+last_action_cmd_legged[i]*0.2;
+        action_flt[i]*=0.25;
     }
     for (size_t i = 0; i < 12; i++)
     {
         last_action_cmd_legged[i]=action_cmd_legged[i];
     }
+    action_flt[0]*=0.5;
+    action_flt[3]*=0.5;
+    action_flt[6]*=0.5;
+    action_flt[9]*=0.5;
+
     for (size_t i = 0; i < 12; i++)
     {
-        _lowCmd->motorCmd[i].q = action_flt[i]*0.25+ default_dof_pos[i];
+        _lowCmd->motorCmd[i].q = action_flt[i]+ default_dof_pos[i];
     }
 }
 
-void State_Rl::stateMachine_legged(){
-    if (rlptr == nullptr)
-    {
-      std::string mobModelPath = "../legged.mnn";
-      rlptr = std::make_shared<rl_Inference>(mobModelPath);
-      rlptr->initBuffer();
-    }
-    rlptr->resetNode();
-}
 
 void State_Rl::mnnInference_mujoco()
 {

@@ -31,8 +31,11 @@
 #define N_priv_latent_Loco  4 + 1 + 12 + 12 + 12 + 6 + 1 + 4 + 1 - 3 + 3 - 3 + 4 - 7
 #define Num_observations_Loco  (N_proprio_Loco + N_priv_latent_Loco + N_scan_Loco + (History_len_Loco * N_proprio_Loco))
 // -----------------------------legged---------------------------------
-#define N_proprio_legged  48
-#define Num_observations_legged 48*11
+#define N_proprio_legged  45
+#define Num_observations_legged 45*6
+#define Num_encoder_legged 32
+#define History_len_legged 5
+
 
 #define PI 3.141592653589793
 class State_Rl : public FSMState{
@@ -98,18 +101,15 @@ public:
     float action_statedq_Loco[Num_dof];
     float action_cmd_Loco[Num_dof];
     float last_action_cmd_Loco[Num_dof];
-    float priv_latent[N_priv_latent_Loco]={
-        -0.5000, -0.5000,  0.5000, -0.5000,  1.0000,  0.0000,  0.0000,  0.0000,
-        0.0000,  1.0000,  0.0000,  1.0344,  0.9463,  1.0435,  0.9686,  1.0811,
-        1.0292,  0.9165,  1.0014,  1.0138,  1.0799,  1.0629,  0.9305,  0.9495,
-        0.9978,  1.0156,  1.0877,  1.0432,  1.0514,  0.9638,  0.9352,  1.0294,
-        1.0940,  1.0774,  0.9963,  1.0515,  0.9851,  1.0735,  0.9042,  1.0619,
-        1.0104,  1.0664,  1.0683,  1.0602,  0.9617,  0.9684,  1.0995};
+    float priv_latent[N_priv_latent_Loco];
     // -----------------------legged------------------------
     float obs_legged[N_proprio_legged];
-    float policy_input_legged[Num_observations_legged];
-    float action_stateq_legged[Num_dof];
-    float action_statedq_legged[Num_dof];
+
+    float encoder_input_legged[Num_observations_legged];
+    float encoder_output_legged[Num_encoder_legged];
+    float obs_history_legged[History_len_legged*N_proprio_legged];
+    float policy_input_legged[Num_observations_legged+Num_encoder_legged];
+
     float action_cmd_legged[Num_dof];
     float last_action_cmd_legged[Num_dof];
         // -----------------------backflip------------------------

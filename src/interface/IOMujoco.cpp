@@ -89,6 +89,12 @@ void IOMujoco::recv(LowlevelState *state){
         state->imu.line[i] = base_line[i];
     }
     state->imu.quaternion[3] = base_quat[3];
+    std::cout<<"imu:";
+    for (size_t i = 0; i < 3; i++)
+    {
+        std::cout<<state->imu.gyroscope[i]<<" ";
+    }
+    std::cout<<std::endl;
     // std::cout<<"imux:"<<state->imu.accelerometer[0]<<"\ty:"<<state->imu.accelerometer[1]<<"\tz:"<<state->imu.accelerometer[2]<<std::endl;
 }
 

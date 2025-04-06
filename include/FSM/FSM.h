@@ -28,7 +28,7 @@ struct FSMStateList{
 };
 
 class FSM{
-public:
+public: 
     FSM(CtrlComponents *ctrlComp);
     ~FSM();
     void initialize();
