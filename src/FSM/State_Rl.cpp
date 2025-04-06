@@ -560,7 +560,7 @@ void State_Rl::mnnInference_legged()
     for (size_t i = 0; i < 12; i++)
     {
         obs_legged[9+i] = (_lowState->motorState[i].q-default_dof_pos[i]) *obs_scales_dof_pos;
-        obs_legged[21+i] = _lowState->motorState[i].dq * obs_scales_dof_vel;
+        obs_legged[21+i] = _lowState->motorState[i].dq * obs_scales_dof_vel/9.1;
         obs_legged[33+i] = last_action_cmd_legged[i];
     }
     // std::cout << std::count_if(obs_legged, obs_legged + N_proprio_legged, [](float x) {return abs(x) < 0.000001; }) << std::endl;

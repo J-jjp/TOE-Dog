@@ -10,10 +10,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_BUILD_TYPE Debug)
 find_package(glfw3 REQUIRED)
 find_package(Eigen3 REQUIRED )
-# find_package(catkin REQUIRED COMPONENTS
-#    roscpp
-#    sensor_msgs
-# )
+find_package(catkin REQUIRED COMPONENTS
+   roscpp
+   sensor_msgs
+)
 if(NOT EIGEN3_FOUND)
   message(FATAL_ERROR "Could not find Eigen3")
 endif()

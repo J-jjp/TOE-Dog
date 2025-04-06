@@ -22,6 +22,8 @@
 #include <string>
 #include <iostream>
 #include <control/ControlFrame.h>
+#include <ros/ros.h>
+#include <std_msgs/Float32MultiArray.h>
 // MuJoCo data structures
 mjModel* m = NULL;                  // MuJoCo model
 mjData* d = NULL;                   // MuJoCo data
@@ -126,12 +128,15 @@ void scroll(GLFWwindow* window, double xoffset, double yoffset) {
 
 
 // main function
-int main(int argc, const char** argv) {
+int main(int argc,char** argv) {
   mjvCamera *cam1=&cam;                      // abstract camera
   mjvOption *opt1=&opt;                      // visualization options
   mjvScene *scn1=&scn;                       // abstract scene
   mjrContext *con1=&con;                     // custom GPU context
-
+  ros::init(argc, argv, "array_publisher");
+  ros::NodeHandle nh;
+  ros::Publisher pub = nh.advertise<std_msgs::Float32MultiArray>("array_data", 10);
+  ros::Rate rate(50);
   // load and compile model
   char error[1000] = "Could not load binary model";
   m = mj_loadXML("../robot/TOE_dog/xml/scene.xml", 0, error, 1000);
@@ -183,37 +188,57 @@ int main(int argc, const char** argv) {
     ctrlComp->robotModel = new A1Robot();
     ControlFrame ctrlFrame(ctrlComp);
     int time=0;
-  while (!glfwWindowShouldClose(window)) {
-    time++;
-    mjtNum simstart = d->time;
-    float kp=0;
-    float kd=0;
-    // m->opt.timestep = 0.001;
-    int count=0;
-    ctrlFrame.run();
-    while (d->time - simstart < 1.0/60.0) {
-      // if (count%20==0)
-      // {
-        // ctrlFrame.run();
-      // }
+  while (ros::ok() && !glfwWindowShouldClose(window)) {
+      time++;
+      mjtNum simstart = d->time;
+      float kp=0;
+      float kd=0;
+      // m->opt.timestep = 0.001;
+      int count=0;
+      ctrlFrame.run();
+  
+      std_msgs::Float32MultiArray array_msg;
 
-      mj_step(m, d);
-      count++;
-    }
+      // 填充数据（示例：12 个 float）
+      std::vector<float> data(12);
+      for (size_t i = 0; i < 12; i++)
+      {
+        data[i]=ctrlComp->lowState->motorState[i].dq;
+      }
 
+      
+      // 设置数据到消息
+      array_msg.data = data;
+
+      // 发布消息
+      pub.publish(array_msg);
+
+      ROS_INFO("Published array: [%f, %f, %f, ...]", data[0], data[1], data[2]);
+
+      
+    
+      while (d->time - simstart < 1.0/60.0) {
+
+
+        mj_step(m, d);
+        count++;
+      }
+      
     // get framebuffer viewport
-    mjrRect viewport = {0, 0, 0, 0};
-    glfwGetFramebufferSize(window, &viewport.width, &viewport.height);
+      mjrRect viewport = {0, 0, 0, 0};
+      glfwGetFramebufferSize(window, &viewport.width, &viewport.height);
 
-    // update scene and render
-    mjv_updateScene(m, d, &opt, NULL, &cam, mjCAT_ALL, &scn);
-    mjr_render(viewport, &scn, &con);
+      // update scene and render
+      mjv_updateScene(m, d, &opt, NULL, &cam, mjCAT_ALL, &scn);
+      mjr_render(viewport, &scn, &con);
 
-    // swap OpenGL buffers (blocking call due to v-sync)
-    glfwSwapBuffers(window);
+      // swap OpenGL buffers (blocking call due to v-sync)
+      glfwSwapBuffers(window);
 
-    // process pending GUI events, call GLFW callbacks
-    glfwPollEvents();
+      // process pending GUI events, call GLFW callbacks
+      glfwPollEvents();
+      rate.sleep();
+
   }
 
   //free visualization storage

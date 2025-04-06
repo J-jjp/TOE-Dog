@@ -1,3 +1,0 @@
-Sun Apr  6 11:13:18 2025
-ERROR: Load model error: Error: Error opening file '/home/toe/TOE-Dog/robot/TOE_dog/xml/robot/TOE_dog/xml/TOE_base.STL': No such file or directory
-
