@@ -203,7 +203,7 @@ int main(int argc,char** argv) {
       std::vector<float> data(12);
       for (size_t i = 0; i < 12; i++)
       {
-        data[i]=ctrlComp->lowState->motorState[i].dq;
+        data[i]=ctrlComp->lowState->imu.gyroscope[i];
       }
 
       

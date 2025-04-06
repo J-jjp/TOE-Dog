@@ -42,14 +42,8 @@ public:
         cmd.T=cmd.T;
         cmd.K_P=std::max(-0.03f, std::min(kp, 0.03f));
         cmd.K_W=std::max(-8.5f, std::min(kd, 8.5f));
-        if (q==0)
-        {
-            cmd.Pos = 0;
-        }
-        else{
-            cmd.Pos = send_pose(q);
-            // std::cout<<"cmd.q"<<cmd.Pos<<std::endl;
-        }
+        cmd.Pos = send_pose(q);
+
         // std::cout<<"cmd.q"<<q<<std::endl;
         motor_sendRecv();
     }
