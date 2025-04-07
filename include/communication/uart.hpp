@@ -71,7 +71,7 @@ public:
     printf("\n");
 #endif
 
-    usleep(300);
+    usleep(200);
 
     int rsize = Mread();
     if (rsize <= 0) {

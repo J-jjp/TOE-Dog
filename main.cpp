@@ -208,12 +208,12 @@ int main(int argc,char** argv) {
 
       
       // 设置数据到消息
-      array_msg.data = data;
+      // array_msg.data = data;
 
       // 发布消息
-      pub.publish(array_msg);
+      // pub.publish(array_msg);
 
-      ROS_INFO("Published array: [%f, %f, %f, ...]", data[0], data[1], data[2]);
+      // ROS_INFO("Published array: [%f, %f, %f, ...]", data[0], data[1], data[2]);
 
       
     

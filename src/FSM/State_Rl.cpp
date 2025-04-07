@@ -15,6 +15,9 @@ void State_Rl::enter(){
             gear_ratio=1;
         }
         else if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
+            
+            // _lowCmd->setZeroGain(i);
+
             _lowCmd->setRealrlGain(i);
             gear_ratio=9.1;
         }

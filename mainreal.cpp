@@ -117,7 +117,7 @@ int main(int argc, char** argv) {
     ctrlPlat = CtrlPlatform::REALROBOT;
     CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
     ctrlComp->ctrlPlatform = ctrlPlat;
-    ctrlComp->dt = 0.02; 
+    ctrlComp->dt = 0.01; 
     ctrlComp->running = &running;
     ctrlComp->robotModel = new ToeRobot();
 
@@ -139,10 +139,10 @@ int main(int argc, char** argv) {
     ctrlComp->lowState->imu.gyroscope[1]=imu_subscriber.acc_y;
     ctrlComp->lowState->imu.gyroscope[2]=imu_subscriber.acc_z;
     ctrlFrame.run();
-    Eigen::Vector3d v(0.0,0.0,-1.0); 
-    Eigen::Vector4d q(imu_subscriber.x,imu_subscriber.y,imu_subscriber.z,imu_subscriber.w);
-    Eigen::Vector3d proj_gravity_eigen = quat_rotate_inverse(q, v);
-    std::cout<<"222222"<<proj_gravity_eigen[1]<<" "<<-proj_gravity_eigen[0]<<" "<<proj_gravity_eigen[2]<<std::endl;
+    // Eigen::Vector3d v(0.0,0.0,-1.0); 
+    // Eigen::Vector4d q(imu_subscriber.x,imu_subscriber.y,imu_subscriber.z,imu_subscriber.w);
+    // Eigen::Vector3d proj_gravity_eigen = quat_rotate_inverse(q, v);
+    // std::cout<<"222222"<<proj_gravity_eigen[1]<<" "<<-proj_gravity_eigen[0]<<" "<<proj_gravity_eigen[2]<<std::endl;
     usleep(200);
   }
 ros_thread.join();
