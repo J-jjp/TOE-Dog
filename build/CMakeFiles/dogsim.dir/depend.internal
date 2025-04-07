@@ -43,7 +43,7 @@ CMakeFiles/dogsim.dir/main.cpp.o
  ../mujoco-3.2.5/include/mujoco/mjui.h
  ../mujoco-3.2.5/include/mujoco/mjvisualize.h
  ../mujoco-3.2.5/include/mujoco/mujoco.h
- /home/toe/TOE-Dog/main.cpp
+ /home/ubuntu/dog/TOE-Dog/main.cpp
  /opt/ros/noetic/include/ros/advertise_options.h
  /opt/ros/noetic/include/ros/advertise_service_options.h
  /opt/ros/noetic/include/ros/assert.h
@@ -130,7 +130,7 @@ CMakeFiles/dogsim.dir/src/FSM/FSM.cpp.o
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
- /home/toe/TOE-Dog/src/FSM/FSM.cpp
+ /home/ubuntu/dog/TOE-Dog/src/FSM/FSM.cpp
 CMakeFiles/dogsim.dir/src/FSM/FSMState.cpp.o
  ../include/FSM/FSMState.h
  ../include/common/enumClass.h
@@ -144,7 +144,7 @@ CMakeFiles/dogsim.dir/src/FSM/FSMState.cpp.o
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
- /home/toe/TOE-Dog/src/FSM/FSMState.cpp
+ /home/ubuntu/dog/TOE-Dog/src/FSM/FSMState.cpp
 CMakeFiles/dogsim.dir/src/FSM/State_FixedStand.cpp.o
  ../include/FSM/FSMState.h
  ../include/FSM/State_FixedStand.h
@@ -159,7 +159,7 @@ CMakeFiles/dogsim.dir/src/FSM/State_FixedStand.cpp.o
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
- /home/toe/TOE-Dog/src/FSM/State_FixedStand.cpp
+ /home/ubuntu/dog/TOE-Dog/src/FSM/State_FixedStand.cpp
 CMakeFiles/dogsim.dir/src/FSM/State_FreeStand.cpp.o
  ../include/FSM/FSMState.h
  ../include/FSM/State_FreeStand.h
@@ -174,7 +174,7 @@ CMakeFiles/dogsim.dir/src/FSM/State_FreeStand.cpp.o
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
- /home/toe/TOE-Dog/src/FSM/State_FreeStand.cpp
+ /home/ubuntu/dog/TOE-Dog/src/FSM/State_FreeStand.cpp
 CMakeFiles/dogsim.dir/src/FSM/State_Passive.cpp.o
  ../include/FSM/FSMState.h
  ../include/FSM/State_Passive.h
@@ -189,7 +189,7 @@ CMakeFiles/dogsim.dir/src/FSM/State_Passive.cpp.o
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
- /home/toe/TOE-Dog/src/FSM/State_Passive.cpp
+ /home/ubuntu/dog/TOE-Dog/src/FSM/State_Passive.cpp
 CMakeFiles/dogsim.dir/src/FSM/State_Rl.cpp.o
  ../MNN/ErrorCode.hpp
  ../MNN/HalideRuntime.h
@@ -211,12 +211,12 @@ CMakeFiles/dogsim.dir/src/FSM/State_Rl.cpp.o
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
- /home/toe/TOE-Dog/src/FSM/State_Rl.cpp
+ /home/ubuntu/dog/TOE-Dog/src/FSM/State_Rl.cpp
 CMakeFiles/dogsim.dir/src/common/unitreeLeg.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTypes.h
  ../include/common/unitreeLeg.h
- /home/toe/TOE-Dog/src/common/unitreeLeg.cpp
+ /home/ubuntu/dog/TOE-Dog/src/common/unitreeLeg.cpp
 CMakeFiles/dogsim.dir/src/common/unitreeRobot.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTools.h
@@ -225,7 +225,7 @@ CMakeFiles/dogsim.dir/src/common/unitreeRobot.cpp.o
  ../include/common/unitreeRobot.h
  ../include/interface/CmdPanel.h
  ../include/message/LowlevelState.h
- /home/toe/TOE-Dog/src/common/unitreeRobot.cpp
+ /home/ubuntu/dog/TOE-Dog/src/common/unitreeRobot.cpp
 CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o
  ../MNN/ErrorCode.hpp
  ../MNN/HalideRuntime.h
@@ -252,14 +252,14 @@ CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
- /home/toe/TOE-Dog/src/control/ControlFrame.cpp
+ /home/ubuntu/dog/TOE-Dog/src/control/ControlFrame.cpp
 CMakeFiles/dogsim.dir/src/control/leg_control.cpp.o
  ../include/communication/motor.h
  ../include/communication/motor_msg.h
  ../include/communication/uart.hpp
  ../include/control/ThreadPool.h
  ../include/control/leg_control.h
- /home/toe/TOE-Dog/src/control/leg_control.cpp
+ /home/ubuntu/dog/TOE-Dog/src/control/leg_control.cpp
 CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o
  ../MNN/ErrorCode.hpp
  ../MNN/HalideRuntime.h
@@ -268,7 +268,7 @@ CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o
  ../MNN/MNNForwardType.h
  ../MNN/Tensor.hpp
  ../include/control/rl_Inference.h
- /home/toe/TOE-Dog/src/control/rl_Inference.cpp
+ /home/ubuntu/dog/TOE-Dog/src/control/rl_Inference.cpp
 CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTools.h
@@ -293,7 +293,7 @@ CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o
  ../mujoco-3.2.5/include/mujoco/mjui.h
  ../mujoco-3.2.5/include/mujoco/mjvisualize.h
  ../mujoco-3.2.5/include/mujoco/mujoco.h
- /home/toe/TOE-Dog/src/interface/IOMujoco.cpp
+ /home/ubuntu/dog/TOE-Dog/src/interface/IOMujoco.cpp
 CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTools.h
@@ -309,18 +309,18 @@ CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o
  ../include/interface/WirelessHandle.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
- /home/toe/TOE-Dog/src/interface/IOReal.cpp
+ /home/ubuntu/dog/TOE-Dog/src/interface/IOReal.cpp
 CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTools.h
  ../include/common/mathTypes.h
  ../include/interface/CmdPanel.h
  ../include/interface/KeyBoard.h
- /home/toe/TOE-Dog/src/interface/KeyBoard.cpp
+ /home/ubuntu/dog/TOE-Dog/src/interface/KeyBoard.cpp
 CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTools.h
  ../include/common/mathTypes.h
  ../include/interface/CmdPanel.h
  ../include/interface/WirelessHandle.h
- /home/toe/TOE-Dog/src/interface/WirelessHandle.cpp
+ /home/ubuntu/dog/TOE-Dog/src/interface/WirelessHandle.cpp

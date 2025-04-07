@@ -32,9 +32,9 @@
 #define Num_observations_Loco  (N_proprio_Loco + N_priv_latent_Loco + N_scan_Loco + (History_len_Loco * N_proprio_Loco))
 // -----------------------------legged---------------------------------
 #define N_proprio_legged  45
-#define Num_observations_legged 45*11
-#define Num_encoder_legged 15
-#define History_len_legged 10
+#define Num_observations_legged 45*7
+#define Num_encoder_legged 32
+#define History_len_legged 6
 
 
 #define PI 3.141592653589793
