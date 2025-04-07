@@ -217,7 +217,7 @@ int main(int argc,char** argv) {
 
       
     
-      while (d->time - simstart < 1.0/60.0) {
+      while (d->time - simstart < 1.0/50.0) {
 
 
         mj_step(m, d);

@@ -73,12 +73,13 @@ void State_Rl::enter(){
     memset(policy_input_legged,0,sizeof(float)*(Num_observations_legged+Num_encoder_legged));
     memset(action_cmd_legged,0,sizeof(float)*Num_dof);
     memset(last_action_cmd_legged,0,sizeof(float)*Num_dof);
+    time_rl=0;
 }
 
 void State_Rl::run(){
     speed_limit();
     // test_motor();o
-    // time_rl++;
+    time_rl++;
     if (0)
     {
         stateMachine_Walk();
@@ -104,12 +105,15 @@ void State_Rl::run(){
     //     // usleep(100);
     // }
     else if(1){
-    //     // if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
-    //     //      if (time_rl>100)
-    //     //     {
-    //     //         time_rl=0;
-        stateMachine_legged();
-        mnnInference_legged();
+        if(time_rl>1){
+            time_rl=0;
+            stateMachine_legged();
+            mnnInference_legged();
+            std::cout<<"执行";
+        }
+        else{
+            std::cout<<"没有执行";
+        }
     }
     //     //     time_rl++;
     //     //     usleep(100);
