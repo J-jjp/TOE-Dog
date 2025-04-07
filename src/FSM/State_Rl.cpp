@@ -554,10 +554,25 @@ void State_Rl::mnnInference_legged()
     proj_gravity[0] = proj_gravity_eigen(0);
     proj_gravity[1] = proj_gravity_eigen(1);
     proj_gravity[2] = proj_gravity_eigen(2);
-    std::cout<<"proj"<<proj_gravity[0]<<" "<<proj_gravity[1]<<" "<<proj_gravity[2]<<std::endl;
+    Eigen::Vector3d ang_v(_lowState->imu.gyroscope[0],_lowState->imu.gyroscope[1],_lowState->imu.gyroscope[2]);
+    Eigen::Vector3d base_ang= quat_rotate_inverse(q, ang_v);
+    if(_ctrlComp->ctrlPlatform == CtrlPlatform::Mujoco){
+        for (size_t i = 0; i < 3; i++)
+        {
+            obs_legged[i] =_lowState->imu.gyroscope[i] *obs_scales_ang_vel;
+        }
+    }
+    else if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
+        for (size_t i = 0; i < 3; i++)
+        {
+            obs_legged[i] =base_ang[i] *obs_scales_ang_vel;
+
+        }
+
+    }
     for (size_t i = 0; i < 3; i++)
     {
-        obs_legged[i] =_lowState->imu.gyroscope[i] *obs_scales_ang_vel;
+
         obs_legged[i+3] = proj_gravity[i];
     }
     obs_legged[6] = -_lowState->userValue.lx * obs_scales_lin_vel*0.8;
