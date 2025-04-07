@@ -253,9 +253,6 @@ CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o: ../include/message/Lowleve
 CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o: ../include/message/LowlevelState.h
 CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o: ../src/control/ControlFrame.cpp
 
-CMakeFiles/dogsim.dir/src/control/leg_control.cpp.o: ../include/communication/motor.h
-CMakeFiles/dogsim.dir/src/control/leg_control.cpp.o: ../include/communication/motor_msg.h
-CMakeFiles/dogsim.dir/src/control/leg_control.cpp.o: ../include/communication/uart.hpp
 CMakeFiles/dogsim.dir/src/control/leg_control.cpp.o: ../include/control/ThreadPool.h
 CMakeFiles/dogsim.dir/src/control/leg_control.cpp.o: ../include/control/leg_control.h
 CMakeFiles/dogsim.dir/src/control/leg_control.cpp.o: ../src/control/leg_control.cpp
@@ -297,9 +294,6 @@ CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o: ../src/interface/IOMujoco.cp
 CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: ../include/common/enumClass.h
 CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: ../include/common/mathTools.h
 CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: ../include/common/mathTypes.h
-CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: ../include/communication/motor.h
-CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: ../include/communication/motor_msg.h
-CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: ../include/communication/uart.hpp
 CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: ../include/control/leg_control.h
 CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: ../include/interface/CmdPanel.h
 CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o: ../include/interface/IOInterface.h

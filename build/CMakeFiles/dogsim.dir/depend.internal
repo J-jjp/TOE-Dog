@@ -254,9 +254,6 @@ CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o
  ../include/message/LowlevelState.h
  /home/ubuntu/dog/TOE-Dog/src/control/ControlFrame.cpp
 CMakeFiles/dogsim.dir/src/control/leg_control.cpp.o
- ../include/communication/motor.h
- ../include/communication/motor_msg.h
- ../include/communication/uart.hpp
  ../include/control/ThreadPool.h
  ../include/control/leg_control.h
  /home/ubuntu/dog/TOE-Dog/src/control/leg_control.cpp
@@ -298,9 +295,6 @@ CMakeFiles/dogsim.dir/src/interface/IOReal.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTools.h
  ../include/common/mathTypes.h
- ../include/communication/motor.h
- ../include/communication/motor_msg.h
- ../include/communication/uart.hpp
  ../include/control/leg_control.h
  ../include/interface/CmdPanel.h
  ../include/interface/IOInterface.h
