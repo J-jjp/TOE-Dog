@@ -108,15 +108,15 @@ void State_Rl::run(){
     //     // usleep(100);
     // }
     else if(1){
-        if(time_rl>1){
-            time_rl=0;
+        // if(time_rl>1){
+        //     time_rl=0;
             stateMachine_legged();
             mnnInference_legged();
             std::cout<<"执行";
-        }
-        else{
-            std::cout<<"没有执行";
-        }
+        // }
+        // else{
+        //     std::cout<<"没有执行";
+        // }
     }
     //     //     time_rl++;
     //     //     usleep(100);
@@ -558,25 +558,25 @@ void State_Rl::mnnInference_legged()
     
     Eigen::Vector3d base_ang= quat_rotate_inverse(q, ang_v);
     
-    for (size_t i = 0; i < 3; i++)
-    {
-        obs_legged[i] =_lowState->imu.gyroscope[i] *obs_scales_ang_vel;
-    }
+    // for (size_t i = 0; i < 3; i++)
+    // {
+    //     obs_legged[i] =_lowState->imu.gyroscope[i] *obs_scales_ang_vel;
+    // }
     
     for (size_t i = 0; i < 3; i++)
     {
 
-        obs_legged[i+3] = proj_gravity[i];
+        obs_legged[i] = proj_gravity[i];
     }
-    obs_legged[6] = -_lowState->userValue.lx * obs_scales_lin_vel*0.8;
-    obs_legged[7] = -_lowState->userValue.ly * obs_scales_lin_vel*0.8;
-    obs_legged[8] = _lowState->userValue.rx *obs_scales_ang_vel*0.8;
+    obs_legged[3] = -_lowState->userValue.ly * obs_scales_lin_vel*0.7;
+    obs_legged[4] = -_lowState->userValue.lx * obs_scales_lin_vel*0.5;
+    obs_legged[5] = -_lowState->userValue.rx *obs_scales_ang_vel*0.7;
 
     for (size_t i = 0; i < 12; i++)
     {
-        obs_legged[9+i] = (_lowState->motorState[i].q-default_dof_pos[i]) *obs_scales_dof_pos;
-        obs_legged[21+i] = _lowState->motorState[i].dq * obs_scales_dof_vel/9.1;
-        obs_legged[33+i] = last_action_cmd_legged[i];
+        obs_legged[6+i] = (_lowState->motorState[i].q-default_dof_pos[i]) *obs_scales_dof_pos;
+        obs_legged[18+i] = _lowState->motorState[i].dq * obs_scales_dof_vel;
+        obs_legged[30+i] = last_action_cmd_legged[i];
     }
     // std::cout << std::count_if(obs_legged, obs_legged + N_proprio_legged, [](float x) {return abs(x) < 0.000001; }) << std::endl;
     for (size_t i = 0; i < N_proprio_legged; i++)
@@ -624,17 +624,13 @@ void State_Rl::mnnInference_legged()
     float action_flt[12];
     for (size_t i = 0; i < 12; i++)
     {
-        action_flt[i]=action_cmd_legged[i]*0.8+last_action_cmd_legged[i]*0.2;
-        action_flt[i]*=0.25;
+        action_flt[i]=action_cmd_legged[i]*0.25;
     }
     for (size_t i = 0; i < 12; i++)
     {
         last_action_cmd_legged[i]=action_cmd_legged[i];
     }
-    action_flt[0]*=0.5;
-    action_flt[3]*=0.5;
-    action_flt[6]*=0.5;
-    action_flt[9]*=0.5;
+
 
     for (size_t i = 0; i < 12; i++)
     {

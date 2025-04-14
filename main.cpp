@@ -22,8 +22,8 @@
 #include <string>
 #include <iostream>
 #include <control/ControlFrame.h>
-#include <ros/ros.h>
-#include <std_msgs/Float32MultiArray.h>
+// #include <ros/ros.h>
+// #include <std_msgs/Float32MultiArray.h>
 // MuJoCo data structures
 mjModel* m = NULL;                  // MuJoCo model
 mjData* d = NULL;                   // MuJoCo data
@@ -133,10 +133,10 @@ int main(int argc,char** argv) {
   mjvOption *opt1=&opt;                      // visualization options
   mjvScene *scn1=&scn;                       // abstract scene
   mjrContext *con1=&con;                     // custom GPU context
-  ros::init(argc, argv, "array_publisher");
-  ros::NodeHandle nh;
-  ros::Publisher pub = nh.advertise<std_msgs::Float32MultiArray>("array_data", 10);
-  ros::Rate rate(50);
+  // ros::init(argc, argv, "array_publisher");
+  // ros::NodeHandle nh;
+  // ros::Publisher pub = nh.advertise<std_msgs::Float32MultiArray>("array_data", 10);
+  // ros::Rate rate(50);
   // load and compile model
   char error[1000] = "Could not load binary model";
   m = mj_loadXML("../robot/TOE_dog/xml/scene.xml", 0, error, 1000);
@@ -188,7 +188,7 @@ int main(int argc,char** argv) {
     ctrlComp->robotModel = new A1Robot();
     ControlFrame ctrlFrame(ctrlComp);
     int time=0;
-  while (ros::ok() && !glfwWindowShouldClose(window)) {
+  while (!glfwWindowShouldClose(window)) {
       time++;
       mjtNum simstart = d->time;
       float kp=0;
@@ -197,14 +197,14 @@ int main(int argc,char** argv) {
       int count=0;
       ctrlFrame.run();
   
-      std_msgs::Float32MultiArray array_msg;
+      // std_msgs::Float32MultiArray array_msg;
 
       // 填充数据（示例：12 个 float）
-      std::vector<float> data(12);
-      for (size_t i = 0; i < 12; i++)
-      {
-        data[i]=ctrlComp->lowState->imu.gyroscope[i];
-      }
+      // std::vector<float> data(12);
+      // for (size_t i = 0; i < 12; i++)
+      // {
+      //   data[i]=ctrlComp->lowState->imu.gyroscope[i];
+      // }
 
       
       // 设置数据到消息
@@ -237,7 +237,7 @@ int main(int argc,char** argv) {
 
       // process pending GUI events, call GLFW callbacks
       glfwPollEvents();
-      rate.sleep();
+      // rate.sleep();
 
   }
 
