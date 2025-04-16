@@ -36,8 +36,13 @@
 #define Num_encoder_legged 32
 #define History_len_legged 9
 
-
+// -----------------------------amp--------------------------------
+#define N_proprio_amp  42
+#define Num_observations_amp 42*10
+#define Num_encoder_amp 32
+#define History_len_amp 1
 #define PI 3.141592653589793
+
 class State_Rl : public FSMState{
 public:
     State_Rl(CtrlComponents *ctrlComp);
@@ -52,6 +57,8 @@ public:
     void stateMachine_mast();
     void mnnInference_legged();
     void stateMachine_legged();
+    void mnnInference_amp();
+    void stateMachine_amp();
     void mnnInference_mujoco();
     void stateMachine_mujoco();
     void mnnInference_Walk();
@@ -68,7 +75,7 @@ public:
     Eigen::Vector3d quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v); 
     void mobRun();
     std::vector<float> default_dof_pos={0.1,0.8,-1.5 ,-0.1,0.8,-1.5,0.1,1,-1.5, -0.1,1.,-1.5};//#默认角度需要与isacc一致
-    std::vector<float> default_dof_pos_mujoco={-0.1,0.9,-1.8 ,0.1,0.9,-1.8,-0.1,0.9,-1.8, 0.1,0.9,-1.8};//#默认角度需要与isacc一致
+    std::vector<float> default_dof_pos_amp={0.,0.9,-1.8 ,-0.,0.9,-1.8, 0.,0.9,-1.8, -0.,0.9,-1.8};//#默认角度需要与isacc一致
     Vec3 quaternion_to_euler_array(Vec4 quat);
     std::shared_ptr<rl_Inference> rlptr = nullptr;
     std::shared_ptr<rl_Inference> adaptationNetPtr = nullptr;
@@ -112,6 +119,16 @@ public:
 
     float action_cmd_legged[Num_dof];
     float last_action_cmd_legged[Num_dof];
+    // -----------------------amp------------------------
+    float obs_amp[N_proprio_amp];
+
+    float encoder_input_amp[Num_observations_amp];
+    float encoder_output_amp[Num_encoder_amp];
+    float obs_history_amp[History_len_amp*N_proprio_amp];
+    float policy_input_amp[Num_observations_amp+Num_encoder_amp];
+
+    float action_cmd_amp[Num_dof];
+    float last_action_cmd_amp[Num_dof];
         // -----------------------backflip------------------------
     float obs_backflip[60];
     // float policy_input_backflip[60];

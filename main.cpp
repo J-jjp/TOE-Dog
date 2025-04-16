@@ -183,7 +183,7 @@ int main(int argc,char** argv) {
     ctrlPlat = CtrlPlatform::Mujoco;
     CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
     ctrlComp->ctrlPlatform = ctrlPlat;
-    ctrlComp->dt = 0.0025; // run at 400hz  控制周期       
+    ctrlComp->dt = 0.0025*8; // run at 400hz  控制周期       
     ctrlComp->running = &running;  //机器人控制的状态  运行 or 不运行
     ctrlComp->robotModel = new A1Robot();
     ControlFrame ctrlFrame(ctrlComp);
