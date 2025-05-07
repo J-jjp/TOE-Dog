@@ -101,11 +101,22 @@ void State_Rl::run(){
             stateMachine_Loco();
             mnnInference_Loco();
         }
-    else if(1){
+    else if(0){
         // if(time_rl>1){
         //     time_rl=0;
             stateMachine_legged();
             mnnInference_legged();
+        //     std::cout<<"执行";
+        // }
+        // else{
+        //     std::cout<<"没有执行";
+        // }
+    }
+    else if(1){
+        // if(time_rl>1){
+        //     time_rl=0;
+            stateMachine_qua();
+            mnnInference_qua();
         //     std::cout<<"执行";
         // }
         // else{
@@ -647,23 +658,23 @@ void State_Rl::mnnInference_legged()
         _lowCmd->motorCmd[i].q = action_flt[i]+ default_dof_pos[i];
     }
 }
-void State_Rl::stateMachine_que(){
+void State_Rl::stateMachine_qua(){
     if (rlptr == nullptr)
     {
-      std::string mobModelPath = "../legged_que.mnn";
+      std::string mobModelPath = "../legged_qua.mnn";
       rlptr = std::make_shared<rl_Inference>(mobModelPath);
       rlptr->initBuffer();
     }
     rlptr->resetNode();
     if (adaptationNetPtr == nullptr)
     {
-      std::string mobModelPath = "../encoder_z_input_que.mnn";
+      std::string mobModelPath = "../encoder_z_input_qua.mnn";
       adaptationNetPtr = std::make_shared<rl_Inference>(mobModelPath);
       adaptationNetPtr->initBuffer();
     }
 }
 
-void State_Rl::mnnInference_que()
+void State_Rl::mnnInference_qua()
 {
 
 
@@ -677,7 +688,7 @@ void State_Rl::mnnInference_que()
     proj_gravity[2] = proj_gravity_eigen(2);
     Eigen::Vector3d ang_v(_lowState->imu.gyroscope[0],_lowState->imu.gyroscope[1],_lowState->imu.gyroscope[2]);
     
-    Eigen::Vector3d base_ang= quat_rotate_inverse(q, ang_v);
+    // Eigen::Vector3d base_ang= quat_rotate_inverse(q, ang_v);
     
     // for (size_t i = 0; i < 3; i++)
     // {
@@ -687,79 +698,68 @@ void State_Rl::mnnInference_que()
     for (size_t i = 0; i < 3; i++)
     {
 
-        obs_legged[i] = proj_gravity[i];
+        obs_qua[i] = proj_gravity[i];
     }
-    obs_legged[3] = -_lowState->userValue.ly *2*0.7;
-    obs_legged[4] = -_lowState->userValue.lx *2*0.7*0.6;
-    obs_legged[5] = -_lowState->userValue.rx *0.25*0.7;
+    obs_qua[3] = -_lowState->userValue.ly *2*0.7;
+    obs_qua[4] = -_lowState->userValue.lx *2*0.7*0.6;
+    obs_qua[5] = -_lowState->userValue.rx *0.25*0.7;
 
     for (size_t i = 0; i < 12; i++)
     {
-        obs_legged[6+i] = (_lowState->motorState[i].q-default_dof_pos[i]) *obs_scales_dof_pos;
-        obs_legged[18+i] = _lowState->motorState[i].dq * obs_scales_dof_vel;
-        obs_legged[30+i] = last_action_cmd_legged[i];
+        obs_qua[6+i] = (_lowState->motorState[i].q-default_dof_pos[i]) *obs_scales_dof_pos;
+        obs_qua[18+i] = _lowState->motorState[i].dq * obs_scales_dof_vel;
+        obs_qua[30+i] = last_action_cmd_qua[i];
     }
-    // std::cout << std::count_if(obs_legged, obs_legged + N_proprio_legged, [](float x) {return abs(x) < 0.000001; }) << std::endl;
-    for (size_t i = 0; i < N_proprio_legged; i++)
+    for (size_t i = 0; i < N_proprio_qua; i++)
     {
-        encoder_input_legged[i] =obs_legged[i];
-        // std::cout << obs_legged[i] << " ";
+        encoder_input_qua[i] =obs_qua[i];
+        // std::cout << obs_qua[i] << " ";
         
     }std::cout << std::endl;
 
-    for (size_t i = 0; i < History_len_legged*N_proprio_legged; i++)
+    for (size_t i = 0; i < (History_len_qua-1)*N_proprio_qua; i++)
     {
-        encoder_input_legged[i+N_proprio_legged]=obs_history_legged[i];
+        encoder_input_qua[i+N_proprio_qua]=obs_history_qua[i];
     }
-    for (size_t i = 0; i <  (History_len_legged - 1)*N_proprio_legged; i++)
+    for (size_t i = 0; i <  (History_len_qua - 1)*N_proprio_qua; i++)
     {
-        obs_history_legged[i]  = obs_history_legged[i+N_proprio_legged];
+        obs_history_qua[i]  = obs_history_qua[i+N_proprio_qua];
     }
-    for (size_t i = 0; i <  N_proprio_legged; i++)
+    for (size_t i = 0; i <  N_proprio_qua; i++)
     {
-        obs_history_legged[i+(History_len_legged - 1)*N_proprio_legged]  = obs_legged[i];
+        obs_history_qua[i+(History_len_qua - 1)*N_proprio_qua]  = obs_qua[i];
     }
-    // memmove(obs_history_legged, obs_history_legged + N_proprio_legged, (History_len_legged - 1)*N_proprio_legged * sizeof(float));
-    // memcpy(obs_history_legged+(History_len_legged - 1)*N_proprio_legged , obs_legged , N_proprio_legged * sizeof(float));
-    adaptationNetPtr->advanceNNsync_Walk(encoder_input_legged,encoder_output_legged);
-    
-    for (size_t i = 0; i < Num_observations_legged; i++)
+  
+    adaptationNetPtr->advanceNNsync_Walk(obs_history_qua,encoder_output_qua);
+    normalize_l2_inplace(encoder_output_qua,32);
+    for (size_t i = 0; i < N_proprio_qua; i++)
     {
-        policy_input_legged[i] = encoder_input_legged[i];
+        policy_input_qua[i] = obs_qua[i];
     }
 
-    for (size_t i = 0; i < Num_encoder_legged; i++)
+    for (size_t i = 0; i < Num_encoder_qua; i++)
     {
-        policy_input_legged[i+Num_observations_legged] =encoder_output_legged[i];
+        policy_input_qua[i+N_proprio_qua] =encoder_output_qua[i];
 
     }
-    // for (size_t i = 0; i < count; i++)
-    // {
-    //    policy_input_legged[i]=0;
-    // }
-    
-    rlptr->advanceNNsync_Walk(policy_input_legged,action_cmd_legged);
+
+    rlptr->advanceNNsync_Walk(policy_input_qua,action_cmd_qua);
     for (size_t i = 0; i < 12; i++)
     {
-        if (action_cmd_legged[i]>3)action_cmd_legged[i]=3;
-        if (action_cmd_legged[i]<-3)action_cmd_legged[i]=3;
+        if (action_cmd_qua[i]>10)action_cmd_qua[i]=10;
+        if (action_cmd_qua[i]<-10)action_cmd_qua[i]=10;
     }
-    
-
-
     std::cout<<std::endl;
     float action_flt[12];
     for (size_t i = 0; i < 12; i++)
     {
-        // action_flt[i]=action_cmd_legged[i]*0.8+last_action_cmd_legged[i]*0.2;
-        action_flt[i]=action_cmd_legged[i]*0.25;
+
+        action_flt[i]=action_cmd_qua[i]*0.25;
     }
     for (size_t i = 0; i < 12; i++)
     {
-        last_action_cmd_legged[i]=action_cmd_legged[i];
+        last_action_cmd_qua[i]=action_cmd_qua[i];
     }
-
-
     for (size_t i = 0; i < 12; i++)
     {
         _lowCmd->motorCmd[i].q = action_flt[i]+ default_dof_pos[i];
@@ -1263,5 +1263,21 @@ void State_Rl::speed_limit(){
     } else {
         // 如果差值不大于0.1，直接设置为_lowState->userValue.lx的值
         _userValue.ry = _lowState->userValue.ry;
+    }
+}
+void State_Rl::normalize_l2_inplace(float* arr, int size, float eps) {
+    // 1. 计算 L2 范数
+    float norm = 0.0f;
+    for (int i = 0; i < size; i++) {
+        norm += arr[i] * arr[i];
+    }
+    norm = std::sqrt(norm);
+
+    // 2. 防止除以零
+    norm = std::max(norm, eps);
+
+    // 3. 归一化（原地修改）
+    for (int i = 0; i < size; i++) {
+        arr[i] /= norm;
     }
 }

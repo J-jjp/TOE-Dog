@@ -7,6 +7,6 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/toe/TOE-Dog/build/devel:$CMAKE_PREFIX_PATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/toe/TOE-Dog/build/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/toe/TOE-Dog:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/ubuntu/dog/TOE-Dog/build/devel:$CMAKE_PREFIX_PATH"
+export ROSLISP_PACKAGE_DIRECTORIES='/home/ubuntu/dog/TOE-Dog/build/devel/share/common-lisp'
+export ROS_PACKAGE_PATH="/home/ubuntu/dog/TOE-Dog:$ROS_PACKAGE_PATH"

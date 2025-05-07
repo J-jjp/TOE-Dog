@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/toe/TOE-Dog/build/gtest/googletest/cmake_install.cmake")
+  include("/home/ubuntu/dog/TOE-Dog/build/gtest/googletest/cmake_install.cmake")
 
 endif()
 

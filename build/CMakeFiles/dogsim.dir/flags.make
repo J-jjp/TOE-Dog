@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++17
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"dogreal\"
 
-CXX_INCLUDES = -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include 
+CXX_INCLUDES = -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/ubuntu/dog/TOE-Dog/include -I/usr/local/include/eigen3 -I/home/ubuntu/dog/TOE-Dog/./mujoco-3.2.5/simulate -I/home/ubuntu/dog/TOE-Dog/./mujoco-3.2.5/include -I/home/ubuntu/dog/TOE-Dog/./imgui -I/home/ubuntu/dog/TOE-Dog/./imgui/backends -I/home/ubuntu/dog/TOE-Dog/include/interface -I/home/ubuntu/dog/TOE-Dog/include/message -I/home/ubuntu/dog/TOE-Dog/include/FSM -I/home/ubuntu/dog/TOE-Dog/include/communication -I/home/ubuntu/dog/TOE-Dog/MNN/include 
 
