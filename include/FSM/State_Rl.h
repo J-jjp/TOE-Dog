@@ -35,7 +35,11 @@
 #define Num_observations_legged 42*10
 #define Num_encoder_legged 32
 #define History_len_legged 9
-
+// -----------------------------que---------------------------------
+#define N_proprio_que  42
+#define Num_observations_que  42*15
+#define Num_encoder_que  32
+#define History_len_que  15
 // -----------------------------amp--------------------------------
 #define N_proprio_amp  42
 #define Num_observations_amp 42*10
@@ -57,6 +61,8 @@ public:
     void stateMachine_mast();
     void mnnInference_legged();
     void stateMachine_legged();
+    void mnnInference_que();
+    void stateMachine_que();
     void mnnInference_amp();
     void stateMachine_amp();
     void mnnInference_mujoco();
@@ -119,6 +125,16 @@ public:
 
     float action_cmd_legged[Num_dof];
     float last_action_cmd_legged[Num_dof];
+    // -----------------------que------------------------
+    float obs_que[N_proprio_que];
+
+    float encoder_input_que[Num_observations_que];
+    float encoder_output_que[Num_encoder_que];
+    float obs_history_que[History_len_que*N_proprio_que];
+    float policy_input_que[Num_observations_que+Num_encoder_que];
+
+    float action_cmd_que[Num_dof];
+    float last_action_cmd_que[Num_dof];
     // -----------------------amp------------------------
     float obs_amp[N_proprio_amp];
 
