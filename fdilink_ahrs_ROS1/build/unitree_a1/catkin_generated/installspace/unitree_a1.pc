@@ -1,0 +1,8 @@
+prefix=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/install
+
+Name: unitree_a1
+Description: Description of unitree_a1
+Version: 0.1.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: roscpp std_msgs message_runtime

@@ -101,20 +101,27 @@ void State_Rl::run(){
             stateMachine_Loco();
             mnnInference_Loco();
         }
-    else if(0){
+    else if(1){
         // if(time_rl>1){
         //     time_rl=0;
             stateMachine_legged();
             mnnInference_legged();
-            // std::cout<<"执行";
+        //     std::cout<<"执行";
         // }
         // else{
         //     std::cout<<"没有执行";
         // }
     }
-    else if(1){
-        stateMachine_amp();
-        mnnInference_amp();
+    else if(0){
+        // if(time_rl>1){
+        //     time_rl=0;
+            stateMachine_amp();
+            mnnInference_amp();
+        //     std::cout<<"执行";
+        // }
+        // else{
+        //     std::cout<<"没有执行";
+        // }
     }
     //     //     time_rl++;
     //     //     usleep(100);
@@ -536,8 +543,6 @@ void State_Rl::stateMachine_legged(){
       adaptationNetPtr = std::make_shared<rl_Inference>(mobModelPath);
       adaptationNetPtr->initBuffer();
     }
-
-
 }
 
 void State_Rl::mnnInference_legged()
@@ -566,9 +571,9 @@ void State_Rl::mnnInference_legged()
 
         obs_legged[i] = proj_gravity[i];
     }
-    obs_legged[3] = -_lowState->userValue.ly *0.7;
-    obs_legged[4] = -_lowState->userValue.lx *0.7;
-    obs_legged[5] = -_lowState->userValue.rx *0.7;
+    obs_legged[3] = -_lowState->userValue.ly *2*0.7;
+    obs_legged[4] = -_lowState->userValue.lx *2*0.7*0.6;
+    obs_legged[5] = -_lowState->userValue.rx *0.25*0.7;
 
     for (size_t i = 0; i < 12; i++)
     {
@@ -616,14 +621,20 @@ void State_Rl::mnnInference_legged()
     // }
     
     rlptr->advanceNNsync_Walk(policy_input_legged,action_cmd_legged);
+    for (size_t i = 0; i < 12; i++)
+    {
+        if (action_cmd_legged[i]>3)action_cmd_legged[i]=3;
+        if (action_cmd_legged[i]<-3)action_cmd_legged[i]=3;
+    }
+    
 
 
     std::cout<<std::endl;
     float action_flt[12];
     for (size_t i = 0; i < 12; i++)
     {
-        action_flt[i]=action_cmd_legged[i]*0.8+last_action_cmd_legged[i]*0.2;
-        action_flt[i]=action_flt[i]*0.25;
+        // action_flt[i]=action_cmd_legged[i]*0.8+last_action_cmd_legged[i]*0.2;
+        action_flt[i]=action_cmd_legged[i]*0.25;
     }
     for (size_t i = 0; i < 12; i++)
     {
@@ -682,7 +693,7 @@ void State_Rl::mnnInference_amp()
         obs_amp[i] = proj_gravity[i];
     }
     obs_amp[39] = -_lowState->userValue.ly *0.7;
-    obs_amp[40] = -_lowState->userValue.lx *0.5;
+    obs_amp[40] = -_lowState->userValue.lx *0;
     obs_amp[41] = -_lowState->userValue.rx *0.7;
 
     for (size_t i = 0; i < 12; i++)

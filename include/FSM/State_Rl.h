@@ -41,7 +41,7 @@
 #define Num_observations_amp 42*10
 #define Num_encoder_amp 32
 #define History_len_amp 1
-#define PI 3.141592653589793
+#define PI 3.141592653589793f
 
 class State_Rl : public FSMState{
 public:

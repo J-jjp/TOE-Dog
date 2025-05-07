@@ -1,5 +1,5 @@
 <mujoco model="TOE_dog">
-  <compiler angle="radian" meshdir="/home/ubuntu/dog/TOE-Dog/robot/TOE_dog/xml/assets" autolimits="true"/>
+  <compiler angle="radian" meshdir="assets" autolimits="true"/>
   <default>
     <default class="dog">
       <geom friction="0.4" margin="0.001" condim="1"/>
@@ -135,18 +135,18 @@
 		<motor name="RR_calf_joint" joint="RR_calf_joint" gear="1" ctrllimited="true" ctrlrange="-12 12"/>
   </actuator>
 	<!-- <actuator>      
-		<position name="FR_hip_joint_M" joint="FR_hip_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
-		<position name="FR_thigh_joint_M" joint="FR_thigh_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
-		<position name="FR_calf_joint_M" joint="FR_calf_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
-		<position name="RR_hip_joint_M" joint="RR_hip_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
-		<position name="RR_thigh_joint_M" joint="RR_thigh_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
-		<position name="RR_calf_joint_M" joint="RR_calf_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
-		<position name="FL_hip_joint_M" joint="FL_hip_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
-		<position name="FL_thigh_joint_M" joint="FL_thigh_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
-		<position name="FL_calf_joint_M" joint="FL_calf_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
-		<position name="RL_hip_joint_M" joint="RL_hip_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
-		<position name="RL_thigh_joint_M" joint="RL_thigh_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
-		<position name="RL_calf_joint_M" joint="RL_calf_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />	 
+		<position name="FR_hip_joint_M" joint="FR_hip_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
+		<position name="FR_thigh_joint_M" joint="FR_thigh_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
+		<position name="FR_calf_joint_M" joint="FR_calf_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
+		<position name="RR_hip_joint_M" joint="RR_hip_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
+		<position name="RR_thigh_joint_M" joint="RR_thigh_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
+		<position name="RR_calf_joint_M" joint="RR_calf_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
+		<position name="FL_hip_joint_M" joint="FL_hip_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
+		<position name="FL_thigh_joint_M" joint="FL_thigh_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
+		<position name="FL_calf_joint_M" joint="FL_calf_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
+		<position name="RL_hip_joint_M" joint="RL_hip_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
+		<position name="RL_thigh_joint_M" joint="RL_thigh_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
+		<position name="RL_calf_joint_M" joint="RL_calf_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />	 
     </actuator> -->
   <sensor>
     <jointpos name="FL_hip_pos" joint="FL_hip_joint" />

@@ -132,6 +132,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/gtest/cmake_install.cmake")
   include("/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/fdilink_ahrs/cmake_install.cmake")
+  include("/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/unitree_a1/cmake_install.cmake")
 
 endif()
 

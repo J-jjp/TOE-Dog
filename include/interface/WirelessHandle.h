@@ -15,6 +15,7 @@
 #include <linux/joystick.h>  
 #include "interface/CmdPanel.h"
 #include "common/mathTools.h"
+#include <sys/time.h>
 #include <thread>
 #include <atomic>
 #define XBOX_TYPE_BUTTON    0x01  
@@ -65,12 +66,15 @@ public:
     float normalize_int_to_float(int value);
 private:
     int xbox_fd ;  
-    xbox_map_t map;  
+    xbox_map_t map;
+    struct timeval timeout;
+    struct js_event js;
     int len, type;  
     int axis_value, button_value;  
     int number_of_axis, number_of_buttons ;
     std::thread read_thread_;
     std::atomic<bool> reading_{false};
+    bool run_wirless_handle_=true;
 };
 
 #endif  // WIRELESSHANDLE_H

@@ -986,6 +986,188 @@ nav_msgs_generate_messages_lisp/fast:
 	$(MAKE) -f fdilink_ahrs/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make fdilink_ahrs/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build
 .PHONY : nav_msgs_generate_messages_lisp/fast
 
+#=============================================================================
+# Target rules for targets named Motor_node
+
+# Build rule for target.
+Motor_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Motor_node
+.PHONY : Motor_node
+
+# fast build rule for target.
+Motor_node/fast:
+	$(MAKE) -f unitree_a1/CMakeFiles/Motor_node.dir/build.make unitree_a1/CMakeFiles/Motor_node.dir/build
+.PHONY : Motor_node/fast
+
+#=============================================================================
+# Target rules for targets named unitree_a1_generate_messages
+
+# Build rule for target.
+unitree_a1_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1_generate_messages
+.PHONY : unitree_a1_generate_messages
+
+# fast build rule for target.
+unitree_a1_generate_messages/fast:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/build
+.PHONY : unitree_a1_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named _unitree_a1_generate_messages_check_deps_MotorData
+
+# Build rule for target.
+_unitree_a1_generate_messages_check_deps_MotorData: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _unitree_a1_generate_messages_check_deps_MotorData
+.PHONY : _unitree_a1_generate_messages_check_deps_MotorData
+
+# fast build rule for target.
+_unitree_a1_generate_messages_check_deps_MotorData/fast:
+	$(MAKE) -f unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/build.make unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/build
+.PHONY : _unitree_a1_generate_messages_check_deps_MotorData/fast
+
+#=============================================================================
+# Target rules for targets named unitree_a1_generate_messages_lisp
+
+# Build rule for target.
+unitree_a1_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1_generate_messages_lisp
+.PHONY : unitree_a1_generate_messages_lisp
+
+# fast build rule for target.
+unitree_a1_generate_messages_lisp/fast:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/build
+.PHONY : unitree_a1_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named unitree_a1_genlisp
+
+# Build rule for target.
+unitree_a1_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1_genlisp
+.PHONY : unitree_a1_genlisp
+
+# fast build rule for target.
+unitree_a1_genlisp/fast:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_genlisp.dir/build.make unitree_a1/CMakeFiles/unitree_a1_genlisp.dir/build
+.PHONY : unitree_a1_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named unitree_a1_generate_messages_cpp
+
+# Build rule for target.
+unitree_a1_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1_generate_messages_cpp
+.PHONY : unitree_a1_generate_messages_cpp
+
+# fast build rule for target.
+unitree_a1_generate_messages_cpp/fast:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/build
+.PHONY : unitree_a1_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named unitree_a1_gennodejs
+
+# Build rule for target.
+unitree_a1_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1_gennodejs
+.PHONY : unitree_a1_gennodejs
+
+# fast build rule for target.
+unitree_a1_gennodejs/fast:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_gennodejs.dir/build.make unitree_a1/CMakeFiles/unitree_a1_gennodejs.dir/build
+.PHONY : unitree_a1_gennodejs/fast
+
+#=============================================================================
+# Target rules for targets named unitree_a1_gencpp
+
+# Build rule for target.
+unitree_a1_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1_gencpp
+.PHONY : unitree_a1_gencpp
+
+# fast build rule for target.
+unitree_a1_gencpp/fast:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_gencpp.dir/build.make unitree_a1/CMakeFiles/unitree_a1_gencpp.dir/build
+.PHONY : unitree_a1_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named unitree_a1_generate_messages_nodejs
+
+# Build rule for target.
+unitree_a1_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1_generate_messages_nodejs
+.PHONY : unitree_a1_generate_messages_nodejs
+
+# fast build rule for target.
+unitree_a1_generate_messages_nodejs/fast:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/build
+.PHONY : unitree_a1_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named _unitree_a1_generate_messages_check_deps_MotorCmd
+
+# Build rule for target.
+_unitree_a1_generate_messages_check_deps_MotorCmd: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _unitree_a1_generate_messages_check_deps_MotorCmd
+.PHONY : _unitree_a1_generate_messages_check_deps_MotorCmd
+
+# fast build rule for target.
+_unitree_a1_generate_messages_check_deps_MotorCmd/fast:
+	$(MAKE) -f unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/build.make unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/build
+.PHONY : _unitree_a1_generate_messages_check_deps_MotorCmd/fast
+
+#=============================================================================
+# Target rules for targets named unitree_a1_generate_messages_eus
+
+# Build rule for target.
+unitree_a1_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1_generate_messages_eus
+.PHONY : unitree_a1_generate_messages_eus
+
+# fast build rule for target.
+unitree_a1_generate_messages_eus/fast:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/build
+.PHONY : unitree_a1_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named unitree_a1_generate_messages_py
+
+# Build rule for target.
+unitree_a1_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1_generate_messages_py
+.PHONY : unitree_a1_generate_messages_py
+
+# fast build rule for target.
+unitree_a1_generate_messages_py/fast:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/build
+.PHONY : unitree_a1_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named unitree_a1_geneus
+
+# Build rule for target.
+unitree_a1_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1_geneus
+.PHONY : unitree_a1_geneus
+
+# fast build rule for target.
+unitree_a1_geneus/fast:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_geneus.dir/build.make unitree_a1/CMakeFiles/unitree_a1_geneus.dir/build
+.PHONY : unitree_a1_geneus/fast
+
+#=============================================================================
+# Target rules for targets named unitree_a1_genpy
+
+# Build rule for target.
+unitree_a1_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1_genpy
+.PHONY : unitree_a1_genpy
+
+# fast build rule for target.
+unitree_a1_genpy/fast:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_genpy.dir/build.make unitree_a1/CMakeFiles/unitree_a1_genpy.dir/build
+.PHONY : unitree_a1_genpy/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1062,6 +1244,20 @@ help:
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... tf2_msgs_generate_messages_nodejs"
 	@echo "... nav_msgs_generate_messages_lisp"
+	@echo "... Motor_node"
+	@echo "... unitree_a1_generate_messages"
+	@echo "... _unitree_a1_generate_messages_check_deps_MotorData"
+	@echo "... unitree_a1_generate_messages_lisp"
+	@echo "... unitree_a1_genlisp"
+	@echo "... unitree_a1_generate_messages_cpp"
+	@echo "... unitree_a1_gennodejs"
+	@echo "... unitree_a1_gencpp"
+	@echo "... unitree_a1_generate_messages_nodejs"
+	@echo "... _unitree_a1_generate_messages_check_deps_MotorCmd"
+	@echo "... unitree_a1_generate_messages_eus"
+	@echo "... unitree_a1_generate_messages_py"
+	@echo "... unitree_a1_geneus"
+	@echo "... unitree_a1_genpy"
 .PHONY : help
 
 

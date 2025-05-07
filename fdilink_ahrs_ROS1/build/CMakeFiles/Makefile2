@@ -55,12 +55,14 @@ CMAKE_BINARY_DIR = /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build
 # The main recursive "all" target.
 all: gtest/all
 all: fdilink_ahrs/all
+all: unitree_a1/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
 preinstall: fdilink_ahrs/preinstall
+preinstall: unitree_a1/preinstall
 
 .PHONY : preinstall
 
@@ -72,6 +74,7 @@ clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
 clean: fdilink_ahrs/clean
+clean: unitree_a1/clean
 
 .PHONY : clean
 
@@ -204,6 +207,38 @@ gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest_main.dir/clean
 gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest.dir/clean
 
 .PHONY : gtest/googletest/clean
+
+#=============================================================================
+# Directory level rules for directory unitree_a1
+
+# Recursive "all" directory target.
+unitree_a1/all: unitree_a1/CMakeFiles/Motor_node.dir/all
+unitree_a1/all: unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/all
+
+.PHONY : unitree_a1/all
+
+# Recursive "preinstall" directory target.
+unitree_a1/preinstall:
+
+.PHONY : unitree_a1/preinstall
+
+# Recursive "clean" directory target.
+unitree_a1/clean: unitree_a1/CMakeFiles/Motor_node.dir/clean
+unitree_a1/clean: unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/clean
+unitree_a1/clean: unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/clean
+unitree_a1/clean: unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/clean
+unitree_a1/clean: unitree_a1/CMakeFiles/unitree_a1_genlisp.dir/clean
+unitree_a1/clean: unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/clean
+unitree_a1/clean: unitree_a1/CMakeFiles/unitree_a1_gennodejs.dir/clean
+unitree_a1/clean: unitree_a1/CMakeFiles/unitree_a1_gencpp.dir/clean
+unitree_a1/clean: unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/clean
+unitree_a1/clean: unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/clean
+unitree_a1/clean: unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/clean
+unitree_a1/clean: unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/clean
+unitree_a1/clean: unitree_a1/CMakeFiles/unitree_a1_geneus.dir/clean
+unitree_a1/clean: unitree_a1/CMakeFiles/unitree_a1_genpy.dir/clean
+
+.PHONY : unitree_a1/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/doxygen.dir
@@ -348,7 +383,7 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googlemock/CMakeFiles/gmoc
 gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=7,8 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=9,10 "Built target gmock_main"
 .PHONY : gtest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -375,7 +410,7 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/clean:
 gtest/googlemock/CMakeFiles/gmock.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=5,6 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=7,8 "Built target gmock"
 .PHONY : gtest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -402,7 +437,7 @@ gtest/googlemock/CMakeFiles/gmock.dir/clean:
 gtest/googletest/CMakeFiles/gtest_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=11,12 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=13,14 "Built target gtest_main"
 .PHONY : gtest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -429,7 +464,7 @@ gtest/googletest/CMakeFiles/gtest_main.dir/clean:
 gtest/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=9,10 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=11,12 "Built target gtest"
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -591,7 +626,7 @@ fdilink_ahrs/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean:
 fdilink_ahrs/CMakeFiles/imu_tf.dir/all:
 	$(MAKE) -f fdilink_ahrs/CMakeFiles/imu_tf.dir/build.make fdilink_ahrs/CMakeFiles/imu_tf.dir/depend
 	$(MAKE) -f fdilink_ahrs/CMakeFiles/imu_tf.dir/build.make fdilink_ahrs/CMakeFiles/imu_tf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=13,14 "Built target imu_tf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=15,16 "Built target imu_tf"
 .PHONY : fdilink_ahrs/CMakeFiles/imu_tf.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1455,7 +1490,7 @@ fdilink_ahrs/CMakeFiles/tf2_msgs_generate_messages_py.dir/clean:
 fdilink_ahrs/CMakeFiles/ahrs_driver.dir/all: fdilink_ahrs/CMakeFiles/crc_table.dir/all
 	$(MAKE) -f fdilink_ahrs/CMakeFiles/ahrs_driver.dir/build.make fdilink_ahrs/CMakeFiles/ahrs_driver.dir/depend
 	$(MAKE) -f fdilink_ahrs/CMakeFiles/ahrs_driver.dir/build.make fdilink_ahrs/CMakeFiles/ahrs_driver.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=1,2 "Built target ahrs_driver"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=3,4 "Built target ahrs_driver"
 .PHONY : fdilink_ahrs/CMakeFiles/ahrs_driver.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1671,7 +1706,7 @@ fdilink_ahrs/CMakeFiles/actionlib_generate_messages_py.dir/clean:
 fdilink_ahrs/CMakeFiles/crc_table.dir/all:
 	$(MAKE) -f fdilink_ahrs/CMakeFiles/crc_table.dir/build.make fdilink_ahrs/CMakeFiles/crc_table.dir/depend
 	$(MAKE) -f fdilink_ahrs/CMakeFiles/crc_table.dir/build.make fdilink_ahrs/CMakeFiles/crc_table.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=3,4 "Built target crc_table"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=5,6 "Built target crc_table"
 .PHONY : fdilink_ahrs/CMakeFiles/crc_table.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1906,6 +1941,398 @@ nav_msgs_generate_messages_lisp: fdilink_ahrs/CMakeFiles/nav_msgs_generate_messa
 fdilink_ahrs/CMakeFiles/nav_msgs_generate_messages_lisp.dir/clean:
 	$(MAKE) -f fdilink_ahrs/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make fdilink_ahrs/CMakeFiles/nav_msgs_generate_messages_lisp.dir/clean
 .PHONY : fdilink_ahrs/CMakeFiles/nav_msgs_generate_messages_lisp.dir/clean
+
+#=============================================================================
+# Target rules for target unitree_a1/CMakeFiles/Motor_node.dir
+
+# All Build rule for target.
+unitree_a1/CMakeFiles/Motor_node.dir/all:
+	$(MAKE) -f unitree_a1/CMakeFiles/Motor_node.dir/build.make unitree_a1/CMakeFiles/Motor_node.dir/depend
+	$(MAKE) -f unitree_a1/CMakeFiles/Motor_node.dir/build.make unitree_a1/CMakeFiles/Motor_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=1,2 "Built target Motor_node"
+.PHONY : unitree_a1/CMakeFiles/Motor_node.dir/all
+
+# Build rule for subdir invocation for target.
+unitree_a1/CMakeFiles/Motor_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1/CMakeFiles/Motor_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 0
+.PHONY : unitree_a1/CMakeFiles/Motor_node.dir/rule
+
+# Convenience name for target.
+Motor_node: unitree_a1/CMakeFiles/Motor_node.dir/rule
+
+.PHONY : Motor_node
+
+# clean rule for target.
+unitree_a1/CMakeFiles/Motor_node.dir/clean:
+	$(MAKE) -f unitree_a1/CMakeFiles/Motor_node.dir/build.make unitree_a1/CMakeFiles/Motor_node.dir/clean
+.PHONY : unitree_a1/CMakeFiles/Motor_node.dir/clean
+
+#=============================================================================
+# Target rules for target unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir
+
+# All Build rule for target.
+unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/all: unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/all
+unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/all: unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/all
+unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/all: unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/all
+unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/all: unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/all
+unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/all: unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/all
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/depend
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num= "Built target unitree_a1_generate_messages"
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/all
+
+# Build rule for subdir invocation for target.
+unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 12
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 0
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/rule
+
+# Convenience name for target.
+unitree_a1_generate_messages: unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/rule
+
+.PHONY : unitree_a1_generate_messages
+
+# clean rule for target.
+unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/clean:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/clean
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_generate_messages.dir/clean
+
+#=============================================================================
+# Target rules for target unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir
+
+# All Build rule for target.
+unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/all:
+	$(MAKE) -f unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/build.make unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/depend
+	$(MAKE) -f unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/build.make unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num= "Built target _unitree_a1_generate_messages_check_deps_MotorData"
+.PHONY : unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/all
+
+# Build rule for subdir invocation for target.
+unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 0
+.PHONY : unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/rule
+
+# Convenience name for target.
+_unitree_a1_generate_messages_check_deps_MotorData: unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/rule
+
+.PHONY : _unitree_a1_generate_messages_check_deps_MotorData
+
+# clean rule for target.
+unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/clean:
+	$(MAKE) -f unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/build.make unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/clean
+.PHONY : unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/clean
+
+#=============================================================================
+# Target rules for target unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir
+
+# All Build rule for target.
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/all: fdilink_ahrs/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/all: unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/all
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/all: unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/all
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/depend
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=22,23 "Built target unitree_a1_generate_messages_lisp"
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 0
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+unitree_a1_generate_messages_lisp: unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/rule
+
+.PHONY : unitree_a1_generate_messages_lisp
+
+# clean rule for target.
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/clean:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/clean
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/clean
+
+#=============================================================================
+# Target rules for target unitree_a1/CMakeFiles/unitree_a1_genlisp.dir
+
+# All Build rule for target.
+unitree_a1/CMakeFiles/unitree_a1_genlisp.dir/all: unitree_a1/CMakeFiles/unitree_a1_generate_messages_lisp.dir/all
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_genlisp.dir/build.make unitree_a1/CMakeFiles/unitree_a1_genlisp.dir/depend
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_genlisp.dir/build.make unitree_a1/CMakeFiles/unitree_a1_genlisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num= "Built target unitree_a1_genlisp"
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_genlisp.dir/all
+
+# Build rule for subdir invocation for target.
+unitree_a1/CMakeFiles/unitree_a1_genlisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1/CMakeFiles/unitree_a1_genlisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 0
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_genlisp.dir/rule
+
+# Convenience name for target.
+unitree_a1_genlisp: unitree_a1/CMakeFiles/unitree_a1_genlisp.dir/rule
+
+.PHONY : unitree_a1_genlisp
+
+# clean rule for target.
+unitree_a1/CMakeFiles/unitree_a1_genlisp.dir/clean:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_genlisp.dir/build.make unitree_a1/CMakeFiles/unitree_a1_genlisp.dir/clean
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_genlisp.dir/clean
+
+#=============================================================================
+# Target rules for target unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir
+
+# All Build rule for target.
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/all: fdilink_ahrs/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/all: unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/all
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/all: unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/all
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/depend
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=17,18 "Built target unitree_a1_generate_messages_cpp"
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 0
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+unitree_a1_generate_messages_cpp: unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/rule
+
+.PHONY : unitree_a1_generate_messages_cpp
+
+# clean rule for target.
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/clean:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/clean
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/clean
+
+#=============================================================================
+# Target rules for target unitree_a1/CMakeFiles/unitree_a1_gennodejs.dir
+
+# All Build rule for target.
+unitree_a1/CMakeFiles/unitree_a1_gennodejs.dir/all: unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/all
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_gennodejs.dir/build.make unitree_a1/CMakeFiles/unitree_a1_gennodejs.dir/depend
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_gennodejs.dir/build.make unitree_a1/CMakeFiles/unitree_a1_gennodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num= "Built target unitree_a1_gennodejs"
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_gennodejs.dir/all
+
+# Build rule for subdir invocation for target.
+unitree_a1/CMakeFiles/unitree_a1_gennodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1/CMakeFiles/unitree_a1_gennodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 0
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_gennodejs.dir/rule
+
+# Convenience name for target.
+unitree_a1_gennodejs: unitree_a1/CMakeFiles/unitree_a1_gennodejs.dir/rule
+
+.PHONY : unitree_a1_gennodejs
+
+# clean rule for target.
+unitree_a1/CMakeFiles/unitree_a1_gennodejs.dir/clean:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_gennodejs.dir/build.make unitree_a1/CMakeFiles/unitree_a1_gennodejs.dir/clean
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_gennodejs.dir/clean
+
+#=============================================================================
+# Target rules for target unitree_a1/CMakeFiles/unitree_a1_gencpp.dir
+
+# All Build rule for target.
+unitree_a1/CMakeFiles/unitree_a1_gencpp.dir/all: unitree_a1/CMakeFiles/unitree_a1_generate_messages_cpp.dir/all
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_gencpp.dir/build.make unitree_a1/CMakeFiles/unitree_a1_gencpp.dir/depend
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_gencpp.dir/build.make unitree_a1/CMakeFiles/unitree_a1_gencpp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num= "Built target unitree_a1_gencpp"
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_gencpp.dir/all
+
+# Build rule for subdir invocation for target.
+unitree_a1/CMakeFiles/unitree_a1_gencpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1/CMakeFiles/unitree_a1_gencpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 0
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_gencpp.dir/rule
+
+# Convenience name for target.
+unitree_a1_gencpp: unitree_a1/CMakeFiles/unitree_a1_gencpp.dir/rule
+
+.PHONY : unitree_a1_gencpp
+
+# clean rule for target.
+unitree_a1/CMakeFiles/unitree_a1_gencpp.dir/clean:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_gencpp.dir/build.make unitree_a1/CMakeFiles/unitree_a1_gencpp.dir/clean
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_gencpp.dir/clean
+
+#=============================================================================
+# Target rules for target unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir
+
+# All Build rule for target.
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/all: fdilink_ahrs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/all: unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/all
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/all: unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/all
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/depend
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=24,25 "Built target unitree_a1_generate_messages_nodejs"
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 0
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+unitree_a1_generate_messages_nodejs: unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/rule
+
+.PHONY : unitree_a1_generate_messages_nodejs
+
+# clean rule for target.
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/clean
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir
+
+# All Build rule for target.
+unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/all:
+	$(MAKE) -f unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/build.make unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/depend
+	$(MAKE) -f unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/build.make unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num= "Built target _unitree_a1_generate_messages_check_deps_MotorCmd"
+.PHONY : unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/all
+
+# Build rule for subdir invocation for target.
+unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 0
+.PHONY : unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/rule
+
+# Convenience name for target.
+_unitree_a1_generate_messages_check_deps_MotorCmd: unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/rule
+
+.PHONY : _unitree_a1_generate_messages_check_deps_MotorCmd
+
+# clean rule for target.
+unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/clean:
+	$(MAKE) -f unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/build.make unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/clean
+.PHONY : unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/clean
+
+#=============================================================================
+# Target rules for target unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir
+
+# All Build rule for target.
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/all: fdilink_ahrs/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/all: unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/all
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/all: unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/all
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/depend
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=19,20,21 "Built target unitree_a1_generate_messages_eus"
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/all
+
+# Build rule for subdir invocation for target.
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 0
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+unitree_a1_generate_messages_eus: unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/rule
+
+.PHONY : unitree_a1_generate_messages_eus
+
+# clean rule for target.
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/clean:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/clean
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/clean
+
+#=============================================================================
+# Target rules for target unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir
+
+# All Build rule for target.
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/all: fdilink_ahrs/CMakeFiles/std_msgs_generate_messages_py.dir/all
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/all: unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorData.dir/all
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/all: unitree_a1/CMakeFiles/_unitree_a1_generate_messages_check_deps_MotorCmd.dir/all
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/depend
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num=26,27,28 "Built target unitree_a1_generate_messages_py"
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 0
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/rule
+
+# Convenience name for target.
+unitree_a1_generate_messages_py: unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/rule
+
+.PHONY : unitree_a1_generate_messages_py
+
+# clean rule for target.
+unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/clean:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/build.make unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/clean
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/clean
+
+#=============================================================================
+# Target rules for target unitree_a1/CMakeFiles/unitree_a1_geneus.dir
+
+# All Build rule for target.
+unitree_a1/CMakeFiles/unitree_a1_geneus.dir/all: unitree_a1/CMakeFiles/unitree_a1_generate_messages_eus.dir/all
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_geneus.dir/build.make unitree_a1/CMakeFiles/unitree_a1_geneus.dir/depend
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_geneus.dir/build.make unitree_a1/CMakeFiles/unitree_a1_geneus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num= "Built target unitree_a1_geneus"
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_geneus.dir/all
+
+# Build rule for subdir invocation for target.
+unitree_a1/CMakeFiles/unitree_a1_geneus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1/CMakeFiles/unitree_a1_geneus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 0
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_geneus.dir/rule
+
+# Convenience name for target.
+unitree_a1_geneus: unitree_a1/CMakeFiles/unitree_a1_geneus.dir/rule
+
+.PHONY : unitree_a1_geneus
+
+# clean rule for target.
+unitree_a1/CMakeFiles/unitree_a1_geneus.dir/clean:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_geneus.dir/build.make unitree_a1/CMakeFiles/unitree_a1_geneus.dir/clean
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_geneus.dir/clean
+
+#=============================================================================
+# Target rules for target unitree_a1/CMakeFiles/unitree_a1_genpy.dir
+
+# All Build rule for target.
+unitree_a1/CMakeFiles/unitree_a1_genpy.dir/all: unitree_a1/CMakeFiles/unitree_a1_generate_messages_py.dir/all
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_genpy.dir/build.make unitree_a1/CMakeFiles/unitree_a1_genpy.dir/depend
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_genpy.dir/build.make unitree_a1/CMakeFiles/unitree_a1_genpy.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles --progress-num= "Built target unitree_a1_genpy"
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_genpy.dir/all
+
+# Build rule for subdir invocation for target.
+unitree_a1/CMakeFiles/unitree_a1_genpy.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 unitree_a1/CMakeFiles/unitree_a1_genpy.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/CMakeFiles 0
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_genpy.dir/rule
+
+# Convenience name for target.
+unitree_a1_genpy: unitree_a1/CMakeFiles/unitree_a1_genpy.dir/rule
+
+.PHONY : unitree_a1_genpy
+
+# clean rule for target.
+unitree_a1/CMakeFiles/unitree_a1_genpy.dir/clean:
+	$(MAKE) -f unitree_a1/CMakeFiles/unitree_a1_genpy.dir/build.make unitree_a1/CMakeFiles/unitree_a1_genpy.dir/clean
+.PHONY : unitree_a1/CMakeFiles/unitree_a1_genpy.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -14,6 +14,7 @@ WirelessHandle::WirelessHandle(){
     read_thread_ = std::thread(&WirelessHandle::read_joy, this);
 }
 WirelessHandle::~WirelessHandle(){
+    run_wirless_handle_=false;
     close(xbox_fd);
     reading_ = false;
     if (read_thread_.joinable()) {
@@ -21,7 +22,7 @@ WirelessHandle::~WirelessHandle(){
     }
 }
 void WirelessHandle::read_joy(){
-    while (1)
+    while (run_wirless_handle_)
     {
         len = xbox_map_read(xbox_fd, &map);
         if (len < 0)  
@@ -48,9 +49,29 @@ void WirelessHandle::read_joy(){
 
 int WirelessHandle::xbox_map_read(int xbox_fd, xbox_map_t *map)  
 {  
-    int len, type, number, value;  
-    struct js_event js;  
-    len = read(xbox_fd, &js, sizeof(struct js_event));  
+    struct js_event js;
+    fd_set read_fds;
+    struct timeval timeout;
+
+    // 设置超时（例如 100ms）
+    timeout.tv_sec = 0;
+    timeout.tv_usec = 100000;  // 100ms
+
+    FD_ZERO(&read_fds);
+    FD_SET(xbox_fd, &read_fds);
+
+    // 使用 select 检查数据是否可读
+    int ret = select(xbox_fd + 1, &read_fds, NULL, NULL, &timeout);
+    if (ret < 0) {
+        perror("select");
+        return -1;
+    } else if (ret == 0) {
+        // 超时，没有数据
+        return 0;  // 可以返回 0 表示无新数据，而不是错误
+    }
+    int type, number, value;  
+
+    int len = read(xbox_fd, &js, sizeof(struct js_event));  
     if (len < 1)  
     {  
         perror("read");  

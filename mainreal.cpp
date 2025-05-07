@@ -14,7 +14,9 @@
 
 #include <cstdio>
 #include <cstring>
-#include "interface/IOReal.h"
+
+#include "interface/IOROS.h"
+
 #include <control/CtrlComponents.h>
 #include <FSM/FSM.h>
 #include <string>
@@ -35,47 +37,15 @@ Eigen::Vector3d quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vecto
     Eigen::Vector3d c = q_vec * (q_vec.transpose() * v) * 2.0;
     return a - b + c;
 }
-
-class ImuSubscriber {
-public:
-    ImuSubscriber() : nh_("~") {
-        // 订阅IMU话题
-        imu_sub_ = nh_.subscribe("/imu", 10, &ImuSubscriber::imuCallback, this);
-    }
-
-    void imuCallback(const sensor_msgs::ImuConstPtr& msg) {
-        // 打印接收到的IMU数据
-        x=msg->orientation.x;
-        y=msg->orientation.y;
-        z=msg->orientation.z;
-        w=msg->orientation.w;
-        gy_x=msg->angular_velocity.x;
-        gy_y=msg->angular_velocity.y;
-        gy_z=msg->angular_velocity.z;
-        acc_x=msg->linear_acceleration.x;
-        acc_y=msg->linear_acceleration.y;
-        acc_z=msg->linear_acceleration.z;
-    }
-
-    void spin() {
-        ros::spin();
-    }
-public:
-  float x=0;
-  float y=0;
-  float z=0;
-  float w=0;
-  float gy_x=0;
-  float gy_y=0;
-  float gy_z=0;
-  float acc_x=0;
-  float acc_y=0;
-  float acc_z=0;
-private:
-    ros::NodeHandle nh_;
-    ros::Subscriber imu_sub_;
-};
 bool running = true;
+void ShutDown(int sig)
+{
+    std::cout << "stop the controller" << std::endl;
+    running = false;
+    ros::shutdown();
+
+}
+
 void setProcessScheduler()
 {
     pid_t pid = getpid();
@@ -108,43 +78,29 @@ Vec3 quaternion_to_euler_array(Eigen::Quaterniond quat){
 }
 // main function
 int main(int argc, char** argv) {
+    setProcessScheduler();
+    ros::init(argc, argv, "REAL");
+    // ros::start();
+    // ros::Rate loop_rate(50);
+
     LowlevelCmd *lowCmd = new LowlevelCmd();
     LowlevelState *lowState = new LowlevelState();
-    setProcessScheduler();
+    // setProcessScheduler();
     IOInterface *ioInter;
     CtrlPlatform ctrlPlat;
-    ioInter = new IOReal();
+    ioInter = new IOROS();
     ctrlPlat = CtrlPlatform::REALROBOT;
     CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
     ctrlComp->ctrlPlatform = ctrlPlat;
-    ctrlComp->dt = 0.01; 
+    ctrlComp->dt = 0.02; 
     ctrlComp->running = &running;
     ctrlComp->robotModel = new ToeRobot();
-
     ControlFrame ctrlFrame(ctrlComp);
-
-    ros::init(argc, argv, "imu_subscriber");
-    ImuSubscriber imu_subscriber;
-    // 创建一个线程来处理ROS消息回调
-    std::thread ros_thread(&ImuSubscriber::spin, &imu_subscriber);
-  while (ros::ok()) {
-    ctrlComp->lowState->imu.quaternion[0]=imu_subscriber.w;
-    ctrlComp->lowState->imu.quaternion[1]=imu_subscriber.x;
-    ctrlComp->lowState->imu.quaternion[2]=imu_subscriber.y;
-    ctrlComp->lowState->imu.quaternion[3]=imu_subscriber.z;
-    ctrlComp->lowState->imu.gyroscope[0]=imu_subscriber.gy_x;
-    ctrlComp->lowState->imu.gyroscope[1]=imu_subscriber.gy_y;
-    ctrlComp->lowState->imu.gyroscope[2]=imu_subscriber.gy_z;
-    ctrlComp->lowState->imu.gyroscope[0]=imu_subscriber.acc_x;
-    ctrlComp->lowState->imu.gyroscope[1]=imu_subscriber.acc_y;
-    ctrlComp->lowState->imu.gyroscope[2]=imu_subscriber.acc_z;
-    ctrlFrame.run();
-    // Eigen::Vector3d v(0.0,0.0,-1.0); 
-    // Eigen::Vector4d q(imu_subscriber.x,imu_subscriber.y,imu_subscriber.z,imu_subscriber.w);
-    // Eigen::Vector3d proj_gravity_eigen = quat_rotate_inverse(q, v);
-    // std::cout<<"222222"<<proj_gravity_eigen[1]<<" "<<-proj_gravity_eigen[0]<<" "<<proj_gravity_eigen[2]<<std::endl;
-    usleep(200);
-  }
-ros_thread.join();
-  return 1;
+    signal(SIGINT, ShutDown);
+    while (running) {
+        ctrlFrame.run();
+    }
+    
+    delete ctrlComp;
+    return 0;
 }
