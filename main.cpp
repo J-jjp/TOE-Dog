@@ -41,6 +41,7 @@ double lasty = 0;
 float kp_all = 30;
 float kd_all = 0.75;
 bool running = true;
+float pd_control(float target_q,float q,float kp,float target_dq,float dq,float kd);
 
 std::vector<mjtNum> get_sensor_data(const mjModel *model, const mjData *data, const std::string &sensor_name)
 {
@@ -183,19 +184,19 @@ int main(int argc,char** argv) {
     ctrlPlat = CtrlPlatform::Mujoco;
     CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
     ctrlComp->ctrlPlatform = ctrlPlat;
-    ctrlComp->dt = 0.0025*8; // run at 400hz  控制周期       
+    ctrlComp->dt = 0.002; // run at 400hz  控制周期       
     ctrlComp->running = &running;  //机器人控制的状态  运行 or 不运行
     ctrlComp->robotModel = new A1Robot();
     ControlFrame ctrlFrame(ctrlComp);
     int time=0;
   while (!glfwWindowShouldClose(window)) {
-      time++;
+
       mjtNum simstart = d->time;
       float kp=0;
       float kd=0;
       // m->opt.timestep = 0.001;
       int count=0;
-      ctrlFrame.run();
+
   
       // std_msgs::Float32MultiArray array_msg;
 
@@ -214,14 +215,19 @@ int main(int argc,char** argv) {
       // pub.publish(array_msg);
 
       // ROS_INFO("Published array: [%f, %f, %f, ...]", data[0], data[1], data[2]);
-
+      ctrlFrame.run();
       
-    
+      // std::cout<<"time:"<<d->time<<std::endl;
       while (d->time - simstart < 1.0/60.0) {
-
-
+        for(int i=0; i < 12; i++){
+            ctrlComp->lowCmd->motorCmd[i].tau=pd_control(
+            ctrlComp->lowCmd->motorCmd[i].q,ctrlComp->lowState->motorState[i].q,ctrlComp->lowCmd->motorCmd[i].Kp,
+            ctrlComp->lowCmd->motorCmd[i].dq,ctrlComp->lowState->motorState[i].dq,ctrlComp->lowCmd->motorCmd[i].Kd);
+        }
+        for(int i=0; i < 12; i++){
+            d->ctrl[i] = ctrlComp->lowCmd->motorCmd[i].tau;
+        }
         mj_step(m, d);
-        count++;
       }
       
     // get framebuffer viewport
@@ -249,4 +255,8 @@ int main(int argc,char** argv) {
   mj_deleteData(d);
   mj_deleteModel(m);
   return 1;
+}
+float pd_control(float target_q,float q,float kp,float target_dq,float dq,float kd){
+    float tau=(target_q - q) * kp + ( - dq) * kd;
+    return tau;
 }

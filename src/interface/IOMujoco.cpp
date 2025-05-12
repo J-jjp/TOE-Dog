@@ -49,7 +49,7 @@ void IOMujoco::sendRecv( LowlevelCmd *cmd, LowlevelState *state) {
         cmd->motorCmd[i].q,state->motorState[i].q,cmd->motorCmd[i].Kp,cmd->motorCmd[i].dq,state->motorState[i].dq,cmd->motorCmd[i].Kd);
     }
     // cmd->motorCmd[1].tau=-0.1;
-    send(cmd);
+    // send(cmd);
     state->userCmd = cmdPanel->getUserCmd();
     state->userValue = cmdPanel->getUserValue();
 }

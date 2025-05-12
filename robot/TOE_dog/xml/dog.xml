@@ -1,10 +1,17 @@
 <mujoco model="TOE_dog">
+
+
   <compiler angle="radian" meshdir="assets" autolimits="true"/>
+  <option cone="elliptic" impratio="100" />
   <default>
     <default class="dog">
       <geom friction="0.4" margin="0.001" condim="1"/>
       <joint axis="0 1 0" damping="0.1" armature="0.01" frictionloss="0.2"/>
       <motor ctrlrange="-23.7 23.7"/>
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" group="2"/>
+      </default>
+
       <default class="collision">
         <geom group="3"/>
         <default class="foot">
@@ -12,14 +19,21 @@
             friction="0.4 0.02 0.01"/>
         </default>
       </default>
+
     </default>
   </default>
   <asset>
+    <material name="metal" rgba=".9 .95 .95 1" />
+    <material name="black" rgba="0 0 0 1" />
+    <material name="white" rgba="1 1 1 1" />
+    
+    <material name="gray" rgba="0.671705 0.692426 0.774270 1" />
     <mesh name="TOE_base" file="TOE_base.STL"/>
     <mesh name="TOE_FL_hip" file="TOE_FL_hip.STL"/>
     <mesh name="TOE_L_thigh" file="TOE_L_thigh.STL"/>
     <mesh name="TOE_calf" file="TOE_calf.STL"/>
     <mesh name="TOE_foot" file="TOE_foot.STL"/>
+    <mesh file="foot.obj" />
     <mesh name="TOE_FR_hip" file="TOE_FR_hip.STL"/>
     <mesh name="TOE_R_thigh" file="TOE_R_thigh.STL"/>
     <mesh name="TOE_RL_hip" file="TOE_RL_hip.STL"/>
@@ -35,11 +49,14 @@
     <site name='imu' size='0.01' pos='0.0 0 0.0'/>
     <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.752941 0.752941 0.752941 1" mesh="TOE_base"/>
     <geom size="0.135 0.075 0.057" type="box" rgba="0.752941 0.752941 0.752941 1"/>
+
     <body name="FL_hip" pos="0.2 0.05 0">
       <inertial pos="0 0 0" quat="0.485437 0.52726 0.503798 0.48222" mass="0.669901" diaginertia="0.000851635 0.000609749 0.000545446"/>
       <joint name="FL_hip_joint" pos="0 0 0" axis="1 0 0" range="-1 1" actuatorfrcrange="-23 23"/>
+      
       <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.752941 0.752941 0.752941 1" mesh="TOE_FL_hip"/>
       <geom size="0.046 0.04" pos="0 0.05 0" quat="0.707105 0.707108 0 0" type="cylinder" rgba="0.752941 0.752941 0.752941 1"/>
+      
       <body name="FL_thigh" pos="0 0.08953 0">
         <inertial pos="0 -0.0225193 -0.0253115" quat="0.980354 0.13425 0.0229827 -0.142673" mass="1.05419" diaginertia="0.00435723 0.00426548 0.00116428"/>
         <joint name="FL_thigh_joint" pos="0 0 0" axis="0 1 0" range="-1.5 2.5" actuatorfrcrange="-23 23"/>
@@ -47,11 +64,31 @@
         <geom size="0.055 0.01225 0.02" pos="0 0 -0.11" quat="0.707107 0 0.707107 0" type="box" rgba="0.752941 0.752941 0.752941 1"/>
         <body name="FL_calf" pos="0 0 -0.18">
           <inertial pos="2.20012e-06 0 -0.0899722" quat="0.768153 0.0269288 0.0143643 0.639538" mass="0.22" diaginertia="0.00164183 0.00163561 5.05888e-05"/>
+          
           <joint name="FL_calf_joint" pos="0 0 0" axis="0 1 0" range="-2.6 -0.15" actuatorfrcrange="-35 35"/>
-          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.752941 0.752941 0.752941 1" mesh="TOE_calf"/>
+          <geom type="mesh" contype="0" conaffinity="0" group="2" density="0" rgba="0.752941 0.752941 0.752941 1" mesh="TOE_calf"/>
+          
+          
           <geom size="0.08 0.01225 0.02" pos="0 0 -0.09" quat="0.707105 0 0.707108 0" type="box" rgba="0.752941 0.752941 0.752941 1"/>
-          <geom pos="0 0 -0.20051" quat="1 0 -0.00062915 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="TOE_foot"/>
-          <geom size="0.022" pos="-0.002 0 -0.200513" quat="1 0 -0.00062915 0" rgba="1 1 1 1"/>
+          
+
+
+            <!-- <geom mesh="calf_0" material="gray" class="visual" />
+            <geom mesh="calf_1" material="black" class="visual" /> -->
+            <geom size="0.012 0.06" pos="0.008 0 -0.06" quat="0.994493 0 -0.104807 0"
+              type="cylinder" class="collision" />
+            <geom size="0.011 0.0325" pos="0.02 0 -0.148" quat="0.999688 0 0.0249974 0"
+              type="cylinder" class="collision" />
+
+
+
+          <geom pos="0 0 -0.20051" mesh="foot" class="visual" material="black" />
+          <geom name="FL" class="foot" />
+          <body name="FL_foot" pos="0 0 -0.20051" />
+
+          <!-- <geom pos="0 0 -0.20051" quat="1 0 -0.00062915 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="TOE_foot"/>
+          <geom size="0.022" pos="-0.002 0 -0.200513" quat="1 0 -0.00062915 0" rgba="1 1 1 1"/> -->
+
         </body>
       </body>
     </body>
@@ -67,11 +104,16 @@
         <geom size="0.055 0.01225 0.02" pos="0 0 -0.11" quat="0.707107 0 0.707107 0" type="box" rgba="0.75294 0.75294 0.75294 1"/>
         <body name="FR_calf" pos="0 0 -0.18">
           <inertial pos="2.20013e-06 0 -0.0899722" quat="0.784656 0.0173719 -0.000694465 0.619687" mass="0.22" diaginertia="0.00225074 0.0022481 4.70681e-05"/>
+          
           <joint name="FR_calf_joint" pos="0 0 0" axis="0 1 0" range="-2.6 -0.15" actuatorfrcrange="-35 35"/>
           <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.752941 0.752941 0.752941 1" mesh="TOE_calf"/>
+          
           <geom size="0.08 0.01225 0.02" pos="0 0 -0.09" quat="0.707105 0 0.707108 0" type="box" rgba="0.752941 0.752941 0.752941 1"/>
-          <geom pos="0 0 -0.20051" quat="1 0 -0.00062915 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="TOE_foot"/>
-          <geom size="0.022" pos="-0.002 0 -0.200513" quat="1 0 -0.00062915 0" rgba="1 1 1 1"/>
+          <geom pos="0 0 -0.20051" mesh="foot" class="visual" material="black" />
+
+          <geom name="FR" class="foot" />
+          <body name="FR_foot" pos="0 0 -0.20051" />
+
         </body>
       </body>
     </body>
@@ -90,8 +132,9 @@
           <joint name="RL_calf_joint" pos="0 0 0" axis="0 1 0" range="-2.6 -0.15" actuatorfrcrange="-35 35"/>
           <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.752941 0.752941 0.752941 1" mesh="TOE_calf"/>
           <geom size="0.08 0.01225 0.02" pos="0 0 -0.09" quat="0.707105 0 0.707108 0" type="box" rgba="0.752941 0.752941 0.752941 1"/>
-          <geom pos="0 0 -0.20051" quat="1 0 -0.00062915 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="TOE_foot"/>
-          <geom size="0.022" pos="-0.002 0 -0.200513" quat="1 0 -0.00062915 0" rgba="1 1 1 1"/>
+          <geom pos="0 0 -0.20051" mesh="foot" class="visual" material="black" />
+          <geom name="RL" class="foot" />
+          <body name="RL_foot" pos="0 0 -0.20051" />
         </body>
       </body>
     </body>
@@ -110,8 +153,9 @@
           <joint name="RR_calf_joint" pos="0 0 0" axis="0 1 0" range="-2.6 -0.15" actuatorfrcrange="-35 35"/>
           <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.752941 0.752941 0.752941 1" mesh="TOE_calf"/>
           <geom size="0.08 0.01225 0.02" pos="0 0 -0.09" quat="0.707105 0 0.707108 0" type="box" rgba="0.752941 0.752941 0.752941 1"/>
-          <geom pos="0 0 -0.20051" quat="1 0 -0.00062915 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="TOE_foot"/>
-          <geom size="0.022" pos="0 0 -0.200513" quat="1 0 -0.00062915 0" rgba="1 1 1 1" friction="0.4 0.02 0.01"/>
+          <geom pos="0 0 -0.20051" mesh="foot" class="visual" material="black" />
+          <geom name="RR" class="foot" />
+          <body name="RR_foot" pos="0 0 -0.20051" />
           </body>
         </body>
       </body>
@@ -135,18 +179,18 @@
 		<motor name="RR_calf_joint" joint="RR_calf_joint" gear="1" ctrllimited="true" ctrlrange="-12 12"/>
   </actuator>
 	<!-- <actuator>      
-		<position name="FR_hip_joint_M" joint="FR_hip_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
-		<position name="FR_thigh_joint_M" joint="FR_thigh_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
-		<position name="FR_calf_joint_M" joint="FR_calf_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
-		<position name="RR_hip_joint_M" joint="RR_hip_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
-		<position name="RR_thigh_joint_M" joint="RR_thigh_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
-		<position name="RR_calf_joint_M" joint="RR_calf_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
-		<position name="FL_hip_joint_M" joint="FL_hip_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
-		<position name="FL_thigh_joint_M" joint="FL_thigh_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
-		<position name="FL_calf_joint_M" joint="FL_calf_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
-		<position name="RL_hip_joint_M" joint="RL_hip_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
-		<position name="RL_thigh_joint_M" joint="RL_thigh_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />
-		<position name="RL_calf_joint_M" joint="RL_calf_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-12 12" />	 
+		<position name="FR_hip_joint_M" joint="FR_hip_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
+		<position name="FR_thigh_joint_M" joint="FR_thigh_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
+		<position name="FR_calf_joint_M" joint="FR_calf_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
+		<position name="RR_hip_joint_M" joint="RR_hip_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
+		<position name="RR_thigh_joint_M" joint="RR_thigh_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
+		<position name="RR_calf_joint_M" joint="RR_calf_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
+		<position name="FL_hip_joint_M" joint="FL_hip_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
+		<position name="FL_thigh_joint_M" joint="FL_thigh_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
+		<position name="FL_calf_joint_M" joint="FL_calf_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
+		<position name="RL_hip_joint_M" joint="RL_hip_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
+		<position name="RL_thigh_joint_M" joint="RL_thigh_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />
+		<position name="RL_calf_joint_M" joint="RL_calf_joint" gear="1" ctrllimited="true" kp="30" kv="0.75" ctrlrange="-1.57 1.57" />	 
     </actuator> -->
   <sensor>
     <jointpos name="FL_hip_pos" joint="FL_hip_joint" />

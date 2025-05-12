@@ -690,37 +690,37 @@ void State_Rl::mnnInference_qua()
     
     // Eigen::Vector3d base_ang= quat_rotate_inverse(q, ang_v);
     
-    // for (size_t i = 0; i < 3; i++)
-    // {
-    //     obs_legged[i] =_lowState->imu.gyroscope[i] *obs_scales_ang_vel;
-    // }
+    for (size_t i = 0; i < 3; i++)
+    {
+        obs_qua[i] =_lowState->imu.gyroscope[i] *obs_scales_ang_vel;
+    }
     
     for (size_t i = 0; i < 3; i++)
     {
 
-        obs_qua[i] = proj_gravity[i];
+        obs_qua[i+3] = proj_gravity[i];
     }
-    obs_qua[3] = -_lowState->userValue.ly *2*0.8;
-    obs_qua[4] = -_lowState->userValue.lx *2*0.7*0.8;
-    obs_qua[5] = -_lowState->userValue.rx *0.25*0.8;
+    obs_qua[6] = -_lowState->userValue.ly *2*0.8;
+    obs_qua[7] = -_lowState->userValue.lx *2*0.7*0.8;
+    obs_qua[8] = -_lowState->userValue.rx *0.25*0.8;
 
     for (size_t i = 0; i < 12; i++)
     {
-        obs_qua[6+i] = (_lowState->motorState[i].q-default_dof_pos[i]) *obs_scales_dof_pos;
-        obs_qua[18+i] = _lowState->motorState[i].dq * obs_scales_dof_vel;
-        obs_qua[30+i] = last_action_cmd_qua[i];
+        obs_qua[9+i] = (_lowState->motorState[i].q-default_dof_pos[i]) *obs_scales_dof_pos;
+        obs_qua[21+i] = _lowState->motorState[i].dq * obs_scales_dof_vel;
+        obs_qua[33+i] = last_action_cmd_qua[i];
     }
-    for (size_t i = 0; i < N_proprio_qua; i++)
-    {
-        encoder_input_qua[i] =obs_qua[i];
-        // std::cout << obs_qua[i] << " ";
+    // for (size_t i = 0; i < N_proprio_qua; i++)
+    // {
+    //     encoder_input_qua[i] =obs_qua[i];
+    //     // std::cout << obs_qua[i] << " ";
         
-    }std::cout << std::endl;
+    // }std::cout << std::endl;
 
-    for (size_t i = 0; i < (History_len_qua-1)*N_proprio_qua; i++)
-    {
-        encoder_input_qua[i+N_proprio_qua]=obs_history_qua[i];
-    }
+    // for (size_t i = 0; i < (History_len_qua-1)*N_proprio_qua; i++)
+    // {
+    //     encoder_input_qua[i+N_proprio_qua]=obs_history_qua[i];
+    // }
     for (size_t i = 0; i <  (History_len_qua - 1)*N_proprio_qua; i++)
     {
         obs_history_qua[i]  = obs_history_qua[i+N_proprio_qua];
@@ -756,6 +756,13 @@ void State_Rl::mnnInference_qua()
 
         action_flt[i]=action_cmd_qua[i]*0.25;
     }
+    action_flt[0]*=0.5;
+    action_flt[3]*=0.5;
+
+    action_flt[6]*=0.5;
+
+    action_flt[9]*=0.5;
+
     for (size_t i = 0; i < 12; i++)
     {
         last_action_cmd_qua[i]=action_cmd_qua[i];
