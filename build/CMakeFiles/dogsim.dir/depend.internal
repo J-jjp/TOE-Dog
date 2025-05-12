@@ -43,7 +43,7 @@ CMakeFiles/dogsim.dir/main.cpp.o
  ../mujoco-3.2.5/include/mujoco/mjui.h
  ../mujoco-3.2.5/include/mujoco/mjvisualize.h
  ../mujoco-3.2.5/include/mujoco/mujoco.h
- /home/ubuntu/dog/TOE-Dog/main.cpp
+ /home/toe/TOE-Dog/main.cpp
 CMakeFiles/dogsim.dir/src/FSM/FSM.cpp.o
  ../MNN/ErrorCode.hpp
  ../MNN/HalideRuntime.h
@@ -69,7 +69,7 @@ CMakeFiles/dogsim.dir/src/FSM/FSM.cpp.o
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
- /home/ubuntu/dog/TOE-Dog/src/FSM/FSM.cpp
+ /home/toe/TOE-Dog/src/FSM/FSM.cpp
 CMakeFiles/dogsim.dir/src/FSM/FSMState.cpp.o
  ../include/FSM/FSMState.h
  ../include/common/enumClass.h
@@ -83,7 +83,7 @@ CMakeFiles/dogsim.dir/src/FSM/FSMState.cpp.o
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
- /home/ubuntu/dog/TOE-Dog/src/FSM/FSMState.cpp
+ /home/toe/TOE-Dog/src/FSM/FSMState.cpp
 CMakeFiles/dogsim.dir/src/FSM/State_FixedStand.cpp.o
  ../include/FSM/FSMState.h
  ../include/FSM/State_FixedStand.h
@@ -98,7 +98,7 @@ CMakeFiles/dogsim.dir/src/FSM/State_FixedStand.cpp.o
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
- /home/ubuntu/dog/TOE-Dog/src/FSM/State_FixedStand.cpp
+ /home/toe/TOE-Dog/src/FSM/State_FixedStand.cpp
 CMakeFiles/dogsim.dir/src/FSM/State_FreeStand.cpp.o
  ../include/FSM/FSMState.h
  ../include/FSM/State_FreeStand.h
@@ -113,7 +113,7 @@ CMakeFiles/dogsim.dir/src/FSM/State_FreeStand.cpp.o
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
- /home/ubuntu/dog/TOE-Dog/src/FSM/State_FreeStand.cpp
+ /home/toe/TOE-Dog/src/FSM/State_FreeStand.cpp
 CMakeFiles/dogsim.dir/src/FSM/State_Passive.cpp.o
  ../include/FSM/FSMState.h
  ../include/FSM/State_Passive.h
@@ -128,7 +128,7 @@ CMakeFiles/dogsim.dir/src/FSM/State_Passive.cpp.o
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
- /home/ubuntu/dog/TOE-Dog/src/FSM/State_Passive.cpp
+ /home/toe/TOE-Dog/src/FSM/State_Passive.cpp
 CMakeFiles/dogsim.dir/src/FSM/State_Rl.cpp.o
  ../MNN/ErrorCode.hpp
  ../MNN/HalideRuntime.h
@@ -150,12 +150,12 @@ CMakeFiles/dogsim.dir/src/FSM/State_Rl.cpp.o
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
- /home/ubuntu/dog/TOE-Dog/src/FSM/State_Rl.cpp
+ /home/toe/TOE-Dog/src/FSM/State_Rl.cpp
 CMakeFiles/dogsim.dir/src/common/unitreeLeg.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTypes.h
  ../include/common/unitreeLeg.h
- /home/ubuntu/dog/TOE-Dog/src/common/unitreeLeg.cpp
+ /home/toe/TOE-Dog/src/common/unitreeLeg.cpp
 CMakeFiles/dogsim.dir/src/common/unitreeRobot.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTools.h
@@ -164,7 +164,7 @@ CMakeFiles/dogsim.dir/src/common/unitreeRobot.cpp.o
  ../include/common/unitreeRobot.h
  ../include/interface/CmdPanel.h
  ../include/message/LowlevelState.h
- /home/ubuntu/dog/TOE-Dog/src/common/unitreeRobot.cpp
+ /home/toe/TOE-Dog/src/common/unitreeRobot.cpp
 CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o
  ../MNN/ErrorCode.hpp
  ../MNN/HalideRuntime.h
@@ -191,14 +191,14 @@ CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o
  ../include/interface/IOInterface.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
- /home/ubuntu/dog/TOE-Dog/src/control/ControlFrame.cpp
+ /home/toe/TOE-Dog/src/control/ControlFrame.cpp
 CMakeFiles/dogsim.dir/src/control/leg_control.cpp.o
  ../include/communication/motor.h
  ../include/communication/motor_msg.h
  ../include/communication/uart.hpp
  ../include/control/ThreadPool.h
  ../include/control/leg_control.h
- /home/ubuntu/dog/TOE-Dog/src/control/leg_control.cpp
+ /home/toe/TOE-Dog/src/control/leg_control.cpp
 CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o
  ../MNN/ErrorCode.hpp
  ../MNN/HalideRuntime.h
@@ -207,7 +207,7 @@ CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o
  ../MNN/MNNForwardType.h
  ../MNN/Tensor.hpp
  ../include/control/rl_Inference.h
- /home/ubuntu/dog/TOE-Dog/src/control/rl_Inference.cpp
+ /home/toe/TOE-Dog/src/control/rl_Inference.cpp
 CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTools.h
@@ -232,9 +232,87 @@ CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o
  ../mujoco-3.2.5/include/mujoco/mjui.h
  ../mujoco-3.2.5/include/mujoco/mjvisualize.h
  ../mujoco-3.2.5/include/mujoco/mujoco.h
- /home/ubuntu/dog/TOE-Dog/src/interface/IOMujoco.cpp
+ /home/toe/TOE-Dog/src/interface/IOMujoco.cpp
 CMakeFiles/dogsim.dir/src/interface/IOROS.cpp.o
- /home/ubuntu/dog/TOE-Dog/src/interface/IOROS.cpp
+ ../fdilink_ahrs_ROS1/devel/include/unitree_a1/MotorCmd.h
+ ../fdilink_ahrs_ROS1/devel/include/unitree_a1/MotorData.h
+ ../include/common/enumClass.h
+ ../include/common/mathTools.h
+ ../include/common/mathTypes.h
+ ../include/communication/motor.h
+ ../include/communication/motor_msg.h
+ ../include/communication/uart.hpp
+ ../include/control/leg_control.h
+ ../include/interface/CmdPanel.h
+ ../include/interface/IOInterface.h
+ ../include/interface/IOROS.h
+ ../include/interface/KeyBoard.h
+ ../include/interface/WirelessHandle.h
+ ../include/message/LowlevelCmd.h
+ ../include/message/LowlevelState.h
+ /home/toe/TOE-Dog/src/interface/IOROS.cpp
+ /opt/ros/noetic/include/geometry_msgs/Quaternion.h
+ /opt/ros/noetic/include/geometry_msgs/Vector3.h
+ /opt/ros/noetic/include/ros/advertise_options.h
+ /opt/ros/noetic/include/ros/advertise_service_options.h
+ /opt/ros/noetic/include/ros/assert.h
+ /opt/ros/noetic/include/ros/builtin_message_traits.h
+ /opt/ros/noetic/include/ros/common.h
+ /opt/ros/noetic/include/ros/console.h
+ /opt/ros/noetic/include/ros/console_backend.h
+ /opt/ros/noetic/include/ros/datatypes.h
+ /opt/ros/noetic/include/ros/duration.h
+ /opt/ros/noetic/include/ros/exception.h
+ /opt/ros/noetic/include/ros/exceptions.h
+ /opt/ros/noetic/include/ros/forwards.h
+ /opt/ros/noetic/include/ros/init.h
+ /opt/ros/noetic/include/ros/macros.h
+ /opt/ros/noetic/include/ros/master.h
+ /opt/ros/noetic/include/ros/message.h
+ /opt/ros/noetic/include/ros/message_event.h
+ /opt/ros/noetic/include/ros/message_forward.h
+ /opt/ros/noetic/include/ros/message_operations.h
+ /opt/ros/noetic/include/ros/message_traits.h
+ /opt/ros/noetic/include/ros/names.h
+ /opt/ros/noetic/include/ros/node_handle.h
+ /opt/ros/noetic/include/ros/param.h
+ /opt/ros/noetic/include/ros/parameter_adapter.h
+ /opt/ros/noetic/include/ros/platform.h
+ /opt/ros/noetic/include/ros/publisher.h
+ /opt/ros/noetic/include/ros/rate.h
+ /opt/ros/noetic/include/ros/ros.h
+ /opt/ros/noetic/include/ros/roscpp_serialization_macros.h
+ /opt/ros/noetic/include/ros/rostime_decl.h
+ /opt/ros/noetic/include/ros/serialization.h
+ /opt/ros/noetic/include/ros/serialized_message.h
+ /opt/ros/noetic/include/ros/service.h
+ /opt/ros/noetic/include/ros/service_callback_helper.h
+ /opt/ros/noetic/include/ros/service_client.h
+ /opt/ros/noetic/include/ros/service_client_options.h
+ /opt/ros/noetic/include/ros/service_server.h
+ /opt/ros/noetic/include/ros/service_traits.h
+ /opt/ros/noetic/include/ros/single_subscriber_publisher.h
+ /opt/ros/noetic/include/ros/spinner.h
+ /opt/ros/noetic/include/ros/static_assert.h
+ /opt/ros/noetic/include/ros/steady_timer.h
+ /opt/ros/noetic/include/ros/steady_timer_options.h
+ /opt/ros/noetic/include/ros/subscribe_options.h
+ /opt/ros/noetic/include/ros/subscriber.h
+ /opt/ros/noetic/include/ros/subscription_callback_helper.h
+ /opt/ros/noetic/include/ros/this_node.h
+ /opt/ros/noetic/include/ros/time.h
+ /opt/ros/noetic/include/ros/timer.h
+ /opt/ros/noetic/include/ros/timer_options.h
+ /opt/ros/noetic/include/ros/topic.h
+ /opt/ros/noetic/include/ros/transport_hints.h
+ /opt/ros/noetic/include/ros/types.h
+ /opt/ros/noetic/include/ros/wall_timer.h
+ /opt/ros/noetic/include/ros/wall_timer_options.h
+ /opt/ros/noetic/include/rosconsole/macros_generated.h
+ /opt/ros/noetic/include/sensor_msgs/Imu.h
+ /opt/ros/noetic/include/std_msgs/Header.h
+ /opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h
+ /opt/ros/noetic/include/xmlrpcpp/XmlRpcValue.h
 CMakeFiles/dogsim.dir/src/interface/IOReal_old.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTools.h
@@ -250,18 +328,18 @@ CMakeFiles/dogsim.dir/src/interface/IOReal_old.cpp.o
  ../include/interface/WirelessHandle.h
  ../include/message/LowlevelCmd.h
  ../include/message/LowlevelState.h
- /home/ubuntu/dog/TOE-Dog/src/interface/IOReal_old.cpp
+ /home/toe/TOE-Dog/src/interface/IOReal_old.cpp
 CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTools.h
  ../include/common/mathTypes.h
  ../include/interface/CmdPanel.h
  ../include/interface/KeyBoard.h
- /home/ubuntu/dog/TOE-Dog/src/interface/KeyBoard.cpp
+ /home/toe/TOE-Dog/src/interface/KeyBoard.cpp
 CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.o
  ../include/common/enumClass.h
  ../include/common/mathTools.h
  ../include/common/mathTypes.h
  ../include/interface/CmdPanel.h
  ../include/interface/WirelessHandle.h
- /home/ubuntu/dog/TOE-Dog/src/interface/WirelessHandle.cpp
+ /home/toe/TOE-Dog/src/interface/WirelessHandle.cpp

@@ -7,10 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
+export LD_LIBRARY_PATH='/opt/ros/noetic/lib'
+export PKG_CONFIG_PATH='/opt/ros/noetic/lib/pkgconfig'
 export PWD='/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build'
-export PYTHONPATH="/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/lib/python3/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES='/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/share/common-lisp'
-export ROS_PACKAGE_PATH="/home/toe/TOE-Dog/fdilink_ahrs_ROS1/src:$ROS_PACKAGE_PATH"
+export PYTHONPATH='/opt/ros/noetic/lib/python3/dist-packages'

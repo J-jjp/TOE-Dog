@@ -33,13 +33,13 @@ void State_Rl::enter(){
         mobCmd_[0]=0;//x方向速度
         mobCmd_[1]=0;//y方向速度
         mobCmd_[2]=0;//yaw方向速度
-        mobCmd_[3]=0.05;//身高
+        mobCmd_[3]=0.;//身高
         mobCmd_[4]=3;//踏步频率
         mobCmd_[5]=0.5;//步态
         mobCmd_[6]=0.0;
         mobCmd_[7]=0.0;
         mobCmd_[8]=0.5;
-        mobCmd_[9]=0.2;//步幅
+        mobCmd_[9]=0.08;//步幅
         mobCmd_[10]=0.0;//pitch_cmd
         mobCmd_[11]=0.0;//roll_cmd
         mobCmd_[12]=0.25;//站姿宽度cmd
@@ -80,7 +80,7 @@ void State_Rl::enter(){
 }
 
 void State_Rl::run(){
-    speed_limit();
+    // speed_limit();
     // test_motor();o
     time_rl++;
     if (0)
@@ -700,9 +700,9 @@ void State_Rl::mnnInference_qua()
 
         obs_qua[i] = proj_gravity[i];
     }
-    obs_qua[3] = -_lowState->userValue.ly *2*0.7;
-    obs_qua[4] = -_lowState->userValue.lx *2*0.7*0.6;
-    obs_qua[5] = -_lowState->userValue.rx *0.25*0.7;
+    obs_qua[3] = -_lowState->userValue.ly *2*0.8;
+    obs_qua[4] = -_lowState->userValue.lx *2*0.7*0.8;
+    obs_qua[5] = -_lowState->userValue.rx *0.25*0.8;
 
     for (size_t i = 0; i < 12; i++)
     {

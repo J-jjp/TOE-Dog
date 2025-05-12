@@ -74,10 +74,10 @@ struct LowlevelCmd{
     void setSimStanceGain(int legID){
         motorCmd[legID*3+0].Kp = 20;
         motorCmd[legID*3+0].Kd = 0.5;
-        motorCmd[legID*3+1].Kp = 20;
-        motorCmd[legID*3+1].Kd = 0.5;
-        motorCmd[legID*3+2].Kp = 20;
-        motorCmd[legID*3+2].Kd = 0.5;
+        motorCmd[legID*3+1].Kp = 30;
+        motorCmd[legID*3+1].Kd = 0.75;
+        motorCmd[legID*3+2].Kp = 40;
+        motorCmd[legID*3+2].Kd = 1.;
     }
     void setSimjumpeGain(int legID){
         motorCmd[legID*3+0].Kp = 40;
@@ -91,10 +91,10 @@ struct LowlevelCmd{
 
         motorCmd[legID*3+0].Kp = 20;
         motorCmd[legID*3+0].Kd = 0.5;
-        motorCmd[legID*3+1].Kp = 20;
-        motorCmd[legID*3+1].Kd = 0.5;
-        motorCmd[legID*3+2].Kp = 20;
-        motorCmd[legID*3+2].Kd = 0.5;
+        motorCmd[legID*3+1].Kp = 30;
+        motorCmd[legID*3+1].Kd = 0.75;
+        motorCmd[legID*3+2].Kp = 40;
+        motorCmd[legID*3+2].Kd = 1.;
     }
     void setZeroGain(int legID){
         motorCmd[legID*3+0].Kp = 0;

@@ -1,2 +1,2 @@
-fdilink_ahrs:unitree_a1
+dm_imu:fdilink_ahrs:unitree_a1
 -DCATKIN_DEVEL_PREFIX=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel -DCMAKE_INSTALL_PREFIX=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/install -G Unix Makefiles
