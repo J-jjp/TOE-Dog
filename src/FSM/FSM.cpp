@@ -71,6 +71,7 @@ void FSM::run(){
     }
 
     //在这里更新状态-----------------------------------------------------------------
+    _ctrlComp->send();
 
     absoluteWait(_startTime, (long long)(_ctrlComp->dt * 1000000));//*1000 1000是为了转为微秒      2.5ms 保证400hz
 

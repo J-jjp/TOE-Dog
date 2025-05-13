@@ -80,7 +80,7 @@ void State_Rl::enter(){
 }
 
 void State_Rl::run(){
-    // speed_limit();
+    speed_limit();
     // test_motor();o
     time_rl++;
     if (0)
@@ -337,9 +337,9 @@ void State_Rl::getCurrentObservation_Walk()
 
     // std::cout<<proj_gravity[0]<<" "<<proj_gravity[1]<<" "<<proj_gravity[2]<<std::endl;
 
-    mobCmd_[0]=-_userValue.ly*4+0.3;
-    mobCmd_[1]=-_userValue.lx*0;
-    mobCmd_[2]=_userValue.rx*2;
+    mobCmd_[0]=-_userValue.ly*2+0.3;
+    mobCmd_[1]=-_userValue.lx*1;
+    mobCmd_[2]=_userValue.rx*0.25;
 
     for (int i = 0; i < 3; i++)
     {
@@ -582,9 +582,9 @@ void State_Rl::mnnInference_legged()
 
         obs_legged[i] = proj_gravity[i];
     }
-    obs_legged[3] = -_lowState->userValue.ly *2*0.7;
-    obs_legged[4] = -_lowState->userValue.lx *2*0.7*0.6;
-    obs_legged[5] = -_lowState->userValue.rx *0.25*0.7;
+    obs_legged[3] = -_userValue.ly *2*0.7;
+    obs_legged[4] = -_userValue.lx *2*0.7*0.6;
+    obs_legged[5] = -_userValue.rx *0.25*0.7;
 
     for (size_t i = 0; i < 12; i++)
     {
@@ -644,8 +644,8 @@ void State_Rl::mnnInference_legged()
     float action_flt[12];
     for (size_t i = 0; i < 12; i++)
     {
-        // action_flt[i]=action_cmd_legged[i]*0.8+last_action_cmd_legged[i]*0.2;
-        action_flt[i]=action_cmd_legged[i]*0.25;
+        action_flt[i]=action_cmd_legged[i]*0.8+last_action_cmd_legged[i]*0.2;
+        // action_flt[i]=action_cmd_legged[i]*0.25;
     }
     for (size_t i = 0; i < 12; i++)
     {
@@ -655,7 +655,7 @@ void State_Rl::mnnInference_legged()
 
     for (size_t i = 0; i < 12; i++)
     {
-        _lowCmd->motorCmd[i].q = action_flt[i]+ default_dof_pos[i];
+        _lowCmd->motorCmd[i].q = action_flt[i]*0.2+ default_dof_pos[i];
     }
 }
 void State_Rl::stateMachine_qua(){
@@ -690,25 +690,25 @@ void State_Rl::mnnInference_qua()
     
     // Eigen::Vector3d base_ang= quat_rotate_inverse(q, ang_v);
     
-    for (size_t i = 0; i < 3; i++)
-    {
-        obs_qua[i] =_lowState->imu.gyroscope[i] *obs_scales_ang_vel;
-    }
+    // for (size_t i = 0; i < 3; i++)
+    // {
+    //     obs_qua[i] =_lowState->imu.gyroscope[i] *obs_scales_ang_vel;
+    // }
     
     for (size_t i = 0; i < 3; i++)
     {
 
-        obs_qua[i+3] = proj_gravity[i];
+        obs_qua[i] = proj_gravity[i];
     }
-    obs_qua[6] = -_lowState->userValue.ly *2*0.8;
-    obs_qua[7] = -_lowState->userValue.lx *2*0.7*0.8;
-    obs_qua[8] = -_lowState->userValue.rx *0.25*0.8;
+    obs_qua[3] = -_userValue.ly *2*0.8;
+    obs_qua[4] = -_userValue.lx *2*0.7*0.8;
+    obs_qua[5] = -_userValue.rx *0.25*0.8;
 
     for (size_t i = 0; i < 12; i++)
     {
-        obs_qua[9+i] = (_lowState->motorState[i].q-default_dof_pos[i]) *obs_scales_dof_pos;
-        obs_qua[21+i] = _lowState->motorState[i].dq * obs_scales_dof_vel;
-        obs_qua[33+i] = last_action_cmd_qua[i];
+        obs_qua[6+i] = (_lowState->motorState[i].q-default_dof_pos[i]) *obs_scales_dof_pos;
+        obs_qua[18+i] = _lowState->motorState[i].dq * obs_scales_dof_vel;
+        obs_qua[30+i] = last_action_cmd_qua[i];
     }
     // for (size_t i = 0; i < N_proprio_qua; i++)
     // {
@@ -754,7 +754,7 @@ void State_Rl::mnnInference_qua()
     for (size_t i = 0; i < 12; i++)
     {
 
-        action_flt[i]=action_cmd_qua[i]*0.25;
+        action_flt[i]=action_cmd_qua[i]*0.8+ last_action_cmd_qua[i]*0.2;
     }
     action_flt[0]*=0.5;
     action_flt[3]*=0.5;
@@ -769,7 +769,7 @@ void State_Rl::mnnInference_qua()
     }
     for (size_t i = 0; i < 12; i++)
     {
-        _lowCmd->motorCmd[i].q = action_flt[i]+ default_dof_pos[i];
+        _lowCmd->motorCmd[i].q = action_flt[i]*0.25+ default_dof_pos[i];
     }
 }
 
@@ -1243,30 +1243,30 @@ void State_Rl::test_motor(){
 }
 void State_Rl::speed_limit(){
 
-    if (std::abs(_lowState->userValue.lx - _userValue.lx) > 0.01) {
+    if (std::abs(_lowState->userValue.lx - _userValue.lx) > 0.05) {
         // 根据差值的正负决定增加还是减少_userValue.lx
-        _userValue.lx += (_lowState->userValue.lx > _userValue.lx) ? 0.01 : -0.01;
+        _userValue.lx += (_lowState->userValue.lx > _userValue.lx) ? 0.05 : -0.05;
     } else {
         // 如果差值不大于0.1，直接设置为_lowState->userValue.lx的值
         _userValue.lx = _lowState->userValue.lx;
     }
-    if (std::abs(_lowState->userValue.ly - _userValue.ly) > 0.01) {
+    if (std::abs(_lowState->userValue.ly - _userValue.ly) > 0.05) {
         // 根据差值的正负决定增加还是减少_userValue.lx
-        _userValue.ly += (_lowState->userValue.ly > _userValue.ly) ? 0.01 : -0.01;
+        _userValue.ly += (_lowState->userValue.ly > _userValue.ly) ? 0.05 : -0.05;
     } else {
         // 如果差值不大于0.1，直接设置为_lowState->userValue.lx的值
         _userValue.ly = _lowState->userValue.ly;
     }
-    if (std::abs(_lowState->userValue.rx - _userValue.rx) > 0.01) {
+    if (std::abs(_lowState->userValue.rx - _userValue.rx) > 0.05) {
         // 根据差值的正负决定增加还是减少_userValue.lx
-        _userValue.rx += (_lowState->userValue.rx > _userValue.rx) ? 0.01 : -0.01;
+        _userValue.rx += (_lowState->userValue.rx > _userValue.rx) ? 0.05 : -0.05;
     } else {
         // 如果差值不大于0.1，直接设置为_lowState->userValue.lx的值
         _userValue.rx = _lowState->userValue.rx;
     }
-    if (std::abs(_lowState->userValue.ry - _userValue.ry) > 0.01) {
+    if (std::abs(_lowState->userValue.ry - _userValue.ry) > 0.05) {
         // 根据差值的正负决定增加还是减少_userValue.lx
-        _userValue.ry += (_lowState->userValue.ry > _userValue.ry) ? 0.01 : -0.01;
+        _userValue.ry += (_lowState->userValue.ry > _userValue.ry) ? 0.05 : -0.05;
     } else {
         // 如果差值不大于0.1，直接设置为_lowState->userValue.lx的值
         _userValue.ry = _lowState->userValue.ry;
