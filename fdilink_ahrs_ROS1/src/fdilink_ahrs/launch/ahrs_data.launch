@@ -43,5 +43,6 @@
     <!-- 发布的数据基于不同设备有不同的坐标系   -->
     <param name="device_type"  value="1"/> <!-- 0: origin_data, 1: for single imu or ucar in ROS -->
   </node>
+   <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(find dm_imu)/rviz/imu.rviz" required="true"/> -->
   <node pkg="unitree_a1" type="Motor_node" name="Motor_node" output="screen"/>
 </launch> 

@@ -5,7 +5,7 @@ namespace dmbot_serial
 {
 DmImu::DmImu(ros::NodeHandle& nh, ros::NodeHandle& nh_private)
 {
-  nh_private.param("port", imu_serial_port, std::string("/dev/ttyACM1")); 
+  nh_private.param("port", imu_serial_port, std::string("/dev/serial/by-id/usb-DM-IMU_DM-IMU_USB_CDC_2025021200-if00")); 
   nh_private.param("baud", imu_seial_baud, 921600);
                  
   imu_msgs.header.frame_id = "imu_link";

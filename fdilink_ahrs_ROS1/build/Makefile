@@ -285,30 +285,134 @@ gtest/fast:
 .PHONY : gtest/fast
 
 #=============================================================================
-# Target rules for targets named dm_imu_node
+# Target rules for targets named damiao_msgs_genpy
 
 # Build rule for target.
-dm_imu_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dm_imu_node
-.PHONY : dm_imu_node
+damiao_msgs_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 damiao_msgs_genpy
+.PHONY : damiao_msgs_genpy
 
 # fast build rule for target.
-dm_imu_node/fast:
-	$(MAKE) -f dm_imu/CMakeFiles/dm_imu_node.dir/build.make dm_imu/CMakeFiles/dm_imu_node.dir/build
-.PHONY : dm_imu_node/fast
+damiao_msgs_genpy/fast:
+	$(MAKE) -f damiao_msgs/CMakeFiles/damiao_msgs_genpy.dir/build.make damiao_msgs/CMakeFiles/damiao_msgs_genpy.dir/build
+.PHONY : damiao_msgs_genpy/fast
 
 #=============================================================================
-# Target rules for targets named std_msgs_generate_messages_py
+# Target rules for targets named damiao_msgs_genlisp
 
 # Build rule for target.
-std_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_py
-.PHONY : std_msgs_generate_messages_py
+damiao_msgs_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 damiao_msgs_genlisp
+.PHONY : damiao_msgs_genlisp
 
 # fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	$(MAKE) -f dm_imu/CMakeFiles/std_msgs_generate_messages_py.dir/build.make dm_imu/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
+damiao_msgs_genlisp/fast:
+	$(MAKE) -f damiao_msgs/CMakeFiles/damiao_msgs_genlisp.dir/build.make damiao_msgs/CMakeFiles/damiao_msgs_genlisp.dir/build
+.PHONY : damiao_msgs_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named damiao_msgs_generate_messages_lisp
+
+# Build rule for target.
+damiao_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 damiao_msgs_generate_messages_lisp
+.PHONY : damiao_msgs_generate_messages_lisp
+
+# fast build rule for target.
+damiao_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f damiao_msgs/CMakeFiles/damiao_msgs_generate_messages_lisp.dir/build.make damiao_msgs/CMakeFiles/damiao_msgs_generate_messages_lisp.dir/build
+.PHONY : damiao_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named _catkin_empty_exported_target
+
+# Build rule for target.
+_catkin_empty_exported_target: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _catkin_empty_exported_target
+.PHONY : _catkin_empty_exported_target
+
+# fast build rule for target.
+_catkin_empty_exported_target/fast:
+	$(MAKE) -f damiao_msgs/CMakeFiles/_catkin_empty_exported_target.dir/build.make damiao_msgs/CMakeFiles/_catkin_empty_exported_target.dir/build
+.PHONY : _catkin_empty_exported_target/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_cpp
+
+# Build rule for target.
+std_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_cpp
+.PHONY : std_msgs_generate_messages_cpp
+
+# fast build rule for target.
+std_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f damiao_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make damiao_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+.PHONY : std_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named damiao_msgs_generate_messages_eus
+
+# Build rule for target.
+damiao_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 damiao_msgs_generate_messages_eus
+.PHONY : damiao_msgs_generate_messages_eus
+
+# fast build rule for target.
+damiao_msgs_generate_messages_eus/fast:
+	$(MAKE) -f damiao_msgs/CMakeFiles/damiao_msgs_generate_messages_eus.dir/build.make damiao_msgs/CMakeFiles/damiao_msgs_generate_messages_eus.dir/build
+.PHONY : damiao_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_eus
+
+# Build rule for target.
+std_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_eus
+.PHONY : std_msgs_generate_messages_eus
+
+# fast build rule for target.
+std_msgs_generate_messages_eus/fast:
+	$(MAKE) -f damiao_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make damiao_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/build
+.PHONY : std_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named damiao_msgs_generate_messages_py
+
+# Build rule for target.
+damiao_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 damiao_msgs_generate_messages_py
+.PHONY : damiao_msgs_generate_messages_py
+
+# fast build rule for target.
+damiao_msgs_generate_messages_py/fast:
+	$(MAKE) -f damiao_msgs/CMakeFiles/damiao_msgs_generate_messages_py.dir/build.make damiao_msgs/CMakeFiles/damiao_msgs_generate_messages_py.dir/build
+.PHONY : damiao_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_lisp
+
+# Build rule for target.
+std_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_lisp
+.PHONY : std_msgs_generate_messages_lisp
+
+# fast build rule for target.
+std_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f damiao_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make damiao_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+.PHONY : std_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named damiao_msgs_gencpp
+
+# Build rule for target.
+damiao_msgs_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 damiao_msgs_gencpp
+.PHONY : damiao_msgs_gencpp
+
+# fast build rule for target.
+damiao_msgs_gencpp/fast:
+	$(MAKE) -f damiao_msgs/CMakeFiles/damiao_msgs_gencpp.dir/build.make damiao_msgs/CMakeFiles/damiao_msgs_gencpp.dir/build
+.PHONY : damiao_msgs_gencpp/fast
 
 #=============================================================================
 # Target rules for targets named std_msgs_generate_messages_nodejs
@@ -320,8 +424,112 @@ std_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 std_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f dm_imu/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make dm_imu/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f damiao_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make damiao_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
 .PHONY : std_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_py
+
+# Build rule for target.
+std_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_py
+.PHONY : std_msgs_generate_messages_py
+
+# fast build rule for target.
+std_msgs_generate_messages_py/fast:
+	$(MAKE) -f damiao_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/build.make damiao_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/build
+.PHONY : std_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named damiao_msgs_generate_messages
+
+# Build rule for target.
+damiao_msgs_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 damiao_msgs_generate_messages
+.PHONY : damiao_msgs_generate_messages
+
+# fast build rule for target.
+damiao_msgs_generate_messages/fast:
+	$(MAKE) -f damiao_msgs/CMakeFiles/damiao_msgs_generate_messages.dir/build.make damiao_msgs/CMakeFiles/damiao_msgs_generate_messages.dir/build
+.PHONY : damiao_msgs_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named _damiao_msgs_generate_messages_check_deps_DmCommand
+
+# Build rule for target.
+_damiao_msgs_generate_messages_check_deps_DmCommand: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _damiao_msgs_generate_messages_check_deps_DmCommand
+.PHONY : _damiao_msgs_generate_messages_check_deps_DmCommand
+
+# fast build rule for target.
+_damiao_msgs_generate_messages_check_deps_DmCommand/fast:
+	$(MAKE) -f damiao_msgs/CMakeFiles/_damiao_msgs_generate_messages_check_deps_DmCommand.dir/build.make damiao_msgs/CMakeFiles/_damiao_msgs_generate_messages_check_deps_DmCommand.dir/build
+.PHONY : _damiao_msgs_generate_messages_check_deps_DmCommand/fast
+
+#=============================================================================
+# Target rules for targets named _damiao_msgs_generate_messages_check_deps_DmState
+
+# Build rule for target.
+_damiao_msgs_generate_messages_check_deps_DmState: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _damiao_msgs_generate_messages_check_deps_DmState
+.PHONY : _damiao_msgs_generate_messages_check_deps_DmState
+
+# fast build rule for target.
+_damiao_msgs_generate_messages_check_deps_DmState/fast:
+	$(MAKE) -f damiao_msgs/CMakeFiles/_damiao_msgs_generate_messages_check_deps_DmState.dir/build.make damiao_msgs/CMakeFiles/_damiao_msgs_generate_messages_check_deps_DmState.dir/build
+.PHONY : _damiao_msgs_generate_messages_check_deps_DmState/fast
+
+#=============================================================================
+# Target rules for targets named damiao_msgs_geneus
+
+# Build rule for target.
+damiao_msgs_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 damiao_msgs_geneus
+.PHONY : damiao_msgs_geneus
+
+# fast build rule for target.
+damiao_msgs_geneus/fast:
+	$(MAKE) -f damiao_msgs/CMakeFiles/damiao_msgs_geneus.dir/build.make damiao_msgs/CMakeFiles/damiao_msgs_geneus.dir/build
+.PHONY : damiao_msgs_geneus/fast
+
+#=============================================================================
+# Target rules for targets named damiao_msgs_gennodejs
+
+# Build rule for target.
+damiao_msgs_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 damiao_msgs_gennodejs
+.PHONY : damiao_msgs_gennodejs
+
+# fast build rule for target.
+damiao_msgs_gennodejs/fast:
+	$(MAKE) -f damiao_msgs/CMakeFiles/damiao_msgs_gennodejs.dir/build.make damiao_msgs/CMakeFiles/damiao_msgs_gennodejs.dir/build
+.PHONY : damiao_msgs_gennodejs/fast
+
+#=============================================================================
+# Target rules for targets named damiao_msgs_generate_messages_nodejs
+
+# Build rule for target.
+damiao_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 damiao_msgs_generate_messages_nodejs
+.PHONY : damiao_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+damiao_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f damiao_msgs/CMakeFiles/damiao_msgs_generate_messages_nodejs.dir/build.make damiao_msgs/CMakeFiles/damiao_msgs_generate_messages_nodejs.dir/build
+.PHONY : damiao_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named damiao_msgs_generate_messages_cpp
+
+# Build rule for target.
+damiao_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 damiao_msgs_generate_messages_cpp
+.PHONY : damiao_msgs_generate_messages_cpp
+
+# fast build rule for target.
+damiao_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f damiao_msgs/CMakeFiles/damiao_msgs_generate_messages_cpp.dir/build.make damiao_msgs/CMakeFiles/damiao_msgs_generate_messages_cpp.dir/build
+.PHONY : damiao_msgs_generate_messages_cpp/fast
 
 #=============================================================================
 # Target rules for targets named roscpp_generate_messages_cpp
@@ -363,19 +571,6 @@ rosgraph_msgs_generate_messages_nodejs/fast:
 .PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
-# Target rules for targets named std_msgs_generate_messages_lisp
-
-# Build rule for target.
-std_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_lisp
-.PHONY : std_msgs_generate_messages_lisp
-
-# fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f dm_imu/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make dm_imu/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
-
-#=============================================================================
 # Target rules for targets named roscpp_generate_messages_py
 
 # Build rule for target.
@@ -387,19 +582,6 @@ roscpp_generate_messages_py: cmake_check_build_system
 roscpp_generate_messages_py/fast:
 	$(MAKE) -f dm_imu/CMakeFiles/roscpp_generate_messages_py.dir/build.make dm_imu/CMakeFiles/roscpp_generate_messages_py.dir/build
 .PHONY : roscpp_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_eus
-
-# Build rule for target.
-std_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_eus
-.PHONY : std_msgs_generate_messages_eus
-
-# fast build rule for target.
-std_msgs_generate_messages_eus/fast:
-	$(MAKE) -f dm_imu/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make dm_imu/CMakeFiles/std_msgs_generate_messages_eus.dir/build
-.PHONY : std_msgs_generate_messages_eus/fast
 
 #=============================================================================
 # Target rules for targets named roscpp_generate_messages_nodejs
@@ -428,19 +610,6 @@ rosgraph_msgs_generate_messages_cpp/fast:
 .PHONY : rosgraph_msgs_generate_messages_cpp/fast
 
 #=============================================================================
-# Target rules for targets named std_msgs_generate_messages_cpp
-
-# Build rule for target.
-std_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_cpp
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f dm_imu/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make dm_imu/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
-
-#=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_eus
 
 # Build rule for target.
@@ -465,6 +634,19 @@ rosgraph_msgs_generate_messages_lisp: cmake_check_build_system
 rosgraph_msgs_generate_messages_lisp/fast:
 	$(MAKE) -f dm_imu/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make dm_imu/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named dm_imu_node
+
+# Build rule for target.
+dm_imu_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dm_imu_node
+.PHONY : dm_imu_node
+
+# fast build rule for target.
+dm_imu_node/fast:
+	$(MAKE) -f dm_imu/CMakeFiles/dm_imu_node.dir/build.make dm_imu/CMakeFiles/dm_imu_node.dir/build
+.PHONY : dm_imu_node/fast
 
 #=============================================================================
 # Target rules for targets named roscpp_generate_messages_lisp
@@ -493,6 +675,123 @@ rosgraph_msgs_generate_messages_py/fast:
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named dm_controllers
+
+# Build rule for target.
+dm_controllers: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dm_controllers
+.PHONY : dm_controllers
+
+# fast build rule for target.
+dm_controllers/fast:
+	$(MAKE) -f dm_controllers/CMakeFiles/dm_controllers.dir/build.make dm_controllers/CMakeFiles/dm_controllers.dir/build
+.PHONY : dm_controllers/fast
+
+#=============================================================================
+# Target rules for targets named test_command_publisher
+
+# Build rule for target.
+test_command_publisher: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_command_publisher
+.PHONY : test_command_publisher
+
+# fast build rule for target.
+test_command_publisher/fast:
+	$(MAKE) -f test/CMakeFiles/test_command_publisher.dir/build.make test/CMakeFiles/test_command_publisher.dir/build
+.PHONY : test_command_publisher/fast
+
+#=============================================================================
+# Target rules for targets named dm_hw
+
+# Build rule for target.
+dm_hw: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dm_hw
+.PHONY : dm_hw
+
+# fast build rule for target.
+dm_hw/fast:
+	$(MAKE) -f dm_hw/CMakeFiles/dm_hw.dir/build.make dm_hw/CMakeFiles/dm_hw.dir/build
+.PHONY : dm_hw/fast
+
+#=============================================================================
+# Target rules for targets named controller_manager_msgs_generate_messages_py
+
+# Build rule for target.
+controller_manager_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 controller_manager_msgs_generate_messages_py
+.PHONY : controller_manager_msgs_generate_messages_py
+
+# fast build rule for target.
+controller_manager_msgs_generate_messages_py/fast:
+	$(MAKE) -f dm_hw/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/build.make dm_hw/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/build
+.PHONY : controller_manager_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named controller_manager_msgs_generate_messages_nodejs
+
+# Build rule for target.
+controller_manager_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 controller_manager_msgs_generate_messages_nodejs
+.PHONY : controller_manager_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+controller_manager_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f dm_hw/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/build.make dm_hw/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/build
+.PHONY : controller_manager_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named controller_manager_msgs_generate_messages_lisp
+
+# Build rule for target.
+controller_manager_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 controller_manager_msgs_generate_messages_lisp
+.PHONY : controller_manager_msgs_generate_messages_lisp
+
+# fast build rule for target.
+controller_manager_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f dm_hw/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/build.make dm_hw/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/build
+.PHONY : controller_manager_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named controller_manager_msgs_generate_messages_eus
+
+# Build rule for target.
+controller_manager_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 controller_manager_msgs_generate_messages_eus
+.PHONY : controller_manager_msgs_generate_messages_eus
+
+# fast build rule for target.
+controller_manager_msgs_generate_messages_eus/fast:
+	$(MAKE) -f dm_hw/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/build.make dm_hw/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/build
+.PHONY : controller_manager_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named controller_manager_msgs_generate_messages_cpp
+
+# Build rule for target.
+controller_manager_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 controller_manager_msgs_generate_messages_cpp
+.PHONY : controller_manager_msgs_generate_messages_cpp
+
+# fast build rule for target.
+controller_manager_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f dm_hw/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build.make dm_hw/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build
+.PHONY : controller_manager_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named dm_main
+
+# Build rule for target.
+dm_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dm_main
+.PHONY : dm_main
+
+# fast build rule for target.
+dm_main/fast:
+	$(MAKE) -f dm_examples/dm_main/CMakeFiles/dm_main.dir/build.make dm_examples/dm_main/CMakeFiles/dm_main.dir/build
+.PHONY : dm_main/fast
+
+#=============================================================================
 # Target rules for targets named nav_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -517,19 +816,6 @@ nav_msgs_generate_messages_cpp: cmake_check_build_system
 nav_msgs_generate_messages_cpp/fast:
 	$(MAKE) -f fdilink_ahrs/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make fdilink_ahrs/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build
 .PHONY : nav_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named tf2_msgs_generate_messages_nodejs
-
-# Build rule for target.
-tf2_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf2_msgs_generate_messages_nodejs
-.PHONY : tf2_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-tf2_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f fdilink_ahrs/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make fdilink_ahrs/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
-.PHONY : tf2_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
 # Target rules for targets named tf_generate_messages_py
@@ -818,19 +1104,6 @@ sensor_msgs_generate_messages_eus/fast:
 .PHONY : sensor_msgs_generate_messages_eus/fast
 
 #=============================================================================
-# Target rules for targets named _catkin_empty_exported_target
-
-# Build rule for target.
-_catkin_empty_exported_target: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _catkin_empty_exported_target
-.PHONY : _catkin_empty_exported_target
-
-# fast build rule for target.
-_catkin_empty_exported_target/fast:
-	$(MAKE) -f fdilink_ahrs/CMakeFiles/_catkin_empty_exported_target.dir/build.make fdilink_ahrs/CMakeFiles/_catkin_empty_exported_target.dir/build
-.PHONY : _catkin_empty_exported_target/fast
-
-#=============================================================================
 # Target rules for targets named actionlib_generate_messages_lisp
 
 # Build rule for target.
@@ -998,6 +1271,19 @@ tf2_msgs_generate_messages_cpp: cmake_check_build_system
 tf2_msgs_generate_messages_cpp/fast:
 	$(MAKE) -f fdilink_ahrs/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make fdilink_ahrs/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
 .PHONY : tf2_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named tf2_msgs_generate_messages_nodejs
+
+# Build rule for target.
+tf2_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf2_msgs_generate_messages_nodejs
+.PHONY : tf2_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+tf2_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f fdilink_ahrs/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make fdilink_ahrs/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
+.PHONY : tf2_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
 # Target rules for targets named Motor_node
@@ -1203,25 +1489,47 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
-	@echo "... dm_imu_node"
-	@echo "... std_msgs_generate_messages_py"
+	@echo "... damiao_msgs_genpy"
+	@echo "... damiao_msgs_genlisp"
+	@echo "... damiao_msgs_generate_messages_lisp"
+	@echo "... _catkin_empty_exported_target"
+	@echo "... std_msgs_generate_messages_cpp"
+	@echo "... damiao_msgs_generate_messages_eus"
+	@echo "... std_msgs_generate_messages_eus"
+	@echo "... damiao_msgs_generate_messages_py"
+	@echo "... std_msgs_generate_messages_lisp"
+	@echo "... damiao_msgs_gencpp"
 	@echo "... std_msgs_generate_messages_nodejs"
+	@echo "... std_msgs_generate_messages_py"
+	@echo "... damiao_msgs_generate_messages"
+	@echo "... _damiao_msgs_generate_messages_check_deps_DmCommand"
+	@echo "... _damiao_msgs_generate_messages_check_deps_DmState"
+	@echo "... damiao_msgs_geneus"
+	@echo "... damiao_msgs_gennodejs"
+	@echo "... damiao_msgs_generate_messages_nodejs"
+	@echo "... damiao_msgs_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
-	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_py"
-	@echo "... std_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
+	@echo "... dm_imu_node"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... dm_controllers"
+	@echo "... test_command_publisher"
+	@echo "... dm_hw"
+	@echo "... controller_manager_msgs_generate_messages_py"
+	@echo "... controller_manager_msgs_generate_messages_nodejs"
+	@echo "... controller_manager_msgs_generate_messages_lisp"
+	@echo "... controller_manager_msgs_generate_messages_eus"
+	@echo "... controller_manager_msgs_generate_messages_cpp"
+	@echo "... dm_main"
 	@echo "... nav_msgs_generate_messages_lisp"
 	@echo "... nav_msgs_generate_messages_cpp"
-	@echo "... tf2_msgs_generate_messages_nodejs"
 	@echo "... tf_generate_messages_py"
 	@echo "... crc_table"
 	@echo "... actionlib_generate_messages_py"
@@ -1244,7 +1552,6 @@ help:
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... sensor_msgs_generate_messages_eus"
-	@echo "... _catkin_empty_exported_target"
 	@echo "... actionlib_generate_messages_lisp"
 	@echo "... sensor_msgs_generate_messages_cpp"
 	@echo "... tf_generate_messages_nodejs"
@@ -1258,6 +1565,7 @@ help:
 	@echo "... actionlib_msgs_generate_messages_py"
 	@echo "... tf_generate_messages_eus"
 	@echo "... tf2_msgs_generate_messages_cpp"
+	@echo "... tf2_msgs_generate_messages_nodejs"
 	@echo "... Motor_node"
 	@echo "... unitree_a1_generate_messages"
 	@echo "... _unitree_a1_generate_messages_check_deps_MotorData"

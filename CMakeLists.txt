@@ -16,6 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
    roscpp
    sensor_msgs
    unitree_a1
+   damiao_msgs
 )
 if(NOT EIGEN3_FOUND)
   message(FATAL_ERROR "Could not find Eigen3")
@@ -45,7 +46,10 @@ include_directories(include  ${EIGEN3_INCLUDE_DIR}
 # 添加可执行文件
 add_executable(dogsim ${DOG_SRCS} main.cpp)
 add_executable(dogreal ${DOG_SRCS} mainreal.cpp)
+add_executable(dogreal_dm ${DOG_SRCS} mainreal_dm.cpp)
+
 # 链接库
 target_link_libraries(dogsim  ${CURRENT_DIR}/mujoco-3.2.5/lib/libmujoco.so glut GL GLU glfw pthread ${MNN_LIBRARIES} ${catkin_LIBRARIES})
 target_link_libraries(dogreal  ${CURRENT_DIR}/mujoco-3.2.5/lib/libmujoco.so glut GL GLU glfw pthread ${MNN_LIBRARIES} ${catkin_LIBRARIES})
+target_link_libraries(dogreal_dm  ${CURRENT_DIR}/mujoco-3.2.5/lib/libmujoco.so glut GL GLU glfw pthread ${MNN_LIBRARIES} ${catkin_LIBRARIES})
 

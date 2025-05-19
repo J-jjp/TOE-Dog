@@ -1,6 +1,96 @@
 [
 {
   "directory": "/home/toe/TOE-Dog/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal_dm.dir/src/FSM/FSM.cpp.o -c /home/toe/TOE-Dog/src/FSM/FSM.cpp",
+  "file": "/home/toe/TOE-Dog/src/FSM/FSM.cpp"
+},
+{
+  "directory": "/home/toe/TOE-Dog/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal_dm.dir/src/FSM/FSMState.cpp.o -c /home/toe/TOE-Dog/src/FSM/FSMState.cpp",
+  "file": "/home/toe/TOE-Dog/src/FSM/FSMState.cpp"
+},
+{
+  "directory": "/home/toe/TOE-Dog/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal_dm.dir/src/FSM/State_FixedStand.cpp.o -c /home/toe/TOE-Dog/src/FSM/State_FixedStand.cpp",
+  "file": "/home/toe/TOE-Dog/src/FSM/State_FixedStand.cpp"
+},
+{
+  "directory": "/home/toe/TOE-Dog/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal_dm.dir/src/FSM/State_FreeStand.cpp.o -c /home/toe/TOE-Dog/src/FSM/State_FreeStand.cpp",
+  "file": "/home/toe/TOE-Dog/src/FSM/State_FreeStand.cpp"
+},
+{
+  "directory": "/home/toe/TOE-Dog/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal_dm.dir/src/FSM/State_Passive.cpp.o -c /home/toe/TOE-Dog/src/FSM/State_Passive.cpp",
+  "file": "/home/toe/TOE-Dog/src/FSM/State_Passive.cpp"
+},
+{
+  "directory": "/home/toe/TOE-Dog/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal_dm.dir/src/FSM/State_Rl.cpp.o -c /home/toe/TOE-Dog/src/FSM/State_Rl.cpp",
+  "file": "/home/toe/TOE-Dog/src/FSM/State_Rl.cpp"
+},
+{
+  "directory": "/home/toe/TOE-Dog/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal_dm.dir/src/common/unitreeLeg.cpp.o -c /home/toe/TOE-Dog/src/common/unitreeLeg.cpp",
+  "file": "/home/toe/TOE-Dog/src/common/unitreeLeg.cpp"
+},
+{
+  "directory": "/home/toe/TOE-Dog/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal_dm.dir/src/common/unitreeRobot.cpp.o -c /home/toe/TOE-Dog/src/common/unitreeRobot.cpp",
+  "file": "/home/toe/TOE-Dog/src/common/unitreeRobot.cpp"
+},
+{
+  "directory": "/home/toe/TOE-Dog/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal_dm.dir/src/control/ControlFrame.cpp.o -c /home/toe/TOE-Dog/src/control/ControlFrame.cpp",
+  "file": "/home/toe/TOE-Dog/src/control/ControlFrame.cpp"
+},
+{
+  "directory": "/home/toe/TOE-Dog/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal_dm.dir/src/control/leg_control.cpp.o -c /home/toe/TOE-Dog/src/control/leg_control.cpp",
+  "file": "/home/toe/TOE-Dog/src/control/leg_control.cpp"
+},
+{
+  "directory": "/home/toe/TOE-Dog/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal_dm.dir/src/control/rl_Inference.cpp.o -c /home/toe/TOE-Dog/src/control/rl_Inference.cpp",
+  "file": "/home/toe/TOE-Dog/src/control/rl_Inference.cpp"
+},
+{
+  "directory": "/home/toe/TOE-Dog/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal_dm.dir/src/interface/IOMujoco.cpp.o -c /home/toe/TOE-Dog/src/interface/IOMujoco.cpp",
+  "file": "/home/toe/TOE-Dog/src/interface/IOMujoco.cpp"
+},
+{
+  "directory": "/home/toe/TOE-Dog/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal_dm.dir/src/interface/IOROS_.cpp.o -c \"/home/toe/TOE-Dog/src/interface/IOROS .cpp\"",
+  "file": "/home/toe/TOE-Dog/src/interface/IOROS .cpp"
+},
+{
+  "directory": "/home/toe/TOE-Dog/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal_dm.dir/src/interface/IOROS_dm.cpp.o -c /home/toe/TOE-Dog/src/interface/IOROS_dm.cpp",
+  "file": "/home/toe/TOE-Dog/src/interface/IOROS_dm.cpp"
+},
+{
+  "directory": "/home/toe/TOE-Dog/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal_dm.dir/src/interface/IOReal_old.cpp.o -c /home/toe/TOE-Dog/src/interface/IOReal_old.cpp",
+  "file": "/home/toe/TOE-Dog/src/interface/IOReal_old.cpp"
+},
+{
+  "directory": "/home/toe/TOE-Dog/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal_dm.dir/src/interface/KeyBoard.cpp.o -c /home/toe/TOE-Dog/src/interface/KeyBoard.cpp",
+  "file": "/home/toe/TOE-Dog/src/interface/KeyBoard.cpp"
+},
+{
+  "directory": "/home/toe/TOE-Dog/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal_dm.dir/src/interface/WirelessHandle.cpp.o -c /home/toe/TOE-Dog/src/interface/WirelessHandle.cpp",
+  "file": "/home/toe/TOE-Dog/src/interface/WirelessHandle.cpp"
+},
+{
+  "directory": "/home/toe/TOE-Dog/build",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal_dm.dir/mainreal_dm.cpp.o -c /home/toe/TOE-Dog/mainreal_dm.cpp",
+  "file": "/home/toe/TOE-Dog/mainreal_dm.cpp"
+},
+{
+  "directory": "/home/toe/TOE-Dog/build",
   "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"dogreal\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/include -I/usr/include/eigen3 -I/home/toe/TOE-Dog/./mujoco-3.2.5/simulate -I/home/toe/TOE-Dog/./mujoco-3.2.5/include -I/home/toe/TOE-Dog/./imgui -I/home/toe/TOE-Dog/./imgui/backends -I/home/toe/TOE-Dog/include/interface -I/home/toe/TOE-Dog/include/message -I/home/toe/TOE-Dog/include/FSM -I/home/toe/TOE-Dog/include/communication -I/home/toe/TOE-Dog/MNN/include  -g   -std=gnu++17 -o CMakeFiles/dogreal.dir/src/FSM/FSM.cpp.o -c /home/toe/TOE-Dog/src/FSM/FSM.cpp",
   "file": "/home/toe/TOE-Dog/src/FSM/FSM.cpp"
 },

@@ -36,8 +36,8 @@
 #define Num_encoder_legged 32
 #define History_len_legged 9
 // -----------------------------qua---------------------------------
-#define N_proprio_qua  42
-#define Num_observations_qua  42*15
+#define N_proprio_qua  45
+#define Num_observations_qua  45*15
 #define Num_encoder_qua  32
 #define History_len_qua  15
 // -----------------------------amp--------------------------------
@@ -137,6 +137,12 @@ public:
 
     float action_cmd_qua[Num_dof];
     float last_action_cmd_qua[Num_dof];
+    float last_x;
+    float last_y;
+
+    float last_z;
+
+
     // -----------------------amp------------------------
     float obs_amp[N_proprio_amp];
 

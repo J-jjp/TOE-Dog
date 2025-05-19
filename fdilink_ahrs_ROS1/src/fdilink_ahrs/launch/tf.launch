@@ -6,6 +6,5 @@
     <param name="position_x"  value="1"/>
     <param name="position_y"  value="1"/>
     <param name="position_z"  value="0"/>
-
   </node>
 </launch> 

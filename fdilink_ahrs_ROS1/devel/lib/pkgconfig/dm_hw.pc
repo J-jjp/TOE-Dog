@@ -1,0 +1,8 @@
+prefix=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel
+
+Name: dm_hw
+Description: Description of dm_hw
+Version: 0.0.0
+Cflags: -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/src/dm_hw/include
+Libs: -L${prefix}/lib -ldm_hw
+Requires: roscpp std_msgs controller_manager dm_common damiao_msgs

@@ -1,0 +1,79 @@
+serials: 
+  serial0_info:
+    port: /dev/dmFL
+    baudrate: 921600
+  serial1_info:
+    port: /dev/dmFR
+    baudrate: 921600
+  serial2_info:
+    port: /dev/dmRL
+    baudrate: 921600
+  serial3_info:
+    port: /dev/dmRR
+    baudrate: 921600
+
+
+dm_actuators:
+  joint0_motor:
+    port: /dev/dmFL
+    type: DM8009
+    can_id: 0x01
+    mst_id: 0x11
+  joint1_motor:
+    port: /dev/dmFL
+    type: DM8009
+    can_id: 0x02
+    mst_id: 0x12
+  joint2_motor:
+    port: /dev/dmFL
+    type: DM8009
+    can_id: 0x03
+    mst_id: 0x13
+  
+  joint3_motor:
+    port: /dev/dmFR
+    type: DM8009
+    can_id: 0x01
+    mst_id: 0x11
+  joint4_motor:
+    port: /dev/dmFR
+    type: DM8009
+    can_id: 0x02
+    mst_id: 0x12
+  joint5_motor:
+    port: /dev/dmFR
+    type: DM8009
+    can_id: 0x03
+    mst_id: 0x13
+  
+  joint6_motor:
+    port: /dev/dmRL
+    type: DM8009
+    can_id: 0x01
+    mst_id: 0x11
+  joint7_motor:
+    port: /dev/dmRL
+    type: DM8009
+    can_id: 0x02
+    mst_id: 0x12
+  joint8_motor:
+    port: /dev/dmRL
+    type: DM8009
+    can_id: 0x03
+    mst_id: 0x13
+  
+  joint9_motor:
+    port: /dev/dmRR
+    type: DM8009
+    can_id: 0x01
+    mst_id: 0x11
+  joint10_motor:
+    port: /dev/dmRR
+    type: DM8009
+    can_id: 0x02
+    mst_id: 0x12
+  joint11_motor:
+    port: /dev/dmRR
+    type: DM8009
+    can_id: 0x03
+    mst_id: 0x13  

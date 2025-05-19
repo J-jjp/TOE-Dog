@@ -168,6 +168,45 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named dogreal_dm
+
+# Build rule for target.
+dogreal_dm: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dogreal_dm
+.PHONY : dogreal_dm
+
+# fast build rule for target.
+dogreal_dm/fast:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/build
+.PHONY : dogreal_dm/fast
+
+#=============================================================================
+# Target rules for targets named damiao_msgs_generate_messages_eus
+
+# Build rule for target.
+damiao_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 damiao_msgs_generate_messages_eus
+.PHONY : damiao_msgs_generate_messages_eus
+
+# fast build rule for target.
+damiao_msgs_generate_messages_eus/fast:
+	$(MAKE) -f CMakeFiles/damiao_msgs_generate_messages_eus.dir/build.make CMakeFiles/damiao_msgs_generate_messages_eus.dir/build
+.PHONY : damiao_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named damiao_msgs_generate_messages_cpp
+
+# Build rule for target.
+damiao_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 damiao_msgs_generate_messages_cpp
+.PHONY : damiao_msgs_generate_messages_cpp
+
+# fast build rule for target.
+damiao_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f CMakeFiles/damiao_msgs_generate_messages_cpp.dir/build.make CMakeFiles/damiao_msgs_generate_messages_cpp.dir/build
+.PHONY : damiao_msgs_generate_messages_cpp/fast
+
+#=============================================================================
 # Target rules for targets named unitree_a1_generate_messages_lisp
 
 # Build rule for target.
@@ -179,6 +218,19 @@ unitree_a1_generate_messages_lisp: cmake_check_build_system
 unitree_a1_generate_messages_lisp/fast:
 	$(MAKE) -f CMakeFiles/unitree_a1_generate_messages_lisp.dir/build.make CMakeFiles/unitree_a1_generate_messages_lisp.dir/build
 .PHONY : unitree_a1_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named damiao_msgs_generate_messages_py
+
+# Build rule for target.
+damiao_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 damiao_msgs_generate_messages_py
+.PHONY : damiao_msgs_generate_messages_py
+
+# fast build rule for target.
+damiao_msgs_generate_messages_py/fast:
+	$(MAKE) -f CMakeFiles/damiao_msgs_generate_messages_py.dir/build.make CMakeFiles/damiao_msgs_generate_messages_py.dir/build
+.PHONY : damiao_msgs_generate_messages_py/fast
 
 #=============================================================================
 # Target rules for targets named unitree_a1_generate_messages_eus
@@ -376,6 +428,19 @@ roscpp_generate_messages_eus/fast:
 .PHONY : roscpp_generate_messages_eus/fast
 
 #=============================================================================
+# Target rules for targets named damiao_msgs_generate_messages_lisp
+
+# Build rule for target.
+damiao_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 damiao_msgs_generate_messages_lisp
+.PHONY : damiao_msgs_generate_messages_lisp
+
+# fast build rule for target.
+damiao_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f CMakeFiles/damiao_msgs_generate_messages_lisp.dir/build.make CMakeFiles/damiao_msgs_generate_messages_lisp.dir/build
+.PHONY : damiao_msgs_generate_messages_lisp/fast
+
+#=============================================================================
 # Target rules for targets named sensor_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -556,6 +621,19 @@ tests: cmake_check_build_system
 tests/fast:
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
 .PHONY : tests/fast
+
+#=============================================================================
+# Target rules for targets named damiao_msgs_generate_messages_nodejs
+
+# Build rule for target.
+damiao_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 damiao_msgs_generate_messages_nodejs
+.PHONY : damiao_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+damiao_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f CMakeFiles/damiao_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/damiao_msgs_generate_messages_nodejs.dir/build
+.PHONY : damiao_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_nodejs
@@ -754,12 +832,40 @@ mainreal.cpp.s:
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/mainreal.cpp.s
 .PHONY : mainreal.cpp.s
 
+mainreal_dm.o: mainreal_dm.cpp.o
+
+.PHONY : mainreal_dm.o
+
+# target to build an object file
+mainreal_dm.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/mainreal_dm.cpp.o
+.PHONY : mainreal_dm.cpp.o
+
+mainreal_dm.i: mainreal_dm.cpp.i
+
+.PHONY : mainreal_dm.i
+
+# target to preprocess a source file
+mainreal_dm.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/mainreal_dm.cpp.i
+.PHONY : mainreal_dm.cpp.i
+
+mainreal_dm.s: mainreal_dm.cpp.s
+
+.PHONY : mainreal_dm.s
+
+# target to generate assembly for a file
+mainreal_dm.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/mainreal_dm.cpp.s
+.PHONY : mainreal_dm.cpp.s
+
 src/FSM/FSM.o: src/FSM/FSM.cpp.o
 
 .PHONY : src/FSM/FSM.o
 
 # target to build an object file
 src/FSM/FSM.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/FSM/FSM.cpp.o
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/FSM/FSM.cpp.o
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/FSM/FSM.cpp.o
 .PHONY : src/FSM/FSM.cpp.o
@@ -770,6 +876,7 @@ src/FSM/FSM.i: src/FSM/FSM.cpp.i
 
 # target to preprocess a source file
 src/FSM/FSM.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/FSM/FSM.cpp.i
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/FSM/FSM.cpp.i
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/FSM/FSM.cpp.i
 .PHONY : src/FSM/FSM.cpp.i
@@ -780,6 +887,7 @@ src/FSM/FSM.s: src/FSM/FSM.cpp.s
 
 # target to generate assembly for a file
 src/FSM/FSM.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/FSM/FSM.cpp.s
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/FSM/FSM.cpp.s
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/FSM/FSM.cpp.s
 .PHONY : src/FSM/FSM.cpp.s
@@ -790,6 +898,7 @@ src/FSM/FSMState.o: src/FSM/FSMState.cpp.o
 
 # target to build an object file
 src/FSM/FSMState.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/FSM/FSMState.cpp.o
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/FSM/FSMState.cpp.o
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/FSM/FSMState.cpp.o
 .PHONY : src/FSM/FSMState.cpp.o
@@ -800,6 +909,7 @@ src/FSM/FSMState.i: src/FSM/FSMState.cpp.i
 
 # target to preprocess a source file
 src/FSM/FSMState.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/FSM/FSMState.cpp.i
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/FSM/FSMState.cpp.i
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/FSM/FSMState.cpp.i
 .PHONY : src/FSM/FSMState.cpp.i
@@ -810,6 +920,7 @@ src/FSM/FSMState.s: src/FSM/FSMState.cpp.s
 
 # target to generate assembly for a file
 src/FSM/FSMState.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/FSM/FSMState.cpp.s
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/FSM/FSMState.cpp.s
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/FSM/FSMState.cpp.s
 .PHONY : src/FSM/FSMState.cpp.s
@@ -820,6 +931,7 @@ src/FSM/State_FixedStand.o: src/FSM/State_FixedStand.cpp.o
 
 # target to build an object file
 src/FSM/State_FixedStand.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/FSM/State_FixedStand.cpp.o
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/FSM/State_FixedStand.cpp.o
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/FSM/State_FixedStand.cpp.o
 .PHONY : src/FSM/State_FixedStand.cpp.o
@@ -830,6 +942,7 @@ src/FSM/State_FixedStand.i: src/FSM/State_FixedStand.cpp.i
 
 # target to preprocess a source file
 src/FSM/State_FixedStand.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/FSM/State_FixedStand.cpp.i
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/FSM/State_FixedStand.cpp.i
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/FSM/State_FixedStand.cpp.i
 .PHONY : src/FSM/State_FixedStand.cpp.i
@@ -840,6 +953,7 @@ src/FSM/State_FixedStand.s: src/FSM/State_FixedStand.cpp.s
 
 # target to generate assembly for a file
 src/FSM/State_FixedStand.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/FSM/State_FixedStand.cpp.s
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/FSM/State_FixedStand.cpp.s
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/FSM/State_FixedStand.cpp.s
 .PHONY : src/FSM/State_FixedStand.cpp.s
@@ -850,6 +964,7 @@ src/FSM/State_FreeStand.o: src/FSM/State_FreeStand.cpp.o
 
 # target to build an object file
 src/FSM/State_FreeStand.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/FSM/State_FreeStand.cpp.o
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/FSM/State_FreeStand.cpp.o
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/FSM/State_FreeStand.cpp.o
 .PHONY : src/FSM/State_FreeStand.cpp.o
@@ -860,6 +975,7 @@ src/FSM/State_FreeStand.i: src/FSM/State_FreeStand.cpp.i
 
 # target to preprocess a source file
 src/FSM/State_FreeStand.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/FSM/State_FreeStand.cpp.i
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/FSM/State_FreeStand.cpp.i
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/FSM/State_FreeStand.cpp.i
 .PHONY : src/FSM/State_FreeStand.cpp.i
@@ -870,6 +986,7 @@ src/FSM/State_FreeStand.s: src/FSM/State_FreeStand.cpp.s
 
 # target to generate assembly for a file
 src/FSM/State_FreeStand.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/FSM/State_FreeStand.cpp.s
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/FSM/State_FreeStand.cpp.s
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/FSM/State_FreeStand.cpp.s
 .PHONY : src/FSM/State_FreeStand.cpp.s
@@ -880,6 +997,7 @@ src/FSM/State_Passive.o: src/FSM/State_Passive.cpp.o
 
 # target to build an object file
 src/FSM/State_Passive.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/FSM/State_Passive.cpp.o
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/FSM/State_Passive.cpp.o
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/FSM/State_Passive.cpp.o
 .PHONY : src/FSM/State_Passive.cpp.o
@@ -890,6 +1008,7 @@ src/FSM/State_Passive.i: src/FSM/State_Passive.cpp.i
 
 # target to preprocess a source file
 src/FSM/State_Passive.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/FSM/State_Passive.cpp.i
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/FSM/State_Passive.cpp.i
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/FSM/State_Passive.cpp.i
 .PHONY : src/FSM/State_Passive.cpp.i
@@ -900,6 +1019,7 @@ src/FSM/State_Passive.s: src/FSM/State_Passive.cpp.s
 
 # target to generate assembly for a file
 src/FSM/State_Passive.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/FSM/State_Passive.cpp.s
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/FSM/State_Passive.cpp.s
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/FSM/State_Passive.cpp.s
 .PHONY : src/FSM/State_Passive.cpp.s
@@ -910,6 +1030,7 @@ src/FSM/State_Rl.o: src/FSM/State_Rl.cpp.o
 
 # target to build an object file
 src/FSM/State_Rl.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/FSM/State_Rl.cpp.o
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/FSM/State_Rl.cpp.o
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/FSM/State_Rl.cpp.o
 .PHONY : src/FSM/State_Rl.cpp.o
@@ -920,6 +1041,7 @@ src/FSM/State_Rl.i: src/FSM/State_Rl.cpp.i
 
 # target to preprocess a source file
 src/FSM/State_Rl.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/FSM/State_Rl.cpp.i
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/FSM/State_Rl.cpp.i
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/FSM/State_Rl.cpp.i
 .PHONY : src/FSM/State_Rl.cpp.i
@@ -930,6 +1052,7 @@ src/FSM/State_Rl.s: src/FSM/State_Rl.cpp.s
 
 # target to generate assembly for a file
 src/FSM/State_Rl.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/FSM/State_Rl.cpp.s
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/FSM/State_Rl.cpp.s
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/FSM/State_Rl.cpp.s
 .PHONY : src/FSM/State_Rl.cpp.s
@@ -940,6 +1063,7 @@ src/common/unitreeLeg.o: src/common/unitreeLeg.cpp.o
 
 # target to build an object file
 src/common/unitreeLeg.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/common/unitreeLeg.cpp.o
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/common/unitreeLeg.cpp.o
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/common/unitreeLeg.cpp.o
 .PHONY : src/common/unitreeLeg.cpp.o
@@ -950,6 +1074,7 @@ src/common/unitreeLeg.i: src/common/unitreeLeg.cpp.i
 
 # target to preprocess a source file
 src/common/unitreeLeg.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/common/unitreeLeg.cpp.i
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/common/unitreeLeg.cpp.i
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/common/unitreeLeg.cpp.i
 .PHONY : src/common/unitreeLeg.cpp.i
@@ -960,6 +1085,7 @@ src/common/unitreeLeg.s: src/common/unitreeLeg.cpp.s
 
 # target to generate assembly for a file
 src/common/unitreeLeg.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/common/unitreeLeg.cpp.s
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/common/unitreeLeg.cpp.s
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/common/unitreeLeg.cpp.s
 .PHONY : src/common/unitreeLeg.cpp.s
@@ -970,6 +1096,7 @@ src/common/unitreeRobot.o: src/common/unitreeRobot.cpp.o
 
 # target to build an object file
 src/common/unitreeRobot.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/common/unitreeRobot.cpp.o
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/common/unitreeRobot.cpp.o
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/common/unitreeRobot.cpp.o
 .PHONY : src/common/unitreeRobot.cpp.o
@@ -980,6 +1107,7 @@ src/common/unitreeRobot.i: src/common/unitreeRobot.cpp.i
 
 # target to preprocess a source file
 src/common/unitreeRobot.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/common/unitreeRobot.cpp.i
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/common/unitreeRobot.cpp.i
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/common/unitreeRobot.cpp.i
 .PHONY : src/common/unitreeRobot.cpp.i
@@ -990,6 +1118,7 @@ src/common/unitreeRobot.s: src/common/unitreeRobot.cpp.s
 
 # target to generate assembly for a file
 src/common/unitreeRobot.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/common/unitreeRobot.cpp.s
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/common/unitreeRobot.cpp.s
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/common/unitreeRobot.cpp.s
 .PHONY : src/common/unitreeRobot.cpp.s
@@ -1000,6 +1129,7 @@ src/control/ControlFrame.o: src/control/ControlFrame.cpp.o
 
 # target to build an object file
 src/control/ControlFrame.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/control/ControlFrame.cpp.o
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/control/ControlFrame.cpp.o
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.o
 .PHONY : src/control/ControlFrame.cpp.o
@@ -1010,6 +1140,7 @@ src/control/ControlFrame.i: src/control/ControlFrame.cpp.i
 
 # target to preprocess a source file
 src/control/ControlFrame.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/control/ControlFrame.cpp.i
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/control/ControlFrame.cpp.i
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.i
 .PHONY : src/control/ControlFrame.cpp.i
@@ -1020,6 +1151,7 @@ src/control/ControlFrame.s: src/control/ControlFrame.cpp.s
 
 # target to generate assembly for a file
 src/control/ControlFrame.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/control/ControlFrame.cpp.s
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/control/ControlFrame.cpp.s
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/control/ControlFrame.cpp.s
 .PHONY : src/control/ControlFrame.cpp.s
@@ -1030,6 +1162,7 @@ src/control/leg_control.o: src/control/leg_control.cpp.o
 
 # target to build an object file
 src/control/leg_control.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/control/leg_control.cpp.o
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/control/leg_control.cpp.o
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/control/leg_control.cpp.o
 .PHONY : src/control/leg_control.cpp.o
@@ -1040,6 +1173,7 @@ src/control/leg_control.i: src/control/leg_control.cpp.i
 
 # target to preprocess a source file
 src/control/leg_control.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/control/leg_control.cpp.i
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/control/leg_control.cpp.i
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/control/leg_control.cpp.i
 .PHONY : src/control/leg_control.cpp.i
@@ -1050,6 +1184,7 @@ src/control/leg_control.s: src/control/leg_control.cpp.s
 
 # target to generate assembly for a file
 src/control/leg_control.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/control/leg_control.cpp.s
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/control/leg_control.cpp.s
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/control/leg_control.cpp.s
 .PHONY : src/control/leg_control.cpp.s
@@ -1060,6 +1195,7 @@ src/control/rl_Inference.o: src/control/rl_Inference.cpp.o
 
 # target to build an object file
 src/control/rl_Inference.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/control/rl_Inference.cpp.o
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.o
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.o
 .PHONY : src/control/rl_Inference.cpp.o
@@ -1070,6 +1206,7 @@ src/control/rl_Inference.i: src/control/rl_Inference.cpp.i
 
 # target to preprocess a source file
 src/control/rl_Inference.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/control/rl_Inference.cpp.i
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.i
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.i
 .PHONY : src/control/rl_Inference.cpp.i
@@ -1080,6 +1217,7 @@ src/control/rl_Inference.s: src/control/rl_Inference.cpp.s
 
 # target to generate assembly for a file
 src/control/rl_Inference.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/control/rl_Inference.cpp.s
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/control/rl_Inference.cpp.s
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/control/rl_Inference.cpp.s
 .PHONY : src/control/rl_Inference.cpp.s
@@ -1090,6 +1228,7 @@ src/interface/IOMujoco.o: src/interface/IOMujoco.cpp.o
 
 # target to build an object file
 src/interface/IOMujoco.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/interface/IOMujoco.cpp.o
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.o
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.o
 .PHONY : src/interface/IOMujoco.cpp.o
@@ -1100,6 +1239,7 @@ src/interface/IOMujoco.i: src/interface/IOMujoco.cpp.i
 
 # target to preprocess a source file
 src/interface/IOMujoco.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/interface/IOMujoco.cpp.i
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.i
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.i
 .PHONY : src/interface/IOMujoco.cpp.i
@@ -1110,6 +1250,7 @@ src/interface/IOMujoco.s: src/interface/IOMujoco.cpp.s
 
 # target to generate assembly for a file
 src/interface/IOMujoco.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/interface/IOMujoco.cpp.s
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/IOMujoco.cpp.s
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/IOMujoco.cpp.s
 .PHONY : src/interface/IOMujoco.cpp.s
@@ -1120,6 +1261,7 @@ src/interface/IOROS_.o: src/interface/IOROS_.cpp.o
 
 # target to build an object file
 src/interface/IOROS_.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/interface/IOROS_.cpp.o
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/IOROS_.cpp.o
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/IOROS_.cpp.o
 .PHONY : src/interface/IOROS_.cpp.o
@@ -1130,6 +1272,7 @@ src/interface/IOROS_.i: src/interface/IOROS_.cpp.i
 
 # target to preprocess a source file
 src/interface/IOROS_.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/interface/IOROS_.cpp.i
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/IOROS_.cpp.i
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/IOROS_.cpp.i
 .PHONY : src/interface/IOROS_.cpp.i
@@ -1140,6 +1283,7 @@ src/interface/IOROS_.s: src/interface/IOROS_.cpp.s
 
 # target to generate assembly for a file
 src/interface/IOROS_.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/interface/IOROS_.cpp.s
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/IOROS_.cpp.s
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/IOROS_.cpp.s
 .PHONY : src/interface/IOROS_.cpp.s
@@ -1150,6 +1294,7 @@ src/interface/IOROS_dm.o: src/interface/IOROS_dm.cpp.o
 
 # target to build an object file
 src/interface/IOROS_dm.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/interface/IOROS_dm.cpp.o
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/IOROS_dm.cpp.o
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/IOROS_dm.cpp.o
 .PHONY : src/interface/IOROS_dm.cpp.o
@@ -1160,6 +1305,7 @@ src/interface/IOROS_dm.i: src/interface/IOROS_dm.cpp.i
 
 # target to preprocess a source file
 src/interface/IOROS_dm.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/interface/IOROS_dm.cpp.i
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/IOROS_dm.cpp.i
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/IOROS_dm.cpp.i
 .PHONY : src/interface/IOROS_dm.cpp.i
@@ -1170,6 +1316,7 @@ src/interface/IOROS_dm.s: src/interface/IOROS_dm.cpp.s
 
 # target to generate assembly for a file
 src/interface/IOROS_dm.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/interface/IOROS_dm.cpp.s
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/IOROS_dm.cpp.s
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/IOROS_dm.cpp.s
 .PHONY : src/interface/IOROS_dm.cpp.s
@@ -1180,6 +1327,7 @@ src/interface/IOReal_old.o: src/interface/IOReal_old.cpp.o
 
 # target to build an object file
 src/interface/IOReal_old.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/interface/IOReal_old.cpp.o
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/IOReal_old.cpp.o
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/IOReal_old.cpp.o
 .PHONY : src/interface/IOReal_old.cpp.o
@@ -1190,6 +1338,7 @@ src/interface/IOReal_old.i: src/interface/IOReal_old.cpp.i
 
 # target to preprocess a source file
 src/interface/IOReal_old.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/interface/IOReal_old.cpp.i
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/IOReal_old.cpp.i
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/IOReal_old.cpp.i
 .PHONY : src/interface/IOReal_old.cpp.i
@@ -1200,6 +1349,7 @@ src/interface/IOReal_old.s: src/interface/IOReal_old.cpp.s
 
 # target to generate assembly for a file
 src/interface/IOReal_old.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/interface/IOReal_old.cpp.s
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/IOReal_old.cpp.s
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/IOReal_old.cpp.s
 .PHONY : src/interface/IOReal_old.cpp.s
@@ -1210,6 +1360,7 @@ src/interface/KeyBoard.o: src/interface/KeyBoard.cpp.o
 
 # target to build an object file
 src/interface/KeyBoard.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/interface/KeyBoard.cpp.o
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.o
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.o
 .PHONY : src/interface/KeyBoard.cpp.o
@@ -1220,6 +1371,7 @@ src/interface/KeyBoard.i: src/interface/KeyBoard.cpp.i
 
 # target to preprocess a source file
 src/interface/KeyBoard.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/interface/KeyBoard.cpp.i
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.i
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.i
 .PHONY : src/interface/KeyBoard.cpp.i
@@ -1230,6 +1382,7 @@ src/interface/KeyBoard.s: src/interface/KeyBoard.cpp.s
 
 # target to generate assembly for a file
 src/interface/KeyBoard.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/interface/KeyBoard.cpp.s
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/KeyBoard.cpp.s
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/KeyBoard.cpp.s
 .PHONY : src/interface/KeyBoard.cpp.s
@@ -1240,6 +1393,7 @@ src/interface/WirelessHandle.o: src/interface/WirelessHandle.cpp.o
 
 # target to build an object file
 src/interface/WirelessHandle.cpp.o:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/interface/WirelessHandle.cpp.o
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.o
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.o
 .PHONY : src/interface/WirelessHandle.cpp.o
@@ -1250,6 +1404,7 @@ src/interface/WirelessHandle.i: src/interface/WirelessHandle.cpp.i
 
 # target to preprocess a source file
 src/interface/WirelessHandle.cpp.i:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/interface/WirelessHandle.cpp.i
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.i
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.i
 .PHONY : src/interface/WirelessHandle.cpp.i
@@ -1260,6 +1415,7 @@ src/interface/WirelessHandle.s: src/interface/WirelessHandle.cpp.s
 
 # target to generate assembly for a file
 src/interface/WirelessHandle.cpp.s:
+	$(MAKE) -f CMakeFiles/dogreal_dm.dir/build.make CMakeFiles/dogreal_dm.dir/src/interface/WirelessHandle.cpp.s
 	$(MAKE) -f CMakeFiles/dogreal.dir/build.make CMakeFiles/dogreal.dir/src/interface/WirelessHandle.cpp.s
 	$(MAKE) -f CMakeFiles/dogsim.dir/build.make CMakeFiles/dogsim.dir/src/interface/WirelessHandle.cpp.s
 .PHONY : src/interface/WirelessHandle.cpp.s
@@ -1273,7 +1429,11 @@ help:
 	@echo "... install/strip"
 	@echo "... install"
 	@echo "... edit_cache"
+	@echo "... dogreal_dm"
+	@echo "... damiao_msgs_generate_messages_eus"
+	@echo "... damiao_msgs_generate_messages_cpp"
 	@echo "... unitree_a1_generate_messages_lisp"
+	@echo "... damiao_msgs_generate_messages_py"
 	@echo "... unitree_a1_generate_messages_eus"
 	@echo "... list_install_components"
 	@echo "... unitree_a1_generate_messages_py"
@@ -1293,6 +1453,7 @@ help:
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... rebuild_cache"
 	@echo "... roscpp_generate_messages_eus"
+	@echo "... damiao_msgs_generate_messages_lisp"
 	@echo "... sensor_msgs_generate_messages_lisp"
 	@echo "... sensor_msgs_generate_messages_nodejs"
 	@echo "... roscpp_generate_messages_py"
@@ -1307,6 +1468,7 @@ help:
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... clean_test_results"
 	@echo "... tests"
+	@echo "... damiao_msgs_generate_messages_nodejs"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... dogsim"
 	@echo "... std_msgs_generate_messages_cpp"
@@ -1324,6 +1486,9 @@ help:
 	@echo "... mainreal.o"
 	@echo "... mainreal.i"
 	@echo "... mainreal.s"
+	@echo "... mainreal_dm.o"
+	@echo "... mainreal_dm.i"
+	@echo "... mainreal_dm.s"
 	@echo "... src/FSM/FSM.o"
 	@echo "... src/FSM/FSM.i"
 	@echo "... src/FSM/FSM.s"

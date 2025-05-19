@@ -1,0 +1,8 @@
+prefix=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/install
+
+Name: dm_main
+Description: Description of dm_main
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib -ldm_main
+Requires: dm_hw roscpp serial

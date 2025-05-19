@@ -16,7 +16,7 @@ void State_FixedStand::enter(){
         }
         else if(_ctrlComp->ctrlPlatform == CtrlPlatform::REALROBOT){
             _lowCmd->setRealStanceGain(i);
-            _duration=400;
+            _duration=500;
         }
     }
     if (_lowCmd->motorCmd[0].q==0&&_lowCmd->motorCmd[1].q==0&&_lowCmd->motorCmd[2].q==0)

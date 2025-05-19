@@ -1,0 +1,8 @@
+prefix=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel
+
+Name: dm_common
+Description: Description of dm_common
+Version: 0.0.0
+Cflags: -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/src/dm_common/include
+Libs: -L${prefix}/lib 
+Requires: 

@@ -22,21 +22,21 @@ void State_Passive::enter(){
             _lowCmd->motorCmd[3*i].q = 0;
             _lowCmd->motorCmd[3*i].dq = 0;
             _lowCmd->motorCmd[3*i].Kp = 0;
-            _lowCmd->motorCmd[3*i].Kd = 8;
+            _lowCmd->motorCmd[3*i].Kd = 30;
             _lowCmd->motorCmd[3*i].tau = 0;
         }
         for(int i=0; i<4; i++){
             _lowCmd->motorCmd[3*i+1].q = 0;
             _lowCmd->motorCmd[3*i+1].dq = 0;
             _lowCmd->motorCmd[3*i+1].Kp = 0;
-            _lowCmd->motorCmd[3*i+1].Kd = 6;
+            _lowCmd->motorCmd[3*i+1].Kd = 35;
             _lowCmd->motorCmd[3*i+1].tau = 0;
         }
         for(int i=0; i<4; i++){
             _lowCmd->motorCmd[3*i+2].q = 0;
             _lowCmd->motorCmd[3*i+2].dq = 0;
             _lowCmd->motorCmd[3*i+2].Kp = 0;
-            _lowCmd->motorCmd[3*i+2].Kd = 8;
+            _lowCmd->motorCmd[3*i+2].Kd = 40;
             _lowCmd->motorCmd[3*i+2].tau = 0;
         }
     }

@@ -19,7 +19,7 @@ ahrsBringup::ahrsBringup() :frist_sn_(false), serial_timeout_(20)
   pravite_nh.param("NED_odom_topic_", NED_odom_topic_, std::string("/NED_odometry")); 
 
   //serial                                                 
-  pravite_nh.param("port", serial_port_, std::string("/dev/ttyTHS1")); 
+  pravite_nh.param("port", serial_port_, std::string("/dev/serial/by-id/usb-1a86_USB_Serial-if00-port0")); 
   pravite_nh.param("baud", serial_baud_, 115200);
 
   //publisher  创建发布对象
