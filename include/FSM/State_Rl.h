@@ -77,7 +77,7 @@ public:
     void test_motor();
     void speed_limit();
     void normalize_l2_inplace(float* arr, int size, float eps = 1e-12f);
-
+    void Change_type();
     float gear_ratio;
     int time_rl; 
     Eigen::Vector3d quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v); 
@@ -162,6 +162,12 @@ public:
     float last_action_cmd_backflip[Num_dof];
     float last_last_action_cmd_backflip[Num_dof];
     int backflip_time=0;
+        // -----------------------Auto-----------------------
+    
+    bool   Speed_auto=false;
+    bool   Free_auto=true;
+    bool   Barrier_auto=false;
+    bool  Field_auto=false;
 };
 
 #endif  // FREESTAND_H

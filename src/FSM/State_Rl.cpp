@@ -658,11 +658,12 @@ void State_Rl::mnnInference_legged()
         _lowCmd->motorCmd[i].q = action_flt[i]*0.2+ default_dof_pos[i];
     }
 }
-void State_Rl::stateMachine_qua(){
-std::string dog;
-std::string contest_type; 
-std::string legged_str; 
-std::string encoder_str; 
+void State_Rl::stateMachine_qua()
+{
+
+    std::string contest_type; 
+    std::string legged_str; 
+    std::string encoder_str; 
 #ifdef CONTEST_TYPE_SPEED
     contest_type = "../speed";
 #endif
@@ -672,7 +673,7 @@ std::string encoder_str;
 #ifdef CONTEST_TYPE_FIELD
     contest_type = "../field";
 #endif
-dog = "../speed2";
+
 
 #ifdef ROBOT_TYPE_T1
         legged_str = contest_type +"/legged_qua.mnn"; 
@@ -698,6 +699,7 @@ dog = "../speed2";
       adaptationNetPtr = std::make_shared<rl_Inference>(mobModelPath);
       adaptationNetPtr->initBuffer();
     }
+    Change_type();
 }
 
 void State_Rl::mnnInference_qua()
@@ -1257,7 +1259,40 @@ void State_Rl::Pose_transformation(){
     }
 }
 
+void State_Rl::Change_type(){
+    if ((int)_lowState->userValue.a == 1)  // speed启动
+    {
+        Speed_auto=true;
+        Free_auto=false;
+        Barrier_auto=false;
+        Field_auto=false;
 
+    }
+    else if ((int)_lowState->userValue.b == 1)  // 自由启动
+    {
+        Free_auto=true;
+        Speed_auto=false;
+        Barrier_auto=false;
+        Field_auto=false;
+
+    }
+    else if ((int)_lowState->userValue.x == 1)  // 障碍启动
+    {
+        Speed_auto=false;
+        Free_auto=false;
+        Barrier_auto=true;
+        Field_auto=false;
+
+
+    }
+    else if ((int)_lowState->userValue.y == 1)  // 越野启动
+    {
+        Speed_auto=false;
+        Free_auto=false;
+        Barrier_auto=false;
+        Field_auto=true;
+    }
+}
 Eigen::Vector3d State_Rl::quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v) {
     double q_w = q[3];  // 提取四元数的实部 w
     Eigen::Vector3d q_vec(q[0], q[1], q[2]);  // 提取四元数的虚部 xyz

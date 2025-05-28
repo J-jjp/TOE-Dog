@@ -3,7 +3,7 @@ project(dogreal)
 # 获取当前目录
 get_filename_component(CURRENT_DIR "${CMAKE_CURRENT_SOURCE_DIR}" ABSOLUTE)
 
-set(REAL_ROBOT ON)          # Link real robot or not, ON or OFF,OFF=simulate
+set(REAL_ROBOT OFF)          # Link real robot or not, ON or OFF,OFF=simulate
 #select auto
 set(AUTO OFF)          
 
@@ -28,6 +28,7 @@ set(CMAKE_BUILD_TYPE Debug)
 set(MNN_INCLUDE_DIRS "${CURRENT_DIR}/MNN/include")
 set(MNN_LIBRARIES "${CURRENT_DIR}/MNN/libMNN.so")
 find_package(Eigen3 REQUIRED )
+find_package(yaml-cpp REQUIRED)
 # 收集源文件
 file(GLOB DOG_SRCS 
     "src/FSM/*.cpp"
@@ -111,8 +112,8 @@ include_directories(include
 # 添加可执行文件
 if(REAL_ROBOT)
     add_executable(dogreal ${DOG_SRCS} mainreal.cpp)
-    target_link_libraries(dogreal  ${CURRENT_DIR}/mujoco-3.2.5/lib/libmujoco.so glut GL GLU  pthread ${MNN_LIBRARIES} ${catkin_LIBRARIES})
+    target_link_libraries(dogreal  ${CURRENT_DIR}/mujoco-3.2.5/lib/libmujoco.so glut GL GLU  pthread  yaml-cpp${MNN_LIBRARIES} ${catkin_LIBRARIES})
 else()
   add_executable(dogsim ${DOG_SRCS} main.cpp)
-  target_link_libraries(dogsim  ${CURRENT_DIR}/mujoco-3.2.5/lib/libmujoco.so glut GL GLU glfw pthread ${MNN_LIBRARIES} ${catkin_LIBRARIES})
+  target_link_libraries(dogsim  ${CURRENT_DIR}/mujoco-3.2.5/lib/libmujoco.so glut GL GLU glfw pthread yaml-cpp ${MNN_LIBRARIES} ${catkin_LIBRARIES})
 endif()

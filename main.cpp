@@ -22,6 +22,7 @@
 #include <string>
 #include <iostream>
 #include <control/ControlFrame.h>
+#include <yaml-cpp/yaml.h>
 // #include <ros/ros.h>
 // #include <std_msgs/Float32MultiArray.h>
 // MuJoCo data structures
@@ -140,6 +141,24 @@ int main(int argc,char** argv) {
   // ros::Rate rate(50);
   // load and compile model
   char error[1000] = "Could not load binary model";
+      try {
+        // 加载 YAML 文件
+        YAML::Node config = YAML::LoadFile("../config/speed.yaml");
+
+        // 读取标量值
+        if (config["name"]) {
+            std::string name = config["name"].as<std::string>();
+            std::cout << "Name: " << name << std::endl;
+        }
+        // 读取嵌套值
+        if (config["PID"]["kp"]) {
+            int port = config["PID"]["kp"].as<int>();
+            std::cout << "kp: " << port << std::endl;
+        }
+    } catch (const YAML::Exception& e) {
+        std::cerr << "YAML Error: " << e.what() << std::endl;
+        return 1;
+    }
 #ifdef ROBOT_TYPE_T1
     m = mj_loadXML("../robot/TOE_dog/xml/scene.xml", 0, error, 1000);
 #endif

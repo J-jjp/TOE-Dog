@@ -121,6 +121,9 @@ void IOROS_dm::recv(LowlevelState *state){
 void IOROS_dm::initRecv(){
     _imu_sub = _nm.subscribe("/imu", 100, &IOROS_dm::imuCallback, this);
     _servo_sub = _nm.subscribe("/dm_states", 100, &IOROS_dm::MotorStateCallback, this);
+    // 等待TF数据可用
+    ros::Duration(1.0).sleep();
+
 }
 void IOROS_dm::initSend(){
     _servo_pub = _nm.advertise<damiao_msgs::DmCommand>("/dm_cmd",10);
@@ -161,6 +164,33 @@ Eigen::Vector3d IOROS_dm::quat_rotate_inverse(const Eigen::Vector4d& q, const Ei
     // 计算c = q_vec * (q_vec.transpose() * v) * 2.0
     Eigen::Vector3d c = q_vec * (q_vec.transpose() * v) * 2.0;
     return a - b + c;
+}
+void IOROS_dm::printTransform(const std::string& target, 
+                   const geometry_msgs::TransformStamped& transform) {
+    // 提取平移信息
+    double x = transform.transform.translation.x;
+    double y = transform.transform.translation.y;
+    double z = transform.transform.translation.z;
+    
+    // 提取旋转信息并转换为欧拉角
+    double roll, pitch, yaw;
+    quaternionToEuler(transform.transform.rotation, roll, pitch, yaw);
+    
+    ROS_INFO("==== Transform from usb_cam to %s ====", target.c_str());
+    ROS_INFO("move:");
+    ROS_INFO("  X: %.4f (%.1f cm)", x, x*100);
+    ROS_INFO("  Y: %.4f (%.1f cm)", y, y*100);
+    ROS_INFO("  Z: %.4f (%.1f cm)", z, z*100);
+    
+    ROS_INFO("Euler angles:");
+    ROS_INFO("  Roll(X): %.2f deg", rad2deg(roll));
+    ROS_INFO("  Pitch(Y): %.2f deg", rad2deg(pitch));
+    ROS_INFO("  Yaw(Z): %.2f deg", rad2deg(yaw));
+    // ROS_INFO("Quaternions:");
+    // ROS_INFO("  x: %.4f", transform.transform.rotation.x);
+    // ROS_INFO("  y: %.4f", transform.transform.rotation.y);
+    // ROS_INFO("  z: %.4f", transform.transform.rotation.z);
+    // ROS_INFO("  w: %.4f", transform.transform.rotation.w);
 }
 // uint8[] legid
 // uint8[] motorid
