@@ -746,10 +746,10 @@ void State_Rl::mnnInference_qua()
         obs_qua[i+3] = proj_gravity[i];
     }
 #ifdef CONTEST_TYPE_SPEED
-        obs_qua[6] = -(_userValue.ly) *2*0.9*2.5;
+        obs_qua[6] = -(_userValue.ly) *2*0.9*3.5;
 #endif
 #ifdef CONTEST_TYPE_BARRIER
-        obs_qua[6] = -(_userValue.ly) *2*0.9*1;
+        obs_qua[6] = -(_userValue.ly) *2*0.9*0.8;
 #endif
     if (obs_qua[6]<-1)
     {

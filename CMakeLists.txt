@@ -3,14 +3,14 @@ project(dogreal)
 # 获取当前目录
 get_filename_component(CURRENT_DIR "${CMAKE_CURRENT_SOURCE_DIR}" ABSOLUTE)
 
-set(REAL_ROBOT OFF)          # Link real robot or not, ON or OFF,OFF=simulate
+set(REAL_ROBOT ON)          # Link real robot or not, ON or OFF,OFF=simulate
 #select auto
 set(AUTO OFF)          
 
 #select robot
 set(ROBOT_TYPE TOE_2)  # 参数 TOE_1 TOE_2 TOE_3
 #select robot Contest_type
-set(CONTEST_TYPE BARRIER)  # 参数 SPEED（竞速） BARRIER（障碍） FIELD（越野）
+set(CONTEST_TYPE SPEED)  # 参数 SPEED（竞速） BARRIER（障碍） FIELD（越野）
 
 #参数校验
 if(NOT DEFINED ROBOT_TYPE)
@@ -45,12 +45,15 @@ if(REAL_ROBOT)
           sensor_msgs
           unitree_a1
         )
+        list(APPEND DOG_SRCS "src/interface/IOROS.cpp") 
     elseif(${ROBOT_TYPE} STREQUAL "TOE_2")
         find_package(catkin REQUIRED COMPONENTS
           roscpp
           sensor_msgs
           damiao_msgs
         )
+        list(APPEND DOG_SRCS "src/interface/IOROS_dm.cpp") 
+
     elseif(${ROBOT_TYPE} STREQUAL "TOE_3")
 
 
@@ -107,10 +110,8 @@ include_directories(include
 
 # 添加可执行文件
 if(REAL_ROBOT)
-  if(${ROBOT_TYPE} STREQUAL "TOE_1")
     add_executable(dogreal ${DOG_SRCS} mainreal.cpp)
-    target_link_libraries(dogreal  ${CURRENT_DIR}/mujoco-3.2.5/lib/libmujoco.so glut GL GLU glfw pthread ${MNN_LIBRARIES} ${catkin_LIBRARIES})
-  endif()
+    target_link_libraries(dogreal  ${CURRENT_DIR}/mujoco-3.2.5/lib/libmujoco.so glut GL GLU  pthread ${MNN_LIBRARIES} ${catkin_LIBRARIES})
 else()
   add_executable(dogsim ${DOG_SRCS} main.cpp)
   target_link_libraries(dogsim  ${CURRENT_DIR}/mujoco-3.2.5/lib/libmujoco.so glut GL GLU glfw pthread ${MNN_LIBRARIES} ${catkin_LIBRARIES})
