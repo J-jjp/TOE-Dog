@@ -15,6 +15,8 @@ public:
 private:
 
     float _targetPos[12] = {-0.1,0.8,-1.5 ,0.1,0.8,-1.5,-0.1,1,-1.5, 0.1,1.,-1.5};
+    // float _targetPos[12] = {0.,0.,0. ,0.,0.,0,0.,0,0, 0.,0.,0};
+
     float _defpos[12] = {0.,0.,0. ,0.,0.,0,0.,0,0, 0.,0.,0};
     float _startPos[12];
     float _duration = 1;   //steps

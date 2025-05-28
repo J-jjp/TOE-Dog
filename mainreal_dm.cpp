@@ -88,6 +88,7 @@ int main(int argc, char** argv) {
     // setProcessScheduler();
     IOInterface *ioInter;
     CtrlPlatform ctrlPlat;
+    
     ioInter = new IOROS_dm();
     ctrlPlat = CtrlPlatform::REALROBOT;
     CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
@@ -100,7 +101,7 @@ int main(int argc, char** argv) {
     while (running) {
         ctrlFrame.run();
     }
-    
+    //汪闫岩到此一游    2025.5.24    我是高玩！
     delete ctrlComp;
     return 0;
 }

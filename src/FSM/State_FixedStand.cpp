@@ -28,8 +28,8 @@ void State_FixedStand::enter(){
     }
     else{
         for(int i=0; i<12; i++){
-            _defpos[i]=_lowCmd->motorCmd[i].q-_lowState->motorState[i].q;
-            _lowCmd->motorCmd[i].q = _lowState->motorState[i].q+_defpos[i];
+            // _defpos[i]=_lowCmd->motorCmd[i].q-_lowState->motorState[i].q;
+            // _lowCmd->motorCmd[i].q = _lowState->motorState[i].q+_defpos[i];
             _startPos[i] = _lowState->motorState[i].q+_defpos[i];
         }
     }

@@ -661,14 +661,14 @@ void State_Rl::mnnInference_legged()
 void State_Rl::stateMachine_qua(){
     if (rlptr == nullptr)
     {
-      std::string mobModelPath = "../speed/legged_qua.mnn";
+      std::string mobModelPath = "../speed2/legged_qua.mnn";
       rlptr = std::make_shared<rl_Inference>(mobModelPath);
       rlptr->initBuffer();
     }
     rlptr->resetNode();
     if (adaptationNetPtr == nullptr)
     {
-      std::string mobModelPath = "../speed/encoder_z_input_qua.mnn";
+      std::string mobModelPath = "../speed2/encoder_z_input_qua.mnn";
       adaptationNetPtr = std::make_shared<rl_Inference>(mobModelPath);
       adaptationNetPtr->initBuffer();
     }
@@ -689,44 +689,44 @@ void State_Rl::mnnInference_qua()
     Eigen::Vector3d ang_v(_lowState->imu.gyroscope[0],_lowState->imu.gyroscope[1],_lowState->imu.gyroscope[2]);
     
     Eigen::Vector3d base_ang= quat_rotate_inverse(q, ang_v);
-    for (size_t i = 0; i < 3; i++)
-    {
-        if(_lowState->imu.gyroscope[i]>0.5){
-            _lowState->imu.gyroscope[i]=0.5;
-        }
-        if(_lowState->imu.gyroscope[i]<-0.5){
-            _lowState->imu.gyroscope[i]=-0.5;
-        }
-    }
-    
-
-    obs_qua[0] =(_lowState->imu.gyroscope[0]*0.5 +last_x*0.5)*obs_scales_ang_vel*0.5;
-    obs_qua[1] =(_lowState->imu.gyroscope[1]*0.5 +last_y*0.5)*obs_scales_ang_vel*0.5;
-    obs_qua[2] =(_lowState->imu.gyroscope[2]*0.5 +last_z*0.5)*obs_scales_ang_vel*0.5;
-    last_x=_lowState->imu.gyroscope[0];
-    last_y=_lowState->imu.gyroscope[1];
-
-    last_z=_lowState->imu.gyroscope[2];
     // for (size_t i = 0; i < 3; i++)
     // {
-        // obs_qua[i] =_lowState->imu.gyroscope[i]*0.25 *obs_scales_ang_vel;
+    //     if(_lowState->imu.gyroscope[i]>0.5){
+    //         _lowState->imu.gyroscope[i]=0.5;
+    //     }
+    //     if(_lowState->imu.gyroscope[i]<-0.5){
+    //         _lowState->imu.gyroscope[i]=-0.5;
+    //     }
+    // }
+    
+
+    // obs_qua[0] =(_lowState->imu.gyroscope[0]*0.5 +last_x*0.5)*obs_scales_ang_vel*0.5;
+    // obs_qua[1] =(_lowState->imu.gyroscope[1]*0.5 +last_y*0.5)*obs_scales_ang_vel*0.5;
+    // obs_qua[2] =(_lowState->imu.gyroscope[2]*0.5 +last_z*0.5)*obs_scales_ang_vel*0.5;
+    // last_x=_lowState->imu.gyroscope[0];
+    // last_y=_lowState->imu.gyroscope[1];
+
+    // last_z=_lowState->imu.gyroscope[2];
+    for (size_t i = 0; i < 3; i++)
+    {
+        obs_qua[i] =_lowState->imu.gyroscope[i]*obs_scales_ang_vel;
         // obs_qua[i] = base_ang[i]*0.5*obs_scales_ang_vel;
 
-    // }
+    }
     
     for (size_t i = 0; i < 3; i++)
     {
 
         obs_qua[i+3] = proj_gravity[i];
     }
-    obs_qua[6] = -_userValue.ly *2*2.5;
+    obs_qua[6] = -(_userValue.ly) *2*0.9*1.5;
     if (obs_qua[6]<-1)
     {
         obs_qua[6]=-1;
     }
     
     obs_qua[7] = -_userValue.lx *2*0.7*0.8;
-    obs_qua[8] = -_userValue.rx *0.25*0.8;
+    obs_qua[8] = -_userValue.rx *0.25*0.8*1.5;
 
     for (size_t i = 0; i < 12; i++)
     {
