@@ -1,3 +1,5 @@
+#ifdef ROBOT_TYPE_T1
+
 #ifndef IOROS_H
 #define IOROS_H
 #include "ros/ros.h"
@@ -35,4 +37,5 @@ public:
 
 };
 
+#endif
 #endif

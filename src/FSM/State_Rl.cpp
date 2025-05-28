@@ -659,16 +659,42 @@ void State_Rl::mnnInference_legged()
     }
 }
 void State_Rl::stateMachine_qua(){
+std::string dog;
+std::string contest_type; 
+std::string legged_str; 
+std::string encoder_str; 
+#ifdef CONTEST_TYPE_SPEED
+    contest_type = "../speed";
+#endif
+#ifdef CONTEST_TYPE_BARRIER
+    contest_type = "../barrier";
+#endif
+#ifdef CONTEST_TYPE_FIELD
+    contest_type = "../field";
+#endif
+dog = "../speed2";
+
+#ifdef ROBOT_TYPE_T1
+        legged_str = contest_type +"/legged_qua.mnn"; 
+        encoder_str = contest_type+"/encoder_z_input_qua.mnn"; 
+#endif
+
+#ifdef ROBOT_TYPE_T2
+        legged_str = contest_type +"2/legged_qua.mnn"; 
+        encoder_str = contest_type+"2/encoder_z_input_qua.mnn"; 
+#endif
+
     if (rlptr == nullptr)
     {
-      std::string mobModelPath = "../speed2/legged_qua.mnn";
-      rlptr = std::make_shared<rl_Inference>(mobModelPath);
-      rlptr->initBuffer();
+        std::string mobModelPath = legged_str;
+        rlptr = std::make_shared<rl_Inference>(mobModelPath);
+        rlptr->initBuffer();
+
     }
     rlptr->resetNode();
     if (adaptationNetPtr == nullptr)
     {
-      std::string mobModelPath = "../speed2/encoder_z_input_qua.mnn";
+      std::string mobModelPath = encoder_str;
       adaptationNetPtr = std::make_shared<rl_Inference>(mobModelPath);
       adaptationNetPtr->initBuffer();
     }
@@ -719,7 +745,12 @@ void State_Rl::mnnInference_qua()
 
         obs_qua[i+3] = proj_gravity[i];
     }
-    obs_qua[6] = -(_userValue.ly) *2*0.9*1.5;
+#ifdef CONTEST_TYPE_SPEED
+        obs_qua[6] = -(_userValue.ly) *2*0.9*2.5;
+#endif
+#ifdef CONTEST_TYPE_BARRIER
+        obs_qua[6] = -(_userValue.ly) *2*0.9*1;
+#endif
     if (obs_qua[6]<-1)
     {
         obs_qua[6]=-1;

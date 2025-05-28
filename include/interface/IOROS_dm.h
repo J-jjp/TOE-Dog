@@ -1,3 +1,5 @@
+#ifdef ROBOT_TYPE_T2
+
 #ifndef IOROS_DM_H
 #define IOROS_DM_H
 #include "ros/ros.h"
@@ -35,5 +37,7 @@ public:
     void RosShutDown(int sig);
 
 };
+
+#endif
 
 #endif

@@ -140,7 +140,16 @@ int main(int argc,char** argv) {
   // ros::Rate rate(50);
   // load and compile model
   char error[1000] = "Could not load binary model";
-  m = mj_loadXML("../robot/TOE_dog2/xml/scene.xml", 0, error, 1000);
+#ifdef ROBOT_TYPE_T1
+    m = mj_loadXML("../robot/TOE_dog/xml/scene.xml", 0, error, 1000);
+#endif
+#ifdef ROBOT_TYPE_T2
+    m = mj_loadXML("../robot/TOE_dog2/xml/scene.xml", 0, error, 1000);
+#endif
+
+
+  // m = mj_loadXML("../robot/TOE_dog2/xml/scene.xml", 0, error, 1000);
+
   if (!m) {
     mju_error("Load model error: %s", error);
   }
@@ -218,7 +227,7 @@ int main(int argc,char** argv) {
       ctrlFrame.run();
       
       // std::cout<<"time:"<<d->time<<std::endl;
-      while (d->time - simstart < 1.0/60.0) {
+      while (d->time - simstart < 1.0/120.0) {
         for(int i=0; i < 12; i++){
             ctrlComp->lowCmd->motorCmd[i].tau=pd_control(
             ctrlComp->lowCmd->motorCmd[i].q,ctrlComp->lowState->motorState[i].q,ctrlComp->lowCmd->motorCmd[i].Kp,

@@ -14,9 +14,12 @@
 
 #include <cstdio>
 #include <cstring>
-
+#ifdef ROBOT_TYPE_T1
 #include "interface/IOROS.h"
-
+#endif
+#ifdef ROBOT_TYPE_T2
+#include "interface/IOROS_dm.h"
+#endif
 #include <control/CtrlComponents.h>
 #include <FSM/FSM.h>
 #include <string>
@@ -88,7 +91,13 @@ int main(int argc, char** argv) {
     // setProcessScheduler();
     IOInterface *ioInter;
     CtrlPlatform ctrlPlat;
+    
+#ifdef ROBOT_TYPE_T1
     ioInter = new IOROS();
+#endif
+#ifdef ROBOT_TYPE_T2
+    ioInter = new IOROS_dm();
+#endif
     ctrlPlat = CtrlPlatform::REALROBOT;
     CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
     ctrlComp->ctrlPlatform = ctrlPlat;
@@ -100,7 +109,7 @@ int main(int argc, char** argv) {
     while (running) {
         ctrlFrame.run();
     }
-    
+    //汪闫岩到此一游    2025.5.24    我是高玩！
     delete ctrlComp;
     return 0;
 }

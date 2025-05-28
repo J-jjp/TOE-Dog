@@ -1,6 +1,7 @@
 /**********************************************************************
  Copyright (c) 2020-2023, Unitree Robotics.Co.Ltd. All rights reserved.
 ***********************************************************************/
+#ifdef ROBOT_TYPE_T2
 #include "interface/IOROS_dm.h"
 // #include "interface/KeyBoard.h"
 // #include "interface/WirelessHandle.h"
@@ -170,3 +171,4 @@ Eigen::Vector3d IOROS_dm::quat_rotate_inverse(const Eigen::Vector4d& q, const Ei
 // float32[] pos
 // int8[] temp
 // int8[] error
+#endif
