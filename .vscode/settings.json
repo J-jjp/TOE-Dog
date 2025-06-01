@@ -81,6 +81,8 @@
         "__bit_reference": "cpp",
         "queue": "cpp",
         "future": "cpp",
-        "core": "cpp"
+        "core": "cpp",
+        "hash_map": "cpp",
+        "hash_set": "cpp"
     }
 }

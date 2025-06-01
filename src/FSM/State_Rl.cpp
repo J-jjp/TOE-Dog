@@ -77,6 +77,11 @@ void State_Rl::enter(){
     memset(action_cmd_legged,0,sizeof(float)*Num_dof);
     memset(last_action_cmd_legged,0,sizeof(float)*Num_dof);
     time_rl=0;
+
+    Free_auto = true;
+    Speed_auto=false;
+    Barrier_auto=false;
+    Field_auto=false;
 }
 
 void State_Rl::run(){
@@ -747,19 +752,38 @@ void State_Rl::mnnInference_qua()
 
         obs_qua[i+3] = proj_gravity[i];
     }
+
+
 #ifdef CONTEST_TYPE_SPEED
-        obs_qua[6] = -(_userValue.ly) *2*0.9*3.5;
+        if (Free_auto)
+        {
+            obs_qua[6] = -(_userValue.ly) *2*0.9*2.5;
+            obs_qua[8] = -_userValue.rx *0.25*0.8*1.5;
+        }
+        else if(Speed_auto){
+            Speed_stop();
+        }
+        std::cout<<"Free_auto"<<Free_auto<<"\tSpeed_auto"<<Speed_auto<<std::endl;
+        // std::cout<<"distance"<<_lowState->speed.x<<std::endl;
+        
 #endif
 #ifdef CONTEST_TYPE_BARRIER
-        obs_qua[6] = -(_userValue.ly) *2*0.9*0.8;
+        
+        Barrier_Vertical_bar();
 #endif
+
     if (obs_qua[6]<-1)
     {
         obs_qua[6]=-1;
     }
     
     obs_qua[7] = -_userValue.lx *2*0.7*0.8;
-    obs_qua[8] = -_userValue.rx *0.25*0.8*1.5;
+    
+
+
+
+    std::cout<<"yaw"<<_lowState->speed.yaw<<std::endl;
+
 
     for (size_t i = 0; i < 12; i++)
     {
@@ -1260,18 +1284,18 @@ void State_Rl::Pose_transformation(){
 }
 
 void State_Rl::Change_type(){
-    if ((int)_lowState->userValue.a == 1)  // speed启动
+    if ((int)_lowState->userValue.a == 1)  // 自由启动
     {
-        Speed_auto=true;
-        Free_auto=false;
+        Speed_auto=false;
+        Free_auto=true;
         Barrier_auto=false;
         Field_auto=false;
 
     }
-    else if ((int)_lowState->userValue.b == 1)  // 自由启动
+    else if ((int)_lowState->userValue.b == 1)  // 竞速启动
     {
-        Free_auto=true;
-        Speed_auto=false;
+        Free_auto=false;
+        Speed_auto=true;
         Barrier_auto=false;
         Field_auto=false;
 
@@ -1377,4 +1401,78 @@ void State_Rl::normalize_l2_inplace(float* arr, int size, float eps) {
     for (int i = 0; i < size; i++) {
         arr[i] /= norm;
     }
+}
+void State_Rl::Barrier_Vertical_bar(){
+
+    if (_lowState->barrier.x>20)
+    {
+        obs_qua[6] = -(_userValue.ly-0.7) *2*0.9;
+    }
+    else{
+        obs_qua[6] = -(_userValue.ly) *2*0.9;
+    }
+    
+    if (_lowState->barrier.yaw>5)
+    {
+        obs_qua[8] = -(_userValue.rx+0.75) *0.25*0.8*1.5;
+    }
+    else if(_lowState->barrier.yaw<-5){
+        obs_qua[8] = -(_userValue.rx-0.75) *0.25*0.8*1.5;
+    }
+    else{
+        obs_qua[8] = -_userValue.rx *0.25*0.8*1.5;
+    }
+        
+    if (_lowState->barrier.x>10&&_lowState->barrier.x<50)
+    {
+        Rotation=true;
+    }
+    if(Rotation){
+        if (Rotation_time<100)
+        {
+            if (Rotation_frequency<3)
+            {
+                obs_qua[8] = (-_userValue.rx+0.75) *0.25*0.8*1.5;
+            }
+            else if (Rotation_frequency>2&&Rotation_frequency<5)
+            {
+                obs_qua[8] = (-_userValue.rx-0.75) *0.25*0.8*1.5;
+            }
+            
+        }
+        else if(Rotation_time>100){
+            Rotation=false;
+            Rotation_time=0;
+            Rotation_frequency++;
+            _lowState->barrier.change_next=true;
+        }
+        Rotation_time ++;
+    }
+}
+void State_Rl::Speed_stop(){
+
+    if (_lowState->speed.x<120&&_lowState->speed.x>10)
+    {
+        speed_add = 0;
+
+        obs_qua[6] = -(_userValue.ly-speed_add) *2*0.9*2;
+        if (_lowState->speed.yaw>5)
+        {
+            obs_qua[8] = -(_userValue.rx+0.5) *0.25*0.8*1.5;
+        }
+        else if(_lowState->barrier.yaw<-5){
+            obs_qua[8] = -(_userValue.rx-0.5) *0.25*0.8*1.5;
+        }
+        else{
+            obs_qua[8] = -_userValue.rx *0.25*0.8*1.5;
+        }
+    }
+    else{
+        obs_qua[6] = -(_userValue.ly) *2*0.9*2;
+        obs_qua[8] = -_userValue.rx *0.25*0.8*1.5;
+    }
+    
+
+    
+
 }

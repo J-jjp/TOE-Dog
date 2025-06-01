@@ -168,6 +168,14 @@ public:
     bool   Free_auto=true;
     bool   Barrier_auto=false;
     bool  Field_auto=false;
+    bool     Rotation=false;
+    int     Rotation_frequency=0;
+    int     Rotation_time=0;
+    float speed_add = 0; 
+    void Speed_stop();
+    void Barrier_Vertical_bar();
+
+
 };
 
 #endif  // FREESTAND_H

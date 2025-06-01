@@ -13,6 +13,8 @@
 #include <geometry_msgs/TransformStamped.h>
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2/LinearMath/Matrix3x3.h>
+#include <std_msgs/Float32MultiArray.h>
+
 #include <cmath>
 #include <sensor_msgs/Imu.h>
 #include <string>
@@ -23,16 +25,26 @@ public:
     void send(LowlevelCmd *cmd);
     void recv(LowlevelState *state);
     ros::NodeHandle _nm;
-    ros::Subscriber _servo_sub, _imu_sub;
+    ros::Subscriber _servo_sub, _imu_sub ;
+#ifdef CONTEST_TYPE_SPEED
+    ros::Subscriber speed_sub;
+    ros::Timer check_timer_;
+    ros::Time last_received_;
+    bool is_receiving_ = false;
+#endif
     ros::Publisher _servo_pub;
     tf2_ros::Buffer tfBuffer;
-    tf2_ros::TransformListener tfListener(tfBuffer);
+    tf2_ros::TransformListener tfListener;
     LowlevelCmd _lowCmd;
     LowlevelState _lowState; 
-    // damiao_msgs::DmCommand dm_cmd_msg_;
-    
+    double walk_x = 0;
+    double walk_yaw = 0;
+    std::string Label ="Tag36h11_";
+    int Label_num=0;
+    // damiao_msgs::DmCommand dm_cmd_msg_; 
+    bool tf_take_over=false;
     Eigen::Vector3d quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v);
-    IOROS_dm::printTransform(const std::string& target, const geometry_msgs::TransformStamped& transform);
+    void printTransform(const std::string& target, const geometry_msgs::TransformStamped& transform);
     ros::AsyncSpinner subSpinner{1}; 
     ~IOROS_dm();
 public:
@@ -40,7 +52,14 @@ public:
     void initSend();
     void imuCallback(const sensor_msgs::ImuConstPtr& msg);
     void MotorStateCallback(const damiao_msgs::DmState::ConstPtr &msg);
+    void quaternionToEuler(const geometry_msgs::Quaternion& q, 
+                      double& roll, double& pitch, double& yaw);
+    double rad2deg(double rad);
     void RosShutDown(int sig);
+    void Speed_error(const std_msgs::Float32MultiArray::ConstPtr& msg);
+    void checkConnection(const ros::TimerEvent&);
+
+
 
 };
 

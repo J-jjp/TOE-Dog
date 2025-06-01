@@ -1,0 +1,8 @@
+prefix=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel
+
+Name: rc_opencv_speed
+Description: Description of rc_opencv_speed
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

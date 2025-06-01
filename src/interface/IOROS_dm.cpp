@@ -14,7 +14,7 @@ void IOROS_dm::RosShutDown(int sig){
 }
 
 
-IOROS_dm::IOROS_dm():IOInterface() {
+IOROS_dm::IOROS_dm():IOInterface(), tfListener(tfBuffer) {
     initRecv();
     // one threads
     subSpinner.start();
@@ -43,19 +43,19 @@ IOROS_dm::~IOROS_dm(){
 void IOROS_dm::sendRecv( LowlevelCmd *cmd, LowlevelState *state) {
     // send(cmd);
     recv(state);
-    std::cout<<"pose:\t";
-    for (size_t i = 9; i < 12; i++)
-    {
-        std::cout<<"\t"<<_lowState.motorState[i].q;
+    // std::cout<<"pose:\t";
+    // for (size_t i = 9; i < 12; i++)
+    // {
+    //     std::cout<<"\t"<<_lowState.motorState[i].q;
         
-    }
-    std::cout<<std::endl;
-    std::cout<<"dp:\t";
-    for (size_t i = 9; i < 12; i++)
-    {
-        std::cout<<"\t"<<_lowState.motorState[i].dq;
+    // }
+    // std::cout<<std::endl;
+    // std::cout<<"dp:\t";
+    // for (size_t i = 9; i < 12; i++)
+    // {
+    //     std::cout<<"\t"<<_lowState.motorState[i].dq;
         
-    }
+    // }
     std::cout<<std::endl;
     state->userCmd = cmdPanel->getUserCmd();
     state->userValue = cmdPanel->getUserValue();
@@ -109,19 +109,78 @@ void IOROS_dm::recv(LowlevelState *state){
 
     // std::cout<<"kd:"<<state->motorState[5].dq;
     // std::cout<<std::endl;
+#ifdef CONTEST_TYPE_SPEED
 
+#endif
+
+#ifdef CONTEST_TYPE_BARRIER
+    if (state->barrier.change_next)
+    {
+        Label_num++;
+        state->barrier.change_next=false;
+    }
+#endif
+    std::string Label_apriltag =Label+std::to_string(Label_num);
 
     // std::cout<<"dq:"
     // for(int i(0); i < 12; ++i){
     //     std::cout<<"  dq"<<i<<" :"<<state->motorState[i].q;
     // }
     std::cout<<std::endl;
+    try {
+            // 获取Tag36h11_2相对于usb_cam的变换
+            // geometry_msgs::TransformStamped transform_tag2 = tfBuffer.lookupTransform(
+            //     "usb_cam", "Tag36h11_2", ros::Time(0));
+            // printTransform("Tag36h11_2", transform_tag2);
+            
+            // 获取Tag36h11_6相对于usb_cam的变换
+            ros::Time now = ros::Time::now();   
+
+            geometry_msgs::TransformStamped transform = tfBuffer.lookupTransform(
+                "usb_cam", 
+                Label_apriltag, 
+                ros::Time(0),  // 要求严格匹配当前时间戳
+                ros::Duration(0.005)); // 等待10ms
+            ros::Duration time_diff = now - transform.header.stamp;
+            if (time_diff > ros::Duration(0.1)) {  // 超过100ms容差
+                ROS_WARN_THROTTLE(1.0, "数据过期(%.1fms > 100ms)", time_diff.toSec()*1000);
+                walk_x = 0;
+                walk_yaw =0;
+            }
+            else{
+                printTransform(Label_apriltag, transform);
+            }
+        } catch (tf2::TransformException &ex) {
+            // ROS_WARN("TF error: %s", ex.what());
+            walk_x = 0;
+            walk_yaw = 0;
+            ros::Duration(0.005).sleep();
+            std::cout<<"error"<<walk_x<<std::endl;
+
+        }
+#ifdef CONTEST_TYPE_SPEED
+        state->speed.x = walk_x;
+        state->speed.yaw = walk_yaw;
+        std::cout<<"state->speed.x"<<state->speed.x<<"\tyaw:"<<state->speed.yaw<<std::endl;
+#endif
+#ifdef CONTEST_TYPE_BARRIER
+        state->barrier.x = walk_x;
+        state->barrier.yaw = walk_yaw;
+
+        std::cout<<"state->barrier.x"<<state->barrier.x<<"\tyaw:"<<state->barrier.yaw<<std::endl;
+#endif
+
 }
 
 void IOROS_dm::initRecv(){
-    _imu_sub = _nm.subscribe("/imu", 100, &IOROS_dm::imuCallback, this);
-    _servo_sub = _nm.subscribe("/dm_states", 100, &IOROS_dm::MotorStateCallback, this);
-    // 等待TF数据可用
+    _imu_sub = _nm.subscribe("/imu", 10, &IOROS_dm::imuCallback, this);
+    _servo_sub = _nm.subscribe("/dm_states", 10, &IOROS_dm::MotorStateCallback, this);
+#ifdef CONTEST_TYPE_SPEED
+    speed_sub = _nm.subscribe("/speed", 10, &IOROS_dm::Speed_error, this);
+    last_received_ = ros::Time::now();
+     check_timer_ = _nm.createTimer(ros::Duration(0.1), &IOROS_dm::checkConnection, this);
+#endif
+    
     ros::Duration(1.0).sleep();
 
 }
@@ -153,6 +212,17 @@ void IOROS_dm::MotorStateCallback(const damiao_msgs::DmState::ConstPtr &msg){
         _lowState.motorState[i].tauEst = msg->tau[i];
     }
 }
+void IOROS_dm::Speed_error(const std_msgs::Float32MultiArray::ConstPtr& msg){
+
+    last_received_ = ros::Time::now();
+    if (!is_receiving_) {
+        is_receiving_ = true;
+    }
+    for (size_t i = 0; i < msg->data.size(); ++i) {
+        _lowState.speed.speed_yaw=msg->data[0];
+    }
+
+}
 Eigen::Vector3d IOROS_dm::quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v) {
     double q_w = q[3];  // 提取四元数的实部 w
     Eigen::Vector3d q_vec(q[0], q[1], q[2]);  // 提取四元数的虚部 xyz
@@ -176,21 +246,37 @@ void IOROS_dm::printTransform(const std::string& target,
     double roll, pitch, yaw;
     quaternionToEuler(transform.transform.rotation, roll, pitch, yaw);
     
-    ROS_INFO("==== Transform from usb_cam to %s ====", target.c_str());
-    ROS_INFO("move:");
-    ROS_INFO("  X: %.4f (%.1f cm)", x, x*100);
-    ROS_INFO("  Y: %.4f (%.1f cm)", y, y*100);
-    ROS_INFO("  Z: %.4f (%.1f cm)", z, z*100);
-    
-    ROS_INFO("Euler angles:");
-    ROS_INFO("  Roll(X): %.2f deg", rad2deg(roll));
-    ROS_INFO("  Pitch(Y): %.2f deg", rad2deg(pitch));
-    ROS_INFO("  Yaw(Z): %.2f deg", rad2deg(yaw));
+    // ROS_INFO("==== Transform from usb_cam to %s ====", target.c_str());
+    // ROS_INFO("move:");
+    // ROS_INFO("  X: %.4f (%.1f cm)", x, x*100);
+    // ROS_INFO("  Y: %.4f (%.1f cm)", y, y*100);
+    // ROS_INFO("  Z: %.4f (%.1f cm)", z, z*100);
+    walk_x = z*100;
+    walk_yaw = rad2deg(pitch);
+    // ROS_INFO("Euler angles:");
+    // ROS_INFO("  Roll(X): %.2f deg", rad2deg(roll));
+    // ROS_INFO("  Pitch(Y): %.2f deg", rad2deg(pitch));
+    // ROS_INFO("  Yaw(Z): %.2f deg", rad2deg(yaw));
     // ROS_INFO("Quaternions:");
     // ROS_INFO("  x: %.4f", transform.transform.rotation.x);
     // ROS_INFO("  y: %.4f", transform.transform.rotation.y);
     // ROS_INFO("  z: %.4f", transform.transform.rotation.z);
     // ROS_INFO("  w: %.4f", transform.transform.rotation.w);
+}
+void IOROS_dm::quaternionToEuler(const geometry_msgs::Quaternion& q, 
+                      double& roll, double& pitch, double& yaw) {
+    tf2::Quaternion tf_q(q.x, q.y, q.z, q.w);
+    tf2::Matrix3x3 m(tf_q);
+    m.getRPY(roll, pitch, yaw);
+}
+double IOROS_dm::rad2deg(double rad) {
+    return rad * 180.0 / M_PI;
+}
+void IOROS_dm::checkConnection(const ros::TimerEvent&) {
+    if (is_receiving_ && (ros::Time::now() - last_received_).toSec() > 0.5) {
+        is_receiving_ = false;
+        ROS_WARN("Stopped receiving torque data");
+    }
 }
 // uint8[] legid
 // uint8[] motorid

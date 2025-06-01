@@ -94,12 +94,12 @@ void DmController::update(const ros::Time& time, const ros::Duration& period)
         hybridJointHandles_[i].setCommand(dm_cmd_msg_.pos[i], dm_cmd_msg_.vel[i], dm_cmd_msg_.kp[i], dm_cmd_msg_.kd[i], dm_cmd_msg_.tau[i]);
     }
   }
-  std::cerr<<"pos:\t";
-  for (size_t i = 0; i < 12; i++)
-  {
-    std::cerr<<"\t"<<dm_cmd_msg_.pos[i];
-  }
-  std::cerr<<std::endl;
+  // std::cerr<<"pos:\t";
+  // for (size_t i = 0; i < 12; i++)
+  // {
+  //   std::cerr<<"\t"<<dm_cmd_msg_.pos[i];
+  // }
+  // std::cerr<<std::endl;
   
   for (size_t i = 0; i < n; ++i) {
     const auto& joint            = hybridJointHandles_[i];

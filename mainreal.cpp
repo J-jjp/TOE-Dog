@@ -28,6 +28,8 @@
 #include <ros/ros.h>
 #include <sensor_msgs/Imu.h>
 #include <thread>
+#include <yaml-cpp/yaml.h>
+
 Eigen::Vector3d quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v) {
     double q_w = q[3];  // 提取四元数的实部 w
     Eigen::Vector3d q_vec(q[0], q[1], q[2]);  // 提取四元数的虚部 xyz
@@ -85,7 +87,24 @@ int main(int argc, char** argv) {
     ros::init(argc, argv, "REAL");
     // ros::start();
     // ros::Rate loop_rate(50);
+    try {
+        // 加载 YAML 文件
+        YAML::Node config = YAML::LoadFile("../config/speed.yaml");
 
+        // 读取标量值
+        if (config["name"]) {
+            std::string name = config["name"].as<std::string>();
+            std::cout << "Name: " << name << std::endl;
+        }
+        // 读取嵌套值
+        if (config["PID"]["kp"]) {
+            int port = config["PID"]["kp"].as<int>();
+            std::cout << "kp: " << port << std::endl;
+        }
+    } catch (const YAML::Exception& e) {
+        std::cerr << "YAML Error: " << e.what() << std::endl;
+        return 1;
+    }
     LowlevelCmd *lowCmd = new LowlevelCmd();
     LowlevelState *lowState = new LowlevelState();
     // setProcessScheduler();

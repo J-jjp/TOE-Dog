@@ -1,2 +1,2 @@
-damiao_msgs:dm_common:dm_controllers:dm_examples/dm_main:dm_hw:dm_imu:fdilink_ahrs:test:unitree_a1
+apriltag_ros/apriltag_ros:damiao_msgs:dm_common:dm_controllers:dm_examples/dm_main:dm_hw:dm_imu:fdilink_ahrs:rc_opencv_speed:test:unitree_a1
 -DCATKIN_DEVEL_PREFIX=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel -DCMAKE_INSTALL_PREFIX=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/install -G Unix Makefiles

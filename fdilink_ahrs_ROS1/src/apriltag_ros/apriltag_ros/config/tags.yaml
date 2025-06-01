@@ -21,8 +21,12 @@
 #   ]
 standalone_tags:
   [
-      # {id: 2, size: 0.0125, name: Tag36h11_2 } ,
-      {id: 6, size: 0.150, name: Tag36h11_6 } 
+      {id: 0, size: 0.150, name: Tag36h11_0 } ,
+      {id: 1, size: 0.150, name: Tag36h11_1 } ,
+      {id: 2, size: 0.150, name: Tag36h11_2 } ,
+
+
+      # {id: 0, size: 0.150, name: tag25h9_0 } 
 
   ]
 # ## Tag bundle definitions

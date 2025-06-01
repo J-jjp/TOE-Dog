@@ -1,7 +1,7 @@
 [
 {
   "directory": "/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/unitree_a1",
-  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"unitree_a1\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/src/unitree_a1/include    -std=gnu++17 -o CMakeFiles/Motor_node.dir/src/Motor_node.cpp.o -c /home/toe/TOE-Dog/fdilink_ahrs_ROS1/src/unitree_a1/src/Motor_node.cpp",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"unitree_a1\\\" -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/toe/TOE-Dog/fdilink_ahrs_ROS1/src/unitree_a1/include  -O3 -DNDEBUG   -std=gnu++17 -o CMakeFiles/Motor_node.dir/src/Motor_node.cpp.o -c /home/toe/TOE-Dog/fdilink_ahrs_ROS1/src/unitree_a1/src/Motor_node.cpp",
   "file": "/home/toe/TOE-Dog/fdilink_ahrs_ROS1/src/unitree_a1/src/Motor_node.cpp"
 }
 ]

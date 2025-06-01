@@ -20,7 +20,31 @@ struct MotorState
         tauEst = 0;
     }
 };
+struct Auto_speed{
+    float x;    // w, x, y, z 四元素
+    float yaw;    //二维码
+    float speed_yaw;    //赛道
 
+    Auto_speed(){
+        float x=0;    // w, x, y, z 四元素
+        float yaw=0;    //三个方向的角速度
+        float speed_yaw=0;    //三个方向的角速度
+
+    }
+};
+struct Auto_barrier{
+    float x;    // w, x, y, z 四元素
+    float yaw;    //三个方向的角速度
+    bool change_next;    //三个方向的角速度
+
+    Auto_barrier(){
+        float x=0;    // w, x, y, z 四元素
+        float yaw=0;    //三个方向的角速度
+        bool change_next=false;    //三个方向的角速度
+
+
+    }
+};
 struct IMU
 {
     float quaternion[4];    // w, x, y, z 四元素
@@ -68,6 +92,8 @@ struct LowlevelState
     MotorState motorState[12];
     UserCommand userCmd;
     UserValue userValue;
+    Auto_speed speed;
+    Auto_barrier barrier;
 
     Vec34 getQ(){
         Vec34 qLegs;

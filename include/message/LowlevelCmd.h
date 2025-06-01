@@ -95,6 +95,16 @@ struct LowlevelCmd{
         motorCmd[legID*3+1].Kd = 1.25;
         motorCmd[legID*3+2].Kp = 70;
         motorCmd[legID*3+2].Kd = 1.75;
+        if (legID>1)
+        {
+            motorCmd[legID*3+0].Kp =50;
+            motorCmd[legID*3+0].Kd = 1.25;
+            motorCmd[legID*3+1].Kp =70;
+            motorCmd[legID*3+1].Kd = 1.75;
+            motorCmd[legID*3+2].Kp = 90;
+            motorCmd[legID*3+2].Kd = 2.25;
+        }
+        
     }
     void setZeroGain(int legID){
         motorCmd[legID*3+0].Kp = 0;
