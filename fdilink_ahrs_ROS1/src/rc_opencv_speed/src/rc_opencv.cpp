@@ -5,18 +5,19 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include "tracking.cpp"
-
+#include <std_msgs/Int32.h> 
 class ImageConverter {
 private:
     ros::NodeHandle nh_;
     image_transport::ImageTransport it_;
     image_transport::Subscriber image_sub_;
+    ros::Publisher edge_pub_; 
     shared_ptr<Tracking> tracking = make_shared<Tracking>();
 public:
     ImageConverter() : it_(nh_) {
 
         image_sub_ = it_.subscribe("/usb_cam/image_raw", 1, &ImageConverter::imageCallback, this);
-        
+        edge_pub_ = nh_.advertise<std_msgs::Int32>("/speed", 1);
         // 创建OpenCV窗口（可选，无GUI环境需注释掉）
         cv::namedWindow("ROS Image Subscriber");
     }
@@ -33,7 +34,7 @@ public:
             cv::Mat image = cv_ptr->image;
 
             // 打印图像信息（可选）
-            ROS_INFO("Received image: width=%d, height=%d", image.cols, image.rows);
+            // ROS_INFO("Received image: width=%d, height=%d", image.cols, image.rows);
 
 
             // 在此处添加图像处理代码（例如边缘检测）
@@ -46,7 +47,14 @@ public:
             cv::imshow("ROS Image Subscriber", gray_image);
             tracking->trackRecognition(gray_image);
             tracking->drawImage(image);
+            // tracking->savePicture(image);
+
+            std_msgs::Int32 edge_msg;
+            
+            edge_msg.data = tracking->line_cent();
+            edge_pub_.publish(edge_msg);  // 发布消息
             imshow("to", image);
+            
             cv::waitKey(1);
             // static int counter = 1;
             // string name = ".jpg";

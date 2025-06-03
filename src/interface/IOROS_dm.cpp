@@ -93,6 +93,7 @@ void IOROS_dm::recv(LowlevelState *state){
         state->imu.gyroscope[i] = _lowState.imu.gyroscope[i];
     }
     state->imu.quaternion[3] = _lowState.imu.quaternion[3];
+    state->speed.speed_yaw = _lowState.speed.speed_yaw;
     // std::cout<<"kd:"<<state->motorState[3].q;
     // std::cout<<std::endl;
     // std::cout<<"kd:"<<state->motorState[3].dq;
@@ -114,11 +115,14 @@ void IOROS_dm::recv(LowlevelState *state){
 #endif
 
 #ifdef CONTEST_TYPE_BARRIER
+
     if (state->barrier.change_next)
     {
         Label_num++;
         state->barrier.change_next=false;
     }
+
+    
 #endif
     std::string Label_apriltag =Label+std::to_string(Label_num);
 
@@ -177,10 +181,11 @@ void IOROS_dm::initRecv(){
     _servo_sub = _nm.subscribe("/dm_states", 10, &IOROS_dm::MotorStateCallback, this);
 #ifdef CONTEST_TYPE_SPEED
     speed_sub = _nm.subscribe("/speed", 10, &IOROS_dm::Speed_error, this);
-    last_received_ = ros::Time::now();
-     check_timer_ = _nm.createTimer(ros::Duration(0.1), &IOROS_dm::checkConnection, this);
+    // last_received_ = ros::Time::now();
+    //  check_timer_ = _nm.createTimer(ros::Duration(0.1), &IOROS_dm::checkConnection, this);
 #endif
-    
+
+
     ros::Duration(1.0).sleep();
 
 }
@@ -212,15 +217,10 @@ void IOROS_dm::MotorStateCallback(const damiao_msgs::DmState::ConstPtr &msg){
         _lowState.motorState[i].tauEst = msg->tau[i];
     }
 }
-void IOROS_dm::Speed_error(const std_msgs::Float32MultiArray::ConstPtr& msg){
+void IOROS_dm::Speed_error(const std_msgs::Int32::ConstPtr& msg){
 
-    last_received_ = ros::Time::now();
-    if (!is_receiving_) {
-        is_receiving_ = true;
-    }
-    for (size_t i = 0; i < msg->data.size(); ++i) {
-        _lowState.speed.speed_yaw=msg->data[0];
-    }
+    _lowState.speed.speed_yaw=msg->data;
+    std::cout<<"speed_yaw:"<<_lowState.speed.speed_yaw<<std::endl;
 
 }
 Eigen::Vector3d IOROS_dm::quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v) {
@@ -273,10 +273,10 @@ double IOROS_dm::rad2deg(double rad) {
     return rad * 180.0 / M_PI;
 }
 void IOROS_dm::checkConnection(const ros::TimerEvent&) {
-    if (is_receiving_ && (ros::Time::now() - last_received_).toSec() > 0.5) {
-        is_receiving_ = false;
-        ROS_WARN("Stopped receiving torque data");
-    }
+    // if (is_receiving_ && (ros::Time::now() - last_received_).toSec() > 0.5) {
+    //     is_receiving_ = false;
+    //     ROS_WARN("Stopped receiving torque data");
+    // }
 }
 // uint8[] legid
 // uint8[] motorid

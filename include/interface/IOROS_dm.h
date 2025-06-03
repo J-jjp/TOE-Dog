@@ -13,7 +13,7 @@
 #include <geometry_msgs/TransformStamped.h>
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2/LinearMath/Matrix3x3.h>
-#include <std_msgs/Float32MultiArray.h>
+#include <std_msgs/Int32.h>
 
 #include <cmath>
 #include <sensor_msgs/Imu.h>
@@ -40,7 +40,9 @@ public:
     double walk_x = 0;
     double walk_yaw = 0;
     std::string Label ="Tag36h11_";
-    int Label_num=0;
+    int Label_num=10;
+    int slope=1;
+    int Vertical_bar=10;
     // damiao_msgs::DmCommand dm_cmd_msg_; 
     bool tf_take_over=false;
     Eigen::Vector3d quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v);
@@ -56,7 +58,7 @@ public:
                       double& roll, double& pitch, double& yaw);
     double rad2deg(double rad);
     void RosShutDown(int sig);
-    void Speed_error(const std_msgs::Float32MultiArray::ConstPtr& msg);
+    void Speed_error(const std_msgs::Int32::ConstPtr& msg);
     void checkConnection(const ros::TimerEvent&);
 
 

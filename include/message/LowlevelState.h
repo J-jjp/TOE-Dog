@@ -23,25 +23,26 @@ struct MotorState
 struct Auto_speed{
     float x;    // w, x, y, z 四元素
     float yaw;    //二维码
-    float speed_yaw;    //赛道
-
+    int speed_yaw;    //赛道
+    bool line_yaw;
     Auto_speed(){
-        float x=0;    // w, x, y, z 四元素
-        float yaw=0;    //三个方向的角速度
-        float speed_yaw=0;    //三个方向的角速度
-
+        x=0;    // w, x, y, z 四元素
+        yaw=0;    //三个方向的角速度
+        speed_yaw=0;    //三个方向的角速度
+        line_yaw=false;
     }
 };
 struct Auto_barrier{
     float x;    // w, x, y, z 四元素
     float yaw;    //三个方向的角速度
     bool change_next;    //三个方向的角速度
+    int barrier_type;    //三个方向的角速度
 
     Auto_barrier(){
-        float x=0;    // w, x, y, z 四元素
-        float yaw=0;    //三个方向的角速度
-        bool change_next=false;    //三个方向的角速度
-
+        x=0;    // w, x, y, z 四元素
+        yaw=0;    //三个方向的角速度
+        change_next=false;    //三个方向的角速度
+        barrier_type=0;
 
     }
 };

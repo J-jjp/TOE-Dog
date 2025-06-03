@@ -768,8 +768,20 @@ void State_Rl::mnnInference_qua()
         
 #endif
 #ifdef CONTEST_TYPE_BARRIER
-        
-        Barrier_Vertical_bar();
+        if (Free_auto)
+        {
+            obs_qua[6] = -(_userValue.ly) *2*0.9*1.5;
+            obs_qua[8] = -_userValue.rx *0.25*0.8*1.5;
+            obs_qua[7] = -(_userValue.lx) *2*0.8*1;
+
+        }
+        else if(Speed_auto){
+            if(_lowState->barrier.barrier_type==0){
+                Barrier_Slope();
+            }
+        }
+
+        // Barrier_Vertical_bar();
 #endif
 
     if (obs_qua[6]<-1)
@@ -777,7 +789,7 @@ void State_Rl::mnnInference_qua()
         obs_qua[6]=-1;
     }
     
-    obs_qua[7] = -_userValue.lx *2*0.7*0.8;
+    // obs_qua[7] = -_userValue.lx *2*0.7*0.8;
     
 
 
@@ -1402,6 +1414,62 @@ void State_Rl::normalize_l2_inplace(float* arr, int size, float eps) {
         arr[i] /= norm;
     }
 }
+void State_Rl::Barrier_Slope(){
+    if (_lowState->barrier.x>40)
+    {
+        obs_qua[6] = -(_userValue.ly-0.5) *2;
+    }
+    else{
+        obs_qua[6] = -(_userValue.ly) *2;
+    }
+
+    if (_lowState->barrier.yaw>5)
+    {
+        obs_qua[8] = -(_userValue.rx-(_lowState->barrier.yaw*Slope_kp)) *0.25*0.8*1.5;
+        obs_qua[7] = -(_userValue.lx-(_lowState->barrier.yaw*Slope_kp)) *2*0.8*1;
+
+    }
+    else if(_lowState->barrier.yaw<-5){
+        obs_qua[8] = -(_userValue.rx+(_lowState->barrier.yaw*Slope_kp)) *0.25*0.8*1.5;
+        obs_qua[7] = -(_userValue.lx+(_lowState->barrier.yaw*Slope_kp)) *2*0.8*1;
+
+    }
+    else{
+        obs_qua[8] = -_userValue.rx *0.25*0.8*1.5;
+        obs_qua[7] = -(_userValue.lx) *2*0.8*1;
+
+    }
+        
+    if (_lowState->barrier.x>20&&_lowState->barrier.x<70)
+    {
+        Rotation=true;
+    }
+    if(Rotation){
+        if (Rotation_time<70)
+        {
+            if (Rotation_frequency==0)
+            {
+                // obs_qua[8] = -(_userValue.rx-0.25) *0.25*0.8*1.5;
+                obs_qua[7] = -(_userValue.lx-0.5) *2;
+            }
+            else if (Rotation_frequency==1)
+            {
+                // obs_qua[8] = -(_userValue.rx-0.25) *0.25*0.8*1.5;
+                obs_qua[7] = -(_userValue.lx-0.5) *2;
+            }
+            
+        }
+        else if(Rotation_time>100){
+            Rotation=false;
+            Rotation_time=0;
+            Slope_kp = 0.01;
+            Rotation_frequency++;
+            _lowState->barrier.change_next=true;
+        }
+        Rotation_time ++;
+    }
+    std::cout<<"Rotation_frequency"<<Rotation_frequency<<""<<Rotation<<"time"<<Rotation_time<<std::endl;
+}
 void State_Rl::Barrier_Vertical_bar(){
 
     if (_lowState->barrier.x>20)
@@ -1451,7 +1519,8 @@ void State_Rl::Barrier_Vertical_bar(){
 }
 void State_Rl::Speed_stop(){
 
-    if (_lowState->speed.x<120&&_lowState->speed.x>10)
+
+    if (_lowState->speed.x<150&&_lowState->speed.x>10)
     {
         speed_add = 0;
 
@@ -1460,7 +1529,7 @@ void State_Rl::Speed_stop(){
         {
             obs_qua[8] = -(_userValue.rx+0.5) *0.25*0.8*1.5;
         }
-        else if(_lowState->barrier.yaw<-5){
+        else if(_lowState->speed.yaw<-5){
             obs_qua[8] = -(_userValue.rx-0.5) *0.25*0.8*1.5;
         }
         else{
@@ -1468,8 +1537,28 @@ void State_Rl::Speed_stop(){
         }
     }
     else{
-        obs_qua[6] = -(_userValue.ly) *2*0.9*2;
-        obs_qua[8] = -_userValue.rx *0.25*0.8*1.5;
+        float yaw_add =0.003*_lowState->speed.speed_yaw;
+        if (yaw_add > 1.0f) {
+            yaw_add = 1.0f;
+        } else if (yaw_add < -1.0f) {
+            yaw_add = -1.0f;
+        }
+        speed_i +=_lowState->speed.speed_yaw*0.0001;
+        if (speed_i > 1.0f) {
+            speed_i = 1.0f;
+        } else if (speed_i < -1.0f) {
+            speed_i = -1.0f;
+        }
+        float add_end =yaw_add+speed_i;
+        if (add_end > 1.0f) {
+            add_end = 1.0f;
+        } else if (add_end < -1.0f) {
+            add_end = -1.0f;
+        }
+        // std::cout<<"差距"<<_userValue.rx<<"第二"<<add_end<<"第三"<<_lowState->speed.speed_yaw;
+        obs_qua[8] = -(_userValue.rx+add_end) *0.25*0.8*1.5;
+        obs_qua[6] = -(_userValue.ly-0.9) *2*2.5;
+        // obs_qua[8] = -_userValue.rx *0.25*0.8*1.5;
     }
     
 

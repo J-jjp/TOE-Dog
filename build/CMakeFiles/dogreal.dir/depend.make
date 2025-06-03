@@ -103,10 +103,8 @@ CMakeFiles/dogreal.dir/mainreal.cpp.o: /opt/ros/noetic/include/ros/wall_timer_op
 CMakeFiles/dogreal.dir/mainreal.cpp.o: /opt/ros/noetic/include/rosconsole/macros_generated.h
 CMakeFiles/dogreal.dir/mainreal.cpp.o: /opt/ros/noetic/include/sensor_msgs/Imu.h
 CMakeFiles/dogreal.dir/mainreal.cpp.o: /opt/ros/noetic/include/std_msgs/Empty.h
-CMakeFiles/dogreal.dir/mainreal.cpp.o: /opt/ros/noetic/include/std_msgs/Float32MultiArray.h
 CMakeFiles/dogreal.dir/mainreal.cpp.o: /opt/ros/noetic/include/std_msgs/Header.h
-CMakeFiles/dogreal.dir/mainreal.cpp.o: /opt/ros/noetic/include/std_msgs/MultiArrayDimension.h
-CMakeFiles/dogreal.dir/mainreal.cpp.o: /opt/ros/noetic/include/std_msgs/MultiArrayLayout.h
+CMakeFiles/dogreal.dir/mainreal.cpp.o: /opt/ros/noetic/include/std_msgs/Int32.h
 CMakeFiles/dogreal.dir/mainreal.cpp.o: /opt/ros/noetic/include/tf2/LinearMath/Matrix3x3.h
 CMakeFiles/dogreal.dir/mainreal.cpp.o: /opt/ros/noetic/include/tf2/LinearMath/MinMax.h
 CMakeFiles/dogreal.dir/mainreal.cpp.o: /opt/ros/noetic/include/tf2/LinearMath/QuadWord.h
@@ -374,10 +372,8 @@ CMakeFiles/dogreal.dir/src/interface/IOROS_dm.cpp.o: /opt/ros/noetic/include/ros
 CMakeFiles/dogreal.dir/src/interface/IOROS_dm.cpp.o: /opt/ros/noetic/include/rosconsole/macros_generated.h
 CMakeFiles/dogreal.dir/src/interface/IOROS_dm.cpp.o: /opt/ros/noetic/include/sensor_msgs/Imu.h
 CMakeFiles/dogreal.dir/src/interface/IOROS_dm.cpp.o: /opt/ros/noetic/include/std_msgs/Empty.h
-CMakeFiles/dogreal.dir/src/interface/IOROS_dm.cpp.o: /opt/ros/noetic/include/std_msgs/Float32MultiArray.h
 CMakeFiles/dogreal.dir/src/interface/IOROS_dm.cpp.o: /opt/ros/noetic/include/std_msgs/Header.h
-CMakeFiles/dogreal.dir/src/interface/IOROS_dm.cpp.o: /opt/ros/noetic/include/std_msgs/MultiArrayDimension.h
-CMakeFiles/dogreal.dir/src/interface/IOROS_dm.cpp.o: /opt/ros/noetic/include/std_msgs/MultiArrayLayout.h
+CMakeFiles/dogreal.dir/src/interface/IOROS_dm.cpp.o: /opt/ros/noetic/include/std_msgs/Int32.h
 CMakeFiles/dogreal.dir/src/interface/IOROS_dm.cpp.o: /opt/ros/noetic/include/tf2/LinearMath/Matrix3x3.h
 CMakeFiles/dogreal.dir/src/interface/IOROS_dm.cpp.o: /opt/ros/noetic/include/tf2/LinearMath/MinMax.h
 CMakeFiles/dogreal.dir/src/interface/IOROS_dm.cpp.o: /opt/ros/noetic/include/tf2/LinearMath/QuadWord.h

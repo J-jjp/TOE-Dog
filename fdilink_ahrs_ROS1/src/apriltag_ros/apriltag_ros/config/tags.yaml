@@ -24,6 +24,9 @@ standalone_tags:
       {id: 0, size: 0.150, name: Tag36h11_0 } ,
       {id: 1, size: 0.150, name: Tag36h11_1 } ,
       {id: 2, size: 0.150, name: Tag36h11_2 } ,
+      {id: 10, size: 0.150, name: Tag36h11_10 } ,
+      {id: 11, size: 0.150, name: Tag36h11_11 } ,
+
 
 
       # {id: 0, size: 0.150, name: tag25h9_0 } 

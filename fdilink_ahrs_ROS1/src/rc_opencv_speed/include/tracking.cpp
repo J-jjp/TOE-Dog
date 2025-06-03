@@ -36,7 +36,8 @@ public:
 
     double stdevLeft;                 // 边缘斜率方差（左）
     double stdevRight;                // 边缘斜率方差（右）评估赛道线的直线性
-
+    int center=0;
+    int last_center=0;
     int validRowsLeft = 0;            // 边缘有效行数（左）
     int validRowsRight = 0;           // 边缘有效行数（右）
 
@@ -600,10 +601,38 @@ public:
         string name = ".jpg";
         static int counter = 0;
         counter++;
-        string img_path = "../res/train/";
+        string img_path = "/home/toe/TOE-Dog/fdilink_ahrs_ROS1/src/rc_opencv_speed/res/train/";
         name = img_path + to_string(counter) + ".jpg";
         imwrite(name, image);
         std::cout<<"第"<<counter<<"张\t"<<std::endl;
     }
-
+    int line_cent(){
+        if (centerEdge.size()<ROWSIMAGE / 5)
+        {
+            return 0;
+        }
+        int controlNum=1;
+        for (auto p : centerEdge)
+        {
+            if (p.x > ROWSIMAGE / 2)
+            {
+                // controlNum += ROWSIMAGE / 2;
+                // controlCenter += p.y * ROWSIMAGE / 2;
+            // }
+            // else
+            // {
+                controlNum += (ROWSIMAGE - p.x);
+                center += p.y * (ROWSIMAGE - p.x);
+            }
+        }
+        if (controlNum > 1)
+        {
+            center =center / controlNum;
+        }
+        center = center -  COLSIMAGE / 2;
+        center = int(center*0.8+last_center*0.2);
+        last_center = center;
+        
+        return center;
+    }
 };
