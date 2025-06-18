@@ -25,11 +25,12 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
   "COMPILE_WITH_REAL_ROBOT"
-  "CONTEST_TYPE_SPEED"
+  "CONTEST_TYPE_BARRIER"
   "ROBOT_TYPE_T2"
   "ROSCONSOLE_BACKEND_LOG4CXX"
   "ROS_BUILD_SHARED_LIBS=1"
   "ROS_PACKAGE_NAME=\"dogreal\""
+  "SENSOR_TYPE_RADAR"
   )
 
 # The include file search paths:

@@ -514,7 +514,9 @@ void Motor_Control::get_motor_data_thread()
                 uint16_t q_uint = (uint16_t(data[1]) << 8) | data[2];
                 uint16_t dq_uint = (uint16_t(data[3]) << 4) | (data[4] >> 4);
                 uint16_t tau_uint = (uint16_t(data[4] & 0xf) << 8) | data[5];
-        
+                
+                // std::cerr << "Serial exception: " << receive_data.canId << std::endl;
+
                 if(motors.find(receive_data.canId) == motors.end())
                 {
                     return;

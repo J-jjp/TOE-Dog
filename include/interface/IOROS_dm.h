@@ -1,4 +1,3 @@
-#ifdef ROBOT_TYPE_T2
 
 #ifndef IOROS_DM_H
 #define IOROS_DM_H
@@ -14,6 +13,7 @@
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <std_msgs/Int32.h>
+#include <std_msgs/Float32MultiArray.h>
 
 #include <cmath>
 #include <sensor_msgs/Imu.h>
@@ -26,8 +26,9 @@ public:
     void recv(LowlevelState *state);
     ros::NodeHandle _nm;
     ros::Subscriber _servo_sub, _imu_sub ;
-#ifdef CONTEST_TYPE_SPEED
     ros::Subscriber speed_sub;
+#ifdef CONTEST_TYPE_SPEED
+
     ros::Timer check_timer_;
     ros::Time last_received_;
     bool is_receiving_ = false;
@@ -59,12 +60,12 @@ public:
     double rad2deg(double rad);
     void RosShutDown(int sig);
     void Speed_error(const std_msgs::Int32::ConstPtr& msg);
+    void Speed_error_radar(const std_msgs::Float32MultiArray::ConstPtr& msg);
+
     void checkConnection(const ros::TimerEvent&);
 
 
 
 };
-
-#endif
 
 #endif

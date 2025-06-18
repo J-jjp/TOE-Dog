@@ -22,6 +22,8 @@ struct MotorState
 };
 struct Auto_speed{
     float x;    // w, x, y, z 四元素
+    float y;    // w, x, y, z 四元素
+
     float yaw;    //二维码
     int speed_yaw;    //赛道
     bool line_yaw;

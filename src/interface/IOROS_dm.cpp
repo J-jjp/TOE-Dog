@@ -1,7 +1,7 @@
 /**********************************************************************
  Copyright (c) 2020-2023, Unitree Robotics.Co.Ltd. All rights reserved.
 ***********************************************************************/
-#ifdef ROBOT_TYPE_T2
+
 #include "interface/IOROS_dm.h"
 // #include "interface/KeyBoard.h"
 // #include "interface/WirelessHandle.h"
@@ -93,23 +93,8 @@ void IOROS_dm::recv(LowlevelState *state){
         state->imu.gyroscope[i] = _lowState.imu.gyroscope[i];
     }
     state->imu.quaternion[3] = _lowState.imu.quaternion[3];
-    state->speed.speed_yaw = _lowState.speed.speed_yaw;
-    // std::cout<<"kd:"<<state->motorState[3].q;
-    // std::cout<<std::endl;
-    // std::cout<<"kd:"<<state->motorState[3].dq;
-    // std::cout<<std::endl;
+    
 
-    // std::cout<<"kd:"<<state->motorState[4].q;
-    // std::cout<<std::endl;
-
-    // std::cout<<"kd:"<<state->motorState[4].dq;
-    // std::cout<<std::endl;
-
-    // std::cout<<"kd:"<<state->motorState[5].q;
-    // std::cout<<std::endl;
-
-    // std::cout<<"kd:"<<state->motorState[5].dq;
-    // std::cout<<std::endl;
 #ifdef CONTEST_TYPE_SPEED
 
 #endif
@@ -121,23 +106,10 @@ void IOROS_dm::recv(LowlevelState *state){
         Label_num++;
         state->barrier.change_next=false;
     }
-
-    
 #endif
+#ifdef SENSOR_TYPE_CAMERA
     std::string Label_apriltag =Label+std::to_string(Label_num);
-
-    // std::cout<<"dq:"
-    // for(int i(0); i < 12; ++i){
-    //     std::cout<<"  dq"<<i<<" :"<<state->motorState[i].q;
-    // }
-    std::cout<<std::endl;
     try {
-            // 获取Tag36h11_2相对于usb_cam的变换
-            // geometry_msgs::TransformStamped transform_tag2 = tfBuffer.lookupTransform(
-            //     "usb_cam", "Tag36h11_2", ros::Time(0));
-            // printTransform("Tag36h11_2", transform_tag2);
-            
-            // 获取Tag36h11_6相对于usb_cam的变换
             ros::Time now = ros::Time::now();   
 
             geometry_msgs::TransformStamped transform = tfBuffer.lookupTransform(
@@ -160,19 +132,25 @@ void IOROS_dm::recv(LowlevelState *state){
             walk_yaw = 0;
             ros::Duration(0.005).sleep();
             std::cout<<"error"<<walk_x<<std::endl;
-
         }
 #ifdef CONTEST_TYPE_SPEED
         state->speed.x = walk_x;
         state->speed.yaw = walk_yaw;
+        state->speed.speed_yaw = _lowState.speed.speed_yaw;
         std::cout<<"state->speed.x"<<state->speed.x<<"\tyaw:"<<state->speed.yaw<<std::endl;
 #endif
 #ifdef CONTEST_TYPE_BARRIER
         state->barrier.x = walk_x;
         state->barrier.yaw = walk_yaw;
-
         std::cout<<"state->barrier.x"<<state->barrier.x<<"\tyaw:"<<state->barrier.yaw<<std::endl;
 #endif
+#endif
+#ifdef SENSOR_TYPE_RADAR
+    state->speed.x = _lowState.speed.x;
+    state->speed.y = _lowState.speed.y;
+    state->speed.yaw = _lowState.speed.yaw;
+#endif
+
 
 }
 
@@ -180,11 +158,15 @@ void IOROS_dm::initRecv(){
     _imu_sub = _nm.subscribe("/imu", 10, &IOROS_dm::imuCallback, this);
     _servo_sub = _nm.subscribe("/dm_states", 10, &IOROS_dm::MotorStateCallback, this);
 #ifdef CONTEST_TYPE_SPEED
+#ifdef SENSOR_TYPE_CAMERA
     speed_sub = _nm.subscribe("/speed", 10, &IOROS_dm::Speed_error, this);
+#endif
     // last_received_ = ros::Time::now();
     //  check_timer_ = _nm.createTimer(ros::Duration(0.1), &IOROS_dm::checkConnection, this);
 #endif
-
+#ifdef SENSOR_TYPE_RADAR
+    speed_sub = _nm.subscribe("/goal_info", 10, &IOROS_dm::Speed_error_radar, this);
+#endif
 
     ros::Duration(1.0).sleep();
 
@@ -216,13 +198,22 @@ void IOROS_dm::MotorStateCallback(const damiao_msgs::DmState::ConstPtr &msg){
         _lowState.motorState[i].dq = msg->vel[i];
         _lowState.motorState[i].tauEst = msg->tau[i];
     }
-}
-void IOROS_dm::Speed_error(const std_msgs::Int32::ConstPtr& msg){
+    // std::cout<<"xxxx"<<std::endl;
 
+}
+
+void IOROS_dm::Speed_error(const std_msgs::Int32::ConstPtr& msg){
     _lowState.speed.speed_yaw=msg->data;
     std::cout<<"speed_yaw:"<<_lowState.speed.speed_yaw<<std::endl;
-
 }
+
+void IOROS_dm::Speed_error_radar(const std_msgs::Float32MultiArray::ConstPtr& msg){
+    _lowState.speed.x=msg->data[0];
+    _lowState.speed.y=msg->data[1];
+    _lowState.speed.yaw=msg->data[2];
+    // std::cout<<"x:"<<msg->data[0]<<"y:"<<msg->data[1]<<"yaw"<<msg->data[2]<<std::endl;
+}
+
 Eigen::Vector3d IOROS_dm::quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v) {
     double q_w = q[3];  // 提取四元数的实部 w
     Eigen::Vector3d q_vec(q[0], q[1], q[2]);  // 提取四元数的虚部 xyz
@@ -287,4 +278,4 @@ void IOROS_dm::checkConnection(const ros::TimerEvent&) {
 // float32[] pos
 // int8[] temp
 // int8[] error
-#endif
+

@@ -173,7 +173,9 @@ public:
     int     Rotation_time=0;
     float speed_add = 0; 
     float Slope_kp=0.05;
-    void Speed_stop();
+    void Speed_stop_camera();
+    void Speed_stop_radar();
+
     void Barrier_Slope();
     void Barrier_Vertical_bar();
     float speed_p=0,speed_i=0;

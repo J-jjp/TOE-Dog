@@ -671,9 +671,17 @@ void State_Rl::stateMachine_qua()
     std::string encoder_str; 
 #ifdef CONTEST_TYPE_SPEED
     contest_type = "../speed";
+    // contest_type = "../new";
+
 #endif
+
 #ifdef CONTEST_TYPE_BARRIER
+    // contest_type = "../new";
     contest_type = "../barrier";
+
+    // contest_type = "../Prostrate";
+
+    
 #endif
 #ifdef CONTEST_TYPE_FIELD
     contest_type = "../field";
@@ -758,11 +766,18 @@ void State_Rl::mnnInference_qua()
         if (Free_auto)
         {
             obs_qua[6] = -(_userValue.ly) *2*0.9*2.5;
+            obs_qua[7] = -(_userValue.lx) *2*0.9*1;
             obs_qua[8] = -_userValue.rx *0.25*0.8*1.5;
         }
         else if(Speed_auto){
-            Speed_stop();
+#ifdef SENSOR_TYPE_CAMERA
+            Speed_stop_camera();
+#endif
+#ifdef SENSOR_TYPE_RADAR
+            Speed_stop_radar();
+#endif
         }
+
         std::cout<<"Free_auto"<<Free_auto<<"\tSpeed_auto"<<Speed_auto<<std::endl;
         // std::cout<<"distance"<<_lowState->speed.x<<std::endl;
         
@@ -770,10 +785,9 @@ void State_Rl::mnnInference_qua()
 #ifdef CONTEST_TYPE_BARRIER
         if (Free_auto)
         {
-            obs_qua[6] = -(_userValue.ly) *2*0.9*1.5;
-            obs_qua[8] = -_userValue.rx *0.25*0.8*1.5;
+            obs_qua[6] = -(_userValue.ly) *2*0.8*1;
+            obs_qua[8] = -_userValue.rx *0.25*0.8*1;
             obs_qua[7] = -(_userValue.lx) *2*0.8*1;
-
         }
         else if(Speed_auto){
             if(_lowState->barrier.barrier_type==0){
@@ -794,7 +808,7 @@ void State_Rl::mnnInference_qua()
 
 
 
-    std::cout<<"yaw"<<_lowState->speed.yaw<<std::endl;
+    // std::cout<<"yaw"<<_lowState->speed.yaw<<std::endl;
 
 
     for (size_t i = 0; i < 12; i++)
@@ -840,14 +854,14 @@ void State_Rl::mnnInference_qua()
     for (size_t i = 0; i < 12; i++)
     {
         if (action_cmd_qua[i]>10)action_cmd_qua[i]=10;
-        if (action_cmd_qua[i]<-10)action_cmd_qua[i]=10;
+        if (action_cmd_qua[i]<-10)action_cmd_qua[i]=-10;
     }
     std::cout<<std::endl;
     float action_flt[12];
     for (size_t i = 0; i < 12; i++)
     {
 
-        action_flt[i]=action_cmd_qua[i]*0.8+ last_action_cmd_qua[i]*0.2;
+        action_flt[i]=action_cmd_qua[i]*1+ last_action_cmd_qua[i]*0;
     }
     action_flt[0]*=0.5;
     action_flt[3]*=0.5;
@@ -1296,6 +1310,7 @@ void State_Rl::Pose_transformation(){
 }
 
 void State_Rl::Change_type(){
+#ifdef AUTO_REAL_ROBOT
     if ((int)_lowState->userValue.a == 1)  // 自由启动
     {
         Speed_auto=false;
@@ -1328,6 +1343,7 @@ void State_Rl::Change_type(){
         Barrier_auto=false;
         Field_auto=true;
     }
+#endif
 }
 Eigen::Vector3d State_Rl::quat_rotate_inverse(const Eigen::Vector4d& q, const Eigen::Vector3d& v) {
     double q_w = q[3];  // 提取四元数的实部 w
@@ -1517,7 +1533,7 @@ void State_Rl::Barrier_Vertical_bar(){
         Rotation_time ++;
     }
 }
-void State_Rl::Speed_stop(){
+void State_Rl::Speed_stop_camera(){
 
 
     if (_lowState->speed.x<150&&_lowState->speed.x>10)
@@ -1557,11 +1573,79 @@ void State_Rl::Speed_stop(){
         }
         // std::cout<<"差距"<<_userValue.rx<<"第二"<<add_end<<"第三"<<_lowState->speed.speed_yaw;
         obs_qua[8] = -(_userValue.rx+add_end) *0.25*0.8*1.5;
-        obs_qua[6] = -(_userValue.ly-0.9) *2*2.5;
+        obs_qua[6] = -(_userValue.ly-0.25) *2*2.5;
         // obs_qua[8] = -_userValue.rx *0.25*0.8*1.5;
     }
     
 
     
 
+}
+void State_Rl::Speed_stop_radar(){
+    std::cout<<"x:"<<_lowState->speed.x<<"y:"<<_lowState->speed.y<<"yaw"<<_lowState->speed.yaw<<std::endl;
+    
+    if (_lowState->speed.x<1.)
+    {
+        obs_qua[6] = -(_userValue.ly) *2*0.9*2;
+        obs_qua[7] = -(_userValue.lx) *2;
+        obs_qua[8] = -(_userValue.rx) *0.25*0.8*1.5;
+
+    }
+    else{
+        obs_qua[6] = -(_userValue.ly-0.85) *2*2.5;
+    }
+    if (_lowState->speed.yaw<-2.)
+    {
+        obs_qua[8] = -(_userValue.rx+0.3) *0.25*0.8*1.5;
+    }
+    else if(_lowState->speed.yaw>2.){
+        obs_qua[8] = -(_userValue.rx-0.3) *0.25*0.8*1.5;
+    }
+    else{
+        obs_qua[8] = -(_userValue.rx) *0.25*0.8*1.5;
+    }
+
+    float y_add =0.8*(_lowState->speed.y-0.);
+    if(y_add>1)y_add = 1;
+    if(y_add<-1)y_add = -1;
+    
+    obs_qua[7] = -(_userValue.lx+y_add) *2;
+
+
+    //     obs_qua[6] = -(_userValue.ly-speed_add) *2*0.9*2;
+    //     if (_lowState->speed.yaw>5)
+    //     {
+    //         obs_qua[8] = -(_userValue.rx+0.5) *0.25*0.8*1.5;
+    //     }
+    //     else if(_lowState->speed.yaw<-5){
+    //         obs_qua[8] = -(_userValue.rx-0.5) *0.25*0.8*1.5;
+    //     }
+    //     else{
+    //         obs_qua[8] = -_userValue.rx *0.25*0.8*1.5;
+    //     }
+    // }
+    // else{
+    //     float yaw_add =0.003*_lowState->speed.speed_yaw;
+    //     if (yaw_add > 1.0f) {
+    //         yaw_add = 1.0f;
+    //     } else if (yaw_add < -1.0f) {
+    //         yaw_add = -1.0f;
+    //     }
+    //     speed_i +=_lowState->speed.speed_yaw*0.0001;
+    //     if (speed_i > 1.0f) {
+    //         speed_i = 1.0f;
+    //     } else if (speed_i < -1.0f) {
+    //         speed_i = -1.0f;
+    //     }
+    //     float add_end =yaw_add+speed_i;
+    //     if (add_end > 1.0f) {
+    //         add_end = 1.0f;
+    //     } else if (add_end < -1.0f) {
+    //         add_end = -1.0f;
+    //     }
+    //     // std::cout<<"差距"<<_userValue.rx<<"第二"<<add_end<<"第三"<<_lowState->speed.speed_yaw;
+    //     obs_qua[8] = -(_userValue.rx+add_end) *0.25*0.8*1.5;
+    //     obs_qua[6] = -(_userValue.ly-0.25) *2*2.5;
+    //     // obs_qua[8] = -_userValue.rx *0.25*0.8*1.5;
+    // }
 }
