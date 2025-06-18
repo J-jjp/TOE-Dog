@@ -70,8 +70,8 @@ public:
     void mnnInference_Walk();
     void stateMachine_Walk();
     void getCurrentObservation_Walk();
-    void mnnInference_backflip();
-    void stateMachine_backflip();
+    void mnnInference_jump();
+    void stateMachine_jump();
     void Pose_transformation();
     void time_zaro();
     void test_motor();
@@ -87,6 +87,8 @@ public:
     Vec3 quaternion_to_euler_array(Vec4 quat);
     std::shared_ptr<rl_Inference> rlptr = nullptr;
     std::shared_ptr<rl_Inference> adaptationNetPtr = nullptr;
+    std::shared_ptr<rl_Inference> change_model = nullptr;
+    
     int modle;
     float sin_counter;
     float output_angle_c;
@@ -153,15 +155,11 @@ public:
 
     float action_cmd_amp[Num_dof];
     float last_action_cmd_amp[Num_dof];
-        // -----------------------backflip------------------------
-    float obs_backflip[60];
-    // float policy_input_backflip[60];
-    float action_stateq_backflip[Num_dof];
-    float action_statedq_backflip[Num_dof];
-    float action_cmd_backflip[Num_dof];
-    float last_action_cmd_backflip[Num_dof];
-    float last_last_action_cmd_backflip[Num_dof];
-    int backflip_time=0;
+        // -----------------------jump------------------------
+    float obs_jump[42];
+    float action_cmd_jump[Num_dof];
+    float last_action_cmd_jump[Num_dof];
+
         // -----------------------Auto-----------------------
     
     bool   Speed_auto=false;
@@ -179,7 +177,7 @@ public:
     void Barrier_Slope();
     void Barrier_Vertical_bar();
     float speed_p=0,speed_i=0;
-
+    bool change_fsm=false;
 };
 
 #endif  // FREESTAND_H

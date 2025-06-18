@@ -212,7 +212,7 @@ int main(int argc,char** argv) {
     ctrlPlat = CtrlPlatform::Mujoco;
     CtrlComponents *ctrlComp = new CtrlComponents(ioInter);
     ctrlComp->ctrlPlatform = ctrlPlat;
-    ctrlComp->dt = 0.002; // run at 400hz  控制周期       
+    ctrlComp->dt = 0.02; // run at 400hz  控制周期       
     ctrlComp->running = &running;  //机器人控制的状态  运行 or 不运行
     ctrlComp->robotModel = new A1Robot();
     ControlFrame ctrlFrame(ctrlComp);
@@ -246,15 +246,7 @@ int main(int argc,char** argv) {
       ctrlFrame.run();
       
       // std::cout<<"time:"<<d->time<<std::endl;
-      while (d->time - simstart < 1.0/120.0) {
-        for(int i=0; i < 12; i++){
-            ctrlComp->lowCmd->motorCmd[i].tau=pd_control(
-            ctrlComp->lowCmd->motorCmd[i].q,ctrlComp->lowState->motorState[i].q,ctrlComp->lowCmd->motorCmd[i].Kp,
-            ctrlComp->lowCmd->motorCmd[i].dq,ctrlComp->lowState->motorState[i].dq,ctrlComp->lowCmd->motorCmd[i].Kd);
-        }
-        for(int i=0; i < 12; i++){
-            d->ctrl[i] = ctrlComp->lowCmd->motorCmd[i].tau;
-        }
+      while (d->time - simstart < 1.0/60.0) {
         mj_step(m, d);
       }
       

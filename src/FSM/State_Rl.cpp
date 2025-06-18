@@ -87,6 +87,7 @@ void State_Rl::enter(){
 void State_Rl::run(){
     speed_limit();
     // test_motor();o
+    mobRun();
     time_rl++;
     if (0)
     {
@@ -117,7 +118,7 @@ void State_Rl::run(){
         //     std::cout<<"没有执行";
         // }
     }
-    else if(1){
+    else if(!change_fsm){
         // if(time_rl>1){
         //     time_rl=0;
             stateMachine_qua();
@@ -129,15 +130,14 @@ void State_Rl::run(){
         // }
     }
     else if(0){
-        // if(time_rl>1){
-        //     time_rl=0;
-            stateMachine_amp();
-            mnnInference_amp();
-        //     std::cout<<"执行";
-        // }
-        // else{
-        //     std::cout<<"没有执行";
-        // }
+
+        stateMachine_amp();
+        mnnInference_amp();
+    }
+    else if(change_fsm){
+
+        stateMachine_jump();
+        mnnInference_jump();
     }
     //     //     time_rl++;
     //     //     usleep(100);
@@ -1037,9 +1037,9 @@ void State_Rl::stateMachine_mujoco(){
     rlptr->resetNode();
 }
 
-void State_Rl::mnnInference_backflip()
+void State_Rl::mnnInference_jump()
 {
-    float phase = 3.141592653589793f* backflip_time/5 * 0.02/2;
+
     Eigen::Vector4d q(_lowState->imu.quaternion[1],_lowState->imu.quaternion[2],_lowState->imu.quaternion[3],_lowState->imu.quaternion[0]);
     Eigen::Vector3d v(0.0,0.0,-1.0); 
     Eigen::Vector3d proj_gravity_eigen = quat_rotate_inverse(q, v);
@@ -1048,59 +1048,40 @@ void State_Rl::mnnInference_backflip()
     proj_gravity[2] = proj_gravity_eigen(2);
     for (size_t i = 0; i < 3; i++)
     {
-        obs_backflip[i] = 0;
-        obs_backflip[i+3] = proj_gravity[i];
+
+        obs_jump[i] =_lowState->imu.gyroscope[i]*obs_scales_ang_vel;
+        obs_jump[i+3] = proj_gravity[i];
     }
     for (size_t i = 0; i < 12; i++)
     {
-        obs_backflip[6+i] = (_lowState->motorState[i].q-default_dof_pos[i]) *obs_scales_dof_pos;
-        obs_backflip[18+i] = _lowState->motorState[i].dq * obs_scales_dof_vel;
-        obs_backflip[30+i] = last_action_cmd_backflip[i];
-        obs_backflip[42+i] = last_last_action_cmd_backflip[i];
+        obs_jump[6+i] = (_lowState->motorState[i].q-default_dof_pos_amp[i]) *obs_scales_dof_pos;
+        obs_jump[18+i] = _lowState->motorState[i].dq * obs_scales_dof_vel;
+        obs_jump[30+i] = last_action_cmd_jump[i];
     }
-    obs_backflip[54] = sin(phase);
-    obs_backflip[55] = cos(phase);
-    obs_backflip[56] = sin(phase / 2);
-    obs_backflip[57] = cos(phase / 2);
-    obs_backflip[58] = sin(phase / 4);
-    obs_backflip[59] = cos(phase / 4);
-    // for (size_t i = 0; i < 60; i++)
-    // {
-    //     obs_backflip[i]=0;
-    // }
-    
-    rlptr->advanceNNsync_Walk(obs_backflip,action_cmd_backflip);
-    // std::cout<<std::endl;
-    // float action_flt[12];
-    // for (size_t i = 0; i < 12; i++)
-    // {
-    //     action_flt[i]=action_cmd_legged[i]*0.8+last_action_cmd_legged[i]*0.2;
-    // }
+
+    change_model->advanceNNsync_Walk(obs_jump,action_cmd_jump);
+
     for (size_t i = 0; i < 12; i++)
     {
-        last_last_action_cmd_backflip[i]=last_action_cmd_backflip[i];
+        last_action_cmd_jump[i]=action_cmd_jump[i];
     }
     for (size_t i = 0; i < 12; i++)
     {
-        last_action_cmd_backflip[i]=action_cmd_backflip[i];
-    }
-    for (size_t i = 0; i < 12; i++)
-    {
-        _lowCmd->motorCmd[i].q = action_cmd_backflip[i]*0.5+ default_dof_pos[i];
+        _lowCmd->motorCmd[i].q = action_cmd_jump[i]*0.25+ default_dof_pos_amp[i];
     }
 }
 
-void State_Rl::stateMachine_backflip(){
-    if (rlptr == nullptr)
+void State_Rl::stateMachine_jump(){
+    if (change_model == nullptr)
     {
-      std::string mobModelPath = "../backflip.mnn";
-      rlptr = std::make_shared<rl_Inference>(mobModelPath);
-      rlptr->initBuffer();
+      std::string mobModelPath_jump = "../Bridge.mnn";
+      change_model = std::make_shared<rl_Inference>(mobModelPath_jump);
+      change_model->initBuffer();
     }
-    rlptr->resetNode();
+    change_model->resetNode();
 }
 void State_Rl::time_zaro(){
-    backflip_time=0;
+
 }
 void State_Rl::mobRun()
 {
@@ -1109,7 +1090,7 @@ void State_Rl::mobRun()
     mobCmd_[5]=0.5;
     mobCmd_[6]=0;
     mobCmd_[7]=0;
-
+    change_fsm=false;
   }
   else if ((int)_lowState->userValue.b == 1)  // pace
   {
@@ -1123,13 +1104,14 @@ void State_Rl::mobRun()
     mobCmd_[5]=0;
     mobCmd_[6]=0;
     mobCmd_[7]=0;
-
+    change_fsm=true;
   }
   else if ((int)_lowState->userValue.y == 1)  // bound
   {
     mobCmd_[5]=0;
     mobCmd_[6]=0.5;
     mobCmd_[7]=0;
+    
   }
 }
 void State_Rl::Pose_transformation(){

@@ -40,11 +40,11 @@
     <geom pos="9.8 0 0.02" type="box"  size="0.8 0.5 0.02" quat="1.0 0 0 0"/>
     <geom pos="9.8 0 0.02" type="box"  size="0.05 0.5 0.3" quat="1.0 0 0 0"/>
     <!-- 断桥 -->
-    <geom pos="12. 0 -0.025" type="box"  size="0.5 0.5 0.2" quat="0.9848 0 -0.1604 0"/>
-    <geom pos="12.8 0 0.02" type="box"  size="0.4 0.5 0.3" quat="1.0 0 0 0"/>
-    <geom pos="13.9 0 0.02" type="box"  size="0.4 0.5 0.3" quat="1.0 0 0 0"/>
-    <geom pos="14.45 0 0.02" type="box"  size="0.15 0.5 0.2" quat="1.0 0 0 0"/>
-    <geom pos="14.75 0 0.02" type="box"  size="0.15 0.5 0.1" quat="1.0 0 0 0"/>
+    <geom pos="2. 0 -0.025" type="box"  size="0.5 0.5 0.2" quat="0.9848 0 -0.1604 0"  friction="1 0.1 0.01"/>
+    <geom pos="2.8 0 0.02" type="box"  size="0.4 0.5 0.3" quat="1.0 0 0 0"  friction="1 0.1 0.01"/>
+    <geom pos="3.9 0 0.02" type="box"  size="0.4 0.5 0.3" quat="1.0 0 0 0"  friction="1 0.1 0.01"/>
+    <geom pos="4.45 0 0.02" type="box"  size="0.15 0.5 0.2" quat="1.0 0 0 0"  friction="1 0.1 0.01"/>
+    <geom pos="4.75 0 0.02" type="box"  size="0.15 0.5 0.1" quat="1.0 0 0 0"  friction="1 0.1 0.01"/>
 
     <geom pos="18.75 0.01 -0.07" type="box"  size="1.5 0.5 0.17" quat="0.9945 -0.1045 0 0"/>
             <geom pos="-1.5 7 0.05" type="box" size="0.1 2.5 0.05" quat="0.707 0 0 0.707" rgba="1 1 1 0.8" />
@@ -76,9 +76,9 @@
     <geom pos="-1.5 11.8 0.15" type="box" size="0.1 2.5 0.05" quat="0.707 0 0 0.707" />
     <geom pos="-1.5 12.0 0.1" type="box" size="0.1 2.5 0.05" quat="0.707 0 0 0.707" />
     <geom pos="-1.5 12.2 0.05" type="box" size="0.1 2.5 0.05" quat="0.707 0 0 0.707" />
-    <geom pos="3 0 0.02" type="box"  size="0.4 0.5 0.3" quat="1.0 0 0 0"/>
+    <!-- <geom pos="3 0 0.02" type="box"  size="0.4 0.5 0.3" quat="1.0 0 0 0"/>
     <geom pos="2.5 0 0.02" type="box"  size="0.15 0.5 0.2" quat="1.0 0 0 0"/>
-    <geom pos="2.2 0 0.02" type="box"  size="0.3 0.5 0.1" quat="1.0 0 0 0"/>
+    <geom pos="2.2 0 0.02" type="box"  size="0.3 0.5 0.1" quat="1.0 0 0 0"/> -->
     <!-- <geom type="box" pos="12.05 0 -0.01" size="0.9 0.075 0.3" quat="0.7071 0 0.7071 0"/> -->
     <!-- <geom pos="3 0  0.02" type="box"  size="0.24 2 0.08" quat="1.0 0 0 0"/>
     <geom pos="3.2 0 0.02" type="box"  size="0.25 2 0.10" quat="1.0 0 0 0"/>

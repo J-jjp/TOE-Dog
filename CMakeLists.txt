@@ -3,7 +3,7 @@ project(dogreal)
 # 获取当前目录
 get_filename_component(CURRENT_DIR "${CMAKE_CURRENT_SOURCE_DIR}" ABSOLUTE)
 
-set(REAL_ROBOT on)          # Link real robot or not, ON or OFF,OFF=simulate
+set(REAL_ROBOT off)          # Link real robot or not, ON or OFF,OFF=simulate
 #select auto
 set(AUTO off)          
 
