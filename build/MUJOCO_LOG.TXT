@@ -1,3 +1,7 @@
 Wed Jun 18 13:13:21 2025
 WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 2.3220.
 
+Thu Jun 19 17:43:42 2025
+ERROR: Load model error: Error: keyframe 0: invalid qpos size, expected length 12
+Element name 'home', id 0
+

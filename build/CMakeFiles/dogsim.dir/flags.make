@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS = -g   -std=gnu++17
 
-CXX_DEFINES = -DCOMPILE_WITH_REAL_ROBOT -DCONTEST_TYPE_BARRIER -DROBOT_TYPE_T2 -DSENSOR_TYPE_RADAR
+CXX_DEFINES = -DCOMPILE_WITH_REAL_ROBOT -DCONTEST_TYPE_SPEED -DROBOT_TYPE_T1 -DSENSOR_TYPE_RADAR
 
 CXX_INCLUDES = -I/home/ubuntu/dog/TOE-Dog/include -I/home/ubuntu/dog/TOE-Dog/./mujoco-3.2.5/simulate -I/home/ubuntu/dog/TOE-Dog/./mujoco-3.2.5/include -I/home/ubuntu/dog/TOE-Dog/./imgui -I/home/ubuntu/dog/TOE-Dog/./imgui/backends -I/home/ubuntu/dog/TOE-Dog/include/interface -I/home/ubuntu/dog/TOE-Dog/include/message -I/home/ubuntu/dog/TOE-Dog/include/FSM -I/home/ubuntu/dog/TOE-Dog/include/communication -I/home/ubuntu/dog/TOE-Dog/MNN/include 
 
