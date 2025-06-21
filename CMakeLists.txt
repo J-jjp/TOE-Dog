@@ -11,7 +11,7 @@ set(AUTO off)
 #select robot
 set(ROBOT_TYPE TOE_1)  # 参数 TOE_1 TOE_2 TOE_3
 #select robot Contest_type
-set(CONTEST_TYPE BARRIER)  # 参数 SPEED（竞速） BARRIER（障碍） FIELD（越野）
+set(CONTEST_TYPE SPEED)  # 参数 SPEED（竞速） BARRIER（障碍） FIELD（越野）
 set(SENSOR_TYPE RADAR)  # 参数 CAMERA（竞速） RADAR(雷达)
 
 

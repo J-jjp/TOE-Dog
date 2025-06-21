@@ -698,6 +698,7 @@ void State_Rl::stateMachine_qua()
 #ifdef ROBOT_TYPE_T2
         legged_str = contest_type +"2/legged_qua.mnn"; 
         encoder_str = contest_type+"2/encoder_z_input_qua.mnn"; 
+
 #endif
 
     if (rlptr == nullptr)
@@ -1062,7 +1063,11 @@ void State_Rl::mnnInference_jump()
     }
 
     change_model->advanceNNsync_Walk(obs_jump,action_cmd_jump);
-
+    for (size_t i = 0; i < 12; i++)
+    {
+        if (action_cmd_jump[i]>10)action_cmd_jump[i]=10;
+        if (action_cmd_jump[i]<-10)action_cmd_jump[i]=-10;
+    }
     for (size_t i = 0; i < 12; i++)
     {
         last_action_cmd_jump[i]=action_cmd_jump[i];
