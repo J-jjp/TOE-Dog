@@ -10,6 +10,14 @@ apriltag_ros/apriltag_ros/CMakeFiles/apriltag_ros_single_image_server_node.dir/s
  /home/toe/TOE-Dog/fdilink_ahrs_ROS1/src/apriltag_ros/apriltag_ros/include/apriltag_ros/common_functions.h
  /home/toe/TOE-Dog/fdilink_ahrs_ROS1/src/apriltag_ros/apriltag_ros/include/apriltag_ros/single_image_detector.h
  /home/toe/TOE-Dog/fdilink_ahrs_ROS1/src/apriltag_ros/apriltag_ros/src/apriltag_ros_single_image_server_node.cpp
+ /opt/ros/noetic/include/apriltag/apriltag.h
+ /opt/ros/noetic/include/apriltag/common/image_types.h
+ /opt/ros/noetic/include/apriltag/common/image_u8.h
+ /opt/ros/noetic/include/apriltag/common/matd.h
+ /opt/ros/noetic/include/apriltag/common/time_util.h
+ /opt/ros/noetic/include/apriltag/common/timeprofile.h
+ /opt/ros/noetic/include/apriltag/common/workerpool.h
+ /opt/ros/noetic/include/apriltag/common/zarray.h
  /opt/ros/noetic/include/cv_bridge/cv_bridge.h
  /opt/ros/noetic/include/geometry_msgs/Point.h
  /opt/ros/noetic/include/geometry_msgs/PointStamped.h
@@ -260,12 +268,3 @@ apriltag_ros/apriltag_ros/CMakeFiles/apriltag_ros_single_image_server_node.dir/s
  /usr/include/opencv4/opencv2/viz/viz3d.hpp
  /usr/include/opencv4/opencv2/viz/vizcore.hpp
  /usr/include/opencv4/opencv2/viz/widgets.hpp
- /usr/local/include/apriltag/apriltag.h
- /usr/local/include/apriltag/common/image_types.h
- /usr/local/include/apriltag/common/image_u8.h
- /usr/local/include/apriltag/common/matd.h
- /usr/local/include/apriltag/common/pthreads_cross.h
- /usr/local/include/apriltag/common/time_util.h
- /usr/local/include/apriltag/common/timeprofile.h
- /usr/local/include/apriltag/common/workerpool.h
- /usr/local/include/apriltag/common/zarray.h

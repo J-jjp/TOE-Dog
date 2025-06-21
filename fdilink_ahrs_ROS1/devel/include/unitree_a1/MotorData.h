@@ -248,60 +248,141 @@ struct Printer< ::unitree_a1::MotorData_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::unitree_a1::MotorData_<ContainerAllocator>& v)
   {
-    s << indent << "legid[]" << std::endl;
+    if (false || !indent.empty())
+      s << std::endl;
+    s << indent << "legid: ";
+    if (v.legid.empty() || true)
+      s << "[";
     for (size_t i = 0; i < v.legid.size(); ++i)
     {
-      s << indent << "  legid[" << i << "]: ";
-      Printer<uint8_t>::stream(s, indent + "  ", v.legid[i]);
+      if (true && i > 0)
+        s << ", ";
+      else if (!true)
+        s << std::endl << indent << "  -";
+      Printer<uint8_t>::stream(s, true ? std::string() : indent + "    ", v.legid[i]);
     }
-    s << indent << "motorid[]" << std::endl;
+    if (v.legid.empty() || true)
+      s << "]";
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "motorid: ";
+    if (v.motorid.empty() || true)
+      s << "[";
     for (size_t i = 0; i < v.motorid.size(); ++i)
     {
-      s << indent << "  motorid[" << i << "]: ";
-      Printer<uint8_t>::stream(s, indent + "  ", v.motorid[i]);
+      if (true && i > 0)
+        s << ", ";
+      else if (!true)
+        s << std::endl << indent << "  -";
+      Printer<uint8_t>::stream(s, true ? std::string() : indent + "    ", v.motorid[i]);
     }
-    s << indent << "mode[]" << std::endl;
+    if (v.motorid.empty() || true)
+      s << "]";
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "mode: ";
+    if (v.mode.empty() || true)
+      s << "[";
     for (size_t i = 0; i < v.mode.size(); ++i)
     {
-      s << indent << "  mode[" << i << "]: ";
-      Printer<uint8_t>::stream(s, indent + "  ", v.mode[i]);
+      if (true && i > 0)
+        s << ", ";
+      else if (!true)
+        s << std::endl << indent << "  -";
+      Printer<uint8_t>::stream(s, true ? std::string() : indent + "    ", v.mode[i]);
     }
-    s << indent << "tau[]" << std::endl;
+    if (v.mode.empty() || true)
+      s << "]";
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "tau: ";
+    if (v.tau.empty() || true)
+      s << "[";
     for (size_t i = 0; i < v.tau.size(); ++i)
     {
-      s << indent << "  tau[" << i << "]: ";
-      Printer<float>::stream(s, indent + "  ", v.tau[i]);
+      if (true && i > 0)
+        s << ", ";
+      else if (!true)
+        s << std::endl << indent << "  -";
+      Printer<float>::stream(s, true ? std::string() : indent + "    ", v.tau[i]);
     }
-    s << indent << "vel[]" << std::endl;
+    if (v.tau.empty() || true)
+      s << "]";
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "vel: ";
+    if (v.vel.empty() || true)
+      s << "[";
     for (size_t i = 0; i < v.vel.size(); ++i)
     {
-      s << indent << "  vel[" << i << "]: ";
-      Printer<float>::stream(s, indent + "  ", v.vel[i]);
+      if (true && i > 0)
+        s << ", ";
+      else if (!true)
+        s << std::endl << indent << "  -";
+      Printer<float>::stream(s, true ? std::string() : indent + "    ", v.vel[i]);
     }
-    s << indent << "acc[]" << std::endl;
+    if (v.vel.empty() || true)
+      s << "]";
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "acc: ";
+    if (v.acc.empty() || true)
+      s << "[";
     for (size_t i = 0; i < v.acc.size(); ++i)
     {
-      s << indent << "  acc[" << i << "]: ";
-      Printer<float>::stream(s, indent + "  ", v.acc[i]);
+      if (true && i > 0)
+        s << ", ";
+      else if (!true)
+        s << std::endl << indent << "  -";
+      Printer<float>::stream(s, true ? std::string() : indent + "    ", v.acc[i]);
     }
-    s << indent << "pos[]" << std::endl;
+    if (v.acc.empty() || true)
+      s << "]";
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "pos: ";
+    if (v.pos.empty() || true)
+      s << "[";
     for (size_t i = 0; i < v.pos.size(); ++i)
     {
-      s << indent << "  pos[" << i << "]: ";
-      Printer<float>::stream(s, indent + "  ", v.pos[i]);
+      if (true && i > 0)
+        s << ", ";
+      else if (!true)
+        s << std::endl << indent << "  -";
+      Printer<float>::stream(s, true ? std::string() : indent + "    ", v.pos[i]);
     }
-    s << indent << "temp[]" << std::endl;
+    if (v.pos.empty() || true)
+      s << "]";
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "temp: ";
+    if (v.temp.empty() || true)
+      s << "[";
     for (size_t i = 0; i < v.temp.size(); ++i)
     {
-      s << indent << "  temp[" << i << "]: ";
-      Printer<int8_t>::stream(s, indent + "  ", v.temp[i]);
+      if (true && i > 0)
+        s << ", ";
+      else if (!true)
+        s << std::endl << indent << "  -";
+      Printer<int8_t>::stream(s, true ? std::string() : indent + "    ", v.temp[i]);
     }
-    s << indent << "error[]" << std::endl;
+    if (v.temp.empty() || true)
+      s << "]";
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "error: ";
+    if (v.error.empty() || true)
+      s << "[";
     for (size_t i = 0; i < v.error.size(); ++i)
     {
-      s << indent << "  error[" << i << "]: ";
-      Printer<int8_t>::stream(s, indent + "  ", v.error[i]);
+      if (true && i > 0)
+        s << ", ";
+      else if (!true)
+        s << std::endl << indent << "  -";
+      Printer<int8_t>::stream(s, true ? std::string() : indent + "    ", v.error[i]);
     }
+    if (v.error.empty() || true)
+      s << "]";
   }
 };
 

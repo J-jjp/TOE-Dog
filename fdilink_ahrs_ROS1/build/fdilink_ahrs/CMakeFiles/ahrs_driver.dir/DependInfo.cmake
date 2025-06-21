@@ -21,7 +21,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/toe/TOE-Dog/fdilink_ahrs_ROS1/src/fdilink_ahrs/src"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
-  "/usr/include/eigen3"
+  "/usr/local/include/eigen3"
   )
 
 # Targets to which this target links.

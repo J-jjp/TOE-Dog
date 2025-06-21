@@ -268,20 +268,39 @@ struct Printer< ::apriltag_ros::AprilTagDetection_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::apriltag_ros::AprilTagDetection_<ContainerAllocator>& v)
   {
-    s << indent << "id[]" << std::endl;
+    if (false || !indent.empty())
+      s << std::endl;
+    s << indent << "id: ";
+    if (v.id.empty() || true)
+      s << "[";
     for (size_t i = 0; i < v.id.size(); ++i)
     {
-      s << indent << "  id[" << i << "]: ";
-      Printer<int32_t>::stream(s, indent + "  ", v.id[i]);
+      if (true && i > 0)
+        s << ", ";
+      else if (!true)
+        s << std::endl << indent << "  -";
+      Printer<int32_t>::stream(s, true ? std::string() : indent + "    ", v.id[i]);
     }
-    s << indent << "size[]" << std::endl;
+    if (v.id.empty() || true)
+      s << "]";
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "size: ";
+    if (v.size.empty() || true)
+      s << "[";
     for (size_t i = 0; i < v.size.size(); ++i)
     {
-      s << indent << "  size[" << i << "]: ";
-      Printer<double>::stream(s, indent + "  ", v.size[i]);
+      if (true && i > 0)
+        s << ", ";
+      else if (!true)
+        s << std::endl << indent << "  -";
+      Printer<double>::stream(s, true ? std::string() : indent + "    ", v.size[i]);
     }
+    if (v.size.empty() || true)
+      s << "]";
+    if (true || !indent.empty())
+      s << std::endl;
     s << indent << "pose: ";
-    s << std::endl;
     Printer< ::geometry_msgs::PoseWithCovarianceStamped_<ContainerAllocator> >::stream(s, indent + "  ", v.pose);
   }
 };

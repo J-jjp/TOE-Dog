@@ -268,7 +268,7 @@ if __name__ == '__main__':
 
         if not args.local:
             # environment at generation time
-            CMAKE_PREFIX_PATH = r'/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel;/opt/ros/noetic'.split(';')
+            CMAKE_PREFIX_PATH = r'/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel;/opt/ros/noetic;/usr/lib/x86_64-linux-gnu/cmake/opencv4'.split(';')
         else:
             # don't consider any other prefix path than this one
             CMAKE_PREFIX_PATH = []

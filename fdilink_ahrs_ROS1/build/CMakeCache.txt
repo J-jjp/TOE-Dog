@@ -306,7 +306,7 @@ EMPY_EXECUTABLE:FILEPATH=EMPY_EXECUTABLE-NOTFOUND
 EMPY_SCRIPT:STRING=/usr/lib/python3/dist-packages/em.py
 
 //The directory containing a CMake configuration file for Eigen3.
-Eigen3_DIR:PATH=/usr/lib/cmake/eigen3
+Eigen3_DIR:PATH=/usr/local/share/eigen3/cmake
 
 //Path to a library.
 GMOCK_LIBRARY:FILEPATH=GMOCK_LIBRARY-NOTFOUND
@@ -379,7 +379,7 @@ RT_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/librt.so
 SETUPTOOLS_DEB_LAYOUT:BOOL=ON
 
 //Name of the computer/site where compile is being run
-SITE:STRING=toe-NUC11PAHi7
+SITE:STRING=toe-Default-string
 
 //LSB Distrib tag
 UBUNTU:BOOL=TRUE
@@ -406,7 +406,7 @@ actionlib_DIR:PATH=/opt/ros/noetic/share/actionlib/cmake
 actionlib_msgs_DIR:PATH=/opt/ros/noetic/share/actionlib_msgs/cmake
 
 //The directory containing a CMake configuration file for apriltag.
-apriltag_DIR:PATH=/usr/local/lib/apriltag/cmake
+apriltag_DIR:PATH=/opt/ros/noetic/share/apriltag/cmake
 
 //Value Computed by CMake
 apriltag_ros_BINARY_DIR:STATIC=/home/toe/TOE-Dog/fdilink_ahrs_ROS1/build/apriltag_ros/apriltag_ros

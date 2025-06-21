@@ -263,8 +263,9 @@ struct Printer< ::apriltag_ros::AnalyzeSingleImageResponse_<ContainerAllocator> 
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::apriltag_ros::AnalyzeSingleImageResponse_<ContainerAllocator>& v)
   {
+    if (false || !indent.empty())
+      s << std::endl;
     s << indent << "tag_detections: ";
-    s << std::endl;
     Printer< ::apriltag_ros::AprilTagDetectionArray_<ContainerAllocator> >::stream(s, indent + "  ", v.tag_detections);
   }
 };

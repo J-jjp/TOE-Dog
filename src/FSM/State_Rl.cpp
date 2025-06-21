@@ -689,8 +689,10 @@ void State_Rl::stateMachine_qua()
 
 
 #ifdef ROBOT_TYPE_T1
-        legged_str = contest_type +"/legged_qua.mnn"; 
-        encoder_str = contest_type+"/encoder_z_input_qua.mnn"; 
+        // legged_str = contest_type +"/legged_qua.mnn"; 
+        // encoder_str = contest_type+"/encoder_z_input_qua.mnn"; 
+        legged_str = "/home/toe/TOE-Dog/new/legged_qua.mnn"; 
+        encoder_str = "/home/toe/TOE-Dog/new/encoder_z_input_qua.mnn"; 
 #endif
 
 #ifdef ROBOT_TYPE_T2

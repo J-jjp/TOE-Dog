@@ -88,6 +88,25 @@ struct LowlevelCmd{
         motorCmd[legID*3+2].Kd = 2;
     }
     void setRealStanceGain(int legID){
+#ifdef ROBOT_TYPE_T1
+
+        motorCmd[legID*3+0].Kp =30;
+        motorCmd[legID*3+0].Kd = 0.75;
+        motorCmd[legID*3+1].Kp =30;
+        motorCmd[legID*3+1].Kd = 0.75;
+        motorCmd[legID*3+2].Kp =30;
+        motorCmd[legID*3+2].Kd = 0.75;
+        if (legID>1)
+        {
+            motorCmd[legID*3+0].Kp =30;
+            motorCmd[legID*3+0].Kd = 0.75;
+            motorCmd[legID*3+1].Kp =35;
+            motorCmd[legID*3+1].Kd = 1;
+            motorCmd[legID*3+2].Kp = 35;
+            motorCmd[legID*3+2].Kd = 1;
+        }
+#endif
+#ifdef ROBOT_TYPE_T2
 
         motorCmd[legID*3+0].Kp =30;
         motorCmd[legID*3+0].Kd = 0.75;
@@ -104,7 +123,7 @@ struct LowlevelCmd{
             motorCmd[legID*3+2].Kp = 90;
             motorCmd[legID*3+2].Kd = 2.25;
         }
-        
+#endif
     }
     void setZeroGain(int legID){
         motorCmd[legID*3+0].Kp = 0;

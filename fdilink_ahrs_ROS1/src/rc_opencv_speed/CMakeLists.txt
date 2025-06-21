@@ -7,6 +7,8 @@ project(rc_opencv_speed)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
+set(OpenCV_DIR "/usr/lib/x86_64-linux-gnu/cmake/opencv4")
+
 find_package(catkin REQUIRED COMPONENTS
   cv_bridge
   image_transport

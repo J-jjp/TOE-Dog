@@ -3,13 +3,13 @@ project(dogreal)
 # 获取当前目录
 get_filename_component(CURRENT_DIR "${CMAKE_CURRENT_SOURCE_DIR}" ABSOLUTE)
 
-set(REAL_ROBOT off)          # Link real robot or not, ON or OFF,OFF=simulate
+set(REAL_ROBOT on)          # Link real robot or not, ON or OFF,OFF=simulate
 #select auto
 set(AUTO off)          
 
 
 #select robot
-set(ROBOT_TYPE TOE_2)  # 参数 TOE_1 TOE_2 TOE_3
+set(ROBOT_TYPE TOE_1)  # 参数 TOE_1 TOE_2 TOE_3
 #select robot Contest_type
 set(CONTEST_TYPE BARRIER)  # 参数 SPEED（竞速） BARRIER（障碍） FIELD（越野）
 set(SENSOR_TYPE RADAR)  # 参数 CAMERA（竞速） RADAR(雷达)

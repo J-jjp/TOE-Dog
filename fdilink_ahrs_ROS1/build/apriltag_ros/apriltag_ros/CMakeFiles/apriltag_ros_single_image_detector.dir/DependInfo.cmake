@@ -20,11 +20,11 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include"
   "/home/toe/TOE-Dog/fdilink_ahrs_ROS1/src/apriltag_ros/apriltag_ros/include"
-  "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
-  "/usr/include/eigen3"
+  "/usr/local/include/eigen3"
+  "/opt/ros/noetic/include"
   "/usr/include/opencv4"
-  "/usr/local/include/apriltag"
+  "/opt/ros/noetic/include/apriltag"
   )
 
 # Targets to which this target links.

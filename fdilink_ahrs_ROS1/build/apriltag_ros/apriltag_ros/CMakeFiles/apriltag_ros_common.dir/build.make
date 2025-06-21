@@ -192,7 +192,7 @@ apriltag_ros_common_EXTERNAL_OBJECTS =
 /home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/lib/libapriltag_ros_common.so: /usr/lib/x86_64-linux-gnu/libopencv_viz.so.4.2.0
 /home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/lib/libapriltag_ros_common.so: /usr/lib/x86_64-linux-gnu/libopencv_xobjdetect.so.4.2.0
 /home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/lib/libapriltag_ros_common.so: /usr/lib/x86_64-linux-gnu/libopencv_xphoto.so.4.2.0
-/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/lib/libapriltag_ros_common.so: /usr/local/lib/libapriltag.so.3.4.3
+/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/lib/libapriltag_ros_common.so: /opt/ros/noetic/lib/libapriltag.so.3.2.0
 /home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/lib/libapriltag_ros_common.so: /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.4.2.0
 /home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/lib/libapriltag_ros_common.so: /usr/lib/x86_64-linux-gnu/libopencv_datasets.so.4.2.0
 /home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/lib/libapriltag_ros_common.so: /usr/lib/x86_64-linux-gnu/libopencv_plot.so.4.2.0

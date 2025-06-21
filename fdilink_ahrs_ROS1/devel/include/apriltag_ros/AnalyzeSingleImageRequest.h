@@ -382,12 +382,17 @@ struct Printer< ::apriltag_ros::AnalyzeSingleImageRequest_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::apriltag_ros::AnalyzeSingleImageRequest_<ContainerAllocator>& v)
   {
+    if (false || !indent.empty())
+      s << std::endl;
     s << indent << "full_path_where_to_get_image: ";
     Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.full_path_where_to_get_image);
+    if (true || !indent.empty())
+      s << std::endl;
     s << indent << "full_path_where_to_save_image: ";
     Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.full_path_where_to_save_image);
+    if (true || !indent.empty())
+      s << std::endl;
     s << indent << "camera_info: ";
-    s << std::endl;
     Printer< ::sensor_msgs::CameraInfo_<ContainerAllocator> >::stream(s, indent + "  ", v.camera_info);
   }
 };

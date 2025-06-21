@@ -6,6 +6,38 @@
 
 #IncludeRegexTransform: 
 
+/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include/unitree_a1/MotorCmd.h
+string
+-
+vector
+-
+memory
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+/home/toe/TOE-Dog/fdilink_ahrs_ROS1/devel/include/unitree_a1/MotorData.h
+string
+-
+vector
+-
+memory
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
 /home/toe/TOE-Dog/fdilink_ahrs_ROS1/src/unitree_a1/include/motor.hpp
 motor_msg.h
 /home/toe/TOE-Dog/fdilink_ahrs_ROS1/src/unitree_a1/include/motor_msg.h
@@ -300,6 +332,10 @@ cstddef
 memory
 -
 
+/opt/ros/noetic/include/ros/message_operations.h
+ostream
+-
+
 /opt/ros/noetic/include/ros/message_traits.h
 message_forward.h
 /opt/ros/noetic/include/ros/message_forward.h
@@ -357,6 +393,8 @@ ros/init.h
 /opt/ros/noetic/include/ros/ros/init.h
 common.h
 /opt/ros/noetic/include/ros/common.h
+boost/bind/bind.hpp
+-
 xmlrpcpp/XmlRpcValue.h
 -
 
